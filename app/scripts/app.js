@@ -14,6 +14,8 @@ angular
     'ngAria',
     'ngResource',
     'ngRoute',
+    'leaflet-directive',
+    'ui.bootstrap',
     'ngTouch'
   ])
   .config(function ($routeProvider) {
