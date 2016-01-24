@@ -30,6 +30,26 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/headlines', {
+        templateUrl: 'views/headlines.html',
+        controller: 'HeadlinesCtrl',
+        controllerAs: 'headlines'
+      })
+      .when('/search', {
+        templateUrl: 'views/search.html',
+        controller: 'HeadlinesCtrl',
+        controllerAs: 'search'
+      })
+      .when('/details', {
+        templateUrl: 'views/details.html',
+        controller: 'DetailsCtrl',
+        controllerAs: 'details'
+      })
+      .when('/map', {
+        templateUrl: 'views/map.html',
+        controller: 'MapCtrl',
+        controllerAs: 'map'
+      })
       .otherwise({
         redirectTo: '/'
       });
