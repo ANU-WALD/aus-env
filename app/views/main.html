@@ -1,23 +1,19 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="fa fa-arrow-up"></span></a></p>
+<div class="row panel panel-default">
+  <div ng-include="'views/headlines.html'" ng-controller="HeadlinesCtrl"></div>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<div class="row">
+  <div class="panel panel-default col-xs-12 col-sm-8">
+  <div ng-include="'views/map.html'" ng-controller="MapCtrl"></div>
+  </div>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+  <div class="panel panel-default col-xs-12 col-sm-4">
+  <div class="panel panel-default">
+    <div ng-include="'views/search.html'" ng-controller="SearchCtrl"></div>
+  </div>
+  <div class="panel panel-default">
+    <div ng-include="'views/details.html'" ng-controller="DetailsCtrl"></div>
+  </div>
+  </div>
 </div>
+
