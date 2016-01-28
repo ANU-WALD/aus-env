@@ -1,5 +1,24 @@
 
 <div class="row">
+	<div>
+		<form>
+  		Date:
+  		<input name="selectedDay" ng-model="selected_day"  data-controls="mapControls">
+  		<input name="selectedMonth" ng-model="selected_month">
+  		<input name="selectedYear" ng-model="selected_year">
+  		<button ng-click="urlChangedFunction()">Confirm</button>
+		</form>
+
+		<p>date: {{selected_day}}  {{selected_month}}  {{selected_year}}</p>
+		
+<!--
+		<form>
+    	URL: <input type="text" ng-model="layers.overlays.aWMS.url" ng-change="urlChangedFunction()">
+  	</form>
+  	<p>You entered: {{layers.overlays.aWMS.url}}</p>
+-->
+	</div>
+
   <div>
     <leaflet defaults="defaults" data-controls="mapControls" maxbounds="maxBounds" center="mapCentre" height="600px" width="100%" layers="layers" events="events" markers="mapMarkers"></leaflet>
   </div>

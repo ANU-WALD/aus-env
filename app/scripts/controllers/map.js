@@ -9,20 +9,24 @@
  */
 
 angular.module('ausEnvApp')
-  .controller('MapCtrl', function ($scope,selection) {
+  .controller('MapCtrl', function ($scope,$route,selection) {
     $scope.selection = selection;
 
     angular.extend($scope,{
+    	selected_day: 'DD',
+    	selected_month: 'MM',
+    	selected_year: 'YYYY',
     	
-      	defaults:{
-        	crs: L.CRS.EPSG4326
-      	},
+      defaults:{
+       	crs: L.CRS.EPSG4326
+      },
       	
-      	mapCentre:{
-        	lat: -23.07,
-        	lng: 135.08,
-        	zoom: 4
-      	},
+      mapCentre:{
+       	lat: -23.07,
+        lng: 135.08,
+        zoom: 4
+      },
+
       layers:{
         baselayers:{
           osm: {
@@ -60,4 +64,19 @@ angular.module('ausEnvApp')
         }
       }
     });
+		
+		$scope.urlChangedFunction = function() {
+			$scope.$apply();
+			alert($scope.layers.overlays.aWMS.url);
+			alert($scope.selected_day);
+
+
+
+			//alert($scope.layers.overlays.aWMS.layerParams.time);
+			//$scope.layers.overlays.aWMS.redraw();
+			//$scope.invalidateSize();
+			//$route.reload();
+		};
   });
+
+	
