@@ -16,6 +16,8 @@ After you have cloned git to your local location, you may need to do some of the
 2. Run `install bower` from the aus-env root folder.
 3. Run `gem install compass`
 
+Recommend reboot after the gem installs.
+
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
