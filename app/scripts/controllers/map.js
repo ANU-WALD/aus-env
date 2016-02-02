@@ -43,15 +43,15 @@ angular.module('ausEnvApp')
         overlays:{
           aWMS:{
             // http://dapds00.nci.org.au/thredds/wms/ub8/global/nc/1d/actual/Stot/20150920_Stot_daily.nc?service=WMS&version=1.3.0&request=GetCapabilities
-            // http://dapds00.nci.org.au/thredds/wms/ub8/OzWALD/AWRA.run20160107.daily.D.2000.01.nc?service=WMS&version=1.3.0&request=GetCapabilities
+            // http://dapds00.nci.org.au/thredds/wms/ub8/au/OzWALD/AWRA.run20160107.daily.D.2000.01.nc?service=WMS&version=1.3.0&request=GetCapabilities
             name: 'Some Model Results',
             type: 'wms',
             visible: true,
-            url: 'http://dapds00.nci.org.au/thredds/wms/ub8/global/nc/1d/actual/Stot/20150920_Stot_daily.nc?',
+            url: 'http://dapds00.nci.org.au/thredds/wms/ub8/au/OzWALD/daily/AWRA.daily.Stot.2011.nc?',
             doRefresh: true,
             layerParams: {
-              layers: 'Stot_daily',
-              time:'2015-09-20',
+              layers: 'Stot',
+              time:'2011-02-01',
               format: 'image/png',
               transparent: true,
               logscale:false,
@@ -64,7 +64,7 @@ angular.module('ausEnvApp')
         }
       }
     });
-		
+
 		$scope.urlChangedFunction = function() {
 			$scope.$apply();
 			alert($scope.layers.overlays.aWMS.url);
@@ -79,4 +79,4 @@ angular.module('ausEnvApp')
 		};
   });
 
-	
+
