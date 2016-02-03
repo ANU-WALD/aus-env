@@ -13,11 +13,6 @@ angular.module('ausEnvApp')
     $scope.selection = selection;
 
     angular.extend($scope,{
-      dateComponents:{
-        selected_day: 'DD',
-        selected_month: 'MM',
-        selected_year: 'YYYY'
-      },
       
       defaults:{
         crs: L.CRS.EPSG4326
@@ -65,17 +60,30 @@ angular.module('ausEnvApp')
         }
       }, 
 
+      dateComponents:{
+        selected_day: 'DD',
+        selected_month: 'MM',
+        selected_year: 'YYYY'
+      },
+
       events: {
         map: {
           enable: ['zoomstart', 'drag', 'click', 'mousemove'],
             logic: 'emit'
         }
+      },
+
+      coordinates:{
+        latitude:null,
+        longitude:null
       }
     });
 
     /* here defined all the event handler, please feel free to ask Chin */
     $scope.$on('leafletDirectiveMap.click', function(event, args){
       //window.alert(args.leafletEvent.latlng.lng);
+      $scope.coordinates.latitude = args.leafletEvent.latlng.lat;
+      $scope.coordinates.longitude = args.leafletEvent.latlng.lng;
     });
 
     /* the function to change the url of the layer, please feel free to ask Chin */
