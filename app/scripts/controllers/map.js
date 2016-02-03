@@ -13,9 +13,11 @@ angular.module('ausEnvApp')
     $scope.selection = selection;
 
     angular.extend($scope,{
-      selected_day: 'DD',
-      selected_month: 'MM',
-      selected_year: 'YYYY',
+      dateComponents:{
+        selected_day: 'DD',
+        selected_month: 'MM',
+        selected_year: 'YYYY'
+      },
       
       defaults:{
         crs: L.CRS.EPSG4326
@@ -40,10 +42,9 @@ angular.module('ausEnvApp')
             }
           },
         },
+
         overlays:{
           aWMS:{
-            // http://dapds00.nci.org.au/thredds/wms/ub8/global/nc/1d/actual/Stot/20150920_Stot_daily.nc?service=WMS&version=1.3.0&request=GetCapabilities
-            // http://dapds00.nci.org.au/thredds/wms/ub8/au/OzWALD/AWRA.run20160107.daily.D.2000.01.nc?service=WMS&version=1.3.0&request=GetCapabilities
             name: 'Some Model Results',
             type: 'wms',
             visible: true,
@@ -62,19 +63,24 @@ angular.module('ausEnvApp')
             }
           }
         }
+      }, 
+
+      events: {
+        map: {
+          enable: ['zoomstart', 'drag', 'click', 'mousemove'],
+            logic: 'emit'
+        }
       }
     });
 
+    /* here defined all the event handler, please feel free to ask Chin */
+    $scope.$on('leafletDirectiveMap.click', function(event, args){
+      //window.alert(args.leafletEvent.latlng.lng);
+    });
+
+    /* the function to change the url of the layer, please feel free to ask Chin */
     $scope.urlChangedFunction = function() {
-      $scope.$apply();
-      alert($scope.layers.overlays.aWMS.url);
-      alert($scope.selected_day);
-
-
-
-      //alert($scope.layers.overlays.aWMS.layerParams.time);
-      //$scope.layers.overlays.aWMS.redraw();
-      //$scope.invalidateSize();
-      //$route.reload();
+      $scope.layers.overlays.aWMS.layerParams.time = $scope.dateComponents.selected_year + '-' + $scope.dateComponents.selected_month + '-' + $scope.dateComponents.selected_day;
+      $scope.layers.overlays.aWMS.doRefresh = true;
     };
   });
