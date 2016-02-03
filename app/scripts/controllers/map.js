@@ -13,16 +13,16 @@ angular.module('ausEnvApp')
     $scope.selection = selection;
 
     angular.extend($scope,{
-    	selected_day: 'DD',
-    	selected_month: 'MM',
-    	selected_year: 'YYYY',
-    	
+      selected_day: 'DD',
+      selected_month: 'MM',
+      selected_year: 'YYYY',
+      
       defaults:{
-       	crs: L.CRS.EPSG4326
+        crs: L.CRS.EPSG4326
       },
-      	
+        
       mapCentre:{
-       	lat: -23.07,
+        lat: -23.07,
         lng: 135.08,
         zoom: 4
       },
@@ -65,18 +65,16 @@ angular.module('ausEnvApp')
       }
     });
 
-		$scope.urlChangedFunction = function() {
-			$scope.$apply();
-			alert($scope.layers.overlays.aWMS.url);
-			alert($scope.selected_day);
+    $scope.urlChangedFunction = function() {
+      $scope.$apply();
+      alert($scope.layers.overlays.aWMS.url);
+      alert($scope.selected_day);
 
 
 
-			//alert($scope.layers.overlays.aWMS.layerParams.time);
-			//$scope.layers.overlays.aWMS.redraw();
-			//$scope.invalidateSize();
-			//$route.reload();
-		};
+      //alert($scope.layers.overlays.aWMS.layerParams.time);
+      //$scope.layers.overlays.aWMS.redraw();
+      //$scope.invalidateSize();
+      //$route.reload();
+    };
   });
-
-
