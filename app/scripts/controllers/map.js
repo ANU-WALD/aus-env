@@ -86,9 +86,14 @@ angular.module('ausEnvApp')
       $scope.coordinates.longitude = args.leafletEvent.latlng.lng;
     });
 
+    /* the function to change the date parameters of the layer, please feel free to ask Chin */
+    $scope.dateChangedFunction = function() {
+      $scope.layers.overlays.aWMS.layerParams.time = $scope.dateComponents.selected_year + '-' + $scope.dateComponents.selected_month + '-' + $scope.dateComponents.selected_day;
+      $scope.layers.overlays.aWMS.doRefresh = true;
+    };
+
     /* the function to change the url of the layer, please feel free to ask Chin */
     $scope.urlChangedFunction = function() {
-      $scope.layers.overlays.aWMS.layerParams.time = $scope.dateComponents.selected_year + '-' + $scope.dateComponents.selected_month + '-' + $scope.dateComponents.selected_day;
       $scope.layers.overlays.aWMS.doRefresh = true;
     };
   });
