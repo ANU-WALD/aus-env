@@ -14,3 +14,8 @@ script:
   - grunt build
 deploy:
   skip_cleanup: true
+notifications:
+  email: false
+  slack:
+    rooms: wenfo:N1YfzQWaJ8wfjvrYarrh33PZ
+    on_success: change
