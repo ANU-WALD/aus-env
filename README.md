@@ -4,22 +4,19 @@
 (https://en.wikipedia.org/wiki/BSD_License)
 [![Build Status](https://travis-ci.org/ANU-WALD/aus-env.svg)]
 (https://travis-ci.org/ANU-WALD/aus-env)
+[![Documentation Status](https://readthedocs.org/projects/aus-env/badge)]
+(https://aus-env.readthedocs.org)
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
+A data exploration website, showing the state of Australia's natural environment.
 
-## Build & development
+`aus-env` is a javascript (angular+leaflet) frontend to selected data
+from the [NCI Thredds server](http://dap.nci.org.au/thredds/catalog.html),
+using the WMS protocol and some custom magic.
 
-Run `grunt` for building and `grunt serve` for preview.
+It's a work in progress!
 
-After you have cloned git to your local location, you may need to do some of the following:
+Useful links:
 
-1. Install Ruby (for sass stuff - mainly a windows thing).  [ruby installer](http://rubyinstaller.org/)
-2. Run `install bower` from the aus-env root folder.
-3. Run `gem install compass`
-
-Recommend reboot after the gem installs.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+- Click on any of the badges above (esp. [documentation](https://aus-env.rtfd.org))
+- [Source code](https://github.com/ANU-WALD/aus-env)
+- Online instance (TBA)
