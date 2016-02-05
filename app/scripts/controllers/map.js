@@ -15,6 +15,7 @@ angular.module('ausEnvApp')
     angular.extend($scope,{
       
       defaults:{
+        scrollWheelZoom: false,
         crs: L.CRS.EPSG4326
       },
         
