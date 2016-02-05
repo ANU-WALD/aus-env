@@ -9,16 +9,15 @@
  */
 
 angular.module('ausEnvApp')
-  .controller('MapCtrl', function ($scope,$route,selection) {
+  .controller('MapCtrl', function ($scope,$route,selection,themes) {
     $scope.selection = selection;
 
     angular.extend($scope,{
-      
       defaults:{
         scrollWheelZoom: false,
         crs: L.CRS.EPSG4326
       },
-        
+
       mapCentre:{
         lat: -23.07,
         lng: 135.08,
@@ -40,26 +39,8 @@ angular.module('ausEnvApp')
         },
 
         overlays:{
-          aWMS:{
-            name: 'Some Model Results',
-            type: 'wms',
-            visible: true,
-            url: 'http://dapds00.nci.org.au/thredds/wms/ub8/au/OzWALD/daily/AWRA.daily.Stot.2011.nc?',
-            doRefresh: true,
-            layerParams: {
-              layers: 'Stot',
-              time:'2011-02-01',
-              format: 'image/png',
-              transparent: true,
-              logscale:false,
-              styles:'boxfill/rainbow',
-              numcolorbands:50,
-              colorscalerange:'0,1000',
-              belowmincolor:'extend',abovemaxcolor:'extend'
-            }
-          }
         }
-      }, 
+      },
 
       dateComponents:{
         selected_day: 'DD',
@@ -80,6 +61,35 @@ angular.module('ausEnvApp')
       }
     });
 
+    $scope.makeLayer = function() {
+      return {
+        name: 'Some Model Results',
+        type: 'wms',
+        visible: true,
+//            url: 'http://localhost:8080/thredds/wms/testAll/rr_2015.nc?',
+        url: 'http://localhost:8080/thredds/wms/testAll/ANUWALD.change.2015_rechunked.nc?',
+        // 'http://dapds00.nci.org.au/thredds/wms/ub8/au/OzWALD/daily/AWRA.daily.Stot.2011.nc?',
+        doRefresh: true,
+        layerParams: {
+//              layers: 'rain_day',
+          layers: 'ChangeMap',
+          time:'2015-12-31',
+          format: 'image/png',
+          transparent: true,
+          logscale:false,
+          styles:'boxfill/rainbow',
+          tileSize:256,
+          minZoom: 1,
+          maxZoom: 15,
+//              width:512,
+//              height:512,
+          numcolorbands:50,
+          colorscalerange:'0,1',
+          belowmincolor:'extend',abovemaxcolor:'extend'
+        }
+      }
+
+    };
     /* here defined all the event handler, please feel free to ask Chin */
     $scope.$on('leafletDirectiveMap.click', function(event, args){
       //window.alert(args.leafletEvent.latlng.lng);
@@ -97,4 +107,20 @@ angular.module('ausEnvApp')
     $scope.urlChangedFunction = function() {
       $scope.layers.overlays.aWMS.doRefresh = true;
     };
+
+  $scope.$watch('selection.themeObject',function(newVal,oldVal){
+    if(!newVal){
+      return;
+    }
+
+    console.log(newVal);
+    $scope.layers.overlays.aWMS = $scope.makeLayer();
+
+    $scope.layers.overlays.aWMS.url = newVal.url;
+    $scope.layers.overlays.aWMS.layerParams.time = newVal.time;
+    $scope.layers.overlays.aWMS.layerParams.layers = newVal.layer;
+    $scope.layers.overlays.aWMS.layerParams.colorscalerange = newVal.colorscalerange;
+    $scope.layers.overlays.aWMS.doRefresh = true;
+    console.log($scope.layers);
+  });
   });

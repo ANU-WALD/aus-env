@@ -13,5 +13,5 @@ angular.module('ausEnvApp')
     var service = this;
 
     service.theme = 'Tree Cover';
-
+    service.themeObject = null;
   });

@@ -14,5 +14,6 @@ angular.module('ausEnvApp')
 
     $scope.selectTheme = function(newTheme) {
       selection.theme = newTheme.name;
+      selection.themeObject = newTheme;
     }
   });
