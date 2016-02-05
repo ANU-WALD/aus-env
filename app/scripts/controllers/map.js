@@ -123,4 +123,7 @@ angular.module('ausEnvApp')
     $scope.layers.overlays.aWMS.doRefresh = true;
     console.log($scope.layers);
   });
+
+  selection.theme = themes.themes[3].name;
+  selection.themeObject = themes.themes[3];
   });
