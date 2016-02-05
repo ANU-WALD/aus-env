@@ -1,6 +1,9 @@
 import ftplib
 import os
 
+print('Skipping deploy, server not yet ready.')
+exit(0)
+
 ftp = ftplib.FTP('ftp.wenfo.org', os.environ['FTP_USER'], os.environ['FTP_PASSWORD'])
 ftp.cwd('/public_html/aus-env/')
 

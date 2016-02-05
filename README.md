@@ -17,6 +17,6 @@ It's a work in progress!
 
 Useful links:
 
-- Click on any of the badges above (esp. [documentation](https://aus-env.rtfd.org))
+- Click on any of the badges above (esp. [documentation](https://aus-env.readthedocs.org))
 - [Source code](https://github.com/ANU-WALD/aus-env)
 - Online instance (TBA)
