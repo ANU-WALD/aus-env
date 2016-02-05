@@ -1,0 +1,7 @@
+
+<div class="col-xs-3 col-md-1" ng-repeat="theme in themes.themes">
+  <a ng-click="selectTheme(theme)" class="thumbnail">
+    <img ng-if="theme.image" ng-src="static/images/{{theme.image}}" alt="{{theme.description}}">
+    <span ng-if="!theme.image">{{theme.name}}</span>
+  </a>
+</div>
