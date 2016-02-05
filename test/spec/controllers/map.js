@@ -10,14 +10,14 @@ describe('Controller: MapCtrl', function () {
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    MapCtrl = $controller('MapCtrl', {
-      $scope: scope
-      // place here mocked dependencies
-    });
+//    scope = $rootScope.$new();
+//    MapCtrl = $controller('MapCtrl', {
+//      $scope: scope
+//      // place here mocked dependencies
+//    });
   }));
-
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(MapCtrl.awesomeThings.length).toBe(3);
-  });
+//
+//  it('should attach a list of awesomeThings to the scope', function () {
+//    expect(MapCtrl.awesomeThings.length).toBe(3);
+//  });
 });
