@@ -49,7 +49,12 @@
     </div>
 
     <div class="container-fluid">
-    <div ng-view=""></div>
+      <button type="button" class="btn btn-info"
+              title="Show the headline model" tooltip
+              data-toggle="modal" data-target="#headlineModal">Show Headlines</button><br/>
+
+
+      <div ng-view=""></div>
     </div>
 
     <!-- build:js(.) scripts/vendor.js -->

@@ -1,3 +1,24 @@
-<div class="container">
-<p>This is the headlines view.</p>
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Headlines</h4>
+  </div>
+  <div class="modal-body">
+    <div class="btn-group-vertical" ng-repeat="headline in headlines.headlines">
+      <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="doHeadlineClick()"
+              title="{{ makeTooltip(headline) }}" data-toggle="tooltip" tooltip
+              ng-if="headline.isSelected">
+        {{headline.name}}
+      </button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="doHeadlineClick()"
+              title="{{ makeTooltip(headline) }}" data-toggle="tooltip" tooltip
+              ng-if="!headline.isSelected">
+        {{headline.name}}
+      </button>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  </div>
 </div>
+
