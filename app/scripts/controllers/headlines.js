@@ -18,24 +18,31 @@ angular.module('ausEnvApp')
 
     $scope.blah = "blah blah";
 
+    $scope.doHeadlineClick = function(headline) {
+      $scope.headlines.selected = headline.name;
+    };
+
+    $scope.isSelected = function(headline) {
+      return headline.name.localeCompare($scope.headlines.selected) == 0;
+    };
+
     $scope.makeTooltip = function(headline) {
-      return (headline.isSelected ? "(Current Headline)" : "") + headline.description;
+      return ($scope.isSelected(headline) ? "(Current Headline)" : "") + headline.description;
     };
 
     $scope.headlines = {
       //headline indicators?
       //environmental accounts?
+      selected:"Straight to Page",
       headlines: [
         {
           name:"Straight to Page",
           description:"Closes the headline view.",
-          isSelected:true,
           behaviour:{ }
         },
         {
           name:"Region Focus",
           description:"Select a location",
-          isSelected:false,
           behaviour:
           {
             locations:
@@ -49,7 +56,6 @@ angular.module('ausEnvApp')
         {
           name:"Land Use/Cover Change",
           description:"2014 to 2015 land use and cover change",
-          isSelected:false,
           behavior:
             {
 
@@ -58,37 +64,31 @@ angular.module('ausEnvApp')
         {
           name:"Bushfire",
           description:"Bushfires for 2015",
-          isSelected:false,
           behavior:{}
         },
         {
           name:"Weather and Water",
           description:"Weather and Water relationship for 2015",
-          isSelected:false,
           behavior:{}
         },
         {
           name:"Rivers and Wetlands",
           description:"River and wetland health",
-          isSelected:false,
           behavior:{}
         },
         {
           name:"Agricultural Land",
           description:"Wheat or Corn?",
-          isSelected:false,
           behavior:{}
         },
         {
           name:"Natural Ecosystems",
           description:"Not Urban",
-          isSelected:false,
           behavior:{}
         },
         {
           name:"The Carbon Balance",
           description:"Is not good",
-          isSelected:false,
           behavior:{}
         },
       ]

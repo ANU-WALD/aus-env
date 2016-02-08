@@ -10,8 +10,12 @@
  * Directive to helps show tooltips on elements for AngularJS
  * Add the following attributes to your element:
  *   title="My Tooltip!" data-toggle="tooltip" data-placement="top" tooltip
+ *
+ * DO NOT USE!  Use angular-ui-bootstrap   ui.bootstrap.tooltip instead.
  */
-angular.module('ausEnvApp').directive('tooltip', function(){
+
+//deprecated.  DO NOT USE!  Left in for learning purposes only
+angular.module('ausEnvApp').directive('pete-tooltip-donotuse', function(){
   return {
     restrict: 'A',
     link: function(scope, element, attrs){

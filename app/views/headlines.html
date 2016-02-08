@@ -5,14 +5,12 @@
   </div>
   <div class="modal-body">
     <div class="btn-group-vertical" ng-repeat="headline in headlines.headlines">
-      <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="doHeadlineClick()"
-              title="{{ makeTooltip(headline) }}" data-toggle="tooltip" tooltip
-              ng-if="headline.isSelected">
+      <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="doHeadlineClick(headline)"
+              uib-tooltip="{{ makeTooltip(headline) }}" ng-if="isSelected(headline)">
         {{headline.name}}
       </button>
-      <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="doHeadlineClick()"
-              title="{{ makeTooltip(headline) }}" data-toggle="tooltip" tooltip
-              ng-if="!headline.isSelected">
+      <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="doHeadlineClick(headline)"
+              uib-tooltip="{{ makeTooltip(headline) }}" ng-if="!isSelected(headline)">
         {{headline.name}}
       </button>
     </div>
