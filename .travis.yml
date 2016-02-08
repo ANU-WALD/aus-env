@@ -7,12 +7,12 @@ install:
   - bower install
   - gem install compass
 script:
-  - grunt test
+#  - grunt test
   - grunt build
 deploy:
   skip_cleanup: true
   provider: script
-  script: "python deploy.py"
+  script: bash -c "cd dist && find . -type f -exec curl -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp.wenfo.org{} \;"
   on:
     branch: master
 notifications:
