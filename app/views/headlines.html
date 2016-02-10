@@ -1,22 +1,22 @@
-<div class="modal-content">
+<script type="text/ng-template" id="headlineModalTemplate.html">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h4 class="modal-title">Headlines</h4>
+    <h3 class="modal-title">Headlines</h3>
   </div>
   <div class="modal-body">
-    <div class="btn-group-vertical" ng-repeat="headline in headlines.headlines">
-      <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="doHeadlineClick(headline)"
-              uib-tooltip="{{ makeTooltip(headline) }}" ng-if="isSelected(headline)">
-        {{headline.name}}
-      </button>
-      <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="doHeadlineClick(headline)"
-              uib-tooltip="{{ makeTooltip(headline) }}" ng-if="!isSelected(headline)">
-        {{headline.name}}
-      </button>
-    </div>
+    <ul>
+      <li ng-repeat="headline in headlines.headlines">
+        <button uib-tooltip="{{ makeTooltip(headline) }}" ng-click="ok(headline.name)">{{ headline.name }}</button>
+      </li>
+    </ul>
+    Selected: <b>{{ headlines.selected }}</b>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
   </div>
-</div>
+</script>
+
+<button type="button" class="btn btn-primary" ng-click="doModal()">Headlines</button>
+
+
+
 
