@@ -9,7 +9,7 @@
  */
 
 angular.module('ausEnvApp')
-  .controller('MapCtrl', function ($scope,$route,selection,themes) {
+  .controller('MapCtrl', function ($scope,$route,$http,selection,themes) {
     $scope.selection = selection;
 
     angular.extend($scope,{
@@ -21,7 +21,7 @@ angular.module('ausEnvApp')
       mapCentre:{
         lat: -23.07,
         lng: 135.08,
-        zoom: 4
+        zoom: 5
       },
 
       layers:{
@@ -58,7 +58,9 @@ angular.module('ausEnvApp')
       coordinates:{
         latitude:null,
         longitude:null
-      }
+      },
+
+      geojson:null
     });
 
     $scope.makeLayer = function() {
@@ -87,7 +89,7 @@ angular.module('ausEnvApp')
           colorscalerange:'0,1',
           belowmincolor:'extend',abovemaxcolor:'extend'
         }
-      }
+      };
 
     };
     /* here defined all the event handler, please feel free to ask Chin */
@@ -95,6 +97,11 @@ angular.module('ausEnvApp')
       //window.alert(args.leafletEvent.latlng.lng);
       $scope.coordinates.latitude = args.leafletEvent.latlng.lat;
       $scope.coordinates.longitude = args.leafletEvent.latlng.lng;
+    });
+
+    $scope.$on('leafletDirectiveGeoJson.click',function(event,args){
+      console.log(event);
+      console.log(args);
     });
 
     /* the function to change the date parameters of the layer, please feel free to ask Chin */
@@ -112,18 +119,77 @@ angular.module('ausEnvApp')
     if(!newVal){
       return;
     }
-
     console.log(newVal);
+
+    $scope.clearView();
+    $scope['configureView_'+newVal.mainView](newVal);
+  });
+
+  $scope.$watch('selection.regionType',function(newVal){
+    if(!newVal){
+      return;
+    }
+    console.log(newVal);
+
+    $scope.geojson = {};
+//
+//    if(!newVal._jsonData) {
+//      newVal._jsonData = $http.get('static/'+newVal.source + '.json');
+//    }
+//    // +++ Causing stack overflows??? Due to leaflet events perhaps?
+    newVal.jsonData().then(function(resp){
+      console.log(resp);
+      $scope.geojson = {
+        data:resp
+      };
+    });
+  });
+
+  $scope.clearView = function() {
+    if($scope.layers.overlays.aWMS) {
+      delete $scope.layers.overlays.aWMS;
+    }
+
+//    if($scope.layers.overlays.json) {
+//      delete $scope.layers.overlays.json;
+//    }
+  };
+
+  $scope.configureView_wms = function(themeObject){
     $scope.layers.overlays.aWMS = $scope.makeLayer();
 
-    $scope.layers.overlays.aWMS.url = newVal.url;
-    $scope.layers.overlays.aWMS.layerParams.time = newVal.time;
-    $scope.layers.overlays.aWMS.layerParams.layers = newVal.layer;
-    $scope.layers.overlays.aWMS.layerParams.colorscalerange = newVal.colorscalerange;
+    $scope.layers.overlays.aWMS.url = themeObject.url;
+    $scope.layers.overlays.aWMS.layerParams.time = themeObject.time;
+    $scope.layers.overlays.aWMS.layerParams.layers = themeObject.layer;
+    $scope.layers.overlays.aWMS.layerParams.colorscalerange = themeObject.colorscalerange;
     $scope.layers.overlays.aWMS.doRefresh = true;
     console.log($scope.layers);
-  });
+
+    $scope.configureView_json(themeObject);
+  };
+
+  $scope.configureView_json = function(themeObject){
+    if(themeObject.json) {
+      if(!themeObject._jsonData) {
+        themeObject._jsonData = $http.get('static/'+themeObject.json);
+      }
+      // +++ Causing stack overflows??? Due to leaflet events perhaps?
+      themeObject._jsonData.then(function(resp){
+        console.log(resp.data);
+        $scope.geojson = {
+          data:resp.data
+        };
+//        $scope.layers.overlays.json = {
+//          name:themeObject.name,
+//          type:'custom',
+//          layer:new L.geoJson(resp.data),
+//          visible:true,
+//          doRefresh:true
+//        };
+      });
+    }
+  };
 
   selection.theme = themes.themes[3].name;
   selection.themeObject = themes.themes[3];
-  });
+});

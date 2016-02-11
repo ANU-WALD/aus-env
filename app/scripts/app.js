@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'leaflet-directive',
     'ui.bootstrap',
-    'ngTouch'
+    'ngTouch',
+    'ng-static-data'
   ])
   .config(function ($routeProvider) {
     $routeProvider

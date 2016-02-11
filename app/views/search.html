@@ -1,3 +1,13 @@
 <div class="container">
-<p>This is the search view.</p>
+<p>Focus</p>
+<label>
+  <input type="radio" name="focus" value="Grid" ng-model="selection.mapMode">National
+</label>
+
+<label>
+  <input type="radio" name="focus" value="Polygon" ng-model="selection.mapMode">Regional
+  <select ng-disabled="selection.mapMode!=='Polygon'" ng-model="selection.regionType" ng-change="regionTypeChanged(selection.regionTypeselection.regionType)" ng-options="option.name for option in options track by option.name"></select>
+</label>
+
+<input type="text" ng-model="selection.regionName">
 </div>

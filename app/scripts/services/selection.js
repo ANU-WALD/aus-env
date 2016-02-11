@@ -14,4 +14,8 @@ angular.module('ausEnvApp')
 
     service.theme = 'Tree Cover';
     service.themeObject = null;
+    service.mapMode = 'Grid';
+    service.regionType = null;
+    service.regionName = null;
+
   });
