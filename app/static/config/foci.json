@@ -1,30 +1,37 @@
 [
   {
     "name":"States and Territories",
-    "source":"statisticalRegions"
+    "source":"statisticalRegions",
+    "labelField":"WETLAND_NA"
   },
   {
     "name":"Statistical Region (ABS)",
-    "source":"SA1_2011_AUST"
+    "source":"SA1_2011_AUST",
+    "labelField":"NRMR_NAME"
   },
   {
     "name":"BoM river regions",
-    "source":"HR_Regions_river_region"
+    "source":"HR_Regions_river_region",
+    "labelField":"RivRegName"
   },
   {
     "name":"Bioregions (IBRA)",
-    "source":"ibra7_subresions"
+    "source":"ibra7_subresions",
+    "labelField":"SUB_NAME_7"
   },
   {
     "name":"NRM Regions",
-    "source":"statisticalRegions"
+    "source":"statisticalRegions",
+    "labelField":"WETLAND_NA"
   },
   {
     "name":"National Parks",
-    "source":"statisticalRegions"
+    "source":"statisticalRegions",
+    "labelField":"WETLAND_NA"
   },
   {
     "name":"Ramsar Wetlands",
-    "source":"ramsar2015"
+    "source":"ramsar2015",
+    "labelField":"WETLAND_NA"
   }
 ]

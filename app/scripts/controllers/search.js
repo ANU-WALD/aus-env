@@ -11,15 +11,20 @@ angular.module('ausEnvApp')
   .controller('SearchCtrl', function ($scope,staticData,selection,spatialFoci) {
     $scope.selection = selection;
     staticData.unwrap($scope,'options',spatialFoci.regionTypes);
-    $scope.names = [];
+    $scope.features = [];
 
     $scope.regionTypeChanged = function(newOption) {
       if(!newOption){
         return;
       }
       newOption.jsonData().then(function(data){
-        console.log('Region data');
-        console.log(data);
+        $scope.features = data.features.map(function(f){
+          return {
+            name:f.properties[newOption.labelField],
+            feature:f
+          };
+        });
+        $scope.features.sort(function(a,b){return a.name.localeCompare(b.name);});
       })
     };
   });
