@@ -3,11 +3,11 @@
     <h3 class="modal-title">Headlines</h3>
   </div>
   <div class="modal-body">
-    <ul>
-      <li ng-repeat="headline in headlines.headlines">
+
+      <div ng-repeat="headline in headlines.headlines">
         <button uib-tooltip="{{ makeTooltip(headline) }}" ng-click="ok(headline.name)">{{ headline.name }}</button>
-      </li>
-    </ul>
+      </div>
+
     Selected: <b>{{ headlines.selected }}</b>
   </div>
   <div class="modal-footer">
