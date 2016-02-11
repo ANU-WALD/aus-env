@@ -1,0 +1,30 @@
+[
+  {
+    "name":"States and Territories",
+    "source":"statisticalRegions"
+  },
+  {
+    "name":"Statistical Region (ABS)",
+    "source":"SA1_2011_AUST"
+  },
+  {
+    "name":"BoM river regions",
+    "source":"HR_Regions_river_region"
+  },
+  {
+    "name":"Bioregions (IBRA)",
+    "source":"ibra7_subresions"
+  },
+  {
+    "name":"NRM Regions",
+    "source":"statisticalRegions"
+  },
+  {
+    "name":"National Parks",
+    "source":"statisticalRegions"
+  },
+  {
+    "name":"Ramsar Wetlands",
+    "source":"ramsar2015"
+  }
+]
