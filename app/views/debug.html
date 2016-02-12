@@ -1,0 +1,7 @@
+<div class="panel panel-default" ng-if="bugs.hasBugs()">
+  <p><strong>Recent Errors</strong><button type="button" ng-click="bugs.clearBugs()">Clear</button></p>
+  <div ng-repeat="bug in bugs.bugs">
+    <p uib-tooltip="{{ bug.description }}">{{ timeAndName(bug) }}</p>
+  </div>
+</div>
+

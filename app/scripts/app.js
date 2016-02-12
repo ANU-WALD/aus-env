@@ -51,6 +51,11 @@ angular
         controller: 'MapCtrl',
         controllerAs: 'map'
       })
+      .when('/debug', {
+        templateUrl: 'views/debug.html',
+        controller: 'DebugCtrl',
+        controllerAs: 'debugger'
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -8,7 +8,7 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('HeadlinesCtrl', function ($scope, $uibModal, $log, headline) {
+  .controller('HeadlinesCtrl', function ($scope, $uibModal, $log, headline, bugs) {
 
     //$scope.$log = $log;
     //$scope.headlineService = headline;
@@ -43,6 +43,7 @@ angular.module('ausEnvApp')
       function rejected()
       {
         $log.info('Modal Closed No Choices');
+        bugs.addBug("test","a description of this")
       }
       modalInstance.result.then(resolved, rejected);  //the promise
     };
@@ -58,8 +59,12 @@ angular.module('ausEnvApp')
   $scope.headlines = headlines;
   //console.log(headlines);
 
+  $scope.setHeadline = function(selectedHeadline) {
+    headlines.selected = selectedHeadline;
+  };
+
   $scope.ok = function (selectedHeadline) {
-    $uibModalInstance.close(selectedHeadline);
+    $uibModalInstance.close();
   };
 
   $scope.cancel = function () {
