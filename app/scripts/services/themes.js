@@ -8,44 +8,9 @@
  * Service in the ausEnvApp.
  */
 angular.module('ausEnvApp')
-  .service('themes', function () {
+  .service('themes', function (staticData) {
     var service = this;
 
-    service.themes = [
-      {
-        name:'Tree Cover',
-        url:'',
-        time:'',
-        layer:'',
-        colorscalerange:'0,1',
-        mainView:'wms'
-      },
-      {
-        name:'Inundation',
-        url:'http://dapds00.nci.org.au/thredds/wms/ub8/au/owl/MOD09A1.OWLau.0_005deg.2015.nc?',
-        time:'2015-12-27T00:00:00.000Z',
-        layer:'OWL',
-        colorscalerange:'0,10',
-        mainView:'wms'
-      },
-      {
-        name:'Ramsar Wetlands',
-        url:'http://dapds00.nci.org.au/thredds/wms/ub8/au/Ramsar/MaxWater_Ramsar072.1988-2015.nc?',
-        time:'2015-12-31',
-        layer:'MaxWater',
-        json:'ramsar2015.json',
-        colorscalerange:'1,10',
-        mainView:'wms'
-      },
-      {
-        name:'Gross Primary Productivity',
-        url:'http://dapds00.nci.org.au/thredds/wms/ub8/au/OzWALD/daily/AWRA.daily.GPP.2011.nc?',
-        time:'2011-12-31',
-        layer:'GPP',
-        colorscalerange:'0,1',
-        mainView:'wms'
-      }
-    ];
-
+    service.themes = staticData.deferredGet(service,'static/config/themes.json','_themes');
 
   });

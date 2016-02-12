@@ -190,6 +190,10 @@ angular.module('ausEnvApp')
     }
   };
 
-  selection.theme = themes.themes[3].name;
-  selection.themeObject = themes.themes[3];
+  $scope.setDefaultTheme = function(themesData){
+    selection.theme = themesData[0].name;
+    selection.themeObject = themes.themes[0];
+  };
+
+  themes.themes().then($scope.setDefaultTheme);
 });
