@@ -8,41 +8,27 @@
  * Service in the ausEnvApp.
  */
 angular.module('ausEnvApp')
-  .service('headline', function ($http) {
+  .service('headline', function ($http, bugs) {
     // AngularJS will instantiate a singleton by calling "new" on this function
 
     var headline = this;
     var headline_data_file = "static/behaviourdata/headlines.json";
 
-    //JSON.parse();
     function readsuccess(response) {
-      console.log(response.data);
+      headline.headlines = angular.fromJson(response.data);
+      //console.log(response.data);
     }
     function readfail(response) {
-      console.error("Cannot read " + headline_data_file)
+      headline.headlines = angular.fromJson("{}");
+      bugs.addBug("Cannot find headlines.json", "Looking in " + headline_data_file);
+      //console.error("Cannot read " + headline_data_file)
     }
     $http.get(headline_data_file).then(readsuccess,readfail);
 
-    headline.isSelected = function(headline) {
-      return headline.name.localeCompare($scope.headlines.selected) === 0;
+    headline.isSelected = function(hd) {
+      //console.log(headline.headlines);
+      //return true;
+      return (hd.name === headline.headlines.selected);
     };
-
-    headline.makeTooltip = function(headline) {
-      return ($scope.isSelected(headline) ? "(Current Headline)" : "") + headline.description;
-    };
-
-    headline.headlineFromName = function(name) {
-
-    };
-
-    headline.headlineFromID = function(id) {
-
-    };
-
-    // Note to self - integrate into themes or write a service for this (my preference)
-    //   A headline may use a theme, or may do it's own thing.
-    //   A service would make integrating with the modal and other page elements more sensible
-    headline.headlines = {}
-
 
   });

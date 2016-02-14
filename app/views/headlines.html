@@ -4,8 +4,8 @@
   </div>
   <div class="modal-body">
 
-      <div ng-repeat="headline in headlines.headlines">
-        <button uib-tooltip="{{ makeTooltip(headline) }}" ng-click="setHeadline(headline.name)">{{ headline.name }}</button>
+      <div ng-repeat="headline in headlineService.headlines.headlines">
+        <button ng-class="setButtonClass(headline)" uib-tooltip="{{ makeTooltip(headline) }}" ng-click="setHeadline(headline.name)">{{ headline.name }}</button>
       </div>
 
     Selected: <b>{{ headlines.selected }}</b>

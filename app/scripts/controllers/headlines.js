@@ -31,8 +31,8 @@ angular.module('ausEnvApp')
         templateUrl: 'headlineModalTemplate.html',
         controller: 'ModalInstanceCtrl',
         resolve: {
-          headlines: function () {
-            return headline.headlines;
+          headlineService: function () {
+            return headline;
           }
         }
       });
@@ -48,22 +48,37 @@ angular.module('ausEnvApp')
       modalInstance.result.then(resolved, rejected);  //the promise
     };
 
-
   });
 
 
-
+/**
+ * @ngdoc function
+ * @name ausEnvApp.controller:ModalInstanceCtrl
+ * @description
+ * # ModalInstanceCtrl
+ * Controller for the headlines modal form
+ */
 angular.module('ausEnvApp')
-  .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, headlines) {
+  .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, headlineService) {
 
-  $scope.headlines = headlines;
+  $scope.headlineService = headlineService;
   //console.log(headlines);
 
   $scope.setHeadline = function(selectedHeadline) {
-    headlines.selected = selectedHeadline;
+    headlineService.headlines.selected = selectedHeadline;
   };
 
-  $scope.ok = function (selectedHeadline) {
+  //btn btn-primary
+  $scope.setButtonClass = function(headline) {
+    //console.log("btn btn-" + (headlineService.isSelected(headline) ? "success" : "primary"));
+    return "btn btn-" + (headlineService.isSelected(headline) ? "success" : "primary");
+  };
+
+  $scope.makeTooltip = function(headline) {
+      return (headlineService.isSelected(headline) ? "(Current Headline)" : "") + headline.description;
+  };
+
+  $scope.ok = function () {
     $uibModalInstance.close();
   };
 
