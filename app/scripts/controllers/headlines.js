@@ -61,28 +61,33 @@ angular.module('ausEnvApp')
 angular.module('ausEnvApp')
   .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, headlineService) {
 
-  $scope.headlineService = headlineService;
-  //console.log(headlines);
 
-  $scope.setHeadline = function(selectedHeadline) {
-    headlineService.headlines.selected = selectedHeadline;
-  };
+    $scope.headlineService = headlineService;
+    //console.log(headlines);
 
-  //btn btn-primary
-  $scope.setButtonClass = function(headline) {
-    //console.log("btn btn-" + (headlineService.isSelected(headline) ? "success" : "primary"));
-    return "btn btn-" + (headlineService.isSelected(headline) ? "success" : "primary");
-  };
+    $scope.setHeadline = function(selectedHeadline) {
+      headlineService.headlines.selected = selectedHeadline;
+    };
 
-  $scope.makeTooltip = function(headline) {
+    //btn btn-primary
+    $scope.setButtonClass = function(headline) {
+      //console.log("btn btn-" + (headlineService.isSelected(headline) ? "success" : "primary"));
+      return "btn btn-" + (headlineService.isSelected(headline) ? "success" : "primary");
+    };
+
+    $scope.makeTooltip = function(headline) {
       return (headlineService.isSelected(headline) ? "(Current Headline)" : "") + headline.description;
-  };
+    };
 
-  $scope.ok = function () {
-    $uibModalInstance.close();
-  };
+    $scope.getSelectedDescrition = function() {
+      //return
+    };
 
-  $scope.cancel = function () {
-    $uibModalInstance.dismiss('cancel');
-  };
+    $scope.ok = function () {
+      $uibModalInstance.close();
+    };
+
+    $scope.cancel = function () {
+      $uibModalInstance.dismiss('cancel');
+    };
 });

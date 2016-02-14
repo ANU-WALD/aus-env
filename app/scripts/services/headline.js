@@ -12,7 +12,7 @@ angular.module('ausEnvApp')
     // AngularJS will instantiate a singleton by calling "new" on this function
 
     var headline = this;
-    var headline_data_file = "static/behaviourdata/headlines.json";
+    const headline_data_file = "static/behaviourdata/headlines.json";
 
     function readsuccess(response) {
       headline.headlines = angular.fromJson(response.data);
@@ -20,7 +20,7 @@ angular.module('ausEnvApp')
     }
     function readfail(response) {
       headline.headlines = angular.fromJson("{}");
-      bugs.addBug("Cannot find headlines.json", "Looking in " + headline_data_file);
+      bugs.addBug("Cannot find " + headline_data_file, response.data);
       //console.error("Cannot read " + headline_data_file)
     }
     $http.get(headline_data_file).then(readsuccess,readfail);
@@ -30,5 +30,9 @@ angular.module('ausEnvApp')
       //return true;
       return (hd.name === headline.headlines.selected);
     };
+
+    headline.headlineByName = function(name) {
+      //angular.forEach(headline.headlines.headlines,function)  one way to iterate?
+    }
 
   });
