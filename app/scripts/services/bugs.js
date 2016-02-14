@@ -3,9 +3,9 @@
 angular.module('ausEnvApp')
   .factory('$exceptionHandler', function(bugs) {
     return function(exception, cause) {
-      bugs.addBug(exception.message, exception.message);
       console.error(exception);
       console.error(cause);
+      bugs.addBug(exception.message, exception.message, false);
     }
   }); //factory
 
@@ -26,10 +26,11 @@ angular.module('ausEnvApp')
     bugs.bugs = [];
 
     bugs.clearBugs = function() {
-      bugs.bugs = [];  //does this do what I think it does?
+      bugs.bugs = [];
     };
 
-    bugs.addBug = function(bug_name,bug_description) {
+    bugs.addBug = function(bug_name, bug_description, to_console_default_true) {
+      var to_console = typeof to_console_default_true !== 'undefined' ?  to_console_default_true : true;
       var trimmed_name = $filter('limitTo')(bug_name, bugs.nameLimit);
       var new_bug = {
         name:trimmed_name,
@@ -46,7 +47,7 @@ angular.module('ausEnvApp')
         bugs.bugs[bugs.max-1] = new_bug;
       } //if
 
-      console.log(new_bug);
+      if (to_console) { console.log(new_bug); }
     };  //addBug
 
     bugs.hasBugs = function() { return ( bugs.bugs.length > 0); }
