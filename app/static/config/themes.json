@@ -2,6 +2,8 @@
   {
     "name":"Land cover change",
     "longName":"Land use and land cover change",
+    "status":"degrading",
+    "icon":"landuse.png",
     "url":"",
     "time":"",
     "layer":"",
@@ -10,6 +12,8 @@
   },
   {
     "name":"Bushfire",
+    "status":"constant",
+    "icon":"fire.png",
     "url":"",
     "time":"",
     "layer":"",
@@ -18,6 +22,8 @@
   },
   {
     "name":"Water Availability",
+    "status":"improving",
+    "icon":"water.png",
     "url":"",
     "time":"",
     "layer":"",
@@ -26,6 +32,8 @@
   },
   {
     "name":"Landscape Health",
+    "status":"degrading",
+    "icon":"landscape.png",
     "url":"",
     "time":"",
     "layer":"",
@@ -34,6 +42,8 @@
   },
   {
     "name":"Carbon Storage",
+    "status":"degrading",
+    "icon":"carbon_uptake.png",
     "url":"",
     "time":"",
     "layer":"",
@@ -42,6 +52,8 @@
   },
   {
     "name":"Rivers and Wetlands",
+    "status":"constant",
+    "icon":"wetlands.png",
     "url":"http://dapds00.nci.org.au/thredds/wms/ub8/au/Ramsar/MaxWater_Ramsar072.1988-2015.nc?",
     "time":"2015-12-31",
     "layer":"MaxWater",

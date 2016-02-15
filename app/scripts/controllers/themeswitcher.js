@@ -11,8 +11,26 @@ angular.module('ausEnvApp')
   .controller('ThemeswitcherCtrl', function ($scope,staticData,themes,selection) {
     staticData.unwrap($scope,'themes',themes.themes);
 
+    $scope.iconMapping = {
+      degrading:'arrow-down',
+      improving:'arrow-up',
+      constant:'arrow-right'
+    };
+
     $scope.selectTheme = function(newTheme) {
       selection.theme = newTheme.name;
       selection.themeObject = newTheme;
-    }
+    };
+
+    $scope.themeClasses = function(theme){
+      var result = "theme-"+theme.status;
+      if(theme!==selection.themeObject) {
+        result += ' theme-box-unselected';
+      }
+      return result;
+    };
+
+    $scope.themeDirection = function(theme){
+
+    };
   });
