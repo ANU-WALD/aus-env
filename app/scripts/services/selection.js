@@ -18,5 +18,6 @@ angular.module('ausEnvApp')
     service.mapMode = 'Grid';
     service.regionType = null;
     service.regionName = null;
-
+    service.selectedLayerName = null;
+    service.selectedLayer = null;
   });

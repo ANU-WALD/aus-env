@@ -158,11 +158,16 @@ angular.module('ausEnvApp')
   $scope.configureView_wms = function(themeObject){
     var defaultLayer = themeObject.layers.find(function(l){return l.default;});
 
-    $scope.showWMS(defaultLayer);
+    $scope.selection.selectedLayer = defaultLayer;
+    $scope.selection.selectedLayerName = defaultLayer.title;
     $scope.configureView_json(themeObject);
   };
 
   $scope.showWMS = function(layer){
+    if(!layer){
+      return;
+    }
+
     $scope.layers.overlays.aWMS = $scope.makeLayer();
 
     var fn = $interpolate(layer.url)(selection);
@@ -183,6 +188,8 @@ angular.module('ausEnvApp')
     $scope.layers.overlays.aWMS.doRefresh = true;
 
   };
+
+  $scope.$watch('selection.selectedLayer',$scope.showWMS);
 
   $scope.configureView_json = function(themeObject){
     if(themeObject.json) {

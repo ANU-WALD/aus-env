@@ -41,7 +41,7 @@
         "url":"ub8/au/fire/Sentinel.Nhotspots.AnnualSums.nc",
         "variable":"Nhotspots",
         "time":"{{year}}-12-31",
-        "colorscalerange":"0,50"
+        "colorscalerange":"0,10"
       }
 
     ]
