@@ -213,8 +213,8 @@ angular.module('ausEnvApp')
   };
 
   $scope.setDefaultTheme = function(themesData){
-    selection.theme = themesData[0].name;
-    selection.themeObject = themes.themes[0];
+    selection.theme = themesData[1].name;
+    selection.themeObject = themesData[1];
   };
 
   themes.themes().then($scope.setDefaultTheme);
