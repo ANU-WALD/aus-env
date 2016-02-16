@@ -11,5 +11,7 @@
 
 <input type="text" ng-model="selection.selectedRegion" placeholder="Search or select" uib-typeahead="feature as feature.name for feature in features | filter:$viewValue" class="form-control" typeahead-min-length="0">
 
+
+  <button type="button" class="btn btn-primary btn-xs" ng-disabled="!canCentre()" ng-click="centreOnFeature()">Centre</button>
 <p>DEBUG: {{selection.selectedRegion}}</p>
 </div>
