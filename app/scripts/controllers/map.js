@@ -26,45 +26,19 @@ angular.module('ausEnvApp')
 
       layers:{
         baselayers:{
-//          osm: {
-//            name: 'OpenStreetMap',
-//            url: 'http://129.206.228.72/cached/osm?',
-//            type: 'wms',
-//            layerParams:{
-//              version: '1.1.1',
-//              format: 'image/png',
-//              layers:'osm_auto:all'
-//            }
-//          },
+          osm: {
+            name: 'OpenStreetMap',
+            url: 'http://129.206.228.72/cached/osm?',
+            type: 'wms',
+            layerParams:{
+              version: '1.1.1',
+              format: 'image/png',
+              layers:'osm_auto:all'
+            }
+          },
         },
 
         overlays:{
-          mask: {
-            name: 'Ocean Mask',
-            url:'http://localhost:8880/geoserver/public/wms?',
-            //service=WMS&version=1.1.0&request=GetMap&layers=public:TM_WORLD_BORDERS-0.3&styles=&bbox=-179.99999999999997,-90.0,180.0,83.62359600000008&width=768&height=370&srs=EPSG:4326&format=image%2Fpng'
-            type:'wms',
-            visible:true,
-            layerParams:{
-              version:'1.1.1',
-              format:'image/png',
-              layers:'public:water_polygons_simple25',
-              transparent:true
-            }
-          },
-          countries: {
-            name: 'Countries',
-            url:'http://localhost:8880/geoserver/public/wms?',
-            //service=WMS&version=1.1.0&request=GetMap&layers=public:TM_WORLD_BORDERS-0.3&styles=&bbox=-179.99999999999997,-90.0,180.0,83.62359600000008&width=768&height=370&srs=EPSG:4326&format=image%2Fpng'
-            type:'wms',
-            visible:true,
-            layerParams:{
-              version:'1.1.1',
-              format:'image/png',
-              layers:'public:TM_WORLD_BORDERS-0.3',
-              transparent:true
-            }
-          }
         }
       },
 
