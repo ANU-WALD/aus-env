@@ -16,5 +16,5 @@ angular.module('ausEnvApp')
         $scope.selection.themeObject.layers.find(function(l){
           return l.title===title;
         })
-    }
+    };
   });

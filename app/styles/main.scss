@@ -93,12 +93,15 @@ body {
   }
 }
 
-.theme-box{
+.selection-button{
   background:$brand-primary;
+  color:#FFF;
+  font-weight:normal;
+  opacity:0.5;
 }
 
-.theme-box-unselected{
-  opacity:0.5;
+.selection-button.active, .selection-button-selected{
+  opacity:1.0;
 }
 
 /*

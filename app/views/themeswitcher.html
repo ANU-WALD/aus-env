@@ -1,6 +1,6 @@
 
 <div class="col-xs-3 col-md-1 theme-button" ng-repeat="theme in themes">
-  <a ng-click="selectTheme(theme)" class="thumbnail theme-box" ng-class="themeClasses(theme)">
+  <a ng-click="selectTheme(theme)" class="thumbnail selection-button" ng-class="themeClasses(theme)">
     <img ng-if="theme.icon" ng-src="static/images/{{theme.icon}}" alt="{{theme.description}}">
     <i class="fa fa-lg pull-right" ng-class="themeDirection(theme)"></i>
     <span ng-if="!theme.icon">{{theme.name}}</span>

@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="btn-group">
-      <label class="btn btn-primary" ng-model="selection.selectedDetailsView" uib-btn-radio="view.style" ng-repeat="view in viewOptions"><i class="fa fa-lg" ng-class="view.icon" </label>
+      <label class="btn selection-button" ng-model="selection.selectedDetailsView" uib-btn-radio="view.style" ng-repeat="view in viewOptions">
+        <i class="fa fa-lg" ng-class="view.icon"></i>
+      </label>
     </div>
   </div>
   <div ng-include="'views/details/'+selection.selectedDetailsView+'.html'"></div>
