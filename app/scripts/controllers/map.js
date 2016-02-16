@@ -119,7 +119,6 @@ angular.module('ausEnvApp')
     if(!newVal){
       return;
     }
-    console.log(newVal);
 
     $scope.clearView();
     $scope['configureView_'+newVal.mainView](newVal);
