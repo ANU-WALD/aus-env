@@ -9,7 +9,7 @@
  */
 
 angular.module('ausEnvApp')
-  .controller('MapCtrl', function ($scope,$route,$http,selection,themes) {
+  .controller('MapCtrl', function ($scope,$route,$http,$interpolate,selection,themes) {
     $scope.selection = selection;
 
     angular.extend($scope,{
@@ -87,7 +87,7 @@ angular.module('ausEnvApp')
 //              height:512,
           numcolorbands:50,
           colorscalerange:'0,1',
-          belowmincolor:'extend',abovemaxcolor:'extend'
+          belowmincolor:'transparent',abovemaxcolor:'extend'
         }
       };
 
@@ -119,7 +119,6 @@ angular.module('ausEnvApp')
     if(!newVal){
       return;
     }
-    console.log(newVal);
 
     $scope.clearView();
     $scope['configureView_'+newVal.mainView](newVal);
@@ -156,17 +155,40 @@ angular.module('ausEnvApp')
   };
 
   $scope.configureView_wms = function(themeObject){
-    $scope.layers.overlays.aWMS = $scope.makeLayer();
+    var defaultLayer = themeObject.layers.find(function(l){return l.default;});
 
-    $scope.layers.overlays.aWMS.url = themeObject.url;
-    $scope.layers.overlays.aWMS.layerParams.time = themeObject.time;
-    $scope.layers.overlays.aWMS.layerParams.layers = themeObject.layer;
-    $scope.layers.overlays.aWMS.layerParams.colorscalerange = themeObject.colorscalerange;
-    $scope.layers.overlays.aWMS.doRefresh = true;
-    console.log($scope.layers);
-
+    $scope.selection.selectedLayer = defaultLayer;
+    $scope.selection.selectedLayerName = defaultLayer.title;
     $scope.configureView_json(themeObject);
   };
+
+  $scope.showWMS = function(layer){
+    if(!layer){
+      return;
+    }
+
+    $scope.layers.overlays.aWMS = $scope.makeLayer();
+
+    var fn = $interpolate(layer.url)(selection);
+    var BASE_URL='http://dapds00.nci.org.au/thredds';
+
+    $scope.layers.overlays.aWMS.name = layer.title;
+    $scope.layers.overlays.aWMS.url = BASE_URL+'/wms/'+fn+'?';
+    $scope.layers.overlays.aWMS.layerParams.time = $interpolate(layer.time)(selection);
+    $scope.layers.overlays.aWMS.layerParams.layers = layer.variable;
+    $scope.layers.overlays.aWMS.layerParams.colorscalerange = layer.colorscalerange;
+    if(layer.belowmincolor){
+      $scope.layers.overlays.aWMS.layerParams.belowmincolor = layer.belowmincolor;
+    }
+
+    if(layer.abovemaxcolor){
+      $scope.layers.overlays.aWMS.layerParams.abovemaxcolor = layer.abovemaxcolor;
+    }
+    $scope.layers.overlays.aWMS.doRefresh = true;
+
+  };
+
+  $scope.$watch('selection.selectedLayer',$scope.showWMS);
 
   $scope.configureView_json = function(themeObject){
     if(themeObject.json) {
@@ -191,8 +213,8 @@ angular.module('ausEnvApp')
   };
 
   $scope.setDefaultTheme = function(themesData){
-    selection.theme = themesData[0].name;
-    selection.themeObject = themes.themes[0];
+    selection.theme = themesData[1].name;
+    selection.themeObject = themesData[1];
   };
 
   themes.themes().then($scope.setDefaultTheme);

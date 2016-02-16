@@ -24,8 +24,8 @@ angular.module('ausEnvApp')
 
     $scope.themeClasses = function(theme){
       var result = "theme-"+theme.status;
-      if(theme!==selection.themeObject) {
-        result += ' theme-box-unselected';
+      if(theme===selection.themeObject) {
+        result += ' selection-button-selected';
       }
       return result;
     };

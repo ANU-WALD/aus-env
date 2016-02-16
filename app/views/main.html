@@ -1,9 +1,24 @@
+<div class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="col-xs-12 col-sm-6">
+      <span class="navbar-brand">Australia's Environment in {{selection.year}}</span>
+    </div>
+  </div>
+</div>
+
+
+
 <div class="row panel panel-default">
   <div ng-include="'views/headlines.html'" ng-controller="HeadlinesCtrl"></div>
 </div>
 
-<div class="row panel panel-default">
-  <div ng-include="'views/themeswitcher.html'" ng-controller="ThemeswitcherCtrl"></div>
+<div class="row">
+  <div class="col-xs-12 col-sm-8 panel panel-default navigation-panel">
+      <div ng-include="'views/themeswitcher.html'" ng-controller="ThemeswitcherCtrl"></div>
+  </div>
+  <div class="col-xs-12 col-sm-4 panel panel-default navigation-panel">
+      <div ng-include="'views/search.html'" ng-controller="SearchCtrl"></div>
+  </div>
 </div>
 
 <div class="row">
@@ -12,9 +27,8 @@
   </div>
 
   <div class="panel panel-default col-xs-12 col-sm-4">
-
     <div class="panel panel-default">
-      <div ng-include="'views/search.html'" ng-controller="SearchCtrl"></div>
+      <div ng-include="'views/layerswitcher.html'" ng-controller="LayerswitcherCtrl"></div>
     </div>
     <div class="panel panel-default">
       <div ng-include="'views/mapcontrols.html'" ng-controller="MapCtrl"></div>

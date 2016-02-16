@@ -8,7 +8,14 @@
     "time":"",
     "layer":"",
     "colorscalerange":"0,1",
-    "mainView":"wms"
+    "mainView":"wms",
+    "layers":[
+      {
+        "default":true,
+        "title":"Net Tree Cover Change",
+        "url":""
+      }
+    ]
   },
   {
     "name":"Bushfire",
@@ -18,7 +25,26 @@
     "time":"",
     "layer":"",
     "colorscalerange":"0,1",
-    "mainView":"wms"
+    "mainView":"wms",
+    "layers":[
+      {
+        "default":true,
+        "title":"Burn Intensity (8 day maximum)",
+        "url":"ub8/au/fire/Sentinel.MaxTemp.AnnualMaxima.nc",
+        "variable":"MaxTemp",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"0,500"
+      },
+      {
+        "default":false,
+        "title":"Number of Hotspots",
+        "url":"ub8/au/fire/Sentinel.Nhotspots.AnnualSums.nc",
+        "variable":"Nhotspots",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"0,10"
+      }
+
+    ]
   },
   {
     "name":"Water Availability",
@@ -28,7 +54,18 @@
     "time":"",
     "layer":"",
     "colorscalerange":"0,1",
-    "mainView":"wms"
+    "mainView":"wms",
+    "layers":[
+      {
+        "default":true,
+        "title":"Burn Intensity (8 day maximum)",
+        "url":"ub8/au/fire/Sentinel.MaxTemp.{{year}}.nc",
+        "variable":"MaxTemp",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"0,500"
+      }
+    ]
+
   },
   {
     "name":"Landscape Health",
@@ -38,7 +75,18 @@
     "time":"",
     "layer":"",
     "colorscalerange":"0,1",
-    "mainView":"wms"
+    "mainView":"wms",
+    "layers":[
+      {
+        "default":true,
+        "title":"Burn Intensity (8 day maximum)",
+        "url":"ub8/au/fire/Sentinel.MaxTemp.{{year}}.nc",
+        "variable":"MaxTemp",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"0,500"
+      }
+    ]
+
   },
   {
     "name":"Carbon Storage",
@@ -48,7 +96,18 @@
     "time":"",
     "layer":"",
     "colorscalerange":"0,1",
-    "mainView":"wms"
+    "mainView":"wms",
+    "layers":[
+      {
+        "default":true,
+        "title":"Burn Intensity (8 day maximum)",
+        "url":"ub8/au/fire/Sentinel.MaxTemp.{{year}}.nc",
+        "variable":"MaxTemp",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"0,500"
+      }
+    ]
+
   },
   {
     "name":"Rivers and Wetlands",
@@ -59,22 +118,17 @@
     "layer":"MaxWater",
     "json":"ramsar2015.json",
     "colorscalerange":"1,10",
-    "mainView":"wms"
-  },
-  {
-    "name":"DROP:Inundation",
-    "url":"http://dapds00.nci.org.au/thredds/wms/ub8/au/owl/MOD09A1.OWLau.0_005deg.2015.nc?",
-    "time":"2015-12-27T00:00:00.000Z",
-    "layer":"OWL",
-    "colorscalerange":"0,10",
-    "mainView":"wms"
-  },
-  {
-    "name":"DROP:Gross Primary Productivity",
-    "url":"http://dapds00.nci.org.au/thredds/wms/ub8/au/OzWALD/daily/AWRA.daily.GPP.2011.nc?",
-    "time":"2011-12-31",
-    "layer":"GPP",
-    "colorscalerange":"0,1",
-    "mainView":"wms"
+    "mainView":"wms",
+    "layers":[
+      {
+        "default":true,
+        "title":"Annual Area Inundated",
+        "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.2000-2015.annual.nc",
+        "variable":"maxOWL",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"1,20"
+      }
+    ]
+
   }
 ]
