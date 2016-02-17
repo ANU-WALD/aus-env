@@ -13,5 +13,5 @@
 
 
   <button type="button" class="btn btn-primary btn-xs" ng-disabled="!canCentre()" ng-click="centreOnFeature()">Centre</button>
-<p>DEBUG: {{selection.selectedRegion}}</p>
+<p>DEBUG: {{selection.selectedRegion | json | limitTo:20 }}</p>
 </div>

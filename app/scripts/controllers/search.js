@@ -37,9 +37,12 @@ angular.module('ausEnvApp')
       //possibly add valid name??
     };
 
+
+    //think this should be in a service, useful for remembering previous map state styles etc
     $scope.centreOnFeature = function() {
 
 
+      console.log(selection.regionType.labelField);
 
       console.log($scope.selection.selectedRegion);
 
@@ -50,31 +53,37 @@ angular.module('ausEnvApp')
       $scope.LD.getMap().then(function(map){
 
         console.log(map);
-        map.eachLayer(function(lll) {
-          console.log($scope.selection.selectedRegion.name);
-          console.log(lll); }
-        );
+        //map.eachLayer(function(lll) {
+        //  console.log($scope.selection.selectedRegion.name);
+        //  console.log(lll); }
+        //);
 
 
 
         console.log(map._layers);
         $scope.LD.getGeoJSON().then(function(gj) {
           console.log(gj._layers);
-          var result = "";
-          for (var i in gj._layers) {
-            if (gj._layers.hasOwnProperty(i)) {
-              result += "_layers." + i + " = " + gj._layers[i] + "\n";
-            }
-          }
-          console.log(result);
-          console.log(gj._layers["76"]);
+          //var result = "";
+          //for (var i in gj._layers) {
+          //  if (gj._layers.hasOwnProperty(i)) {
+          //    result += "_layers." + i + " = " + gj._layers[i] + "\n";
+          //  }
+          //}
+          //console.log(result);
+          //console.log(gj._layers["76"]);
           var found = false;
           gj.eachLayer(function(jjj) {
-            console.log(jjj.feature.properties.NRMR_NAME);
-            console.log(jjj);
-            if (jjj.feature.properties.NRMR_NAME === $scope.selection.selectedRegion.name) {
-              console.log(jjj.getBounds());
+            //console.log(jjj.feature.properties.NRMR_NAME);
+            //console.log(jjj);
+            if (jjj.feature.properties[selection.regionType.labelField] === $scope.selection.selectedRegion.name) {
+              //console.log(jjj.getBounds());
               map.fitBounds(jjj.getBounds());
+              //jjj.setStyle({
+              //  weight: 2,
+              //  color: '#0',
+              //  fillColor: 'black'
+              //});
+              //jjj.bringToFront();
               found = true;
             }
           }); //eachLayer
