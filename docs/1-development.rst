@@ -1,7 +1,7 @@
 Development Notes
 #################
 
-*This page describes the dependancies of the project, and how
+*This page describes the dependencies of the project, and how
 to perform some common tasks.  Add to it as required!*
 
 

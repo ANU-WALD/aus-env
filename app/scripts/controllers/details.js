@@ -1,5 +1,6 @@
 'use strict';
 
+
 /**
  * @ngdoc function
  * @name ausEnvApp.controller:DetailsCtrl
@@ -17,11 +18,17 @@ angular.module('ausEnvApp')
       },
       {
         style:'pie',
-        icon:'fa-pie-chart'
+        icon:'fa-pie-chart', 
       },
       {
         style:'timeseries',
         icon:'fa-line-chart'
       }
-    ]
+    ];
+
   });
+
+
+
+
+

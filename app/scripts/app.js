@@ -17,7 +17,8 @@ angular
     'leaflet-directive',
     'ui.bootstrap',
     'ngTouch',
-    'ng-static-data'
+    'ng-static-data', 
+    'chart.js'
   ])
   .config(function ($routeProvider,$logProvider) {
     $routeProvider

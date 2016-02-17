@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
     <div class="btn-group">
@@ -8,3 +9,9 @@
   </div>
   <div ng-include="'views/details/'+selection.selectedDetailsView+'.html'"></div>
 </div>
+
+
+<canvas id="pie" class="chart chart-pie"
+  chart-data="data" chart-labels="labels">
+</canvas> 
+
