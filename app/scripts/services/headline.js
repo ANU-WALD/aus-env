@@ -7,6 +7,8 @@
  * # headline
  * Service in the ausEnvApp.
  */
+
+//Deprecated - no need to use now.  But keeping here for example of modal
 angular.module('ausEnvApp')
   .service('headline', function ($http, bugs) {
     // AngularJS will instantiate a singleton by calling "new" on this function

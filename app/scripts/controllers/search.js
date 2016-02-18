@@ -8,10 +8,17 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('SearchCtrl', function ($scope,$filter,staticData,selection,spatialFoci,leafletData,bugs) {
+  .controller('SearchCtrl', function ($scope,$filter,staticData,selection,spatialFoci,leafletData) {
     $scope.selection = selection;
     staticData.unwrap($scope,'options',spatialFoci.regionTypes);
     $scope.features = [];
+
+    //$scope.$watch('selection.mapMode', function (newVal) {
+      //selection.selectedRegion = null;
+      //console.log(selection.selectedRegion);
+      //if (newVal === 'Polygon') selection.regionType = null;
+      //console.log(newVal);
+    //});
 
     $scope.regionTypeChanged = function(newOption) {
       if(!newOption){
@@ -26,77 +33,16 @@ angular.module('ausEnvApp')
         });
         $scope.features.sort(function(a,b){return a.name.localeCompare(b.name);});
       })
-    };
-
-    $scope.LD = leafletData;
-
-    //$scope.LBH = leafletBoundsHelpers;
+    }; //regionTypeChanged
 
     $scope.canCentre = function() {
-      return !(selection.selectedRegion === undefined);
-      //possibly add valid name??
-    };
+      //console.log(selection.mapMode);
+      return (selection.mapMode === 'Polygon') && ($scope.selection.selectedRegion !== undefined);
+    }; //canCentre
 
-
-    //think this should be in a service, useful for remembering previous map state styles etc
-    $scope.centreOnFeature = function() {
-
-
-      console.log(selection.regionType.labelField);
-
-      console.log($scope.selection.selectedRegion);
-
-      //THIS SEEMS TO BE GETTING WHAT I'M AFTER!!
-      //$scope.LD.getGeoJSON().then(function(json) { console.log(json._layers); } );
-      //Now see if I can manipulate things...  change style or something??
-
-      $scope.LD.getMap().then(function(map){
-
-        console.log(map);
-        //map.eachLayer(function(lll) {
-        //  console.log($scope.selection.selectedRegion.name);
-        //  console.log(lll); }
-        //);
-
-
-
-        console.log(map._layers);
-        $scope.LD.getGeoJSON().then(function(gj) {
-          console.log(gj._layers);
-          //var result = "";
-          //for (var i in gj._layers) {
-          //  if (gj._layers.hasOwnProperty(i)) {
-          //    result += "_layers." + i + " = " + gj._layers[i] + "\n";
-          //  }
-          //}
-          //console.log(result);
-          //console.log(gj._layers["76"]);
-          var found = false;
-          gj.eachLayer(function(jjj) {
-            //console.log(jjj.feature.properties.NRMR_NAME);
-            //console.log(jjj);
-            if (jjj.feature.properties[selection.regionType.labelField] === $scope.selection.selectedRegion.name) {
-              //console.log(jjj.getBounds());
-              map.fitBounds(jjj.getBounds());
-              //jjj.setStyle({
-              //  weight: 2,
-              //  color: '#0',
-              //  fillColor: 'black'
-              //});
-              //jjj.bringToFront();
-              found = true;
-            }
-          }); //eachLayer
-          if (!found) {
-            bugs.addBug("Cannot find " + $scope.selection.selectedRegion,$filter('json')($scope.selection.selectedRegion))
-          }
-        });  //then getGeoJSON
-
-
-
-        //map.fitBounds([ [40.712, -74.227], [40.774, -74.125] ]);
-      });
-
-    }; //centreOnFeature
+    $scope.zoomToFeature = function() {
+      var geojson = L.geoJson($scope.selection.selectedRegion.feature);
+      leafletData.getMap().then(function(map) { map.fitBounds(geojson.getBounds()); } );
+    }; //zoomToFeature
 
   });
