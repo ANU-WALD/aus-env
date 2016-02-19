@@ -12,7 +12,7 @@ angular.module('ausEnvApp')
     // AngularJS will instantiate a singleton by calling "new" on this function
     var service = this;
 
-    service.year = 2015;
+    service.year = 2009;
     service.theme = 'Tree Cover';
     service.themeObject = null;
     service.mapMode = 'Grid';
