@@ -41,7 +41,7 @@ angular.module('ausEnvApp')
 
     $scope.zoomToFeature = function() {
       var geojson = L.geoJson($scope.selection.selectedRegion.feature);
-      leafletData.getMap().then(function(map) { map.fitBounds(geojson.getBounds()); } );
+      leafletData.getMap().then(function(map) { map.fitBounds(geojson.getBounds(),{maxZoom:13}); } );
     }; //zoomToFeature
 
   });
