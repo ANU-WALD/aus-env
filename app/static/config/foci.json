@@ -32,6 +32,7 @@
   {
     "name":"Ramsar Wetlands",
     "source":"ramsar2015",
-    "labelField":"WETLAND_NA"
+    "labelField":"WETLAND_NA",
+    "summary":"wetlands"
   }
 ]
