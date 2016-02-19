@@ -36,6 +36,8 @@ module.exports = function(config) {
       'bower_components/ng-static-data/dist/ng-static-data.js',
       'bower_components/Chart.js/Chart.js',
       'bower_components/angular-chart.js/dist/angular-chart.js',
+      'bower_components/screenfull/dist/screenfull.js',
+      'bower_components/angular-screenfull/dist/angular-screenfull.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

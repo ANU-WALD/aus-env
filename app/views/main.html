@@ -1,48 +1,46 @@
-<div class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="col-xs-12 col-sm-6">
-      <span class="navbar-brand" style="font-family:verdana; font-size: 30px; color: #555">Australia's Environment in {{selection.year}}</span>
-      <button type="button" class="btn btn-primary">Up</button>
-      <button type="button" class="btn btn-warning">Down</button>
+<div ngsf-fullscreen>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="col-xs-12 col-sm-6">
+        <span class="navbar-brand" style="font-family:verdana; font-size: 30px; color: #555">Australia's Environment in {{selection.year}}</span>
+      </div>
+      <button ngsf-toggle-fullscreen class="btn btn-success right_header">Fullscreen</button>
+    </div>
+  </nav>
+
+
+  <div class="row panel panel-default">
+    <div ng-include="'views/headlines.html'" ng-controller="HeadlinesCtrl"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 panel panel-default navigation-panel">
+        <div ng-include="'views/themeswitcher.html'" ng-controller="ThemeswitcherCtrl"></div>
+    </div>
+    <div class="col-xs-12 col-sm-4 panel panel-default navigation-panel">
+        <div ng-include="'views/search.html'" ng-controller="SearchCtrl"></div>
     </div>
   </div>
-</div>
 
-
-<div class="row panel panel-default">
-  <div ng-include="'views/headlines.html'" ng-controller="HeadlinesCtrl"></div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12 col-sm-8 panel panel-default navigation-panel">
-      <div ng-include="'views/themeswitcher.html'" ng-controller="ThemeswitcherCtrl"></div>
-  </div>
-  <div class="col-xs-12 col-sm-4 panel panel-default navigation-panel">
-      <div ng-include="'views/search.html'" ng-controller="SearchCtrl"></div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="panel panel-default col-xs-12 col-sm-8">
-    <div ng-include="'views/map.html'" ng-controller="MapCtrl"></div>
-  </div>
-
-  <div class="panel panel-default col-xs-12 col-sm-4">
-    <div class="panel panel-default">
-      <div ng-include="'views/layerswitcher.html'" ng-controller="LayerswitcherCtrl"></div>
-    </div>
-<!--
-    <div class="panel panel-default">
-      <div ng-include="'views/mapcontrols.html'" ng-controller="MapCtrl"></div>
-    </div>
--->
-    <div class="panel panel-default">
-      <div ng-include="'views/details.html'" ng-controller="DetailsCtrl"></div>
+  <div class="row">
+    <div class="panel panel-default col-xs-12 col-sm-8">
+      <div ng-include="'views/map.html'" ng-controller="MapCtrl"></div>
     </div>
 
-    <div ng-if="runningLocally" ng-include="'views/debug.html'" ng-controller="DebugCtrl"></div>
+    <div class="panel panel-default col-xs-12 col-sm-4">
+      <div class="panel panel-default">
+        <div ng-include="'views/layerswitcher.html'" ng-controller="LayerswitcherCtrl"></div>
+      </div>
+      
+      <div class="panel panel-default">
+        <div ng-include="'views/details.html'" ng-controller="DetailsCtrl"></div>
+      </div>
+
+      <div ng-include="'views/debug.html'" ng-controller="DebugCtrl"></div>
+
+      <div ng-include="'views/thecharts.html'" ng-controller="ThechartsCtrl"></div>
+    </div>
   </div>
 
-
 </div>
-

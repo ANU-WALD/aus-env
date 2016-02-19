@@ -18,7 +18,8 @@ angular
     'ui.bootstrap',
     'ngTouch',
     'ng-static-data', 
-    'chart.js'
+    'chart.js', 
+    'angularScreenfull'
   ])
   .config(function ($routeProvider,$logProvider) {
     $routeProvider
