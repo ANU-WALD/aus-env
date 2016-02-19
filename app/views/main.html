@@ -31,17 +31,16 @@
     <div class="panel panel-default">
       <div ng-include="'views/layerswitcher.html'" ng-controller="LayerswitcherCtrl"></div>
     </div>
+<!--
     <div class="panel panel-default">
       <div ng-include="'views/mapcontrols.html'" ng-controller="MapCtrl"></div>
     </div>
-
+-->
     <div class="panel panel-default">
       <div ng-include="'views/details.html'" ng-controller="DetailsCtrl"></div>
     </div>
 
-    <div ng-include="'views/debug.html'" ng-controller="DebugCtrl"></div>
-
-    <div ng-include="'views/thecharts.html'" ng-controller="ThechartsCtrl"></div>
+    <div ng-if="runningLocally" ng-include="'views/debug.html'" ng-controller="DebugCtrl"></div>
   </div>
 
 
