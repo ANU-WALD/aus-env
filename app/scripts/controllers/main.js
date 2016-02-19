@@ -14,4 +14,6 @@ angular.module('ausEnvApp')
     	//window.alert($scope.selection.year);
     	//$scope.selection.year = $scope.selection.year + 1;
     };
+
+    $scope.runningLocally = (window.location.hostname==='localhost');
   });
