@@ -21,4 +21,6 @@ angular.module('ausEnvApp')
     service.selectedLayerName = null;
     service.selectedLayer = null;
     service.selectedDetailsView = 'bar';
+    service.selectedRegion = null;
+    service.availableFeatures = [];
   });

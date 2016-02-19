@@ -11,7 +11,6 @@ angular.module('ausEnvApp')
   .controller('SearchCtrl', function ($scope,$filter,staticData,selection,spatialFoci,leafletData) {
     $scope.selection = selection;
     staticData.unwrap($scope,'options',spatialFoci.regionTypes);
-    $scope.features = [];
 
     //$scope.$watch('selection.mapMode', function (newVal) {
       //selection.selectedRegion = null;
@@ -25,13 +24,13 @@ angular.module('ausEnvApp')
         return;
       }
       newOption.jsonData().then(function(data){
-        $scope.features = data.features.map(function(f){
+        $scope.selection.availableFeatures = data.features.map(function(f){
           return {
             name:f.properties[newOption.labelField],
             feature:f
           };
         });
-        $scope.features.sort(function(a,b){return a.name.localeCompare(b.name);});
+        $scope.selection.availableFeatures.sort(function(a,b){return a.name.localeCompare(b.name);});
       })
     }; //regionTypeChanged
 

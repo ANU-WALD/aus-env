@@ -100,8 +100,10 @@ angular.module('ausEnvApp')
     });
 
     $scope.$on('leafletDirectiveGeoJson.click',function(event,args){
-      console.log(event);
-      console.log(args);
+      var newFeature = args.leafletEvent.target.feature;
+      selection.selectedRegion = selection.availableFeatures.filter(function(f){
+        return f.name===newFeature.properties[selection.regionType.labelField];
+      })[0];
     });
 
     /* the function to change the date parameters of the layer, please feel free to ask Chin */
