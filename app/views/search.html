@@ -9,7 +9,7 @@
   <select ng-disabled="selection.mapMode!=='Polygon'" ng-model="selection.regionType" ng-change="regionTypeChanged(selection.regionType)" ng-options="option.name for option in options track by option.name"></select>
 </label>
 
-<input type="text" ng-model="selection.selectedRegion" placeholder="Search or select" uib-typeahead="feature as feature.name for feature in features | filter:$viewValue" class="form-control" typeahead-min-length="0">
+<input type="text" ng-model="selection.selectedRegion" placeholder="Search or select" uib-typeahead="feature as feature.name for feature in selection.availableFeatures | filter:$viewValue" class="form-control" typeahead-min-length="0">
 
 
   <button type="button" class="btn btn-primary btn-xs" ng-disabled="!canCentre()" ng-click="zoomToFeature()">Centre</button>
