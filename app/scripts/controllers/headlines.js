@@ -43,7 +43,7 @@ angular.module('ausEnvApp')
       function rejected()
       {
         $log.info('Modal Closed No Choices');
-        bugs.addBug("test","a description of this")
+        bugs.addBug("test","a description of this");
       }
       modalInstance.result.then(resolved, rejected);  //the promise
     };

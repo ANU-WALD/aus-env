@@ -6,7 +6,7 @@ angular.module('ausEnvApp')
       console.error(exception);
       console.error(cause);
       bugs.addBug(exception.message, exception.message, false);
-    }
+    };
   }); //factory
 
 /**
@@ -19,37 +19,37 @@ angular.module('ausEnvApp')
 angular.module('ausEnvApp')
   .service('bugs', function bugs($filter) {
     // AngularJS will instantiate a singleton by calling "new" on this function
-    var bugs = this;
+    var service = this;
 
-    bugs.max = 5;
-    bugs.nameLimit = 80;
-    bugs.bugs = [];
+    service.max = 5;
+    service.nameLimit = 80;
+    service.bugs = [];
 
-    bugs.clearBugs = function() {
-      bugs.bugs = [];
+    service.clearBugs = function() {
+      service.bugs = [];
     };
 
-    bugs.addBug = function(bug_name, bug_description, to_console_default_true) {
+    service.addBug = function(bug_name, bug_description, to_console_default_true) {
       var to_console = typeof to_console_default_true !== 'undefined' ?  to_console_default_true : true;
-      var trimmed_name = $filter('limitTo')(bug_name, bugs.nameLimit);
+      var trimmed_name = $filter('limitTo')(bug_name, service.nameLimit);
       var new_bug = {
         name:trimmed_name,
         description:bug_description,
         time:Date.now()
       };
 
-      if (bugs.bugs.length < bugs.max) {
+      if (service.bugs.length < service.max) {
         //console.log(bugs.bugs.length);
-        bugs.bugs.push(new_bug);
+        service.bugs.push(new_bug);
         //console.log(bugs.bugs.length);
       } else {
-        for(var i = 0; i < bugs.max-1; i++) { bugs.bugs[i] = bugs.bugs[i+1]; }
-        bugs.bugs[bugs.max-1] = new_bug;
+        for(var i = 0; i < service.max-1; i++) { service.bugs[i] = service.bugs[i+1]; }
+        service.bugs[service.max-1] = new_bug;
       } //if
 
       if (to_console) { console.log(new_bug); }
     };  //addBug
 
-    bugs.hasBugs = function() { return ( bugs.bugs.length > 0); }
+    service.hasBugs = function() { return ( service.bugs.length > 0); };
 
   });

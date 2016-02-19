@@ -8,7 +8,7 @@
  * Service in the ausEnvApp.
  */
 angular.module('ausEnvApp')
-  .service('spatialFoci', function (staticData,selection) {
+  .service('spatialFoci', function (staticData) {
     var service = this;
 
     service.regionTypes = staticData.deferredGet(service,'static/config/foci.json','_foci');

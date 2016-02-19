@@ -117,7 +117,7 @@ angular.module('ausEnvApp')
       $scope.layers.overlays.aWMS.doRefresh = true;
     };
 
-  $scope.$watch('selection.themeObject',function(newVal,oldVal){
+  $scope.$watch('selection.themeObject',function(newVal){
     if(!newVal){
       return;
     }

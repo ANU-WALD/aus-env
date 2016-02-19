@@ -30,7 +30,7 @@ angular.module('ausEnvApp')
       return result;
     };
 
-    $scope.themeDirection = function(theme){
-
-    };
+//    $scope.themeDirection = function(theme){
+//
+//    };
   });

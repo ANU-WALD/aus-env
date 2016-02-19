@@ -33,8 +33,8 @@ angular.module('ausEnvApp')
       return (hd.name === headline.headlines.selected);
     };
 
-    headline.headlineByName = function(name) {
+    headline.headlineByName = function(/*name*/) {
       //angular.forEach(headline.headlines.headlines,function)  one way to iterate?
-    }
+    };
 
   });

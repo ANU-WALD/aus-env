@@ -37,7 +37,7 @@ angular.module('ausEnvApp')
     $scope.selectBarChartData = function(newRegion){
       if(!newRegion) {
         // Treat it as national...
-        $scope.selectedBarData = $scope.barChartData['national'];
+        $scope.selectedBarData = $scope.barChartData.national;
       } else {
         console.log(newRegion);
         $scope.selectedBarData = $scope.barChartData[newRegion.name];

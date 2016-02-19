@@ -31,7 +31,7 @@ angular.module('ausEnvApp')
           };
         });
         $scope.selection.availableFeatures.sort(function(a,b){return a.name.localeCompare(b.name);});
-      })
+      });
     }; //regionTypeChanged
 
     $scope.canCentre = function() {
