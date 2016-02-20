@@ -1,6 +1,5 @@
 'use strict';
 
-
 /**
  * @ngdoc function
  * @name ausEnvApp.controller:DetailsCtrl
@@ -25,8 +24,9 @@ angular.module('ausEnvApp')
         icon:'fa-line-chart'
       }
     ];
-    $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-    $scope.data = [300, 500, 100];
+
+    $scope.barLabels = [];
+    $scope.barData = [];
 
     details.getBarChartData('example','wetlands').then(function(data){
       $scope.barChartData = data;
@@ -48,6 +48,17 @@ angular.module('ausEnvApp')
       if(!$scope.barChartData) {
         return;
       }
+
       $scope.selectBarChartData(newRegion);
+
+      console.log("chin");
+      console.log($scope.barChartData.columnNames);
+      $scope.barLabels = $scope.barChartData.columnNames;
+      console.log($scope.barLabels);
+      $scope.barData.push($scope.selectedBarData);
+      console.log($scope.barData);
     });
+
+
+
   });
