@@ -51,6 +51,8 @@ angular.module('ausEnvApp')
 
       $scope.selectBarChartData(newRegion);
 
+      $scope.barLabels = [];
+      $scope.barData = [];
       console.log("chin");
       console.log($scope.barChartData.columnNames);
       $scope.barLabels = $scope.barChartData.columnNames;
