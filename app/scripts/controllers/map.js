@@ -11,6 +11,7 @@
 angular.module('ausEnvApp')
   .controller('MapCtrl', function ($scope,$route,$http,$interpolate,selection,themes) {
     $scope.selection = selection;
+    var WMS_SERVER='http://hydrograph.flowmatters.com.au';
 
     angular.extend($scope,{
       defaults:{
@@ -26,19 +27,48 @@ angular.module('ausEnvApp')
 
       layers:{
         baselayers:{
-          osm: {
-            name: 'OpenStreetMap',
-            url: 'http://129.206.228.72/cached/osm?',
-            type: 'wms',
-            layerParams:{
-              version: '1.1.1',
-              format: 'image/png',
-              layers:'osm_auto:all'
-            }
-          },
+//          osm: {
+//            name: 'OpenStreetMap',
+//            url: 'http://129.206.228.72/cached/osm?',
+//            type: 'wms',
+//            layerParams:{
+//              version: '1.1.1',
+//              format: 'image/png',
+//              layers:'osm_auto:all'
+//            }
+//          },
         },
 
         overlays:{
+          mask: {
+            name: 'Ocean Mask',
+//            url:'http://40.127.88.222:8000/wms?',
+            url:WMS_SERVER+'/public/wms?',
+//            url:'http://localhost:8881/public/wms?',
+            //service=WMS&version=1.1.0&request=GetMap&layers=public:TM_WORLD_BORDERS-0.3&styles=&bbox=-179.99999999999997,-90.0,180.0,83.62359600000008&width=768&height=370&srs=EPSG:4326&format=image%2Fpng'
+            type:'wms',
+            visible:true,
+            layerParams:{
+              version:'1.1.1',
+              format:'image/png',
+              layers:'public:water_polygons_simple25',
+              transparent:true
+            }
+          },
+          countries: {
+            name: 'Countries',
+            url:WMS_SERVER+'/public/wms?',
+//            url:'http://localhost:8881/public/wms?',
+            //service=WMS&version=1.1.0&request=GetMap&layers=public:TM_WORLD_BORDERS-0.3&styles=&bbox=-179.99999999999997,-90.0,180.0,83.62359600000008&width=768&height=370&srs=EPSG:4326&format=image%2Fpng'
+            type:'wms',
+            visible:true,
+            layerParams:{
+              version:'1.1.1',
+              format:'image/png',
+              layers:'public:TM_WORLD_BORDERS-0.3',
+              transparent:true
+            }
+          },
         }
       },
 
@@ -138,10 +168,31 @@ angular.module('ausEnvApp')
 //      newVal._jsonData = $http.get('static/'+newVal.source + '.json');
 //    }
 //    // +++ Causing stack overflows??? Due to leaflet events perhaps?
+    $scope.layers.overlays.selectionLayer = {
+      name: newVal.name,
+      url:WMS_SERVER+'/wald/wms?',
+//            url:'http://localhost:8880/geoserver/wald/wms?',
+//            url:'http://localhost:8881/wald/wms?',
+      //service=WMS&version=1.1.0&request=GetMap&layers=public:TM_WORLD_BORDERS-0.3&styles=&bbox=-179.99999999999997,-90.0,180.0,83.62359600000008&width=768&height=370&srs=EPSG:4326&format=image%2Fpng'
+      type:'wms',
+      visible:true,
+      doRefresh:true,
+      layerParams:{
+        version:'1.1.1',
+        format:'image/png',
+        layers:'wald:'+(newVal.sourceWMS||newVal.source),
+        transparent:true,
+        zIndex:50
+      }
+    };
     newVal.jsonData().then(function(resp){
       console.log(resp);
       $scope.geojson = {
-        data:resp
+        data:resp,
+        style:{
+          weight:0,
+          fillOpacity:0
+        }
       };
     });
   });

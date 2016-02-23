@@ -21,13 +21,15 @@
   },
   {
     "name":"NRM Regions",
-    "source":"statisticalRegions",
-    "labelField":"WETLAND_NA"
+    "source":"small_NRMR_2011_AUST",
+    "sourceWMS":"NRMR_2011_AUST",
+    "labelField":"NRMR_NAME"
   },
   {
     "name":"National Parks",
-    "source":"statisticalRegions",
-    "labelField":"WETLAND_NA"
+    "source":"geo_capad",
+    "sourceWMS":"CAPAD_2014_terrestrial_wgs",
+    "labelField":"NAME"
   },
   {
     "name":"Ramsar Wetlands",
