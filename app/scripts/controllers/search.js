@@ -36,12 +36,22 @@ angular.module('ausEnvApp')
 
     $scope.canCentre = function() {
       //console.log(selection.mapMode);
-      return (selection.mapMode === 'Polygon') && ($scope.selection.selectedRegion !== undefined);
+      return true;  //Can always centre on Australia
+      //return (selection.mapMode === 'Polygon') && ($scope.selection.selectedRegion !== undefined);
     }; //canCentre
 
     $scope.zoomToFeature = function() {
-      var geojson = L.geoJson($scope.selection.selectedRegion.feature);
-      leafletData.getMap().then(function(map) { map.fitBounds(geojson.getBounds(),{maxZoom:13}); } );
+      if ((selection.mapMode === 'Polygon') || ($scope.selection.selectedRegion === undefined)) {
+        var geojson = L.geoJson($scope.selection.selectedRegion.feature);
+        leafletData.getMap().then(function (map) {
+          map.fitBounds(geojson.getBounds(), {maxZoom: 13});
+        });
+      } else {
+        leafletData.getMap().then(function (map) {
+          map.setView([-23.07, 135.08], 4.5);
+        });
+        // need to change this to automate to show map of Australia best fit to leaflet control
+      }
     }; //zoomToFeature
 
   });
