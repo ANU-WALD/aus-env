@@ -11,117 +11,7 @@
 angular.module('ausEnvApp')
   .controller('MapCtrl', function ($scope,$route,$http,$interpolate,selection,themes) {
     $scope.selection = selection;
-    var WMS_SERVER='http://hydrograph.flowmatters.com.au';
 
-    angular.extend($scope,{
-      defaults:{
-        scrollWheelZoom: false,
-        crs: L.CRS.EPSG4326
-      },
-
-      mapCentre:{
-        lat: -23.07,
-        lng: 135.08,
-        zoom: 5
-      },
-
-      layers:{
-        baselayers:{
-//          osm: {
-//            name: 'OpenStreetMap',
-//            url: 'http://129.206.228.72/cached/osm?',
-//            type: 'wms',
-//            layerParams:{
-//              version: '1.1.1',
-//              format: 'image/png',
-//              layers:'osm_auto:all'
-//            }
-//          },
-        },
-
-        overlays:{
-          mask: {
-            name: 'Ocean Mask',
-//            url:'http://40.127.88.222:8000/wms?',
-            url:WMS_SERVER+'/public/wms?',
-//            url:'http://localhost:8881/public/wms?',
-            //service=WMS&version=1.1.0&request=GetMap&layers=public:TM_WORLD_BORDERS-0.3&styles=&bbox=-179.99999999999997,-90.0,180.0,83.62359600000008&width=768&height=370&srs=EPSG:4326&format=image%2Fpng'
-            type:'wms',
-            visible:true,
-            layerParams:{
-              version:'1.1.1',
-              format:'image/png',
-              layers:'public:water_polygons_simple25',
-              transparent:true
-            }
-          },
-          countries: {
-            name: 'Countries',
-            url:WMS_SERVER+'/public/wms?',
-//            url:'http://localhost:8881/public/wms?',
-            //service=WMS&version=1.1.0&request=GetMap&layers=public:TM_WORLD_BORDERS-0.3&styles=&bbox=-179.99999999999997,-90.0,180.0,83.62359600000008&width=768&height=370&srs=EPSG:4326&format=image%2Fpng'
-            type:'wms',
-            visible:true,
-            layerParams:{
-              version:'1.1.1',
-              format:'image/png',
-              layers:'public:TM_WORLD_BORDERS-0.3',
-              transparent:true
-            }
-          },
-        }
-      },
-
-      dateComponents:{
-        selected_day: 'DD',
-        selected_month: 'MM',
-        selected_year: 'YYYY'
-      },
-
-      events: {
-        map: {
-          enable: ['zoomstart', 'drag', 'click', 'mousemove'],
-            logic: 'emit'
-        }
-      },
-
-      coordinates:{
-        latitude:null,
-        longitude:null
-      },
-
-      geojson:null
-    });
-
-    $scope.makeLayer = function() {
-      return {
-        name: 'Some Model Results',
-        type: 'wms',
-        visible: true,
-//            url: 'http://localhost:8080/thredds/wms/testAll/rr_2015.nc?',
-        url: 'http://localhost:8080/thredds/wms/testAll/ANUWALD.change.2015_rechunked.nc?',
-        // 'http://dapds00.nci.org.au/thredds/wms/ub8/au/OzWALD/daily/AWRA.daily.Stot.2011.nc?',
-        doRefresh: true,
-        layerParams: {
-//              layers: 'rain_day',
-          layers: 'ChangeMap',
-          time:'2015-12-31',
-          format: 'image/png',
-          transparent: true,
-          logscale:false,
-          styles:'boxfill/rainbow',
-          tileSize:256,
-          minZoom: 1,
-          maxZoom: 15,
-//              width:512,
-//              height:512,
-          numcolorbands:50,
-          colorscalerange:'0,1',
-          belowmincolor:'transparent',abovemaxcolor:'extend'
-        }
-      };
-
-    };
     /* here defined all the event handler, please feel free to ask Chin */
     $scope.$on('leafletDirectiveMap.click', function(event, args){
       //window.alert(args.leafletEvent.latlng.lng);
@@ -138,13 +28,13 @@ angular.module('ausEnvApp')
 
     /* the function to change the date parameters of the layer, please feel free to ask Chin */
     $scope.dateChangedFunction = function() {
-      $scope.layers.overlays.aWMS.layerParams.time = $scope.dateComponents.selected_year + '-' + $scope.dateComponents.selected_month + '-' + $scope.dateComponents.selected_day;
-      $scope.layers.overlays.aWMS.doRefresh = true;
+      $scope.selection.layers.overlays.aWMS.layerParams.time = $scope.dateComponents.selected_year + '-' + $scope.dateComponents.selected_month + '-' + $scope.dateComponents.selected_day;
+      $scope.selection.layers.overlays.aWMS.doRefresh = true;
     };
 
     /* the function to change the url of the layer, please feel free to ask Chin */
     $scope.urlChangedFunction = function() {
-      $scope.layers.overlays.aWMS.doRefresh = true;
+      $scope.selection.layers.overlays.aWMS.doRefresh = true;
     };
 
   $scope.$watch('selection.themeObject',function(newVal){
@@ -168,9 +58,9 @@ angular.module('ausEnvApp')
 //      newVal._jsonData = $http.get('static/'+newVal.source + '.json');
 //    }
 //    // +++ Causing stack overflows??? Due to leaflet events perhaps?
-    $scope.layers.overlays.selectionLayer = {
+    $scope.selection.layers.overlays.selectionLayer = {
       name: newVal.name,
-      url:WMS_SERVER+'/wald/wms?',
+      url:$scope.selection.WMS_SERVER+'/wald/wms?',
 //            url:'http://localhost:8880/geoserver/wald/wms?',
 //            url:'http://localhost:8881/wald/wms?',
       //service=WMS&version=1.1.0&request=GetMap&layers=public:TM_WORLD_BORDERS-0.3&styles=&bbox=-179.99999999999997,-90.0,180.0,83.62359600000008&width=768&height=370&srs=EPSG:4326&format=image%2Fpng'
@@ -198,8 +88,8 @@ angular.module('ausEnvApp')
   });
 
   $scope.clearView = function() {
-    if($scope.layers.overlays.aWMS) {
-      delete $scope.layers.overlays.aWMS;
+    if($scope.selection.layers.overlays.aWMS) {
+      delete $scope.selection.layers.overlays.aWMS;
     }
 
 //    if($scope.layers.overlays.json) {
@@ -220,24 +110,24 @@ angular.module('ausEnvApp')
       return;
     }
 
-    $scope.layers.overlays.aWMS = $scope.makeLayer();
+    $scope.selection.layers.overlays.aWMS = $scope.selection.makeLayer();
 
     var fn = $interpolate(layer.url)(selection);
     var BASE_URL='http://dapds00.nci.org.au/thredds';
 
-    $scope.layers.overlays.aWMS.name = layer.title;
-    $scope.layers.overlays.aWMS.url = BASE_URL+'/wms/'+fn+'?';
-    $scope.layers.overlays.aWMS.layerParams.time = $interpolate(layer.time)(selection);
-    $scope.layers.overlays.aWMS.layerParams.layers = layer.variable;
-    $scope.layers.overlays.aWMS.layerParams.colorscalerange = layer.colorscalerange;
+    $scope.selection.layers.overlays.aWMS.name = layer.title;
+    $scope.selection.layers.overlays.aWMS.url = BASE_URL+'/wms/'+fn+'?';
+    $scope.selection.layers.overlays.aWMS.layerParams.time = $interpolate(layer.time)(selection);
+    $scope.selection.layers.overlays.aWMS.layerParams.layers = layer.variable;
+    $scope.selection.layers.overlays.aWMS.layerParams.colorscalerange = layer.colorscalerange;
     if(layer.belowmincolor){
-      $scope.layers.overlays.aWMS.layerParams.belowmincolor = layer.belowmincolor;
+      $scope.selection.layers.overlays.aWMS.layerParams.belowmincolor = layer.belowmincolor;
     }
 
     if(layer.abovemaxcolor){
-      $scope.layers.overlays.aWMS.layerParams.abovemaxcolor = layer.abovemaxcolor;
+      $scope.selection.layers.overlays.aWMS.layerParams.abovemaxcolor = layer.abovemaxcolor;
     }
-    $scope.layers.overlays.aWMS.doRefresh = true;
+    $scope.selection.layers.overlays.aWMS.doRefresh = true;
 
   };
 
