@@ -26,12 +26,16 @@ angular.module('ausEnvApp')
         lines.forEach(function(line){
           var cols = line.split(',');
           var polygonName = cols.shift();
-          data[polygonName] = cols.map(function(val){return +val;});
+          data[polygonName] = cols.map(function(val){return +val;}); //convert the numbers of type string into the actual numbers
+
         });
+
         data.columnNames = columns;
         result.resolve(data);
       });
 
       return result.promise;
     };
+
+
   });
