@@ -25,40 +25,90 @@ angular.module('ausEnvApp')
       }
     ];
 
+    // Define the empty chart
     $scope.barLabels = [];
+    $scope.barSeries = [];
     $scope.barData = [];
 
+    $scope.pieData = [];
+    $scope.pieLabels = [];
+    var nationalSum = 0;
+    var regionalSum = 0;
+
     details.getBarChartData('example','wetlands').then(function(data){
-      $scope.barChartData = data;
-      console.log($scope.barChartData);
+      // An object, rows of arrays, first rwo is nationalthen identified by the name of the place
+      $scope.barChartData = data; 
       $scope.selectBarChartData($scope.selectedRegion);
     });
 
     $scope.selectBarChartData = function(newRegion){
+      // Empty the previous barchart
+      $scope.barLabels = [];
+      $scope.barSeries = [];
+      $scope.barData = [];
+
+      $scope.pieData = [];
+      $scope.pieLabels = [];
+
       if(!newRegion) {
         // Treat it as national...
-        $scope.selectedBarData = $scope.barChartData.national;
+        //$scope.selectedBarDataNational = $scope.barChartData.national;
+        $scope.barLabels = $scope.barChartData.columnNames;
+        $scope.barSeries.push('National');
+        $scope.barData.push($scope.barChartData.national);
+
+        /*
+        $scope.pieLabels.push("Download Sales");
+        $scope.pieData = [300];
+        */
+
+        $scope.pieLabels.push("National");
+        nationalSum = $scope.barChartData.national.reduce((chin, liu) => chin + liu, 0);
+        $scope.pieData.push(nationalSum); 
+
       } else {
-        console.log(newRegion);
-        $scope.selectedBarData = $scope.barChartData[newRegion.name];
+        //$scope.selectedBarDataReion = $scope.barChartData[newRegion.name];
+        $scope.barLabels = $scope.barChartData.columnNames;
+        $scope.barSeries.push('National');
+        $scope.barSeries.push(newRegion.name);
+        $scope.barData.push($scope.barChartData.national);
+        $scope.barData.push($scope.barChartData[newRegion.name]);
+
+        $scope.pieLabels.push("National");
+        $scope.pieLabels.push(newRegion.name);
+        nationalSum = $scope.barChartData.national.reduce((chin, liu) => chin + liu, 0);
+        $scope.pieData.push(nationalSum); 
+        regionalSum = $scope.barChartData[newRegion.name].reduce((chin, liu) => chin + liu, 0);
+        $scope.pieData.push(regionalSum); 
+
       }
     };
 
     $scope.$watch('selection.selectedRegion',function(newRegion){
+      // Empty the previous barchart
+      $scope.barLabels = [];
+      $scope.barSeries = [];
+      $scope.barData = [];
+
+      $scope.pieData = [];
+      $scope.pieLabels = [];
+
       if(!$scope.barChartData) {
         return;
       }
 
-      $scope.selectBarChartData(newRegion);
-
-      $scope.barLabels = [];
-      $scope.barData = [];
-      console.log("chin");
-      console.log($scope.barChartData.columnNames);
       $scope.barLabels = $scope.barChartData.columnNames;
-      console.log($scope.barLabels);
-      $scope.barData.push($scope.selectedBarData);
-      console.log($scope.barData);
+      $scope.barSeries.push('National');
+      $scope.barSeries.push(newRegion.name);
+      $scope.barData.push($scope.barChartData.national);
+      $scope.barData.push($scope.barChartData[newRegion.name]);
+
+      $scope.pieLabels.push("National");
+      $scope.pieLabels.push(newRegion.name);
+      nationalSum = $scope.barChartData.national.reduce((chin, liu) => chin + liu, 0);
+      $scope.pieData.push(nationalSum); 
+      regionalSum = $scope.barChartData[newRegion.name].reduce((chin, liu) => chin + liu, 0);
+      $scope.pieData.push(regionalSum); 
     });
 
 
