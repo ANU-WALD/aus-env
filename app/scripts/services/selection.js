@@ -10,7 +10,7 @@
  * Responsible for managing selection choices and the map.
  */
 angular.module('ausEnvApp')
-  .service('selection', function ($q,leafletData) {
+  .service('selection', function (leafletData) {
     var service = this;
 
     _initialise();
@@ -91,8 +91,23 @@ angular.module('ausEnvApp')
     };
 
 
-    service.clearFeatures = function() {
-      service.geojson = {};
+    service.clearFeatureOverlays = function() {
+      //console.log("here");
+      //console.log(service.geojson);
+      //console.log(service.layers.overlays);
+      if(service.layers.overlays.selectionLayer) {
+        delete service.layers.overlays.selectionLayer;
+      }
+      //service.layers.clearLayers();
+      //leafletData.getMap().then(function(map) { console.log("trying"); console.log(map); map.clearLayers(); } );
+    };
+
+    service.setMapModeGrid = function() {
+      service.mapMode = "Grid";
+    };
+
+    service.isMapModeGrid = function() {
+      return (service.mapMode === "Grid");
     };
 
     function _initialise() {

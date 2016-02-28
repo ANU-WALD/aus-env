@@ -93,6 +93,7 @@ angular.module('ausEnvApp')
   });
 
   $scope.clearView = function() {
+    console.log("called clearView");
     if($scope.selection.layers.overlays.aWMS) {
       delete $scope.selection.layers.overlays.aWMS;
     }

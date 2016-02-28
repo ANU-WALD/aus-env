@@ -27,4 +27,14 @@ angular.module('ausEnvApp')
       });
     }; //regionTypeChanged
 
+    $scope.clearMap = function() {
+      selection.setMapModeGrid();
+      selection.regionType = null;
+      selection.clearFeatureOverlays();
+    };  //clearMap
+
+    $scope.canUseSearchText = function() {
+      return ((!selection.isMapModeGrid()) && (selection.regionType !== null));
+    };  //canUseSearchText
+
   });
