@@ -10,16 +10,21 @@
 
 angular.module('ausEnvApp')
   .controller('MapCtrl', function ($scope,$route,$http,$interpolate,selection,themes) {
+
     $scope.selection = selection;
 
     /* here defined all the event handler, please feel free to ask Chin */
+
     $scope.$on('leafletDirectiveMap.click', function(event, args){
-      //window.alert(args.leafletEvent.latlng.lng);
-      $scope.coordinates.latitude = args.leafletEvent.latlng.lat;
-      $scope.coordinates.longitude = args.leafletEvent.latlng.lng;
+      //console.log(args.leafletEvent.target);
+      //selection.setCoordinates(args.leafletEvent.latlng);
+      //selection.leafletData.getMap().then(function(map) { console.log(map); });
+      //console.log(args);
     });
 
+
     $scope.$on('leafletDirectiveGeoJson.click',function(event,args){
+      //console.log(args.leafletEvent.target);
       var newFeature = args.leafletEvent.target.feature;
       selection.selectedRegion = selection.availableFeatures.filter(function(f){
         return f.name===newFeature.properties[selection.regionType.labelField];
@@ -52,7 +57,7 @@ angular.module('ausEnvApp')
     }
     console.log(newVal);
 
-    $scope.geojson = {};
+    $scope.selection.geojson = {};
 //
 //    if(!newVal._jsonData) {
 //      newVal._jsonData = $http.get('static/'+newVal.source + '.json');
@@ -77,7 +82,7 @@ angular.module('ausEnvApp')
     };
     newVal.jsonData().then(function(resp){
       console.log(resp);
-      $scope.geojson = {
+      $scope.selection.geojson = {
         data:resp,
         style:{
           weight:0,
@@ -141,7 +146,7 @@ angular.module('ausEnvApp')
       // +++ Causing stack overflows??? Due to leaflet events perhaps?
       themeObject._jsonData.then(function(resp){
         console.log(resp.data);
-        $scope.geojson = {
+        $scope.selection.geojson = {
           data:resp.data
         };
 //        $scope.layers.overlays.json = {

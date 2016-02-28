@@ -13,9 +13,11 @@
 
 <input type="text" ng-model="selection.selectedRegion" placeholder="Search or select" uib-typeahead="feature as feature.name for feature in selection.availableFeatures | filter:$viewValue" class="form-control" typeahead-min-length="0">
 
-<button type="button" class="btn btn-primary btn-xs" ng-disabled="!canCentre()" ng-click="zoomToFeature()">Centre
-</button>
+  <button type="button" class="btn btn-primary btn-xs" ng-click="selection.zoomToFeature()">Centre
+  </button>
+  <button type="button" class="btn btn-primary btn-xs" ng-click="selection.clearFeatures()">Clear
+  </button>
 
-<p>DEBUG: {{selection.selectedRegion | json | limitTo:20 }}</p>
-<p>DEBUG: {{selection.mapMode }}</p>
+<!-- <p>DEBUG: {{selection.selectedRegion | json | limitTo:20 }}</p>
+<p>DEBUG: {{selection.mapMode }}</p> -->
 </div>
