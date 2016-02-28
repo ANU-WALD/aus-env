@@ -32,8 +32,8 @@ angular.module('ausEnvApp')
 
     $scope.pieData = [];
     $scope.pieLabels = [];
-    //var nationalSum = 0;
-    //var regionalSum = 0;
+    var nationalSum = 0;
+    var regionalSum = 0;
 
     details.getBarChartData('example','wetlands').then(function(data){
       // An object, rows of arrays, first rwo is national the rest rows identified by the name of the place
@@ -57,16 +57,9 @@ angular.module('ausEnvApp')
         $scope.barSeries.push('National');
         $scope.barData.push($scope.barChartData.national);
 
-        /*
-        $scope.pieLabels.push("Download Sales");
-        $scope.pieData = [300];
-        */
-
-        /*
         $scope.pieLabels.push("National");
-        nationalSum = $scope.barChartData.national.reduce((a, b) => a + b, 0);
+        nationalSum = $scope.barChartData.national.reduce(function(a, b) { return a + b; }, 0);
         $scope.pieData.push(nationalSum); 
-        */
 
       } else {
         //$scope.selectedBarDataReion = $scope.barChartData[newRegion.name];
@@ -76,15 +69,12 @@ angular.module('ausEnvApp')
         $scope.barData.push($scope.barChartData.national);
         $scope.barData.push($scope.barChartData[newRegion.name]);
 
-        /*
         $scope.pieLabels.push("National");
         $scope.pieLabels.push(newRegion.name);
-        nationalSum = $scope.barChartData.national.reduce((a, b) => a + b, 0);
+        nationalSum = $scope.barChartData.national.reduce(function(a, b) { return a + b; }, 0);
         $scope.pieData.push(nationalSum); 
-        regionalSum = $scope.barChartData[newRegion.name].reduce((a, b) => a + b, 0);
+        regionalSum = $scope.barChartData[newRegion.name].reduce(function(a, b) { return a + b; }, 0);
         $scope.pieData.push(regionalSum); 
-        */
-
       }
     };
 
@@ -107,14 +97,12 @@ angular.module('ausEnvApp')
       $scope.barData.push($scope.barChartData.national);
       $scope.barData.push($scope.barChartData[newRegion.name]);
 
-      /*
       $scope.pieLabels.push("National");
       $scope.pieLabels.push(newRegion.name);
-      nationalSum = $scope.barChartData.national.reduce((a, b) => a + b, 0);
+      nationalSum = $scope.barChartData.national.reduce(function(a, b) { return a + b; }, 0);
       $scope.pieData.push(nationalSum); 
-      regionalSum = $scope.barChartData[newRegion.name].reduce((a, b) => a + b, 0);
+      regionalSum = $scope.barChartData[newRegion.name].reduce(function(a, b) { return a + b; }, 0);
       $scope.pieData.push(regionalSum); 
-      */
     });
 
 
