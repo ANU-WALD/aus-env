@@ -37,4 +37,8 @@ angular.module('ausEnvApp')
       return ((!selection.isMapModeGrid()) && (selection.regionType !== null));
     };  //canUseSearchText
 
+    $scope.setLayerOpacity = function(change) {
+      selection.setOpacity(change);
+    }; //test
+
   });
