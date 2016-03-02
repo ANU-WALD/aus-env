@@ -9,10 +9,12 @@
  */
 
 angular.module('ausEnvApp')
-  .controller('MapCtrl', function ($scope,$route,$http,$interpolate,selection,themes) {
+  .controller('MapCtrl', function ($scope,$route,$http,$interpolate,$compile,selection,themes) {
 
     $scope.selection = selection;
-
+    $scope.mapControls = {
+      custom:[]
+    };
     /* here defined all the event handler, please feel free to ask Chin */
 
     $scope.$on('leafletDirectiveMap.click', function(event, args){
@@ -53,6 +55,10 @@ angular.module('ausEnvApp')
 
   $scope.$watch('selection.regionType',function(newVal){
     if(!newVal){
+      $scope.selection.geojson = {};
+      if($scope.selection.layers.overlays.selectionLayer){
+        delete $scope.selection.layers.overlays.selectionLayer;
+      }
       return;
     }
     console.log(newVal);
@@ -161,6 +167,31 @@ angular.module('ausEnvApp')
     }
   };
 
+  var createLeafeletCustomControl = function(pos,template) {
+    var ctrl = new L.Control({position:pos});
+
+    ctrl.onAdd =
+      function() {
+        var div = L.DomUtil.create('div');
+        var container = L.DomUtil.create('div','',div);
+        container.setAttribute('ng-include','\'views/maptools/'+template+'.html\'');
+
+        var newScope = $scope.$new();
+        $compile(div)(newScope);
+        L.DomEvent.disableClickPropagation(div);
+        L.DomEvent.on(div, 'mousewheel', L.DomEvent.stopPropagation);
+        L.DomEvent.on(div, 'click', L.DomEvent.stopPropagation);
+        return div;
+      };
+    return ctrl;
+  };
+
+  $scope.configureMapTools = function() {
+    var modeTool = createLeafeletCustomControl('topright','mapmode');
+    $scope.mapControls.custom.push(modeTool);
+  };
+
+  $scope.configureMapTools();
   $scope.setDefaultTheme = function(themesData){
     selection.theme = themesData[1].name;
     selection.themeObject = themesData[1];
