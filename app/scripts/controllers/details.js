@@ -35,11 +35,16 @@ angular.module('ausEnvApp')
     var nationalSum = 0;
     var regionalSum = 0;
 
-    details.getBarChartData('example','wetlands').then(function(data){
-      // An object, rows of arrays, first rwo is national the rest rows identified by the name of the place
-      $scope.barChartData = data; 
-      $scope.selectBarChartData($scope.selectedRegion);
-    });
+    try {
+      details.getBarChartData($scope.selection.selectedLayer.summary, $scope.selection.regionType.source).then(function(data){
+        // An object, rows of arrays, first rwo is national the rest rows identified by the name of the place
+        console.log("selection");
+        $scope.barChartData = data; 
+        $scope.selectBarChartData($scope.selectedRegion);
+      });
+    } catch(err) {
+      console.log("missing the csv data");
+    }
 
     $scope.selectBarChartData = function(newRegion){
       // Empty the previous barchart
@@ -79,7 +84,19 @@ angular.module('ausEnvApp')
     };
 
     $scope.$watch('selection.selectedRegion',function(newRegion){
-      // Empty the previous barchart
+      try {
+        details.getBarChartData($scope.selection.selectedLayer.summary, $scope.selection.regionType.source).then(function(data){
+          // An object, rows of arrays, first rwo is national the rest rows identified by the name of the place
+          console.log("selection");
+          $scope.barChartData = data; 
+          $scope.selectBarChartData($scope.selectedRegion);
+        });
+      } catch(err) {
+        console.log("missing the csv data");
+      }
+
+      console.log($scope.selection.selectedLayer.summary);
+      console.log($scope.selection.regionType.source);
       $scope.barLabels = [];
       $scope.barSeries = [];
       $scope.barData = [];
@@ -92,6 +109,8 @@ angular.module('ausEnvApp')
       }
 
       $scope.barLabels = $scope.barChartData.columnNames;
+      console.log("barLabels");
+      console.log($scope.barLabels);
       $scope.barSeries.push('National');
       $scope.barSeries.push(newRegion.name);
       $scope.barData.push($scope.barChartData.national);
