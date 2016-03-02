@@ -12,10 +12,23 @@ angular.module('ausEnvApp')
     $scope.selection = selection;
     staticData.unwrap($scope,'options',spatialFoci.regionTypes);
 
+    $scope.$watch('selection.mapMode',function(newVal){
+      if(newVal==='Grid') {
+        selection.lastRegionType = selection.regionType;
+        selection.regionType=null;
+      } else {
+        if(!selection.regionType) {
+          selection.regionType = selection.lastRegionType;
+        }
+      }
+    });
+
     $scope.regionTypeChanged = function(newOption) {
       if(!newOption){
+        selection.mapMode = 'Grid';
         return;
       }
+      selection.mapMode = 'Polygon';
       newOption.jsonData().then(function(data){
         selection.availableFeatures = data.features.map(function(f){
           return {
@@ -36,9 +49,4 @@ angular.module('ausEnvApp')
     $scope.canUseSearchText = function() {
       return ((!selection.isMapModeGrid()) && (selection.regionType !== null));
     };  //canUseSearchText
-
-    $scope.setLayerOpacity = function(change) {
-      selection.setOpacity(change);
-    }; //test
-
   });
