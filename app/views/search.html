@@ -2,17 +2,19 @@
 <div class="container">
 <p>Focus</p>
 
+<!--
 <label>
   <input type="radio" name="focus" value="Grid" ng-model="selection.mapMode">National
 </label>
+-->
 
 <label>
-  <input type="radio" name="focus" value="Polygon" ng-model="selection.mapMode">Regional
+<!--  <input type="radio" name="focus" value="Polygon" ng-model="selection.mapMode">Regional-->
   <select
-    ng-disabled="selection.isMapModeGrid()"
     ng-model="selection.regionType"
     ng-change="regionTypeChanged(selection.regionType)"
     ng-options="option.name for option in options track by option.name">
+    <option value=""></option>
   </select>
 </label>
 

@@ -14,6 +14,20 @@
         "default":true,
         "title":"Net Tree Cover Change",
         "url":""
+      },
+      {
+        "title":"Tree Cover",
+        "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.{{year}}.250m.nc",
+        "variable":"TreeCover",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"1,100"
+      },
+      {
+        "title":"Land cover class",
+        "url":"ub8/au/LandCover/DLCD_v2_MODIS_EVI_{{year-1}}-{{year}}.nc",
+        "variable":"DLCD",
+        "time":"{{year-1}}-12-31",
+        "colorscalerange":"1,35"
       }
     ]
   },
