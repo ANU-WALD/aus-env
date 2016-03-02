@@ -12,7 +12,8 @@
   {
     "name":"BoM river regions",
     "source":"HR_Regions_river_region",
-    "labelField":"RivRegName"
+    "labelField":"RivRegName",
+    "key":"RivRegNum"
   },
   {
     "name":"Bioregions (IBRA)",
