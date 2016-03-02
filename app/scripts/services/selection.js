@@ -99,7 +99,6 @@ angular.module('ausEnvApp')
         var oz = service.ozLatLngZm;
         map.setView([oz.lat, oz.lng], oz.zoom);
       });
-      throw new Error("An Error");
     };
 
 
@@ -134,9 +133,6 @@ angular.module('ausEnvApp')
         //console.log(service.layers.overlays.selectionLayer);
       }
     };
-
-    function _initialiseLeafLetData() {
-    } //initialiseLeafletData
 
     function _makeLayer() {
       return {
