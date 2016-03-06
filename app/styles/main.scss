@@ -10,6 +10,7 @@ $navbar-default-link-color:#ccc;
 $navbar-default-color:#ccc;
 $navbar-inverse-brand-color:#eee;
 $navbar-inverse-link-color:#eee;
+$grid-float-breakpoint:992px;
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 @import "font-awesome/scss/font-awesome.scss";
@@ -44,20 +45,31 @@ html, body{
 }
 
 /*** OVERRIDE BOOTSTRAP THEME ***/
+
 .themes-nav.nav > li.theme-item > a {
   display:initial;
 }
 
+
+/*
 .themes-nav.nav > li.layer-item > a {
   display:block;
 }
+*/
 
+/*
 .nav > li.active {
   background:$navbar-default-bg;
 }
+*/
+
+@media screen and (min-width:$container-sm) {
+  .nav > li {
+    height:$navbar-height;
+  }
+}
 
 .nav > li {
-  height:$navbar-height;
   /*position:static;*/
 
 /*
@@ -75,6 +87,41 @@ html, body{
   }
   a.dropdown-toggle {
     padding-left:0px;
+  }
+}
+
+@media screen and (min-width:$container-sm) and (max-width:1400px) {
+  .nav > li {
+    a.navbar-theme {
+      padding-left:5px;
+      padding-right:0px;
+
+    }
+  }
+}
+
+@media screen and (min-width:$container-sm) and (max-width:1330px) {
+  .navbar-form {
+    padding-left: 5px;
+    padding-right: 5px;
+
+    button.btn {
+      padding-left:5px;
+      padding-right:5px;
+    }
+  }
+}
+
+@media screen and (min-width:$container-sm) and (max-width:1100px) {
+  .nav > li {
+    a.navbar-theme {
+      padding-left:5px;
+      padding-right:0px;
+
+    }
+    a.dropdown-toggle {
+      padding-right:0px;
+    }
   }
 }
 /********/

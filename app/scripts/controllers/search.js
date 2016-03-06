@@ -44,6 +44,7 @@ angular.module('ausEnvApp')
       selection.setMapModeGrid();
       selection.regionType = null;
       selection.clearFeatureOverlays();
+      selection.navbarCollapsed = true;
     };  //clearMap
 
     $scope.canUseSearchText = function() {

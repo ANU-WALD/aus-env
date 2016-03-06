@@ -27,7 +27,7 @@ angular.module('ausEnvApp')
     service.availableFeatures = [];
     service.WMS_SERVER = 'http://hydrograph.flowmatters.com.au';
     service.ozLatLngZm = { lat: -23.07, lng: 135.08, zoom: 5 };
-
+    service.navbarCollapsed=true;
     service.leafletData = leafletData;
 
     /*
@@ -80,6 +80,7 @@ angular.module('ausEnvApp')
       } else {
         service.centreAustralia();
       }
+      service.navbarCollapsed = true;
     }; //zoomToFeature
 
     /*
