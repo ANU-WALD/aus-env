@@ -21,6 +21,7 @@ angular.module('ausEnvApp')
     service.regionName = null;
     service.selectedLayerName = null;
     service.selectedLayer = null;
+    service.detailsVisible = true;
     service.selectedDetailsView = 'bar';
     service.selectedRegion = null;
     service.availableFeatures = [];

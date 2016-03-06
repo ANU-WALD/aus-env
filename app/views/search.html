@@ -1,24 +1,22 @@
 
 <div class="container">
-<p>Focus</p>
+<form class="form-inline">
 
-<!--
-<label>
-  <input type="radio" name="focus" value="Grid" ng-model="selection.mapMode">National
-</label>
--->
+  <div class="form-group" style="width:100%">
+    <label for="focusSelect" class="focus-label">Focus</label>
+    <!--  <input type="radio" name="focus" value="Polygon" ng-model="selection.mapMode">Regional-->
+    <select id="focusSelect" class="form-control"
+        ng-model="selection.regionType"
+        ng-change="regionTypeChanged(selection.regionType)"
+        ng-options="option.name for option in options track by option.name">
+      <option value=""></option>
+    </select>
+  </div>
 
-<label>
-<!--  <input type="radio" name="focus" value="Polygon" ng-model="selection.mapMode">Regional-->
-  <select
-    ng-model="selection.regionType"
-    ng-change="regionTypeChanged(selection.regionType)"
-    ng-options="option.name for option in options track by option.name">
-    <option value=""></option>
-  </select>
-</label>
-
-<input type="text" ng-disabled="!canUseSearchText()" ng-model="selection.selectedRegion" placeholder="Search or select" uib-typeahead="feature as feature.name for feature in selection.availableFeatures | filter:$viewValue" class="form-control" typeahead-min-length="0">
+</form>
+  <div class="form-group">
+    <input type="text" ng-disabled="!canUseSearchText()" ng-model="selection.selectedRegion" placeholder="Search or select" uib-typeahead="feature as feature.name for feature in selection.availableFeatures | filter:$viewValue" class="search-box form-control" typeahead-min-length="0">
+  </div>
 
   <button type="button" class="btn btn-primary btn-xs" ng-click="selection.zoomToFeature()">Centre
   </button>

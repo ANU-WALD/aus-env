@@ -12,9 +12,9 @@ angular.module('ausEnvApp')
     staticData.unwrap($scope,'themes',themes.themes);
 
     $scope.iconMapping = {
-      degrading:'arrow-down',
-      improving:'arrow-up',
-      constant:'arrow-right'
+      degrading:'fa-arrow-down',
+      improving:'fa-arrow-up',
+      constant:'fa-arrow-right'
     };
 
     $scope.selectTheme = function(newTheme) {
@@ -30,7 +30,14 @@ angular.module('ausEnvApp')
       return result;
     };
 
-//    $scope.themeDirection = function(theme){
-//
-//    };
+    $scope.themeDirection = function(theme){
+      console.log(theme);
+      return $scope.iconMapping[theme.status];
+    };
+
+    $scope.selectThemeAndLayer = function(theme,layer) {
+      $scope.selectTheme(theme);
+      $scope.selection.selectedLayerName = layer.title;
+      $scope.selection.selectedLayer = layer;
+    };
   });

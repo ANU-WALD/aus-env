@@ -20,7 +20,8 @@ angular.module('ausEnvApp')
     angular.extend($scope, {
       defaults: {
         scrollWheelZoom: false,
-        crs: L.CRS.EPSG4326
+        crs: L.CRS.EPSG4326,
+        attributionControl: false
       }, //defaults
 
       mapCentre: {
@@ -272,6 +273,8 @@ angular.module('ausEnvApp')
   $scope.configureMapTools = function() {
     var modeTool = createLeafeletCustomControl('topright','mapmode');
     $scope.mapControls.custom.push(modeTool);
+    $scope.mapControls.custom.push(createLeafeletCustomControl('bottomleft','title'));
+    $scope.mapControls.custom.push(createLeafeletCustomControl('bottomright','details'));
   };
 
   $scope.configureMapTools();

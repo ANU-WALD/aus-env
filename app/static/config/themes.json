@@ -1,5 +1,6 @@
 [
   {
+    "id":"lcc",
     "name":"Land cover change",
     "longName":"Land use and land cover change",
     "status":"degrading",
@@ -32,6 +33,7 @@
     ]
   },
   {
+    "id":"bushfire",
     "name":"Bushfire",
     "status":"constant",
     "icon":"fire.png",
@@ -61,6 +63,7 @@
     ]
   },
   {
+    "id":"wa",
     "name":"Water Availability",
     "status":"improving",
     "icon":"water.png",
@@ -107,6 +110,7 @@
 
   },
   {
+    "id":"lh",
     "name":"Landscape Health",
     "status":"degrading",
     "icon":"landscape.png",
@@ -161,6 +165,7 @@
 
   },
   {
+    "id":"cs",
     "name":"Carbon Storage",
     "status":"degrading",
     "icon":"carbon_uptake.png",
@@ -192,6 +197,7 @@
 
   },
   {
+    "id":"wetlands",
     "name":"Rivers and Wetlands",
     "status":"constant",
     "icon":"wetlands.png",

@@ -1,11 +1,22 @@
 
-<div class="container">
-  <div class="row">
-    <div class="btn-group">
-      <label class="btn selection-button" ng-model="selection.selectedDetailsView" uib-btn-radio="view.style" ng-repeat="view in viewOptions">
-        <i class="fa fa-lg" ng-class="view.icon"></i>
-      </label>
-    </div>
+<uib-tabset type="pills" justified="true">
+  <uib-tab index="$index" ng-repeat="view in viewOptions">
+    <uib-tab-heading>
+      <i class="fa fa-lg" ng-class="view.icon"></i>
+      <span class="sr-only">{{view.style}}</span>
+    </uib-tab-heading>
+    <div ng-include="'views/details/'+view.style+'.html'"></div>
+  </uib-tab>
+</uib-tabset>
+
+<!--
+<div class="row">
+  <div class="btn-group">
+    <label class="btn selection-button" ng-model="selection.selectedDetailsView" uib-btn-radio="view.style" ng-repeat="view in viewOptions">
+      <i class="fa fa-lg" ng-class="view.icon"></i>
+    </label>
   </div>
-  <div ng-include="'views/details/'+selection.selectedDetailsView+'.html'"></div>
 </div>
+<div ng-include="'views/details/'+selection.selectedDetailsView+'.html'"></div>
+
+-->
