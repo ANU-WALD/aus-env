@@ -28,7 +28,7 @@ angular.module('ausEnvApp')
         var data = {};
         lines.forEach(function(line){
           var cols = line.split(',');
-          var polygonIdentifier = cols.shift();
+          var polygonIdentifier = "abc" + cols.shift();
           data[polygonIdentifier] = cols.map(function(val){return +val;}); //convert the numbers of type string into the actual numbers
 
         });
