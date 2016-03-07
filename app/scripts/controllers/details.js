@@ -75,16 +75,16 @@ angular.module('ausEnvApp')
         //$scope.selectedBarDataReion = $scope.barChartData[newRegion.name];
         try {
           $scope.barLabels = $scope.barChartData.columnNames;
-          $scope.barSeries.push('National');
-          //$scope.barSeries.push(newRegion.name);
-          $scope.barData.push($scope.barChartData.abc1);
-          //$scope.barData.push($scope.barChartData[newRegion.name]);
+          //$scope.barSeries.push('National');
+          $scope.barSeries.push(newRegion.name);
+          //$scope.barData.push($scope.barChartData.abc1);
+          $scope.barData.push($scope.barChartData[newRegion.name]);
 
-          $scope.pieLabels.push("National");
-          //$scope.pieLabels.push(newRegion.name);
-          nationalSum = $scope.barChartData.abc1.reduce(function(a, b) { return a + b; }, 0);
-          $scope.pieData.push(nationalSum); 
-          //regionalSum = $scope.barChartData[newRegion.name].reduce(function(a, b) { return a + b; }, 0);
+          //$scope.pieLabels.push("National");
+          $scope.pieLabels.push(newRegion.name);
+          //nationalSum = $scope.barChartData.abc1.reduce(function(a, b) { return a + b; }, 0);
+          //$scope.pieData.push(nationalSum); 
+          regionalSum = $scope.barChartData[newRegion.name].reduce(function(a, b) { return a + b; }, 0);
           $scope.pieData.push(regionalSum); 
         } catch(err) {
           console.log("Error:" + err + "," + " selection is undefined");
@@ -117,16 +117,17 @@ angular.module('ausEnvApp')
           $scope.barLabels = $scope.barChartData.columnNames;
           console.log("barLabels");
           console.log($scope.barLabels);
-          $scope.barSeries.push('National');
-          //$scope.barSeries.push(newRegion.name);
-          $scope.barData.push($scope.barChartData.abc1);
-          //$scope.barData.push($scope.barChartData[newRegion.name]);
+          //$scope.barSeries.push('National');
+          console.log("region name: " + newRegion.name);
+          $scope.barSeries.push(newRegion.name);
+          //$scope.barData.push($scope.barChartData.abc1);
+          $scope.barData.push($scope.barChartData[newRegion.name]);
 
           $scope.pieLabels.push("National");
           //$scope.pieLabels.push(newRegion.name);
-          nationalSum = $scope.barChartData.abc1.reduce(function(a, b) { return a + b; }, 0);
-          $scope.pieData.push(nationalSum); 
-          //regionalSum = $scope.barChartData[newRegion.name].reduce(function(a, b) { return a + b; }, 0);
+          //nationalSum = $scope.barChartData.abc1.reduce(function(a, b) { return a + b; }, 0);
+          //$scope.pieData.push(nationalSum); 
+          regionalSum = $scope.barChartData[newRegion.name].reduce(function(a, b) { return a + b; }, 0);
           $scope.pieData.push(regionalSum); 
         });
       } catch(err) {
