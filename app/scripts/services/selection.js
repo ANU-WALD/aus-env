@@ -29,6 +29,7 @@ angular.module('ausEnvApp')
     service.ozLatLngZm = { lat: -23.07, lng: 135.08, zoom: 5 };
     service.navbarCollapsed=true;
     service.leafletData = leafletData;
+    service.showMapSearchBar = false;
 
     /*
      * @ngdoc function
@@ -82,6 +83,13 @@ angular.module('ausEnvApp')
       }
       service.navbarCollapsed = true;
     }; //zoomToFeature
+
+    service.clearMap = function() {
+      service.setMapModeGrid();
+      service.regionType = null;
+      service.clearFeatureOverlays();
+      service.navbarCollapsed = true;
+    };  //clearMap
 
     /*
      * @ngdoc function

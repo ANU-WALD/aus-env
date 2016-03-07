@@ -21,7 +21,8 @@ angular.module('ausEnvApp')
       defaults: {
         scrollWheelZoom: false,
         crs: L.CRS.EPSG4326,
-        attributionControl: false
+        attributionControl: false,
+        zoomControl:false,
       }, //defaults
 
       mapCentre: {
@@ -275,6 +276,7 @@ angular.module('ausEnvApp')
     $scope.mapControls.custom.push(modeTool);
     $scope.mapControls.custom.push(createLeafeletCustomControl('bottomleft','title'));
     $scope.mapControls.custom.push(createLeafeletCustomControl('bottomright','details'));
+    $scope.mapControls.custom.push(createLeafeletCustomControl('topleft','zoom'));
   };
 
   $scope.configureMapTools();
@@ -282,6 +284,22 @@ angular.module('ausEnvApp')
     selection.theme = themesData[1].name;
     selection.themeObject = themesData[1];
   };
+
+    $scope.mapZoom = function(delta) {
+      selection.leafletData.getMap().then(function(map) {
+        if (delta > 0) {
+          map.zoomIn(delta);
+        } else {
+          map.zoomOut(Math.abs(delta));
+        }
+      });
+    };
+
+    $scope.mapPan = function(x,y) {
+      selection.leafletData.getMap().then(function(map) {
+        map.panBy([x,y]);
+      });
+    };
 
   themes.themes().then($scope.setDefaultTheme);
 });
