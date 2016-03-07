@@ -176,8 +176,10 @@ angular.module('ausEnvApp')
       $scope.geojson = {
         data:resp,
         style:{
-          weight:0,
-          fillOpacity:0
+          weight:2,
+          color:'red',
+          //fillColor:'red',
+          fillOpacity:0,
         }
       };
     });
@@ -300,6 +302,39 @@ angular.module('ausEnvApp')
         map.panBy([x,y]);
       });
     };
+
+    $scope.showFeatureOverlays = function() {
+      if($scope.layers.overlays.selectionLayer) {
+        //$scope.layers.overlays.selectionLayer.style.weight = 3;
+        //console.log($scope.geojson);
+        $scope.geojson.style.fillColor='red';
+        $scope.geojson.style.fillOpacity=0.65;
+        $scope.geojson.style.color='black';
+        //console.log($scope.layers.overlays.selectionLayer.layerOptions);
+        //console.log($scope.layers.overlays.selectionLayer);
+      }
+    };
+
+    $scope.$on("leafletDirectiveGeoJson.mouseover", function(ev, data) {
+      if ($scope.lastFeatureTarget) {
+        $scope.lastFeatureTarget.setStyle({
+          weight: 2,
+          color: 'red',
+          fillOpacity: 0.0,
+        });
+      }
+      var layer = data.leafletEvent.target;
+      $scope.lastFeatureTarget = layer;
+      console.log(layer);
+      layer.setStyle({
+        weight: 2,
+        color: 'black',
+        fillColor: 'red',
+        fillOpacity: 0.5,
+      });
+      layer.bringToFront();
+      //console.log(data);
+    });
 
   themes.themes().then($scope.setDefaultTheme);
 });

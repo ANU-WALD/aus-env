@@ -1,14 +1,17 @@
 <form class="navbar-form navbar-right">
   <select class="form-control"
+          uib-tooltip="Region View"
+          tooltip-popup-delay="750" tooltip-placement="left"
       ng-model="selection.regionType"
       ng-change="regionTypeChanged(selection.regionType)"
       ng-options="option.name for option in options track by option.name">
     <option value=""></option>
   </select>
+  <!--
   <input type="text" ng-disabled="!canUseSearchText()" ng-model="selection.selectedRegion" placeholder="Search or select" uib-typeahead="feature as feature.name for feature in selection.availableFeatures | filter:$viewValue" class="form-control" typeahead-min-length="0">
   <button type="button" class="btn btn-success" ng-click="selection.zoomToFeature()">Centre
   </button>
   <button type="button" class="btn btn-success" ng-click="selection.clearMap()">Clear
-  </button>
+  </button> -->
 </form>
 

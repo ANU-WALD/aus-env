@@ -3,19 +3,23 @@
   <div ng-show="selection.showMapSearchBar" ng-include="'views/maptools/searchBar.html'"></div>
   <br/>
   <div class="btn-group">
-    <button class="btn btn-xs" uib-tooltip="Zoom In" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="mapZoom(0.25)"><span class="glyphicon glyphicon-plus"/></button>
+    <button type="button" class="btn btn-xs" uib-tooltip="Zoom In" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="mapZoom(0.25)"><span class="glyphicon glyphicon-plus"/></button>
     <button class="btn btn-xs" uib-tooltip="Zoom Out" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="mapZoom(-0.25)"><span class="glyphicon glyphicon-minus"/></button>
   </div>
   <br/>
   <div class="btn-group">
-    <button class="btn btn-xs" uib-tooltip="Left" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="mapPan(-100,0)"><span class="glyphicon glyphicon-triangle-left"/></button>
-    <button class="btn btn-xs" uib-tooltip="Up" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="mapPan(0,-75)"><span class="glyphicon glyphicon-triangle-top"/></button>
-    <button class="btn btn-xs" uib-tooltip="Down" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="mapPan(0,75)"><span class="glyphicon glyphicon-triangle-bottom"/></button>
-    <button class="btn btn-xs" uib-tooltip="Right" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="mapPan(100,0)"><span class="glyphicon glyphicon-triangle-right"/></button>
+    <button type="button" class="btn btn-xs" uib-tooltip="Left" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="mapPan(-100,0)"><span class="glyphicon glyphicon-triangle-left"/></button>
+    <button type="button" class="btn btn-xs" uib-tooltip="Up" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="mapPan(0,-75)"><span class="glyphicon glyphicon-triangle-top"/></button>
+    <button type="button" class="btn btn-xs" uib-tooltip="Down" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="mapPan(0,75)"><span class="glyphicon glyphicon-triangle-bottom"/></button>
+    <button type="button" class="btn btn-xs" uib-tooltip="Right" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="mapPan(100,0)"><span class="glyphicon glyphicon-triangle-right"/></button>
   </div>
   <br/>
   <div class="btn-group">
-    <button class="btn btn-xs" uib-tooltip="Clear" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="selection.clearMap()"><span class="glyphicon glyphicon-globe"/></button>
-    <button class="btn btn-xs" uib-tooltip="Zoom To" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="selection.zoomToFeature()"><span class="glyphicon glyphicon-picture"/></button>
+    <button type="button" class="btn btn-xs" uib-tooltip="Clear" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="selection.clearMap()"><span class="glyphicon glyphicon-globe"/></button>
+    <button type="button" class="btn btn-xs" uib-tooltip="Zoom To" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="selection.zoomToFeature()"><span class="glyphicon glyphicon-picture"/></button>
+  </div>
+  <br/>
+  <div>
+    <button type="button" class="btn btn-xs" uib-tooltip="Overlay Toggle" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="showFeatureOverlays()">Overlay Toggle</button>
   </div>
 </div>

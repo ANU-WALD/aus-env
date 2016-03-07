@@ -1,3 +1,3 @@
 <div>
-  <button type="button">I'm a search Bar</button>
+  <input type="text" ng-disabled="false" ng-model="selection.selectedRegion" placeholder="Search or select" uib-typeahead="feature as feature.name for feature in selection.availableFeatures | filter:$viewValue" class="form-control" typeahead-min-length="0">
 </div>
