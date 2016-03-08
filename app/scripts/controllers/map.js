@@ -61,20 +61,6 @@ angular.module('ausEnvApp')
               transparent: true
             }
           },  //overlays.mask
-          countries: {
-            name: 'Countries',
-            url: selection.WMS_SERVER + '/public/wms?',
-//            url:'http://localhost:8881/public/wms?',
-            //service=WMS&version=1.1.0&request=GetMap&layers=public:TM_WORLD_BORDERS-0.3&styles=&bbox=-179.99999999999997,-90.0,180.0,83.62359600000008&width=768&height=370&srs=EPSG:4326&format=image%2Fpng'
-            type: 'wms',
-            visible: true,
-            layerParams: {
-              version: '1.1.1',
-              format: 'image/png',
-              layers: 'public:TM_WORLD_BORDERS-0.3',
-              transparent: true
-            }
-          }, //layers.overlays.countries
         } //layers.overlays
       }, //layers
 
