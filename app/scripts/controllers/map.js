@@ -88,6 +88,11 @@ angular.module('ausEnvApp')
 
     /* here defined all the event handler, please feel free to ask Chin */
 
+    $scope.$on('leafletDirectiveMap.load', function(event, args){
+      selection.centreAustralia();
+    });
+
+
     $scope.$on('leafletDirectiveMap.click', function(event, args){
       //console.log(args.leafletEvent.target);
       //selection.setCoordinates(args.leafletEvent.latlng);
@@ -162,8 +167,8 @@ angular.module('ausEnvApp')
       $scope.geojson = {
         data:resp,
         style:{
-          weight:2,
-          color:'red',
+          weight:1,
+          color:'green',
           //fillColor:'red',
           fillOpacity:0,
         }
@@ -304,8 +309,8 @@ angular.module('ausEnvApp')
     $scope.$on("leafletDirectiveGeoJson.mouseover", function(ev, data) {
       if ($scope.lastFeatureTarget) {
         $scope.lastFeatureTarget.setStyle({
-          weight: 2,
-          color: 'red',
+          weight: 1,
+          color: 'green',
           fillOpacity: 0.0,
         });
       }

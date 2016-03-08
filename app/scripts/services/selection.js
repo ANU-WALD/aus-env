@@ -27,6 +27,7 @@ angular.module('ausEnvApp')
     service.availableFeatures = [];
     service.WMS_SERVER = 'http://hydrograph.flowmatters.com.au';
     service.ozLatLngZm = { lat: -23.07, lng: 135.08, zoom: 5 };
+    service.ozLatLngMapBounds = [[-10,110],[-45,150]];
     service.navbarCollapsed=true;
     service.leafletData = leafletData;
     service.showMapSearchBar = false;
@@ -72,8 +73,8 @@ angular.module('ausEnvApp')
      * Zooms to current selected region or Australia if no
      *
      */
-    service.zoomToFeature = function() {
-      if ((service.mapMode === 'Polygon') || (service.selectedRegion === undefined)) {
+    service.zoomToFeature = function(forceAustralia) {
+      if (!forceAustralia && (service.mapMode === 'Polygon') && (service.selectedRegion !== undefined)) {
         var geojson = L.geoJson(service.selectedRegion.feature);
         leafletData.getMap().then(function (map) {
           map.fitBounds(geojson.getBounds(), {maxZoom: 13});
@@ -106,8 +107,9 @@ angular.module('ausEnvApp')
      */
     service.centreAustralia = function() {
       leafletData.getMap().then(function (map) {
-        var oz = service.ozLatLngZm;
-        map.setView([oz.lat, oz.lng], oz.zoom);
+        //var oz = service.ozLatLngZm;
+        map.fitBounds(service.ozLatLngMapBounds);
+        //map.setView([oz.lat, oz.lng], oz.zoom);
       });
     };
 
