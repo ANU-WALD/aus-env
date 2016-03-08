@@ -33,7 +33,7 @@ angular.module('ausEnvApp')
           //console.log(feature.properties);
           jsonIdNameMap.set(feature.properties.OBJECTID, feature.properties.RivRegName);
         });
-        
+
       });
 
       httpPromise.then(function(resp){
@@ -57,5 +57,28 @@ angular.module('ausEnvApp')
 
       return result.promise;
     };
+
+    //<editor-fold desc="pete linegraph">
+    service.makeSimpleLabels = function(length,prefix)
+    {
+      var pre = prefix || "";
+      var labels = [];
+      for(var i = 0; i<length; i++) {
+        labels.push(pre + (i+1));
+      }
+      console.log(labels);
+      return labels;
+    };
+
+    service.randomDataArray = function(length)
+    {
+      var data = [];
+      for(var i = 0; i<length; i++) {
+        data.push(Math.random());
+      }
+      console.log(data);
+      return data;
+    };
+    //</editor-fold>
 
   });
