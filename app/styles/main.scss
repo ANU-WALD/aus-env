@@ -83,18 +83,19 @@ html, body{
 */
   a.navbar-theme {
     padding-left:10px;
-    padding-right:5px;
+  /*  padding-right:5px;*/
   }
-  a.dropdown-toggle {
+/*  a.dropdown-toggle {
     padding-left:0px;
   }
+*/
 }
 
 @media screen and (min-width:$container-sm) and (max-width:1400px) {
   .nav > li {
     a.navbar-theme {
       padding-left:5px;
-      padding-right:0px;
+      padding-right:5px;
 
     }
   }
@@ -119,9 +120,10 @@ html, body{
       padding-right:0px;
 
     }
-    a.dropdown-toggle {
+/*    a.dropdown-toggle {
       padding-right:0px;
     }
+*/
   }
 }
 /********/

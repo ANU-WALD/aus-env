@@ -2,12 +2,13 @@
   <li uib-tooltip="{{theme.longName||theme.name}}"
       class="dropdown theme-item"
       ng-class="{'active':(selection.themeObject===theme)}">
-    <a class="navbar-theme" ng-click="selectTheme(theme)">
+    <a ng-if="theme.layers.length===1" class="navbar-theme" ng-click="selectTheme(theme)">
       <img class="navbar-icon" ng-if="theme.icon" ng-src="static/images/{{theme.icon}}" alt="{{theme.description}}">
       <span ng-if="!theme.icon">{{theme.name}}</span>
     </a>
-
-    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+    <a ng-if="theme.layers.length>1" class="navbar-theme dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+      <img class="navbar-icon" ng-if="theme.icon" ng-src="static/images/{{theme.icon}}" alt="{{theme.description}}">
+      <span ng-if="!theme.icon">{{theme.name}}</span>
       <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
