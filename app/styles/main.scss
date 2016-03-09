@@ -239,12 +239,30 @@ li.theme-item{
   }
 }
 
+.zoom-map-tool {
+
+}
+
+@media  screen and (max-width:$container-sm) {
+  .zoom-map-tool {
+    display:none;
+  }
+}
+
 .details-map-tool {
   width:300px;
   background:#FFF;
   border:1px solid black;
   border-radius:3px;
 }
+
+/*
+@media screen and (min-width:$container-desktop) {
+  .details-map-tool {
+    width:450px;
+  }
+}
+*/
 
 h2.details-heading {
   font-size:14px;
