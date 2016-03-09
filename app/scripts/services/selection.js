@@ -93,6 +93,15 @@ angular.module('ausEnvApp')
       service.navbarCollapsed = true;
     };  //clearMap
 
+    service.selectedRegionName = function() {
+      if(!service.selectedRegion || !service.selectedRegion.feature) {
+        return 'National';
+      }
+
+      return service.regionType.name + ' > ' +
+        service.selectedRegion.feature.properties[service.regionType.labelField];
+    };
+
     /*
      * @ngdoc function
      * @name centreAustralia
