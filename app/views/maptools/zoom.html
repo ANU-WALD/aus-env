@@ -1,11 +1,9 @@
-<div class="panel-group zoom-map-tool">
+<div class="panel-group hidden-xs">
   <div class="panel btn-group-xs">
-    <button type="button" class="btn-default" uib-tooltip="Zoom In" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="mapZoom(0.25)"><span class="glyphicon glyphicon-plus"/></button>
-    <button type="button" class="btn-default" uib-tooltip="Zoom Out" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="mapZoom(-0.25)"><span class="glyphicon glyphicon-minus"/></button>
+    <ng-include src="'views/maptools/zoom-buttons.html'"/>
   </div>
   <div class="panel btn-group-xs">
-    <button type="button" class="btn-default" uib-tooltip="Australia" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="selection.zoomToFeature(true)"><span class="glyphicon glyphicon-globe"/></button>
-    <button type="button" class="btn-default" uib-tooltip="Zoom To" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="selection.zoomToFeature()"><span class="glyphicon glyphicon-picture"/></button>
+    <ng-include src="'views/maptools/zoom-buttons-other.html'"/>
   </div>
   <div class="panel btn-group-xs">
     <button type="button" class="btn-default" uib-tooltip="Overlay Toggle" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="showFeatureOverlays()">Overlay Toggle</button>

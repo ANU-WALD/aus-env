@@ -240,16 +240,6 @@ li.theme-item{
   }
 }
 
-.zoom-map-tool {
-
-}
-
-@media  screen and (max-width:$container-sm) {
-  .zoom-map-tool {
-    display:none;
-  }
-}
-
 .details-map-tool {
   width:300px;
   background:#FFF;

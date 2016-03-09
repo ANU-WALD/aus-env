@@ -3,7 +3,10 @@
 <br/>
 <p>second </p>{{selection.selectedLayer}}
 -->
-
+<div class="panel-default btn-group-justified btn-group-lg visible-xs-block">
+  <ng-include src="'views/maptools/zoom-buttons.html'"/>
+  <ng-include src="'views/maptools/zoom-buttons-other.html'"/>
+</div>
 <div class="row main-map panel panel-default">
 	<leaflet defaults="defaults" data-controls="mapControls" maxbounds="maxBounds" center="mapCentre" height="100%" width="100%" layers="layers" events="events" markers="mapMarkers" geojson="geojson"></leaflet>
 </div>
