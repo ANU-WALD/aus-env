@@ -90,7 +90,7 @@
       },
       {
         "default":false,
-        "title":"Change in annual mean precipitation",
+        "title":"Annual mean precipitation",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc",
           "variable":"AnnualSums",

@@ -349,5 +349,11 @@ angular.module('ausEnvApp')
       //console.log(data);
     });
 
+  $scope.dataModesAvailable = function() {
+    return $scope.selection.selectedLayer &&
+           $scope.selection.selectedLayer.normal &&
+           $scope.selection.selectedLayer.delta;
+  };
+
   themes.themes().then($scope.setDefaultTheme);
 });
