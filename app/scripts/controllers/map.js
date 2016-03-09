@@ -215,7 +215,7 @@ angular.module('ausEnvApp')
         prefix = 'Change in '
       }
       keys.forEach(function(k){
-        settings[k] = layer[selection.dataMode][key] || settings[k];
+        settings[k] = layer[selection.dataMode][k] || settings[k];
       })
     }
     $scope.layers.overlays.aWMS = $scope.selection.makeLayer();
