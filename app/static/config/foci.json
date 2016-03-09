@@ -1,41 +1,47 @@
 [
   {
     "name":"States and Territories",
-    "source":"statisticalRegions",
-    "labelField":"WETLAND_NA"
+    "source":"states4326",
+    "labelField":"STATE_NAME",
+    "keyField":"STATE_CODE"
   },
   {
     "name":"Statistical Region (ABS)",
-    "source":"SA1_2011_AUST",
-    "labelField":"NRMR_NAME"
+    "source":"SA3_2011_AUST",
+    "labelField":"SA3_NAME",
+    "keyField":"SA3_CODE"
   },
   {
     "name":"BoM river regions",
     "source":"HR_Regions_river_region",
     "labelField":"RivRegName",
-    "keyField":"RivRegNum"
+    "keyField":"OBJECTID"
   },
   {
     "name":"Bioregions (IBRA)",
-    "source":"ibra7_subresions",
-    "labelField":"SUB_NAME_7"
+    "source":"ibra7_regions",
+    "labelField":"REG_NAME_7",
+    "keyField":"REC_ID"
   },
   {
     "name":"NRM Regions",
-    "source":"small_NRMR_2011_AUST",
+    "source":"NRMR_2011_AUST_1",
     "sourceWMS":"NRMR_2011_AUST",
-    "labelField":"NRMR_NAME"
+    "labelField":"NRMR_NAME",
+    "keyField":"NRMR_CODE"
   },
   {
     "name":"National Parks",
-    "source":"geo_capad",
+    "source":"NatParks",
     "sourceWMS":"CAPAD_2014_terrestrial_wgs",
-    "labelField":"NAME"
+    "labelField":"NAME",
+    "keyField":"wenfo_ID"
   },
   {
     "name":"Ramsar Wetlands",
     "source":"ramsar2015",
     "labelField":"WETLAND_NA",
-    "summary":"wetlands"
+    "summary":"wetlands",
+    "keyField":"OBJECTID"
   }
 ]
