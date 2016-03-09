@@ -19,7 +19,6 @@ angular.module('ausEnvApp')
 
     angular.extend($scope, {
       defaults: {
-        scrollWheelZoom: false,
         crs: L.CRS.EPSG4326,
         attributionControl: false,
         zoomControl:false,
@@ -58,7 +57,8 @@ angular.module('ausEnvApp')
               version: '1.1.1',
               format: 'image/png',
               layers: 'public:water_polygons_simple25',
-              transparent: true
+              transparent: true,
+              showOnSelector: false
             }
           },  //overlays.mask
         } //layers.overlays
@@ -159,7 +159,8 @@ angular.module('ausEnvApp')
         format:'image/png',
         layers:'wald:'+(newVal.sourceWMS||newVal.source),
         transparent:true,
-        zIndex:50
+        zIndex:50,
+        showOnSelector: false
       }
     };
     newVal.jsonData().then(function(resp){
@@ -217,6 +218,7 @@ angular.module('ausEnvApp')
     if(layer.abovemaxcolor){
       $scope.layers.overlays.aWMS.layerParams.abovemaxcolor = layer.abovemaxcolor;
     }
+    $scope.layers.overlays.aWMS.layerParams.showOnSelector = false;
     $scope.layers.overlays.aWMS.doRefresh = true;
 
   };
