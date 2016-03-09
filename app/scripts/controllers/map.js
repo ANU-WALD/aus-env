@@ -31,7 +31,6 @@ angular.module('ausEnvApp')
         lng: selection.ozLatLngZm.lng,
         zoom: selection.ozLatLngZm.zoom
       }, //mapCentre
-
       layers: {
         baselayers: {
 //          osm: {
@@ -60,7 +59,8 @@ angular.module('ausEnvApp')
               format: 'image/png',
               layers: 'public:water_polygons_simple25',
               transparent: true,
-              showOnSelector: false
+              showOnSelector: false,
+              zIndex:100
             }
           },  //overlays.mask
         } //layers.overlays
