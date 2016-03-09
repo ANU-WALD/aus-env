@@ -22,6 +22,8 @@ angular.module('ausEnvApp')
         crs: L.CRS.EPSG4326,
         attributionControl: false,
         zoomControl:false,
+        maxZoom: 12,
+        minZoom: 4,
       }, //defaults
 
       mapCentre: {
@@ -346,6 +348,12 @@ angular.module('ausEnvApp')
       layer.bringToFront();
       //console.log(data);
     });
+
+  $scope.dataModesAvailable = function() {
+    return $scope.selection.selectedLayer &&
+           $scope.selection.selectedLayer.normal &&
+           $scope.selection.selectedLayer.delta;
+  };
 
   themes.themes().then($scope.setDefaultTheme);
 });
