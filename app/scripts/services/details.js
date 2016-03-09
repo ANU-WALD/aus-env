@@ -35,21 +35,8 @@ angular.module('ausEnvApp')
     service.getBarChartData = function(the_summary, the_source){
       var result = $q.defer();
       var url = 'static/summary/'+the_summary+'.'+the_source+'.csv';
+      console.log(url);
       var httpPromise = $http.get(url);
-
-      /*
-      var geojsonURL = 'static/selection_layers/'+the_source+'.json';
-      var httpGeojsonURL = $http.get(geojsonURL);
-
-      httpGeojsonURL.then(function(json_resp){
-        var related_json = json_resp.data;
-        var json_features = related_json.features;
-        json_features.forEach(function(feature) {
-          //console.log(feature.properties);
-          jsonIdNameMap.set(feature.properties.OBJECTID, feature.properties.RivRegName);
-        });
-      });
-      */
 
       httpPromise.then(function(resp){
         var text = resp.data;
@@ -64,6 +51,8 @@ angular.module('ausEnvApp')
           data[polygonIdentifier] = cols.map(function(val){return +val;}); //convert the numbers of type string into the actual numbers
         });
         data.columnNames = columns;
+        console.log("TEXT!");
+        console.log(text);
         result.resolve(data);
       });
       return result.promise;

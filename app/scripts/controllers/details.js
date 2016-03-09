@@ -35,17 +35,6 @@ angular.module('ausEnvApp')
     var nationalSum = 0;
     var regionalSum = 0;
 
-    var jsonNameIdMap = new Map();
-    var jsonIdNameMap = new Map();
-
-    try {
-      jsonNameIdMap = details.createPlaceMap($scope.selection.regionType.source);
-      console.log("accessing creating the map");
-      console.log(jsonNameIdMap);
-    } catch(err) {
-      console.log("did not choose any region");
-    }
-    
     /*
     try {
       details.getBarChartData($scope.selection.selectedLayer.summary, $scope.selection.regionType.source).then(function(data){
@@ -113,8 +102,8 @@ angular.module('ausEnvApp')
       var keyField = selection.regionType.keyField;
       var PlaceId = newRegion.feature.properties[keyField];
       console.log(newRegion.feature.properties[keyField]);
-
-      details.getBarChartData($scope.selection.selectedLayer.summary, $scope.selection.regionType.source).then(function(data){
+      console.log($scope.selection.selectedLayer);
+      details.getBarChartData($scope.selection.selectedLayer.delta.summary, $scope.selection.regionType.source).then(function(data){
         $scope.barChartData = data;
         $scope.selectBarChartData($scope.selectedRegion);
 
