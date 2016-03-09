@@ -17,6 +17,7 @@ angular.module('ausEnvApp')
     service.theme = 'Tree Cover';
     service.themeObject = null;
     service.mapMode = 'Grid';
+    service.dataMode = 'delta'; // vs normal
     service.regionType = null;
     service.regionName = null;
     service.selectedLayerName = null;
@@ -92,6 +93,15 @@ angular.module('ausEnvApp')
       service.navbarCollapsed = true;
     };  //clearMap
 
+    service.selectedRegionName = function() {
+      if(!service.selectedRegion || !service.selectedRegion.feature) {
+        return 'National';
+      }
+
+      return service.regionType.name + ' > ' +
+        service.selectedRegion.feature.properties[service.regionType.labelField];
+    };
+
     /*
      * @ngdoc function
      * @name centreAustralia
@@ -144,6 +154,17 @@ angular.module('ausEnvApp')
         service.layers.overlays.selectionLayer.doRefresh = true;
         //console.log(service.layers.overlays.selectionLayer);
       }
+    };
+
+    service.selectedLayerTitle = function() {
+      if(!service.selectedLayer) {
+        return '';
+      }
+
+      if(service.selectedLayer.delta && (service.dataMode==='delta')){
+        return 'Change in ' + service.selectedLayer.title;
+      }
+      return service.selectedLayer.title;
     };
 
     function _makeLayer() {

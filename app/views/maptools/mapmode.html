@@ -2,3 +2,8 @@
     <button class="btn btn-xs" ng-class="(selection.mapMode==='Grid')?'btn-primary':'btn-default'" ng-model="selection.mapMode" uib-btn-radio="'Grid'" >Details</button>
     <button class="btn btn-xs" ng-class="(selection.mapMode==='Polygon')?'btn-primary':'btn-default'" ng-model="selection.mapMode" uib-btn-radio="'Polygon'">Summary</button>
 </div>
+
+<div class="btn-group">
+    <button ng-disabled="!dataModesAvailable()" class="btn btn-xs" ng-class="(selection.dataMode==='delta')?'btn-primary':'btn-default'" ng-model="selection.dataMode" uib-btn-radio="'delta'" >Change</button>
+    <button ng-disabled="!dataModesAvailable()" class="btn btn-xs" ng-class="(selection.dataMode==='normal')?'btn-primary':'btn-default'" ng-model="selection.dataMode" uib-btn-radio="'normal'">Current</button>
+</div>

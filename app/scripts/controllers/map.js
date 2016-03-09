@@ -19,10 +19,11 @@ angular.module('ausEnvApp')
 
     angular.extend($scope, {
       defaults: {
-        scrollWheelZoom: false,
         crs: L.CRS.EPSG4326,
         attributionControl: false,
         zoomControl:false,
+        maxZoom: 12,
+        minZoom: 4,
       }, //defaults
 
       mapCentre: {
@@ -30,7 +31,6 @@ angular.module('ausEnvApp')
         lng: selection.ozLatLngZm.lng,
         zoom: selection.ozLatLngZm.zoom
       }, //mapCentre
-
       layers: {
         baselayers: {
 //          osm: {
@@ -58,7 +58,9 @@ angular.module('ausEnvApp')
               version: '1.1.1',
               format: 'image/png',
               layers: 'public:water_polygons_simple25',
-              transparent: true
+              transparent: true,
+              showOnSelector: false,
+              zIndex:100
             }
           },  //overlays.mask
         } //layers.overlays
@@ -159,7 +161,8 @@ angular.module('ausEnvApp')
         format:'image/png',
         layers:'wald:'+(newVal.sourceWMS||newVal.source),
         transparent:true,
-        zIndex:50
+        zIndex:50,
+        showOnSelector: false
       }
     };
     newVal.jsonData().then(function(resp){
@@ -195,33 +198,52 @@ angular.module('ausEnvApp')
     $scope.configureView_json(themeObject);
   };
 
-  $scope.showWMS = function(layer){
+  $scope.showWMS = function(){
+    var layer = selection.selectedLayer;
     if(!layer){
       return;
     }
 
+    var prefix = '';
+    var keys = ['time','variable','url','colorscalerange','belowmincolor','abovemaxcolor'];
+
+    var settings = {};
+    keys.forEach(function(k){settings[k] = layer[k]});
+    console.log('HERE!!!!')
+    console.log(selection.dataMode);
+    console.log(layer);
+    if(layer[selection.dataMode]) {
+      if(selection.dataMode==='delta') {
+        prefix = 'Change in '
+      }
+      keys.forEach(function(k){
+        settings[k] = layer[selection.dataMode][k] || settings[k];
+      })
+    }
     $scope.layers.overlays.aWMS = $scope.selection.makeLayer();
 
-    var fn = $interpolate(layer.url)(selection);
+    var fn = $interpolate(settings.url)(selection);
     var BASE_URL='http://dapds00.nci.org.au/thredds';
 
-    $scope.layers.overlays.aWMS.name = layer.title;
+    $scope.layers.overlays.aWMS.name = prefix + layer.title;
     $scope.layers.overlays.aWMS.url = BASE_URL+'/wms/'+fn+'?';
-    $scope.layers.overlays.aWMS.layerParams.time = $interpolate(layer.time)(selection);
-    $scope.layers.overlays.aWMS.layerParams.layers = layer.variable;
-    $scope.layers.overlays.aWMS.layerParams.colorscalerange = layer.colorscalerange;
-    if(layer.belowmincolor){
-      $scope.layers.overlays.aWMS.layerParams.belowmincolor = layer.belowmincolor;
+    $scope.layers.overlays.aWMS.layerParams.time = $interpolate(settings.time)(selection);
+    $scope.layers.overlays.aWMS.layerParams.layers = settings.variable;
+    $scope.layers.overlays.aWMS.layerParams.colorscalerange = settings.colorscalerange;
+    if(settings.belowmincolor){
+      $scope.layers.overlays.aWMS.layerParams.belowmincolor = settings.belowmincolor;
     }
 
-    if(layer.abovemaxcolor){
-      $scope.layers.overlays.aWMS.layerParams.abovemaxcolor = layer.abovemaxcolor;
+    if(settings.abovemaxcolor){
+      $scope.layers.overlays.aWMS.layerParams.abovemaxcolor = settings.abovemaxcolor;
     }
+    $scope.layers.overlays.aWMS.layerParams.showOnSelector = false;
     $scope.layers.overlays.aWMS.doRefresh = true;
 
   };
 
   $scope.$watch('selection.selectedLayer',$scope.showWMS);
+  $scope.$watch('selection.dataMode',$scope.showWMS);
 
   $scope.configureView_json = function(themeObject){
     if(themeObject.json) {
@@ -326,6 +348,12 @@ angular.module('ausEnvApp')
       layer.bringToFront();
       //console.log(data);
     });
+
+  $scope.dataModesAvailable = function() {
+    return $scope.selection.selectedLayer &&
+           $scope.selection.selectedLayer.normal &&
+           $scope.selection.selectedLayer.delta;
+  };
 
   themes.themes().then($scope.setDefaultTheme);
 });
