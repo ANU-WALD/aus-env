@@ -59,7 +59,6 @@
         "time":"{{year}}-12-31",
         "colorscalerange":"0,10"
       }
-
     ]
   },
   {
@@ -74,40 +73,39 @@
     "mainView":"wms",
     "layers":[
       {
-        "default":true,
-        "title":"Change in annual mean soil moisture availability",
-        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.ChangesAnnualMeans.nc",
-        "variable":"ChangesAnnualMeans",
-        "time":"{{year}}-12-31",
-        "colorscalerange":"-100,100"
-      },
-      {
-        "default":false,
         "title":"Annual mean soil moisture availability",
-        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.AnnualMeans.nc",
-        "variable":"AnnualMeans",
-        "time":"{{year}}-12-31",
-        "colorscalerange":"0,500"
+        "default":true,
+        "normal":{
+          "url":"ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.AnnualMeans.nc",
+          "variable":"AnnualMeans",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"0,500"
+        },
+        "delta":{
+          "url":"ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.ChangesAnnualMeans.nc",
+          "variable":"ChangesAnnualMeans",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"-100,100"
+        }
       },
       {
         "default":false,
         "title":"Change in annual mean precipitation",
-        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Pg.ChangesAnnualSums.nc",
-        "variable":"ChangesAnnualSums",
-        "time":"{{year}}-12-31",
-        "colorscalerange":"-500,500",
-        "belowmincolor":"extend"
-      },
-      {
-        "default":false,
-        "title":"Annual mean precipitation",
-        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc",
-        "variable":"AnnualSums",
-        "time":"{{year}}-12-31",
-        "colorscalerange":"0,1000"
+        "normal":{
+          "url":"ub8/au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc",
+          "variable":"AnnualSums",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"0,1000"
+        },
+        "delta":{
+          "url":"ub8/au/OzWALD/annual/OzWALD.annual.Pg.ChangesAnnualSums.nc",
+          "variable":"ChangesAnnualSums",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"-500,500",
+          "belowmincolor":"extend"
+        }
       }
     ]
-
   },
   {
     "id":"lh",
@@ -122,19 +120,19 @@
     "layers":[
       {
         "default":true,
-        "title":"Exposed soil fraction: change in annual mean from previous year",
-        "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.ChangesAnnualMean.aust.005.BS.nc",
-        "variable":"ChangesAnnualMean",
-        "time":"{{year}}-12-31",
-        "colorscalerange":"-100,100"
-      },
-      {
-        "default":false,
         "title":"Exposed soil fraction: annual mean",
-        "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.AnnualMeans.aust.005.BS.nc",
-        "variable":"AnnualMeans",
-        "time":"{{year}}-12-31",
-        "colorscalerange":"0,100"
+        "normal":{
+          "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.AnnualMeans.aust.005.BS.nc",
+          "variable":"AnnualMeans",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"0,100"
+        },
+        "delta":{
+          "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.ChangesAnnualMean.aust.005.BS.nc",
+          "variable":"ChangesAnnualMean",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"-100,100"
+        }
       },
       {
         "default":false,
@@ -146,23 +144,21 @@
       },
       {
         "default":false,
-        "title":"Change in mean canopy leaf area",
-        "url":"ub8/au/OzWALD/annual/OzWALD.annual.LAI.ChangesAnnualMeans.nc",
-        "variable":"ChangesAnnualMeans",
-        "time":"{{year}}-12-31",
-        "colorscalerange":"-1,1"
-      },
-      {
-        "default":false,
         "title":"Annual mean canopy leaf area",
-        "url":"ub8/au/OzWALD/annual/OzWALD.annual.LAI.AnnualMeans.nc",
-        "variable":"AnnualMeans",
-        "time":"{{year}}-12-31",
-        "colorscalerange":"0,1"
+        "normal":{
+          "url":"ub8/au/OzWALD/annual/OzWALD.annual.LAI.AnnualMeans.nc",
+          "variable":"AnnualMeans",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"0,1"
+        },
+        "delta":{
+          "url":"ub8/au/OzWALD/annual/OzWALD.annual.LAI.ChangesAnnualMeans.nc",
+          "variable":"ChangesAnnualMeans",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"-1,1"
+        }
       }
-
     ]
-
   },
   {
     "id":"cs",
@@ -177,24 +173,22 @@
     "layers":[
       {
         "default":true,
-        "title":"Change in annual carbon uptake",
-        "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.ChangesAnnualSums.nc",
-        "variable":"ChangesAnnualSums",
-        "time":"{{year}}-12-31",
-        "colorscalerange":"-500,500",
-        "summary":"OzWALD.annual.GPP.AnnualMeans"
-      },
-      {
-        "default":false,
         "title":"Annual mean carbon uptake",
-        "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.AnnualSums.nc",
-        "variable":"AnnualSums",
-        "time":"{{year}}-12-31",
-        "colorscalerange":"0,500"
+        "normal":{
+          "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.AnnualSums.nc",
+          "variable":"AnnualSums",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"0,500"
+        },
+        "delta":{
+          "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.ChangesAnnualSums.nc",
+          "variable":"ChangesAnnualSums",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"-500,500",
+          "summary":"OzWALD.annual.GPP.AnnualMeans"
+        }
       }
-
     ]
-
   },
   {
     "id":"wetlands",
@@ -209,39 +203,38 @@
     "mainView":"wms",
     "layers":[
       {
-        "default":true,
-        "title":"Change in annual maximum inundated area",
-        "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.ChangesAnnualMaximum.nc",
-        "variable":"ChangesAnnualMax",
-        "time":"{{year}}-12-31",
-        "colorscalerange":"-100,100"
-      },
-      {
         "default":false,
         "title":"Annual maximum inundated area",
-        "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.AnnualMaxima.nc",
-        "variable":"maxOWL",
-        "time":"{{year}}-12-31",
-        "colorscalerange":"0,100"
-      },
-      {
-        "default":false,
-        "title":"Change in annual mean river flow",
-        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qtot.ChangesAnnualSums.nc",
-        "variable":"ChangesAnnualSums",
-        "time":"{{year}}-12-31",
-        "colorscalerange":"-200,200",
-        "belowmincolor":"extend"
+        "default":{
+          "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.AnnualMaxima.nc",
+          "variable":"maxOWL",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"0,100"
+        },
+        "delta":{
+          "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.ChangesAnnualMaximum.nc",
+          "variable":"ChangesAnnualMax",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"-100,100"
+        }
       },
       {
         "default":false,
         "title":"Annual mean river flow",
-        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qtot.AnnualSums.nc",
-        "variable":"AnnualSums",
-        "time":"{{year}}-12-31",
-        "colorscalerange":"0,500"
+        "normal":{
+          "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qtot.AnnualSums.nc",
+          "variable":"AnnualSums",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"0,500"
+        },
+        "delta":{
+          "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qtot.ChangesAnnualSums.nc",
+          "variable":"ChangesAnnualSums",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"-200,200",
+          "belowmincolor":"extend"
+        }
       }
     ]
-
   }
 ]
