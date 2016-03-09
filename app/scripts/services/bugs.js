@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 angular.module('ausEnvApp')
   .factory('$exceptionHandler', function(bugs) {
     return function(exception, cause) {
@@ -9,6 +10,8 @@ angular.module('ausEnvApp')
     };
   }); //factory
 
+*/
+
 /**
  * @ngdoc service
  * @name ausEnvApp.bugs
@@ -16,6 +19,7 @@ angular.module('ausEnvApp')
  * # bugs
  * Service in the ausEnvApp.
  */
+/*
 angular.module('ausEnvApp')
   .service('bugs', function bugs($filter) {
     // AngularJS will instantiate a singleton by calling "new" on this function
@@ -53,3 +57,5 @@ angular.module('ausEnvApp')
     service.hasBugs = function() { return ( service.bugs.length > 0); };
 
   });
+
+*/

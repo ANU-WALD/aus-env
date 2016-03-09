@@ -1,40 +1,93 @@
 'use strict';
 
 /**
- * @ngdoc service
- * @name ausEnvApp.headline
+ * @ngdoc function
+ * @name ausEnvApp.controller:HeadlinesCtrl
  * @description
- * # headline
- * Service in the ausEnvApp.
+ * # HeadlinesCtrl
+ * Controller of the ausEnvApp
  */
-
-//Deprecated - no need to use now.  But keeping here for example of modal
 angular.module('ausEnvApp')
-  .service('headline', function ($http, bugs) {
-    // AngularJS will instantiate a singleton by calling "new" on this function
+  .controller('HeadlinesCtrl', function ($scope, $uibModal, $log, headline, bugs) {
 
-    var headline = this;
-    const headline_data_file = "static/behaviourdata/headlines.json";
+    //$scope.$log = $log;
+    //$scope.headlineService = headline;
 
-    function readsuccess(response) {
-      headline.headlines = angular.fromJson(response.data);
-      //console.log(response.data);
-    }
-    function readfail(response) {
-      headline.headlines = angular.fromJson("{}");
-      bugs.addBug("Cannot find " + headline_data_file, response.data);
-      //console.error("Cannot read " + headline_data_file)
-    }
-    $http.get(headline_data_file).then(readsuccess,readfail);
+    this.awesomeThings = [
+      'HTML5 Boilerplate',
+      'AngularJS',
+      'Karma'
+    ];
 
-    headline.isSelected = function(hd) {
-      //console.log(headline.headlines);
-      //return true;
-      return (hd.name === headline.headlines.selected);
-    };
+    $scope.blah = "blah blah";
+    //$scope.items = ['item1', 'item2', 'item3'];
 
-    headline.headlineByName = function(/*name*/) {
-      //angular.forEach(headline.headlines.headlines,function)  one way to iterate?
+    //using the modal is good example of handling a promise
+    //Note I've un-anonymized the functions to make it clearer
+    //Note also the use of <script type="text/ng-template" id="/headlineModalTemplate.html">
+    // <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+    $scope.doModal = function() {
+      var modalInstance = $uibModal.open({  //now wait for the promise - see result.then below
+        templateUrl: 'headlineModalTemplate.html',
+        controller: 'ModalInstanceCtrl',
+        resolve: {
+          headlineService: function () {
+            return headline;
+          }
+        }
+      });
+
+      function resolved(selectedItem) {
+        headline.headlines.selected = selectedItem;
+      }
+      function rejected()
+      {
+        $log.info('Modal Closed No Choices');
+        bugs.addBug("test","a description of this");
+      }
+      modalInstance.result.then(resolved, rejected);  //the promise
     };
 
   });
+
+
+/**
+ * @ngdoc function
+ * @name ausEnvApp.controller:ModalInstanceCtrl
+ * @description
+ * # ModalInstanceCtrl
+ * Controller for the headlines modal form
+ */
+angular.module('ausEnvApp')
+  .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, headlineService) {
+
+
+    $scope.headlineService = headlineService;
+    //console.log(headlines);
+
+    $scope.setHeadline = function(selectedHeadline) {
+      headlineService.headlines.selected = selectedHeadline;
+    };
+
+    //btn btn-primary
+    $scope.setButtonClass = function(headline) {
+      //console.log("btn btn-" + (headlineService.isSelected(headline) ? "success" : "primary"));
+      return "btn btn-" + (headlineService.isSelected(headline) ? "success" : "primary");
+    };
+
+    $scope.makeTooltip = function(headline) {
+      return (headlineService.isSelected(headline) ? "(Current Headline)" : "") + headline.description;
+    };
+
+    $scope.getSelectedDescrition = function() {
+      //return
+    };
+
+    $scope.ok = function () {
+      $uibModalInstance.close();
+    };
+
+    $scope.cancel = function () {
+      $uibModalInstance.dismiss('cancel');
+    };
+});
