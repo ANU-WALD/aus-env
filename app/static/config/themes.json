@@ -203,9 +203,9 @@
     "mainView":"wms",
     "layers":[
       {
-        "default":false,
+        "default":true,
         "title":"Annual maximum inundated area",
-        "default":{
+        "normal":{
           "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.AnnualMaxima.nc",
           "variable":"maxOWL",
           "time":"{{year}}-12-31",
