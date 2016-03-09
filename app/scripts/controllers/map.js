@@ -22,6 +22,8 @@ angular.module('ausEnvApp')
         crs: L.CRS.EPSG4326,
         attributionControl: false,
         zoomControl:false,
+        maxZoom: 12,
+        minZoom: 4,
       }, //defaults
 
       mapCentre: {
