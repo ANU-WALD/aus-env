@@ -102,7 +102,6 @@ angular.module('ausEnvApp')
       //console.log(args);
     });
 
-
     $scope.$on('leafletDirectiveGeoJson.click',function(event,args){
       //console.log(args.leafletEvent.target);
       var newFeature = args.leafletEvent.target.feature;
@@ -139,7 +138,6 @@ angular.module('ausEnvApp')
       }
       return;
     }
-    console.log(newVal);
 
     $scope.geojson = {};
 //
@@ -166,7 +164,6 @@ angular.module('ausEnvApp')
       }
     };
     newVal.jsonData().then(function(resp){
-      console.log(resp);
       $scope.geojson = {
         data:resp,
         style:{
@@ -180,7 +177,6 @@ angular.module('ausEnvApp')
   });
 
   $scope.clearView = function() {
-    console.log("called clearView");
     if($scope.layers.overlays.aWMS) {
       delete $scope.layers.overlays.aWMS;
     }
@@ -209,9 +205,6 @@ angular.module('ausEnvApp')
 
     var settings = {};
     keys.forEach(function(k){settings[k] = layer[k]});
-    console.log('HERE!!!!')
-    console.log(selection.dataMode);
-    console.log(layer);
     if(layer[selection.dataMode]) {
       if(selection.dataMode==='delta') {
         prefix = 'Change in '
@@ -252,7 +245,6 @@ angular.module('ausEnvApp')
       }
       // +++ Causing stack overflows??? Due to leaflet events perhaps?
       themeObject._jsonData.then(function(resp){
-        console.log(resp.data);
         $scope.selection.geojson = {
           data:resp.data
         };
@@ -319,7 +311,6 @@ angular.module('ausEnvApp')
     $scope.showFeatureOverlays = function() {
       if($scope.layers.overlays.selectionLayer) {
         //$scope.layers.overlays.selectionLayer.style.weight = 3;
-        //console.log($scope.geojson);
         $scope.geojson.style.fillColor='red';
         $scope.geojson.style.fillOpacity=0.65;
         $scope.geojson.style.color='black';
@@ -338,7 +329,6 @@ angular.module('ausEnvApp')
       }
       var layer = data.leafletEvent.target;
       $scope.lastFeatureTarget = layer;
-      console.log(layer);
       layer.setStyle({
         weight: 2,
         color: 'black',
@@ -346,7 +336,6 @@ angular.module('ausEnvApp')
         fillOpacity: 0.5,
       });
       layer.bringToFront();
-      //console.log(data);
     });
 
   $scope.dataModesAvailable = function() {
