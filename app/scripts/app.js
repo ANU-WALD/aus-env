@@ -19,7 +19,8 @@ angular
     'ngTouch',
     'ng-static-data', 
     'chart.js', 
-    'angularScreenfull'
+    'angularScreenfull', 
+    'angularResizable'
   ])
   .config(function ($routeProvider,$logProvider) {
     $routeProvider

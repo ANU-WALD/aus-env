@@ -13,8 +13,6 @@
 angular.module('ausEnvApp')
   .service('details', function ($q,$http) {
     var service = this;
-    var jsonNameIdMap = new Map();
-    var jsonIdNameMap = new Map();
 
     service.getBarChartData = function(the_summary, the_source){
       var result = $q.defer();
@@ -58,7 +56,7 @@ angular.module('ausEnvApp')
       for(var i = 0; i<length; i++) {
         data.push(Math.random());
       }
-      console.log(data);
+      console.log(data); 
       return data;
     };
     //</editor-fold>
