@@ -44,6 +44,7 @@ angular.module('ausEnvApp')
     $scope.$watch('selection.regionType',$scope.createCharts);
 
     $scope.selectBarChartData = function(newRegion){
+      // Always called with newRegion undefined???
       $scope.barLabels = [];
       $scope.barSeries = [];
       $scope.barData = [];
@@ -93,7 +94,7 @@ angular.module('ausEnvApp')
       details.getBarChartData(summaryName, $scope.selection.regionType.source).then(function(data){
         console.log('Bar chart data',data);
         $scope.barChartData = data;
-        $scope.selectBarChartData($scope.selectedRegion);
+        $scope.selectBarChartData($scope.selectedRegion); // I don't think this does anything - $scope.selectedRegion is undefined
 
         $scope.barLabels = [];
         $scope.barSeries = [];

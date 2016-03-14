@@ -20,7 +20,7 @@ angular.module('ausEnvApp')
     service.dataMode = 'delta'; // vs normal
     service.regionType = null;
     service.regionName = null;
-    service.selectedLayerName = null;
+    service.selectedLayerName = null; // USED????
     service.selectedLayer = null;
     service.detailsVisible = true;
     service.selectedDetailsView = 'bar';
