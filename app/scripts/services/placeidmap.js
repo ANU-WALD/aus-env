@@ -9,6 +9,7 @@
  */
 angular.module('ausEnvApp')
   .service('placeidmap', function ($q,$http) {
+    var service = this;
   	service.createThePlaceDictionary = function(the_summary, the_source){
   		var result = $q.defer();
 

@@ -121,6 +121,7 @@
       {
         "default":true,
         "title":"Exposed soil fraction: annual mean",
+        "summary":"FractCover.V3_0_1.AnnualMeans.aust.005.BS",
         "normal":{
           "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.AnnualMeans.aust.005.BS.nc",
           "variable":"AnnualMeans",
