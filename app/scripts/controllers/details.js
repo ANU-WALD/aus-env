@@ -35,6 +35,14 @@ angular.module('ausEnvApp')
     var nationalSum = 0;
     var regionalSum = 0;
 
+    $scope.createCharts = function(){
+      $scope.createBarChart();
+    };
+
+    $scope.$watch('selection.selectedRegion',$scope.createCharts);
+    $scope.$watch('selection.selectedLayer',$scope.createCharts);
+    $scope.$watch('selection.regionType',$scope.createCharts);
+
     $scope.selectBarChartData = function(newRegion){
       $scope.barLabels = [];
       $scope.barSeries = [];
@@ -65,11 +73,25 @@ angular.module('ausEnvApp')
       }
     };
 
-    $scope.$watch('selection.selectedRegion',function(newRegion){
-      if(!newRegion) { return; }
-      var keyField = selection.regionType.keyField;
-      var PlaceId = newRegion.feature.properties[keyField];
-      details.getBarChartData($scope.selection.selectedLayer.delta.summary, $scope.selection.regionType.source).then(function(data){
+    $scope.createBarChart = function(){
+      if(!selection.regionType) {
+        return;
+      }
+
+      var PlaceId = null;
+      var label = null;
+      if(selection.selectedRegion) {
+        var keyField = selection.regionType.keyField;
+        PlaceId = selection.selectedRegion.feature.properties[keyField];
+        label = selection.selectedRegion.name;
+      } else {
+        PlaceId = 9999;
+        label = 'National';
+      }
+      var summaryName = $scope.selection.selectedLayer[$scope.selection.dataMode].summary || $scope.selection.selectedLayer.summary;
+
+      details.getBarChartData(summaryName, $scope.selection.regionType.source).then(function(data){
+        console.log('Bar chart data',data);
         $scope.barChartData = data;
         $scope.selectBarChartData($scope.selectedRegion);
 
@@ -80,12 +102,12 @@ angular.module('ausEnvApp')
         $scope.pieLabels = [];
 
         $scope.barLabels = $scope.barChartData.columnNames;
-        $scope.barSeries.push(newRegion.name);
+        $scope.barSeries.push(label);
         var indexName = "PlaceIndex" + PlaceId;
         $scope.barData.push($scope.barChartData[indexName]);
       });
 
-    });
+    };
 
     //<editor-fold desc="pete linegraph">
     console.log("Trying a line graph");
