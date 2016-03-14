@@ -97,7 +97,7 @@ angular.module('ausEnvApp')
     };
 
     service.getPieChartData = function(layer_variable,polygon_layer,year){
-      var url = 'static/summary/'+layer_variable+'.'+polygon_layer+'.'+year+'.csv';
+      var url = 'static/summary/pie/'+layer_variable+'.'+polygon_layer+'_Landcover.'+year+'.csv';
       return service.retrieveCSV(url);
     };
 
