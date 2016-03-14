@@ -64,7 +64,7 @@ angular.module('ausEnvApp')
       var httpPromise = $http.get(url);
 
       httpPromise.then(function(resp){
-        var data = parseCSVWithHeader(resp.data);
+        var data = service.parseCSVWithHeader(resp.data);
         result.resolve(data);
       });
       return result.promise;
