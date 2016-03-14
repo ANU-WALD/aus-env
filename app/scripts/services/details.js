@@ -16,6 +16,9 @@ angular.module('ausEnvApp')
 //    var jsonNameIdMap = new Map();
 //    var jsonIdNameMap = new Map();
 
+    service.MAX_CACHE_LENGTH=20;
+    service.cache = [];
+
     service.parseKeyValueHeader = function(text) {
       var lines = text.split?text.split('\n'):text;
       var result = {};
@@ -60,6 +63,14 @@ angular.module('ausEnvApp')
     };
 
     service.retrieveCSV = function(url){
+      var existing = service.cache.filter(function(entry){
+        return entry.url===url;
+      });
+
+      if(existing.length) {
+        return existing[0].promise;
+      }
+
       var result = $q.defer();
       var httpPromise = $http.get(url);
 
@@ -67,6 +78,16 @@ angular.module('ausEnvApp')
         var data = service.parseCSVWithHeader(resp.data);
         result.resolve(data);
       });
+
+      service.cache.push({
+        url:url,
+        promise:result.promise
+      });
+
+      if(service.cache.length>service.MAX_CACHE_LENGTH){
+        service.cache.shift();
+      }
+
       return result.promise;
     };
 
