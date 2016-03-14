@@ -28,36 +28,36 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .when('/headlines', {
-        templateUrl: 'views/headlines.html',
-        controller: 'HeadlinesCtrl',
-        controllerAs: 'headlines'
-      })
-      .when('/search', {
-        templateUrl: 'views/search.html',
-        controller: 'HeadlinesCtrl',
-        controllerAs: 'search'
-      })
-      .when('/details', {
-        templateUrl: 'views/details.html',
-        controller: 'DetailsCtrl',
-        controllerAs: 'details'
-      })
-      .when('/map', {
-        templateUrl: 'views/map.html',
-        controller: 'MapCtrl',
-        controllerAs: 'map'
-      })
-      .when('/debug', {
-        templateUrl: 'views/debug.html',
-        controller: 'DebugCtrl',
-        controllerAs: 'debugger'
-      })
+//      .when('/about', {
+//        templateUrl: 'views/about.html',
+//        controller: 'AboutCtrl',
+//        controllerAs: 'about'
+//      })
+//      .when('/headlines', {
+//        templateUrl: 'views/headlines.html',
+//        controller: 'HeadlinesCtrl',
+//        controllerAs: 'headlines'
+//      })
+//      .when('/search', {
+//        templateUrl: 'views/search.html',
+//        controller: 'HeadlinesCtrl',
+//        controllerAs: 'search'
+//      })
+//      .when('/details', {
+//        templateUrl: 'views/details.html',
+//        controller: 'DetailsCtrl',
+//        controllerAs: 'details'
+//      })
+//      .when('/map', {
+//        templateUrl: 'views/map.html',
+//        controller: 'MapCtrl',
+//        controllerAs: 'map'
+//      })
+//      .when('/debug', {
+//        templateUrl: 'views/debug.html',
+//        controller: 'DebugCtrl',
+//        controllerAs: 'debugger'
+//      })
       .otherwise({
         redirectTo: '/'
       });
