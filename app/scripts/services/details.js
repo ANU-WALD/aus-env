@@ -41,7 +41,7 @@ angular.module('ausEnvApp')
       columns.shift();
 
       lines.forEach(function(line){
-        var cols = line.split(',');
+        var cols = line.trim().split(',');
         var polygonIdentifier = "PlaceIndex" + cols.shift();
         data[polygonIdentifier] = cols.map(function(val){return (val==='-9999')?null:+val;}); //convert the numbers of type string into the actual numbers
       });
@@ -50,7 +50,7 @@ angular.module('ausEnvApp')
     };
 
     service.parseCSVWithHeader = function(text){
-        var sections = text.split(/\n\-+ *\n/);
+        var sections = text.split(/\n\-+\s*\n/);
         var data = null;
         if(sections.length>1){
           data = service.parseKeyValueHeader(sections.shift());
