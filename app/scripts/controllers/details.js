@@ -79,7 +79,6 @@ angular.module('ausEnvApp')
       $scope.barSeries = [];
       $scope.barData = [];
 
-
       if(!newRegion) {
       } else {
         //$scope.selectedBarDataReion = $scope.barChartData[newRegion.name];
@@ -90,12 +89,8 @@ angular.module('ausEnvApp')
           //$scope.barData.push($scope.barChartData.abc1);
           $scope.barData.push($scope.barChartData[newRegion.name]);
 
-          //$scope.pieLabels.push("National");
-          //$scope.pieLabels.push(newRegion.name);
           //nationalSum = $scope.barChartData.abc1.reduce(function(a, b) { return a + b; }, 0);
-          //$scope.pieData.push(nationalSum);
           regionalSum = $scope.barChartData[newRegion.name].reduce(function(a, b) { return a + b; }, 0);
-          //$scope.pieData.push(regionalSum);
         } catch(err) {
           console.log("Error:" + err + "," + " selection is undefined");
         }
@@ -107,7 +102,7 @@ angular.module('ausEnvApp')
       var summaryName = $scope.selection.selectedLayer[$scope.selection.dataMode].summary || $scope.selection.selectedLayer.summary;
 
       details.getBarChartData(summaryName, $scope.selection.regionType.source).then(function(data){
-        $scope.barChartData = data;                                                          
+        $scope.barChartData = data;
 
         $scope.barLabels = [];
         $scope.barSeries = [];
@@ -126,19 +121,34 @@ angular.module('ausEnvApp')
 
       console.log("Joe's pie chart");
       details.getPieChartData(summaryName, $scope.selection.regionType.source,$scope.selection.year).then(function(data){
-        console.log('Pie chart data',data);
         $scope.pieChartData = data;
         $scope.pieData = [];
 
-        $scope.pieLabels = $scope.pieChartData.columnNames;
+        $scope.pieLabels = $scope.pieChartData.columnNames.map(function(column){
+          return $scope.pieChartData.columnPresentation[column].Class_Name;
+        });
+
         var indexName = "PlaceIndex" + placeId;
-        $scope.pieData = $scope.pieChartData[indexName]; // .push();
+        $scope.pieData = $scope.pieChartData[indexName];
+        $scope.pieChartColours = $scope.pieChartData.columnNames.map(function(col){
+          var presentation = $scope.pieChartData.columnPresentation[col];
+          return 'rgb('+presentation.Red+','+presentation.Green+','+presentation.Blue+')';
+        });
+//        $scope.pieData = $scope.pieChartData[indexName].map(function(value,idx){
+//          var col = $scope.pieChartData.columnNames[idx];
+//          var presentation = $scope.pieChartData.columnPresentation[col];
+//          return {
+//            value: value,
+//            color: 'rgb('+presentation.Red+','+presentation.Green+','+presentation.Blue+')',
+//            label: presentation.Class_Name
+//          };
+//        });
       });
     };
 
     //<editor-fold desc="pete linegraph">
     $scope.createLineChart = function(/*placeId,label*/){
-      console.log("Trying a line graph");
+//      console.log("Trying a line graph");
       $scope.lineLabels = details.makeSimpleLabels(10);
       $scope.lineSeries = ['one','two'];
       $scope.lineData = [];

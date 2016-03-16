@@ -23,7 +23,7 @@ NoDataValue,-9999\n\
 Produced,05-Mar-2016 19:08:20\n\
 AuthorEmail,bob@sample-domain.com\n'
   var sampleSplitter = '------------------------------------------ \n';
-  var sampleBody = '-9999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015\n\
+  var sampleBody = '-9999, 2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014, 2015\n\
 0,1.404e+05,1.7564e+05,2.2847e+05,2.3014e+05,2.2455e+05,2.1887e+05,2.2196e+05,2.3168e+05,2.4674e+\n05,2.4756e+05,1.879e+05,1.5554e+05,1.6283e+05,1.846e+05,1.9703e+05,2.0174e+05\n\
 1,25763,28505,33829,35575,31882,32588,34972,37479,37727,36128,30094,28457,30627,31658,31063,33960\n\
 2,3.2723e+05,3.8866e+05,4.919e+05,5.2062e+05,4.9543e+05,5.3422e+05,5.2902e+05,5.167e+05,4.9722e+05,4.5981e+05,3.6839e+05,3.319e+05,3.7369e+05,4.7104e+05,5.0361e+05,5.4344e+05\n\
@@ -58,9 +58,17 @@ AuthorEmail,bob@sample-domain.com\n'
     headerExpectations(parsedHeader);
   });
 
-  it('parses regulaar CSV file', function() {
+  it('parses regular CSV file to arrayed rows', function() {
     var parsed = details.parseRegularCSV(sampleBody);
     bodyExpectations(parsed);
+  });
+
+  it('parses regular CSV file to record rows', function() {
+    var parsed = details.parseRegularCSV(sampleBody,'',true);
+    expect(parsed.columnNames[0]).toBe('2000');
+    expect(parsed.columnNames.length).toBe(16);
+    expect(parsed['0']['2000']).toBe(1.404e+05);
+    expect(parsed['9999']['2015']).toBe(null);
   });
 
   it('parses whole CSV file',function(){
