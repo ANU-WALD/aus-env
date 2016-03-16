@@ -35,10 +35,21 @@ angular.module('ausEnvApp')
     var nationalSum = 0;
     var regionalSum = 0;
 
+    $scope.clearData = function(){
+      $scope.barChartData = 0;
+      $scope.barLabels = [];
+      $scope.barSeries = [];
+      $scope.barData = [];
+
+      $scope.pieData = [];
+      $scope.pieLabels = [];
+      var nationalSum = 0;
+      var regionalSum = 0;
+    };
+
     $scope.createCharts = function(){
       if(!selection.regionType) {
-        return;
-        // Should this clear things instead???
+        $scope.clearData();
       }
 
       var PlaceId = null;
@@ -61,14 +72,13 @@ angular.module('ausEnvApp')
     $scope.$watch('selection.selectedLayer',$scope.createCharts);
     $scope.$watch('selection.regionType',$scope.createCharts);
 
+
     $scope.selectBarChartData = function(newRegion){
       // Always called with newRegion undefined???
       $scope.barLabels = [];
       $scope.barSeries = [];
       $scope.barData = [];
 
-//      $scope.pieData = [];
-//      $scope.pieLabels = [];
 
       if(!newRegion) {
       } else {
@@ -92,12 +102,12 @@ angular.module('ausEnvApp')
       }
     };
 
+
     $scope.createBarChart = function(placeId,label){
       var summaryName = $scope.selection.selectedLayer[$scope.selection.dataMode].summary || $scope.selection.selectedLayer.summary;
 
       details.getBarChartData(summaryName, $scope.selection.regionType.source).then(function(data){
-        $scope.barChartData = data;
-        $scope.selectBarChartData($scope.selectedRegion); // I don't think this does anything - $scope.selectedRegion is undefined
+        $scope.barChartData = data;                                                          
 
         $scope.barLabels = [];
         $scope.barSeries = [];
@@ -114,6 +124,7 @@ angular.module('ausEnvApp')
     $scope.createPieChart = function(placeId,label) {
       var summaryName = $scope.selection.selectedLayer[$scope.selection.dataMode].summary || $scope.selection.selectedLayer.summary;
 
+      console.log("Joe's pie chart");
       details.getPieChartData(summaryName, $scope.selection.regionType.source,$scope.selection.year).then(function(data){
         console.log('Pie chart data',data);
         $scope.pieChartData = data;

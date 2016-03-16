@@ -93,6 +93,11 @@ angular.module('ausEnvApp')
       service.navbarCollapsed = true;
     };  //clearMap
 
+    service.clearSelection = function() {
+      service.selectedRegion = null;
+      service.selectedRegionName();
+    };
+
     service.selectedRegionName = function() {
       if(!service.selectedRegion || !service.selectedRegion.feature) {
         return 'National';
@@ -122,7 +127,6 @@ angular.module('ausEnvApp')
         //map.setView([oz.lat, oz.lng], oz.zoom);
       });
     };
-
 
     service.clearFeatureOverlays = function() {
       //console.log("here");

@@ -88,7 +88,7 @@ angular.module('ausEnvApp')
 
     });  //extend service (with leaflet stuff)
 
-    /* here defined all the event handler, please feel free to ask Chin */
+    
 
     $scope.$on('leafletDirectiveMap.load', function(event, args){
       selection.centreAustralia();
@@ -100,6 +100,19 @@ angular.module('ausEnvApp')
       //selection.setCoordinates(args.leafletEvent.latlng);
       //selection.leafletData.getMap().then(function(map) { console.log(map); });
       //console.log(args);
+    });
+
+    $scope.$on('leafletDirectiveMap.click', function(event, args){
+      if (args.leafletEvent.latlng.lat <= selection.ozLatLngMapBounds[0][0] && 
+        args.leafletEvent.latlng.lat >= selection.ozLatLngMapBounds[1][0] &&
+        args.leafletEvent.latlng.lng >= selection.ozLatLngMapBounds[0][1] &&
+        args.leafletEvent.latlng.lng <= selection.ozLatLngMapBounds[1][1]) {
+        
+      }
+      else {
+        selection.clearSelection();
+      }
+      //window.alert(args.leafletEvent.latlng.lat >= selection.ozLatLngMapBounds[0][0]);
     });
 
     $scope.$on('leafletDirectiveGeoJson.click',function(event,args){

@@ -13,8 +13,6 @@
 angular.module('ausEnvApp')
   .service('details', function ($q,$http) {
     var service = this;
-//    var jsonNameIdMap = new Map();
-//    var jsonIdNameMap = new Map();
 
     service.MAX_CACHE_LENGTH=20;
     service.cache = [];
@@ -34,7 +32,7 @@ angular.module('ausEnvApp')
     };
 
     service.parseRegularCSV = function(text){
-      var data = {}
+      var data = {};
       var lines = text.split('\n');
       var header = lines.shift();
       var columns = header.split(',');
