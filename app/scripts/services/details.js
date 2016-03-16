@@ -45,7 +45,7 @@ angular.module('ausEnvApp')
         }
 
         var num = +val;
-        if(Number.isNaN(num)){
+        if(isNaN(num)){
           return val.trim();
         }
         return num;
