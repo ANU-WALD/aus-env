@@ -50,6 +50,7 @@ angular.module('ausEnvApp')
     $scope.createCharts = function(){
       if(!selection.regionType) {
         $scope.clearData();
+        return;
       }
 
       var PlaceId = null;
