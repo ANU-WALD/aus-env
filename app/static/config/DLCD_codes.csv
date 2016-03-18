@@ -1,0 +1,24 @@
+Value, Class_Name, Red, Green, Blue,Alpha
+0, No Data, 0,0,0,0
+1, Extraction Sites, 130, 130, 130,255
+3, Inland Waterbodies, 0, 70, 173,255
+4, Salt Lakes, 150, 225, 255,255
+5, Irrigated Cropping, 90, 36, 90,255
+6, Irrigated Pasture, 166, 38, 170,255
+7, Irrigated Sugar, 183, 18, 52,255
+8, Rainfed Cropping, 198, 141, 153,255
+9, Rainfed Pasture, 226, 194, 199,255
+10, Rainfed Sugar, 219, 77, 105,255
+11, Wetlands, 0, 178, 160,255
+14, Tussock Grasses – Closed, 255, 121, 0,255
+15, Alpine Grasses – Open, 255, 255, 255,255
+16, Hummock Grasses – Open, 255, 255, 115,255
+18, Tussock Grasses – Open, 255, 169, 82,255
+19, Shrubs and Grasses – Sparse-Scattered, 255, 255, 190,255
+24, Shrubs – Closed, 175, 136, 80,255
+25, Shrubs – Open, 193, 168, 117,255
+31, Trees – Closed, 0, 133, 0,255
+32, Trees – Open, 20, 194, 0,255
+33, Trees – Scattered, 214, 255, 138,255
+34, Trees – Sparse, 186, 232, 96,255
+35, Urban Areas, 200, 200, 200,255
