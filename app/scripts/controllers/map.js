@@ -33,25 +33,11 @@ angular.module('ausEnvApp')
       }, //mapCentre
       layers: {
         baselayers: {
-//          osm: {
-//            name: 'OpenStreetMap',
-//            url: 'http://129.206.228.72/cached/osm?',
-//            type: 'wms',
-//            layerParams:{
-//              version: '1.1.1',
-//              format: 'image/png',
-//              layers:'osm_auto:all'
-//            }
-//          },
-        }, //layers.baselayers
-
+        },
         overlays: {
           mask: {
             name: 'Ocean Mask',
-//            url:'http://40.127.88.222:8000/wms?',
             url: selection.WMS_SERVER + '/public/wms?',
-//            url:'http://localhost:8881/public/wms?',
-            //service=WMS&version=1.1.0&request=GetMap&layers=public:TM_WORLD_BORDERS-0.3&styles=&bbox=-179.99999999999997,-90.0,180.0,83.62359600000008&width=768&height=370&srs=EPSG:4326&format=image%2Fpng'
             type: 'wms',
             visible: true,
             layerParams: {
@@ -123,11 +109,6 @@ angular.module('ausEnvApp')
       })[0];
     });
 
-    /* the function to change the date parameters of the layer, please feel free to ask Chin */
-    $scope.dateChangedFunction = function() {
-      $scope.layers.overlays.aWMS.layerParams.time = $scope.dateComponents.selected_year + '-' + $scope.dateComponents.selected_month + '-' + $scope.dateComponents.selected_day;
-      $scope.layers.overlays.aWMS.doRefresh = true;
-    };
 
     /* the function to change the url of the layer, please feel free to ask Chin */
     $scope.urlChangedFunction = function() {
@@ -161,9 +142,6 @@ angular.module('ausEnvApp')
     $scope.layers.overlays.selectionLayer = {
       name: newVal.name,
       url:selection.WMS_SERVER+'/wald/wms?',
-//            url:'http://localhost:8880/geoserver/wald/wms?',
-//            url:'http://localhost:8881/wald/wms?',
-      //service=WMS&version=1.1.0&request=GetMap&layers=public:TM_WORLD_BORDERS-0.3&styles=&bbox=-179.99999999999997,-90.0,180.0,83.62359600000008&width=768&height=370&srs=EPSG:4326&format=image%2Fpng'
       type:'wms',
       visible:true,
       doRefresh:true,
@@ -204,7 +182,7 @@ angular.module('ausEnvApp')
 
     $scope.selection.selectedLayer = defaultLayer;
     $scope.selection.selectedLayerName = defaultLayer.title;
-    $scope.configureView_json(themeObject);
+    //$scope.configureView_json(themeObject);
   };
 
   $scope.showWMS = function(){
@@ -248,29 +226,9 @@ angular.module('ausEnvApp')
 
   };
 
+  $scope.$watch('selection.year',$scope.showWMS);
   $scope.$watch('selection.selectedLayer',$scope.showWMS);
   $scope.$watch('selection.dataMode',$scope.showWMS);
-
-  $scope.configureView_json = function(themeObject){
-    if(themeObject.json) {
-      if(!themeObject._jsonData) {
-        themeObject._jsonData = $http.get('static/'+themeObject.json);
-      }
-      // +++ Causing stack overflows??? Due to leaflet events perhaps?
-      themeObject._jsonData.then(function(resp){
-        $scope.selection.geojson = {
-          data:resp.data
-        };
-//        $scope.layers.overlays.json = {
-//          name:themeObject.name,
-//          type:'custom',
-//          layer:new L.geoJson(resp.data),
-//          visible:true,
-//          doRefresh:true
-//        };
-      });
-    }
-  };
 
   var createLeafeletCustomControl = function(pos,template) {
     var ctrl = new L.Control({position:pos});
@@ -300,56 +258,53 @@ angular.module('ausEnvApp')
   };
 
   $scope.configureMapTools();
+
   $scope.setDefaultTheme = function(themesData){
     selection.theme = themesData[1].name;
     selection.themeObject = themesData[1];
   };
 
-    $scope.mapZoom = function(delta) {
-      selection.leafletData.getMap().then(function(map) {
-        if (delta > 0) {
-          map.zoomIn(delta);
-        } else {
-          map.zoomOut(Math.abs(delta));
-        }
-      });
-    };
-
-    $scope.mapPan = function(x,y) {
-      selection.leafletData.getMap().then(function(map) {
-        map.panBy([x,y]);
-      });
-    };
-
-    $scope.showFeatureOverlays = function() {
-      if($scope.layers.overlays.selectionLayer) {
-        //$scope.layers.overlays.selectionLayer.style.weight = 3;
-        $scope.geojson.style.fillColor='red';
-        $scope.geojson.style.fillOpacity=0.65;
-        $scope.geojson.style.color='black';
-        //console.log($scope.layers.overlays.selectionLayer.layerOptions);
-        //console.log($scope.layers.overlays.selectionLayer);
+  $scope.mapZoom = function(delta) {
+    selection.leafletData.getMap().then(function(map) {
+      if (delta > 0) {
+        map.zoomIn(delta);
+      } else {
+        map.zoomOut(Math.abs(delta));
       }
-    };
-
-    $scope.$on("leafletDirectiveGeoJson.mouseover", function(ev, data) {
-      if ($scope.lastFeatureTarget) {
-        $scope.lastFeatureTarget.setStyle({
-          weight: 1,
-          color: 'green',
-          fillOpacity: 0.0,
-        });
-      }
-      var layer = data.leafletEvent.target;
-      $scope.lastFeatureTarget = layer;
-      layer.setStyle({
-        weight: 2,
-        color: 'black',
-        fillColor: 'red',
-        fillOpacity: 0.5,
-      });
-      layer.bringToFront();
     });
+  };
+
+  $scope.showFeatureOverlays = function() {
+    if($scope.layers.overlays.selectionLayer) {
+      //$scope.layers.overlays.selectionLayer.style.weight = 3;
+      $scope.geojson.style.fillColor='red';
+      $scope.geojson.style.fillOpacity=0.65;
+      $scope.geojson.style.color='black';
+      //console.log($scope.layers.overlays.selectionLayer.layerOptions);
+      //console.log($scope.layers.overlays.selectionLayer);
+
+
+    }
+  };
+
+  $scope.$on("leafletDirectiveGeoJson.mouseover", function(ev, data) {
+    if ($scope.lastFeatureTarget) {
+      $scope.lastFeatureTarget.setStyle({
+        weight: 1,
+        color: 'green',
+        fillOpacity: 0.0,
+      });
+    }
+    var layer = data.leafletEvent.target;
+    $scope.lastFeatureTarget = layer;
+    layer.setStyle({
+      weight: 2,
+      color: 'black',
+      fillColor: 'red',
+      fillOpacity: 0.5,
+    });
+    layer.bringToFront();
+  });
 
   $scope.dataModesAvailable = function() {
     return $scope.selection.selectedLayer &&
@@ -357,5 +312,5 @@ angular.module('ausEnvApp')
            $scope.selection.selectedLayer.delta;
   };
 
-  themes.themes().then($scope.setDefaultTheme);
+  themes.themes().then($scope.setDefaultTheme); // Move to app startup
 });
