@@ -55,18 +55,26 @@ angular.module('ausEnvApp')
 
       var PlaceId = null;
       var label = null;
-      if(selection.selectedRegion) {
+      if(selection.selectedRegion && selection.selectedRegion.name) {
         var keyField = selection.regionType.keyField;
         PlaceId = selection.selectedRegion.feature.properties[keyField];
         label = selection.selectedRegion.name;
-      } else {
+      } else if(!selection.selectedRegion||(selection.selectedRegion==="")){
         PlaceId = 9999;
         label = 'National';
+      } else {
+        return;
       }
 
-      $scope.createBarChart(PlaceId,label);
+      var summaryName = null;
+      if($scope.selection.selectedLayer[$scope.selection.dataMode]){
+        summaryName = $scope.selection.selectedLayer[$scope.selection.dataMode].summary;
+      }
+      summaryName = summaryName || $scope.selection.selectedLayer.summary;
+
+      $scope.createBarChart(PlaceId,label,summaryName);
       $scope.createLineChart(PlaceId,label);
-      $scope.createPieChart(PlaceId,label);
+      $scope.createPieChart(PlaceId,label,summaryName);
     };
 
     $scope.$watch('selection.selectedRegion',$scope.createCharts);
@@ -99,9 +107,7 @@ angular.module('ausEnvApp')
     };
 
 
-    $scope.createBarChart = function(placeId,label){
-      var summaryName = $scope.selection.selectedLayer[$scope.selection.dataMode].summary || $scope.selection.selectedLayer.summary;
-
+    $scope.createBarChart = function(placeId,label,summaryName){
       details.getBarChartData(summaryName, $scope.selection.regionType.source).then(function(data){
         $scope.barChartData = data;
 
@@ -117,10 +123,7 @@ angular.module('ausEnvApp')
 
     };
 
-    $scope.createPieChart = function(placeId,label) {
-      var summaryName = $scope.selection.selectedLayer[$scope.selection.dataMode].summary || $scope.selection.selectedLayer.summary;
-
-      console.log("Joe's pie chart");
+    $scope.createPieChart = function(placeId,label,summaryName) {
       details.getPieChartData(summaryName, $scope.selection.regionType.source,$scope.selection.year).then(function(data){
         $scope.pieChartData = data;
         $scope.pieData = [];
