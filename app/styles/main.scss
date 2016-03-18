@@ -203,6 +203,17 @@ li.theme-item{
   z-index: 100;
 }
 
+.loading-indicator{
+  color: #FFF;
+}
+
+.loading-indicator.ng-animate {
+  transition:0s none;
+  -webkit-transition:0s none;
+  animation: 0s none;
+  -webkit-animation: 0s none;
+}
+
 /******
  * Side panel
  */

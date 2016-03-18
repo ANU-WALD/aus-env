@@ -10,6 +10,7 @@
 angular.module('ausEnvApp')
   .controller('SearchCtrl', function ($scope,$filter,staticData,selection,spatialFoci) {
     $scope.selection = selection;
+    $scope.loadingPolygons = false;
     staticData.unwrap($scope,'options',spatialFoci.regionTypes);
 
     $scope.$watch('selection.mapMode',function(newVal){
@@ -29,6 +30,7 @@ angular.module('ausEnvApp')
         return;
       }
       selection.mapMode = 'Polygon';
+      $scope.loadingPolygons = true;
       newOption.jsonData().then(function(data){
         selection.availableFeatures = data.features.map(function(f){
           return {
