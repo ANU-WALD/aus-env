@@ -13,7 +13,7 @@ angular.module('ausEnvApp')
   .service('selection', function (leafletData) {
     var service = this;
 
-    service.year = 2009;
+    service.year = 2015;
     service.theme = 'Tree Cover';
     service.themeObject = null;
     service.mapMode = 'Grid';
