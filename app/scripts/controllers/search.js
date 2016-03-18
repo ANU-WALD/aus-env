@@ -39,6 +39,7 @@ angular.module('ausEnvApp')
           };
         });
         selection.availableFeatures.sort(function(a,b){return a.name.localeCompare(b.name);});
+        $scope.loadingPolygons = false;
       });
     }; //regionTypeChanged
 
