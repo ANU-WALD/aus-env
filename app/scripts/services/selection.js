@@ -79,7 +79,8 @@ angular.module('ausEnvApp')
      *
      */
     service.zoomToFeature = function(forceAustralia) {
-      if (!forceAustralia && (service.mapMode === 'Polygon') && (service.selectedRegion !== undefined)) {
+      // +++ CHECK. No longer enfore mapMode = Polygon when displaying polygon layers
+      if (!forceAustralia && (service.mapMode === mapmodes.region) && (service.selectedRegion !== undefined)) {
         var geojson = L.geoJson(service.selectedRegion.feature);
         leafletData.getMap().then(function (map) {
           map.fitBounds(geojson.getBounds(), {maxZoom: 13});
@@ -144,11 +145,11 @@ angular.module('ausEnvApp')
     };
 
     service.setMapModeGrid = function() {
-      service.mapMode = "Grid";
+      service.mapMode = mapmodes.grid;
     };
 
     service.isMapModeGrid = function() {
-      return (service.mapMode === "Grid");
+      return (service.mapMode === mapmodes.grid);
     };
 
     service.setOpacity = function(opacity) {

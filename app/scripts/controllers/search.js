@@ -15,12 +15,16 @@ angular.module('ausEnvApp')
     staticData.unwrap($scope,'options',spatialFoci.regionTypes);
 
     $scope.$watch('selection.mapMode',function(newVal){
-      if(newVal===mapmodes.grid) {
-        selection.lastRegionType = selection.regionType;
-        selection.regionType=null;
-      } else {
+//      if(newVal===mapmodes.grid) {
+//        selection.lastRegionType = selection.regionType;
+//        selection.regionType=null;
+//      } else {
+      if(newVal===mapmodes.region) {
         if(!selection.regionType) {
           selection.regionType = selection.lastRegionType;
+        }
+        if(!selection.regionType && $scope.options) {
+          selection.regionType = $scope.options[0];
         }
       }
     });
@@ -30,7 +34,7 @@ angular.module('ausEnvApp')
         selection.mapMode = mapmodes.grid;
         return;
       }
-      selection.mapMode = mapmodes.region;
+//      selection.mapMode = mapmodes.region;
       $scope.loadingPolygons = true;
       newOption.jsonData().then(function(data){
         selection.availableFeatures = data.features.map(function(f){
