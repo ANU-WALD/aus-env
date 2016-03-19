@@ -89,11 +89,10 @@ angular.module('ausEnvApp')
     });
 
     $scope.$on('leafletDirectiveMap.click', function(event, args){
-      if (args.leafletEvent.latlng.lat <= selection.ozLatLngMapBounds[0][0] && 
+      if (args.leafletEvent.latlng.lat <= selection.ozLatLngMapBounds[0][0] &&
         args.leafletEvent.latlng.lat >= selection.ozLatLngMapBounds[1][0] &&
         args.leafletEvent.latlng.lng >= selection.ozLatLngMapBounds[0][1] &&
         args.leafletEvent.latlng.lng <= selection.ozLatLngMapBounds[1][1]) {
-        
       }
       else {
         selection.clearSelection();
@@ -101,18 +100,35 @@ angular.module('ausEnvApp')
       //window.alert(args.leafletEvent.latlng.lat >= selection.ozLatLngMapBounds[0][0]);
     });
 
-    $scope.$on('leafletDirectiveGeoJson.click',function(event,args){
-      //console.log(args.leafletEvent.target);
-      var newFeature = args.leafletEvent.target.feature;
+    $scope.geoJsonStyling = function(feature) {
+      if(selection.selectedRegion && (feature===selection.selectedRegion.feature)){
+        return {
+          weight:6,
+          opacity:0.5,
+          fillOpacity:0,
+          color:'#FF6'
+        };
+      }
+      return {
+        weight:1,
+        strokeOpacity:1,
+        fillOpacity:0,
+        color:'#000'
+      };
+    };
+
+    $scope.selectFeature = function(feature) {
       selection.selectedRegion = selection.availableFeatures.filter(function(f){
-        return f.name===newFeature.properties[selection.regionType.labelField];
+        return f.name===feature.properties[selection.regionType.labelField];
       })[0];
+    };
+
+    $scope.$on('leafletDirectiveGeoJson.click',function(event,args){
+      $scope.selectFeature(args.leafletEvent.target.feature);
     });
 
-
-    /* the function to change the url of the layer, please feel free to ask Chin */
-    $scope.urlChangedFunction = function() {
-      $scope.layers.overlays.aWMS.doRefresh = true;
+    $scope.polygonSelected = function(evt) {
+      $scope.selectFeature(evt.target.feature);
     };
 
   $scope.$watch('selection.themeObject',function(newVal){
