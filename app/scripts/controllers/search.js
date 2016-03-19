@@ -8,13 +8,14 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('SearchCtrl', function ($scope,$filter,staticData,selection,spatialFoci) {
+  .controller('SearchCtrl', function ($scope,$filter,staticData,selection,spatialFoci,mapmodes) {
     $scope.selection = selection;
+    $scope.mapmodes = mapmodes;
     $scope.loadingPolygons = false;
     staticData.unwrap($scope,'options',spatialFoci.regionTypes);
 
     $scope.$watch('selection.mapMode',function(newVal){
-      if(newVal==='Grid') {
+      if(newVal===mapmodes.grid) {
         selection.lastRegionType = selection.regionType;
         selection.regionType=null;
       } else {
@@ -26,10 +27,10 @@ angular.module('ausEnvApp')
 
     $scope.regionTypeChanged = function(newOption) {
       if(!newOption){
-        selection.mapMode = 'Grid';
+        selection.mapMode = mapmodes.grid;
         return;
       }
-      selection.mapMode = 'Polygon';
+      selection.mapMode = mapmodes.region;
       $scope.loadingPolygons = true;
       newOption.jsonData().then(function(data){
         selection.availableFeatures = data.features.map(function(f){

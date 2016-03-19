@@ -10,13 +10,17 @@
  * Responsible for managing selection choices and the map.
  */
 angular.module('ausEnvApp')
-  .service('selection', function (leafletData) {
+  .service('selection', function (leafletData,mapmodes) {
     var service = this;
+    service.mapmodes = mapmodes;
+
+    console.log(mapmodes);
+    console.log(mapmodes.grid);
 
     service.year = 2015;
     service.theme = 'Tree Cover';
     service.themeObject = null;
-    service.mapMode = 'Grid';
+    service.mapMode = mapmodes.grid;
     service.dataMode = 'delta'; // vs normal
     service.regionType = null;
     service.regionName = null;

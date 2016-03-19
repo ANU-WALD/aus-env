@@ -9,9 +9,11 @@
  */
 
 angular.module('ausEnvApp')
-  .controller('MapCtrl', function ($scope,$route,$http,$interpolate,$compile,selection,themes) {
+  .controller('MapCtrl', function ($scope,$route,$http,$interpolate,$compile,
+                                   selection,themes,mapmodes) {
 
     $scope.selection = selection;
+    $scope.mapmodes = mapmodes;
 
     $scope.mapControls = {
       custom:[]
@@ -74,7 +76,7 @@ angular.module('ausEnvApp')
 
     });  //extend service (with leaflet stuff)
 
-    
+
 
     $scope.$on('leafletDirectiveMap.load', function(event, args){
       selection.centreAustralia();
@@ -101,19 +103,29 @@ angular.module('ausEnvApp')
     });
 
     $scope.geoJsonStyling = function(feature) {
+      var fillOpacity = 0;
+      var fillColor = 'black';
+
+      if(selection.mapMode===mapmodes.grid) {
+        fillOpacity = 0.4;
+        fillColor = 'green';
+      }
+
       if(selection.selectedRegion && (feature===selection.selectedRegion.feature)){
         return {
           weight:6,
-          opacity:0.5,
-          fillOpacity:0,
-          color:'#FF6'
+          strokeOpacity:0.5,
+          color:'#FF6',
+          fillOpacity:fillOpacity,
+          fillColor:fillColor
         };
       }
       return {
         weight:1,
         strokeOpacity:1,
-        fillOpacity:0,
-        color:'#000'
+        color:'#000',
+        fillOpacity:fillOpacity,
+        fillColor:fillColor
       };
     };
 
