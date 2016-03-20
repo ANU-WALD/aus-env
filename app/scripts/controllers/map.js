@@ -71,7 +71,7 @@ angular.module('ausEnvApp')
         latitude: null,
         longitude: null
       },  //coordinates
-
+      geoJsonLayer: null,
       geojson: null
 
     });  //extend service (with leaflet stuff)
@@ -143,6 +143,12 @@ angular.module('ausEnvApp')
       $scope.selectFeature(evt.target.feature);
     };
 
+    $scope.$watch('selection.selectedRegion',function(){
+      if($scope.geoJsonLayer) {
+        $scope.geoJsonLayer.setStyle($scope.geoJsonStyling);
+      }
+    });
+
   $scope.$watch('selection.themeObject',function(newVal){
     if(!newVal){
       return;
@@ -183,15 +189,32 @@ angular.module('ausEnvApp')
       }
     };
     newVal.jsonData().then(function(resp){
-      $scope.geojson = {
-        data:resp,
-        style:{
-          weight:1,
-          color:'green',
-          //fillColor:'red',
-          fillOpacity:0,
-        }
+      $scope.geojson = resp;
+      $scope.layers.overlays.selectionHiddenLayer = {
+        name: 'hidden',
+        type:'custom',
+        layer:function(){
+          $scope.geoJsonLayer = L.geoJson($scope.geojson,{
+            style:$scope.geoJsonStyling,
+            onEachFeature:function(feature,layer){
+              layer.on({
+                click: $scope.polygonSelected
+              });
+            }
+          });
+          return $scope.geoJsonLayer;
+        },
+        visible:true,
+        doRefresh:true
       };
+//        data:resp,
+//        style:{
+//          weight:1,
+//          color:'green',
+//          //fillColor:'red',
+//          fillOpacity:0,
+//        }
+//      };
     });
   });
 
