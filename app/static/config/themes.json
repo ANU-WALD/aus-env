@@ -18,6 +18,7 @@
       },
       {
         "title":"Tree Cover",
+        "summary":"ANUWALD.TreeCover.AllYears.250m",
         "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.{{year}}.250m.nc",
         "variable":"TreeCover",
         "time":"{{year}}-12-31",
@@ -46,6 +47,7 @@
       {
         "default":true,
         "title":"Burn Intensity (8 day maximum)",
+        "summary":"Sentinel.Nhotspots.AnnualSums",
         "url":"ub8/au/fire/Sentinel.MaxTemp.AnnualMaxima.nc",
         "variable":"MaxTemp",
         "time":"{{year}}-12-31",
@@ -74,6 +76,7 @@
     "layers":[
       {
         "title":"Annual mean soil moisture availability",
+        "summary":"OzWALD.annual.Ssoil.AnnualMeans",
         "default":true,
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.AnnualMeans.nc",
@@ -91,6 +94,7 @@
       {
         "default":false,
         "title":"Annual mean precipitation",
+        "summary":"OzWALD.annual.Pg.AnnualSums",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc",
           "variable":"AnnualSums",
@@ -138,6 +142,7 @@
       {
         "default":false,
         "title":"Exposed soil fraction: annual maximum",
+        "summary":"NotSpecified",
         "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.AnnualMaxima.aust.005.BS.nc",
         "variable":"AnnualMaxima",
         "time":"{{year}}-12-31",
@@ -146,6 +151,7 @@
       {
         "default":false,
         "title":"Annual mean canopy leaf area",
+        "summary":"OzWALD.annual.LAI.AnnualMeans",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.LAI.AnnualMeans.nc",
           "variable":"AnnualMeans",
@@ -175,6 +181,7 @@
       {
         "default":true,
         "title":"Annual mean carbon uptake",
+        "summary":"OzWALD.annual.GPP.AnnualSums",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.AnnualSums.nc",
           "variable":"AnnualSums",
@@ -206,6 +213,7 @@
       {
         "default":true,
         "title":"Annual maximum inundated area",
+        "summary":"MOD09A1.OWLau.0_005deg.AnnualMaxima",
         "normal":{
           "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.AnnualMaxima.nc",
           "variable":"maxOWL",
@@ -222,6 +230,7 @@
       {
         "default":false,
         "title":"Annual mean river flow",
+        "summary":"OzWALD.annual.Qtot.AnnualSums",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qtot.AnnualSums.nc",
           "variable":"AnnualSums",

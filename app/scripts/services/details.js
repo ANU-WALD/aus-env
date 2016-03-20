@@ -111,18 +111,19 @@ angular.module('ausEnvApp')
     };
 
     service.getBarChartData = function(the_summary, the_source){
-      var url = 'static/summary/'+the_summary+'.'+the_source+'.csv';
+      var url = 'static/summary/annual_time_series/'+the_summary+'.'+the_source+'.TimeSeries.sum.csv';
       return service.retrieveCSV(url);
     };
 
     service.getPieChartData = function(layer_variable,polygon_layer,year){
-      var url = 'static/summary/pie/'+layer_variable+'.'+polygon_layer+'_Landcover.'+year+'.csv';
+      var url = 'static/summary/pie/'+layer_variable+'.'+polygon_layer+'.DLCD.'+year+'.sum.csv';
       var mainData = service.retrieveCSV(url);
       var landCover = service.landCoverCodes();
       var result = $q.defer();
 
       $q.all([mainData,landCover]).then(function(results){
         var data = results[0];
+        data.columnNames = data.columnNames.map(function(c){return +c;});
         var landCoverCodes = results[1];
         data.columnPresentation = landCoverCodes;
         result.resolve(data);
