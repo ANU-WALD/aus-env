@@ -14,6 +14,9 @@ angular.module('ausEnvApp')
   .service('details', function ($q,$http,$window,staticData,csv) {
     var service = this;
 
+    var STATIC_CSV_SOURCE='/aucsv/accounts/';
+    var ANNUAL_TIME_SERIES=STATIC_CSV_SOURCE;
+    var PIE_CHART_DATA=STATIC_CSV_SOURCE;
     service.dap = $window.dap;
     service.MAX_CACHE_LENGTH=20;
     service.cache = [];
@@ -48,12 +51,12 @@ angular.module('ausEnvApp')
     };
 
     service.getBarChartData = function(the_summary, the_source){
-      var url = 'static/summary/annual_time_series/'+the_summary+'.'+the_source+'.TimeSeries.sum.csv';
+      var url = ANNUAL_TIME_SERIES+the_summary+'.'+the_source+'.TimeSeries.sum.csv';
       return service.retrieveCSV(url);
     };
 
     service.getPieChartData = function(layer_variable,polygon_layer,year){
-      var url = 'static/summary/pie/'+layer_variable+'.'+polygon_layer+'.DLCD.'+year+'.sum.csv';
+      var url = PIE_CHART_DATA+layer_variable+'.'+polygon_layer+'.DLCD.'+year+'.sum.csv';
       var mainData = service.retrieveCSV(url);
       var landCover = service.landCoverCodes();
       var result = $q.defer();

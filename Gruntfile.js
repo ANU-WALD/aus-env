@@ -76,11 +76,18 @@ module.exports = function (grunt) {
         hostname: '0.0.0.0',
         livereload: 57133
       },
+      proxies: [
+        {
+          context: '/aucsv',
+          host: 'wenfo.org'
+        }
+      ],
       livereload: {
         options: {
           open: true,
           middleware: function (connect) {
             return [
+              require('grunt-connect-proxy/lib/utils').proxyRequest,
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -464,11 +471,14 @@ module.exports = function (grunt) {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
 
+    grunt.loadNpmTasks('grunt-connect-proxy');
+
     grunt.task.run([
       'clean:server',
       'wiredep',
       'concurrent:server',
       'autoprefixer:server',
+      'configureProxies:server',
       'connect:livereload',
       'watch'
     ]);

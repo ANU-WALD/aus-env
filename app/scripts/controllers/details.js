@@ -72,9 +72,10 @@ angular.module('ausEnvApp')
       }
       summaryName = summaryName || $scope.selection.selectedLayer.summary;
 
-      $scope.createBarChart(PlaceId,label,summaryName);
-      $scope.createLineChart(PlaceId,label);
-      $scope.createPieChart(PlaceId,label,summaryName);
+      var polygonSource = $scope.selection.regionType.summaryName || $scope.selection.regionType.source;
+      $scope.createBarChart(PlaceId,label,summaryName,polygonSource);
+      $scope.createPieChart(PlaceId,label,summaryName,polygonSource);
+//      $scope.createLineChart(PlaceId,label);
     };
 
     $scope.$watch('selection.selectedRegion',$scope.createCharts);
@@ -107,8 +108,8 @@ angular.module('ausEnvApp')
     };
 
 
-    $scope.createBarChart = function(placeId,label,summaryName){
-      details.getBarChartData(summaryName, $scope.selection.regionType.source).then(function(data){
+    $scope.createBarChart = function(placeId,label,summaryName,polygonSource){
+      details.getBarChartData(summaryName,polygonSource).then(function(data){
         $scope.barChartData = data;
 
         $scope.barLabels = [];
@@ -123,8 +124,8 @@ angular.module('ausEnvApp')
 
     };
 
-    $scope.createPieChart = function(placeId,label,summaryName) {
-      details.getPieChartData(summaryName, $scope.selection.regionType.source,$scope.selection.year).then(function(data){
+    $scope.createPieChart = function(placeId,label,summaryName,polygonSource) {
+      details.getPieChartData(summaryName,polygonSource,$scope.selection.year).then(function(data){
         $scope.pieChartData = data;
         $scope.pieData = [];
 
