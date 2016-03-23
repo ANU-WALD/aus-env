@@ -43,7 +43,7 @@
     "source":"LGA11aAust",
     "labelField":"LGA_NAME11",
     "keyField":"LGA_CODE11"
-  }
+  },
   {
     "name":"Ramsar Wetlands",
     "source":"ramsar2015",
