@@ -39,6 +39,12 @@
     "summaryName":"NP_GT_5K"
   },
   {
+    "name":"Local Government Areas",
+    "source":"LGA11aAust",
+    "labelField":"LGA_NAME11",
+    "keyField":"LGA_CODE11"
+  }
+  {
     "name":"Ramsar Wetlands",
     "source":"ramsar2015",
     "labelField":"WETLAND_NA",
