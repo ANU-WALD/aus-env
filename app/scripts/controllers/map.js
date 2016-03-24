@@ -9,8 +9,8 @@
  */
 
 angular.module('ausEnvApp')
-  .controller('MapCtrl', function ($scope,$route,$http,$interpolate,$compile,
-                                   selection,themes,mapmodes) {
+  .controller('MapCtrl', function ($scope,$route,$http,$interpolate,$compile,$q,
+                                   selection,themes,mapmodes,details,colourschemes) {
 
     $scope.selection = selection;
     $scope.mapmodes = mapmodes;
@@ -106,9 +106,21 @@ angular.module('ausEnvApp')
       var fillOpacity = 0;
       var fillColor = 'black';
 
-      if(selection.mapMode===mapmodes.grid) {
-        fillOpacity = 0.4;
-        fillColor = 'green';
+      if($scope.polygonMapping && (selection.mapMode===$scope.mapmodes.region)) {
+        fillOpacity = 1;
+        var key = feature.properties[$scope.selection.regionType.keyField];
+        var vals = $scope.polygonMapping.values['PlaceIndex'+key];
+        var idx = $scope.polygonMapping.values.columnNames.indexOf(''+$scope.selection.year);
+        var val = vals[idx];
+        var range = themes.colourRange($scope.selection.selectedLayer).split(',').map(function(v){
+          return +v;
+        });
+        var point = (range[1]-val)/(range[1]-range[0]);
+        var selectedColour = $scope.polygonMapping.colours[Math.round(point*$scope.polygonMapping.colours.length)];
+
+        console.log(selectedColour,key,vals,idx,val,range,point);
+
+        fillColor = selectedColour;
       }
 
       if(selection.selectedRegion && (feature===selection.selectedRegion.feature)){
@@ -143,10 +155,41 @@ angular.module('ausEnvApp')
       $scope.selectFeature(evt.target.feature);
     };
 
-    $scope.$watch('selection.selectedRegion',function(){
-      if($scope.geoJsonLayer) {
+    $scope.fetchPolygonData = function() {
+      var result = $q.defer();
+      $q.all([details.getPolygonFillData(),colourschemes.coloursFor(selection.selectedLayer)]).then(function(data){
+        result.resolve(data);
+      });
+
+      return result.promise;
+    };
+
+    $scope.updateStyling = function(){
+      var doUpdateStyles = function(){
         $scope.geoJsonLayer.setStyle($scope.geoJsonStyling);
+      };
+
+      if($scope.selection.mapMode===$scope.mapmodes.region) {
+        $scope.fetchPolygonData().then(function(data){
+          $scope.polygonMapping = {
+            colours: data[1],
+            values: data[0]
+          };
+          if($scope.geoJsonLayer) {
+            doUpdateStyles();
+          }
+        });
+      } else {
+        $scope.polygonColours = null;
       }
+
+      if($scope.geoJsonLayer) {
+          doUpdateStyles();
+      }
+    };
+
+    ['selectedRegion','selectedLayer','regionType','mapMode'].forEach(function(prop){
+      $scope.$watch('selection.'+prop,$scope.updateStyling);
     });
 
   $scope.$watch('selection.themeObject',function(newVal){
