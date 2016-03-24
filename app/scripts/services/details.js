@@ -11,7 +11,7 @@
 //selection.regionType
 //selection.selectedLayer
 angular.module('ausEnvApp')
-  .service('details', function ($q,$http,$window,staticData,csv) {
+  .service('details', function ($q,$http,$window,staticData,selection,csv) {
     var service = this;
 
     var STATIC_CSV_SOURCE='/aucsv/accounts/';
@@ -50,13 +50,35 @@ angular.module('ausEnvApp')
       return result.promise;
     };
 
-    service.getBarChartData = function(the_summary, the_source){
-      var url = ANNUAL_TIME_SERIES+the_summary+'.'+the_source+'.TimeSeries.sum.csv';
+    service.summaryName = function() {
+      var summaryName = null;
+      if(selection.selectedLayer[selection.dataMode]){
+        summaryName = selection.selectedLayer[selection.dataMode].summary;
+      }
+      summaryName = summaryName || selection.selectedLayer.summary;
+      return summaryName;
+    };
+
+    service.polygonSource = function() {
+      if(selection.haveRegion()) {
+        return selection.regionType.summaryName || selection.regionType.source;
+      } else {
+        return "SA3_2011_AUST";
+      }
+    };
+
+    service.getBarChartData = function(){
+      var url = ANNUAL_TIME_SERIES+service.summaryName()+'.'+service.polygonSource()+'.TimeSeries.sum.csv';
       return service.retrieveCSV(url);
     };
 
-    service.getPieChartData = function(layer_variable,polygon_layer,year){
-      var url = PIE_CHART_DATA+layer_variable+'.'+polygon_layer+'.DLCD.'+year+'.sum.csv';
+    service.getPolygonFillData = function() {
+      var url = ANNUAL_TIME_SERIES+service.summaryName()+'.'+service.polygonSource()+'.TimeSeries.mean.csv';
+      return service.retrieveCSV(url);
+    };
+
+    service.getPieChartData = function(){
+      var url = PIE_CHART_DATA+service.summaryName()+'.'+service.polygonSource()+'.DLCD.'+selection.year+'.sum.csv';
       var mainData = service.retrieveCSV(url);
       var landCover = service.landCoverCodes();
       var result = $q.defer();

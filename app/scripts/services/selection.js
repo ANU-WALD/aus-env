@@ -112,6 +112,10 @@ angular.module('ausEnvApp')
         service.selectedRegion.feature.properties[service.regionType.labelField];
     };
 
+    service.haveRegion = function() {
+      return service.selectedRegion && (service.selectedRegion!=="");
+    };
+
     /*
      * @ngdoc function
      * @name centreAustralia

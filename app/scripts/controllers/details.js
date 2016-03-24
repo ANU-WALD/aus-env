@@ -59,22 +59,15 @@ angular.module('ausEnvApp')
         var keyField = selection.regionType.keyField;
         PlaceId = selection.selectedRegion.feature.properties[keyField];
         label = selection.selectedRegion.name;
-      } else if(!selection.selectedRegion||(selection.selectedRegion==="")){
+      } else if(!selection.haveRegion()){
         PlaceId = 9999;
         label = 'National';
       } else {
         return;
       }
 
-      var summaryName = null;
-      if($scope.selection.selectedLayer[$scope.selection.dataMode]){
-        summaryName = $scope.selection.selectedLayer[$scope.selection.dataMode].summary;
-      }
-      summaryName = summaryName || $scope.selection.selectedLayer.summary;
-
-      var polygonSource = $scope.selection.regionType.summaryName || $scope.selection.regionType.source;
-      $scope.createBarChart(PlaceId,label,summaryName,polygonSource);
-      $scope.createPieChart(PlaceId,label,summaryName,polygonSource);
+      $scope.createBarChart(PlaceId,label);
+      $scope.createPieChart(PlaceId,label);
 //      $scope.createLineChart(PlaceId,label);
     };
 
@@ -109,7 +102,7 @@ angular.module('ausEnvApp')
 
 
     $scope.createBarChart = function(placeId,label,summaryName,polygonSource){
-      details.getBarChartData(summaryName,polygonSource).then(function(data){
+      details.getBarChartData().then(function(data){
         $scope.barChartData = data;
 
         $scope.barLabels = [];
@@ -125,7 +118,7 @@ angular.module('ausEnvApp')
     };
 
     $scope.createPieChart = function(placeId,label,summaryName,polygonSource) {
-      details.getPieChartData(summaryName,polygonSource,$scope.selection.year).then(function(data){
+      details.getPieChartData().then(function(data){
         $scope.pieChartData = data;
         $scope.pieData = [];
 
