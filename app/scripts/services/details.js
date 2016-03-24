@@ -59,8 +59,8 @@ angular.module('ausEnvApp')
       return summaryName;
     };
 
-    service.polygonSource = function() {
-      if(selection.haveRegion()) {
+    service.polygonSource = function(needRegion) {
+      if(!needRegion||selection.haveRegion()) {
         return selection.regionType.summaryName || selection.regionType.source;
       } else {
         return "SA3_2011_AUST";
@@ -68,7 +68,7 @@ angular.module('ausEnvApp')
     };
 
     service.getBarChartData = function(){
-      var url = ANNUAL_TIME_SERIES+service.summaryName()+'.'+service.polygonSource()+'.TimeSeries.sum.csv';
+      var url = ANNUAL_TIME_SERIES+service.summaryName()+'.'+service.polygonSource(true)+'.TimeSeries.sum.csv';
       return service.retrieveCSV(url);
     };
 
@@ -78,7 +78,7 @@ angular.module('ausEnvApp')
     };
 
     service.getPieChartData = function(){
-      var url = PIE_CHART_DATA+service.summaryName()+'.'+service.polygonSource()+'.DLCD.'+selection.year+'.sum.csv';
+      var url = PIE_CHART_DATA+service.summaryName()+'.'+service.polygonSource(true)+'.DLCD.'+selection.year+'.sum.csv';
       var mainData = service.retrieveCSV(url);
       var landCover = service.landCoverCodes();
       var result = $q.defer();
