@@ -2,33 +2,30 @@
   {
     "id":"lcc",
     "name":"Land cover change",
-    "longName":"Land use and land cover change",
-    "status":"degrading",
+    "longName":"Land cover change",
     "icon":"landuse.png",
-    "url":"",
-    "time":"",
-    "layer":"",
-    "colorscalerange":"0,1",
-    "mainView":"wms",
     "layers":[
       {
         "default":true,
-        "title":"Net Tree Cover Change",
-        "url":""
-      },
-      {
         "title":"Tree Cover",
         "summary":"ANUWALD.TreeCover.AllYears.250m",
-        "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.{{year}}.250m.nc",
-        "variable":"TreeCover",
         "time":"{{year}}-12-31",
-        "colorscalerange":"1,100"
+        "normal":{
+          "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.{{year}}.250m.nc",
+          "colorscalerange":"0,100",
+          "variable":"TreeCover"
+        },
+        "delta":{
+          "url":"ub8/au/treecover/250m/ANUWALD.TreeCoverChange.{{year}}.250m.nc",
+          "colorscalerange":"-30,30",
+          "variable":"TreeCover"
+        }
       },
       {
         "title":"Land cover class",
-        "url":"ub8/au/LandCover/DLCD_v2_MODIS_EVI_{{year-1}}-{{year}}.nc",
+        "url":"ub8/au/LandCover/DLCD_v2_MODIS_EVI_2012-2013.nc",
         "variable":"DLCD",
-        "time":"{{year-1}}-12-31",
+        "time":"2012-12-31",
         "colorscalerange":"1,35"
       }
     ]
@@ -38,28 +35,24 @@
     "name":"Bushfire",
     "status":"constant",
     "icon":"fire.png",
-    "url":"",
-    "time":"",
-    "layer":"",
-    "colorscalerange":"0,1",
-    "mainView":"wms",
     "layers":[
       {
         "default":true,
-        "title":"Burn Intensity (8 day maximum)",
+        "title":"Annual maximum fire intensity",
         "summary":"Sentinel.Nhotspots.AnnualSums",
         "url":"ub8/au/fire/Sentinel.MaxTemp.AnnualMaxima.nc",
         "variable":"MaxTemp",
         "time":"{{year}}-12-31",
-        "colorscalerange":"0,500"
+        "colorscalerange":"50,200"
       },
       {
         "default":false,
-        "title":"Number of Hotspots",
+        "title":"Annual number of recorded fires",
         "url":"ub8/au/fire/Sentinel.Nhotspots.AnnualSums.nc",
         "variable":"Nhotspots",
         "time":"{{year}}-12-31",
-        "colorscalerange":"0,10"
+        "logscale":true,
+        "colorscalerange":"0,250"
       }
     ]
   },
@@ -68,11 +61,6 @@
     "name":"Water Availability",
     "status":"improving",
     "icon":"water.png",
-    "url":"",
-    "time":"",
-    "layer":"",
-    "colorscalerange":"0,1",
-    "mainView":"wms",
     "layers":[
       {
         "title":"Annual mean soil moisture availability",
@@ -82,13 +70,13 @@
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.AnnualMeans.nc",
           "variable":"AnnualMeans",
           "time":"{{year}}-12-31",
-          "colorscalerange":"0,500"
+          "colorscalerange":"0,2000"
         },
         "delta":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.ChangesAnnualMeans.nc",
           "variable":"ChangesAnnualMeans",
           "time":"{{year}}-12-31",
-          "colorscalerange":"-100,100"
+          "colorscalerange":"-500,500"
         }
       },
       {
@@ -99,13 +87,14 @@
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc",
           "variable":"AnnualSums",
           "time":"{{year}}-12-31",
-          "colorscalerange":"0,1000"
+          "logscale":true,
+          "colorscalerange":"100,5000"
         },
         "delta":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Pg.ChangesAnnualSums.nc",
           "variable":"ChangesAnnualSums",
           "time":"{{year}}-12-31",
-          "colorscalerange":"-500,500",
+          "colorscalerange":"-2000,2000",
           "belowmincolor":"extend"
         }
       }
@@ -116,11 +105,6 @@
     "name":"Landscape Health",
     "status":"degrading",
     "icon":"landscape.png",
-    "url":"",
-    "time":"",
-    "layer":"",
-    "colorscalerange":"0,1",
-    "mainView":"wms",
     "layers":[
       {
         "default":true,
@@ -136,33 +120,24 @@
           "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.ChangesAnnualMean.aust.005.BS.nc",
           "variable":"ChangesAnnualMean",
           "time":"{{year}}-12-31",
-          "colorscalerange":"-100,100"
+          "colorscalerange":"-75,75"
         }
-      },
-      {
-        "default":false,
-        "title":"Exposed soil fraction: annual maximum",
-        "summary":"NotSpecified",
-        "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.AnnualMaxima.aust.005.BS.nc",
-        "variable":"AnnualMaxima",
-        "time":"{{year}}-12-31",
-        "colorscalerange":"-100,100"
       },
       {
         "default":false,
         "title":"Annual mean canopy leaf area",
         "summary":"OzWALD.annual.LAI.AnnualMeans",
         "normal":{
-          "url":"ub8/au/OzWALD/annual/OzWALD.annual.LAI.AnnualMeans.nc",
+          "url":"ub8/au/LAI/MOD15A2.1000m_lai.AnnualMeans.nc",
           "variable":"AnnualMeans",
           "time":"{{year}}-12-31",
-          "colorscalerange":"0,1"
+          "colorscalerange":"0,7"
         },
         "delta":{
-          "url":"ub8/au/OzWALD/annual/OzWALD.annual.LAI.ChangesAnnualMeans.nc",
+          "url":"ub8/au/LAI/MOD15A2.1000m_lai.ChangesAnnualMean.nc",
           "variable":"ChangesAnnualMeans",
           "time":"{{year}}-12-31",
-          "colorscalerange":"-1,1"
+          "colorscalerange":"-4,4"
         }
       }
     ]
@@ -172,11 +147,6 @@
     "name":"Carbon Storage",
     "status":"degrading",
     "icon":"carbon_uptake.png",
-    "url":"",
-    "time":"",
-    "layer":"",
-    "colorscalerange":"0,1",
-    "mainView":"wms",
     "layers":[
       {
         "default":true,
@@ -186,13 +156,13 @@
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.AnnualSums.nc",
           "variable":"AnnualSums",
           "time":"{{year}}-12-31",
-          "colorscalerange":"0,500"
+          "colorscalerange":"0,4000"
         },
         "delta":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.ChangesAnnualSums.nc",
           "variable":"ChangesAnnualSums",
           "time":"{{year}}-12-31",
-          "colorscalerange":"-500,500"
+          "colorscalerange":"-2000,2000"
         }
       }
     ]
@@ -202,12 +172,6 @@
     "name":"Rivers and Wetlands",
     "status":"constant",
     "icon":"wetlands.png",
-    "url":"http://dapds00.nci.org.au/thredds/wms/ub8/au/Ramsar/MaxWater_Ramsar072.1988-2015.nc?",
-    "time":"2015-12-31",
-    "layer":"MaxWater",
-    "json":"ramsar2015.json",
-    "colorscalerange":"1,10",
-    "mainView":"wms",
     "layers":[
       {
         "default":true,
@@ -234,13 +198,13 @@
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qtot.AnnualSums.nc",
           "variable":"AnnualSums",
           "time":"{{year}}-12-31",
-          "colorscalerange":"0,500"
+          "colorscalerange":"0,2000"
         },
         "delta":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qtot.ChangesAnnualSums.nc",
           "variable":"ChangesAnnualSums",
           "time":"{{year}}-12-31",
-          "colorscalerange":"-200,200",
+          "colorscalerange":"-2000,2000",
           "belowmincolor":"extend"
         }
       }

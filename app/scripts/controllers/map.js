@@ -198,7 +198,7 @@ angular.module('ausEnvApp')
     }
 
     $scope.clearView();
-    $scope['configureView_'+newVal.mainView](newVal);
+    $scope.configureView_wms(newVal);
   });
 
   $scope.$watch('selection.regionType',function(newVal){
