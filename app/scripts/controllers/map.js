@@ -335,8 +335,6 @@ angular.module('ausEnvApp')
   };
 
   $scope.configureMapTools = function() {
-    var modeTool = createLeafeletCustomControl('topright','mapmode');
-    $scope.mapControls.custom.push(modeTool);
     $scope.mapControls.custom.push(createLeafeletCustomControl('bottomleft','title'));
     $scope.mapControls.custom.push(createLeafeletCustomControl('bottomright','details'));
     $scope.mapControls.custom.push(createLeafeletCustomControl('topleft','zoom'));
