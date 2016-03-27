@@ -353,7 +353,6 @@ angular.module('ausEnvApp')
 
     $scope.selection.selectedLayer = defaultLayer;
     $scope.selection.selectedLayerName = defaultLayer.title;
-    //$scope.configureView_json(themeObject);
   };
 
   $scope.mapZoom = function(delta) {
