@@ -198,7 +198,6 @@ angular.module('ausEnvApp')
     }
 
     $scope.clearView();
-    $scope.configureView_wms(newVal);
   });
 
   $scope.$watch('selection.regionType',function(newVal){
@@ -269,14 +268,6 @@ angular.module('ausEnvApp')
 //    if($scope.layers.overlays.json) {
 //      delete $scope.layers.overlays.json;
 //    }
-  };
-
-  $scope.configureView_wms = function(themeObject){
-    var defaultLayer = themeObject.layers.find(function(l){return l.default;});
-
-    $scope.selection.selectedLayer = defaultLayer;
-    $scope.selection.selectedLayerName = defaultLayer.title;
-    //$scope.configureView_json(themeObject);
   };
 
   $scope.showWMS = function(){
@@ -356,6 +347,15 @@ angular.module('ausEnvApp')
   $scope.setDefaultTheme = function(themesData){
     selection.theme = themesData[1].name;
     selection.themeObject = themesData[1];
+    $scope.selectDefaultLayer(selection.themeObject);
+  };
+
+  $scope.selectDefaultLayer = function(themeObject){
+    var defaultLayer = themeObject.layers.find(function(l){return l.default;});
+
+    $scope.selection.selectedLayer = defaultLayer;
+    $scope.selection.selectedLayerName = defaultLayer.title;
+    //$scope.configureView_json(themeObject);
   };
 
   $scope.mapZoom = function(delta) {
