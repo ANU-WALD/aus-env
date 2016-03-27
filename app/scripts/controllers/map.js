@@ -78,12 +78,13 @@ angular.module('ausEnvApp')
 
 
 
-    $scope.$on('leafletDirectiveMap.load', function(event, args){
+    $scope.$on('leafletDirectiveMap.load', function(/*event, args*/){
       selection.centreAustralia();
     });
 
 
-    $scope.$on('leafletDirectiveMap.click', function(event, args){
+    $scope.$on('leafletDirectiveMap.click', function(/*event, args*/){
+      // +++ REMOVE?
       //console.log(args.leafletEvent.target);
       //selection.setCoordinates(args.leafletEvent.latlng);
       //selection.leafletData.getMap().then(function(map) { console.log(map); });
@@ -280,14 +281,14 @@ angular.module('ausEnvApp')
     var keys = ['time','variable','url','colorscalerange','belowmincolor','abovemaxcolor'];
 
     var settings = {};
-    keys.forEach(function(k){settings[k] = layer[k]});
+    keys.forEach(function(k){settings[k] = layer[k];});
     if(layer[selection.dataMode]) {
       if(selection.dataMode==='delta') {
-        prefix = 'Change in '
+        prefix = 'Change in ';
       }
       keys.forEach(function(k){
         settings[k] = layer[selection.dataMode][k] || settings[k];
-      })
+      });
     }
     $scope.layers.overlays.aWMS = $scope.selection.makeLayer();
 

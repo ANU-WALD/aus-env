@@ -157,12 +157,13 @@ angular.module('ausEnvApp')
     };
 
     service.setOpacity = function(opacity) {
+      // +++ redundant???
       if(service.layers.overlays.selectionLayer) {
         var opac = service.layers.overlays.selectionLayer.layerOptions.opacity || 1;
         //console.log(opac);
         opac += opacity;
-        if (opac < 0) opac = 0;
-        if (opac > 1) opac = 1;
+        if (opac < 0){ opac = 0; }
+        if (opac > 1){ opac = 1; }
         service.layers.overlays.selectionLayer.layerOptions.opacity = opac;
         service.layers.overlays.selectionLayer.doRefresh = true;
         //console.log(service.layers.overlays.selectionLayer);

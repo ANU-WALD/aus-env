@@ -32,8 +32,6 @@ angular.module('ausEnvApp')
 
     $scope.pieData = [];
     $scope.pieLabels = [];
-    var nationalSum = 0;
-    var regionalSum = 0;
 
     $scope.clearData = function(){
       $scope.barChartData = 0;
@@ -43,8 +41,6 @@ angular.module('ausEnvApp')
 
       $scope.pieData = [];
       $scope.pieLabels = [];
-      var nationalSum = 0;
-      var regionalSum = 0;
     };
 
     $scope.createCharts = function(){
@@ -67,7 +63,7 @@ angular.module('ausEnvApp')
       }
 
       $scope.createBarChart(PlaceId,label);
-      $scope.createPieChart(PlaceId,label);
+      $scope.createPieChart(PlaceId);
 //      $scope.createLineChart(PlaceId,label);
     };
 
@@ -77,7 +73,8 @@ angular.module('ausEnvApp')
 
 
     $scope.selectBarChartData = function(newRegion){
-      // Always called with newRegion undefined???
+      // +++ Always called with newRegion undefined???
+      // +++ Can we get rid of this function???
       $scope.barLabels = [];
       $scope.barSeries = [];
       $scope.barData = [];
@@ -93,7 +90,7 @@ angular.module('ausEnvApp')
           $scope.barData.push($scope.barChartData[newRegion.name]);
 
           //nationalSum = $scope.barChartData.abc1.reduce(function(a, b) { return a + b; }, 0);
-          regionalSum = $scope.barChartData[newRegion.name].reduce(function(a, b) { return a + b; }, 0);
+          //regionalSum = $scope.barChartData[newRegion.name].reduce(function(a, b) { return a + b; }, 0);
         } catch(err) {
           console.log("Error:" + err + "," + " selection is undefined");
         }
@@ -101,7 +98,7 @@ angular.module('ausEnvApp')
     };
 
 
-    $scope.createBarChart = function(placeId,label,summaryName,polygonSource){
+    $scope.createBarChart = function(placeId,label){
       details.getBarChartData().then(function(data){
         $scope.barChartData = data;
 
@@ -117,7 +114,7 @@ angular.module('ausEnvApp')
 
     };
 
-    $scope.createPieChart = function(placeId,label,summaryName,polygonSource) {
+    $scope.createPieChart = function(placeId) {
       details.getPieChartData().then(function(data){
         $scope.pieChartData = data;
         $scope.pieData = [];

@@ -1,6 +1,7 @@
 'use strict';
 
-if (typeof Function.prototype.bind != 'function') {
+/* jshint ignore:start */
+if (typeof Function.prototype.bind !== 'function') {
     Function.prototype.bind = function bind(obj) {
         var args = Array.prototype.slice.call(arguments, 1),
             self = this,
@@ -14,10 +15,12 @@ if (typeof Function.prototype.bind != 'function') {
                 );
             };
         nop.prototype = this.prototype || {};
+
         bound.prototype = new nop();
         return bound;
     };
 }
+/* jshint ignore:end */
 
 /**
  * @ngdoc overview

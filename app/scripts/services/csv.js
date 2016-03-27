@@ -26,11 +26,11 @@ angular.module('ausEnvApp')
     };
 
     service.parseRegularCSV = function(text,idPrefix,asRecord){
-      var idPrefix = (idPrefix===undefined)? 'PlaceIndex' : idPrefix;
+      idPrefix = (idPrefix===undefined)? 'PlaceIndex' : idPrefix;
       var data = {};
       var lines = text.split('\n');
       var header = lines.shift();
-      var columns = header.split(',').map(Function.prototype.call,String.prototype.trim);;
+      var columns = header.split(',').map(Function.prototype.call,String.prototype.trim);
       columns.shift();
 
       var parseValue = function(val){

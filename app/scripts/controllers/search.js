@@ -49,7 +49,6 @@ angular.module('ausEnvApp')
       });
     }; //regionTypeChanged
 
-
     $scope.canUseSearchText = function() {
       return ((!selection.isMapModeGrid()) && (selection.regionType !== null));
     };  //canUseSearchText
