@@ -38,7 +38,7 @@
     "layers":[
       {
         "default":true,
-        "title":"Annual maximum fire intensity",
+        "title":"Maximum fire intensity",
         "summary":"Sentinel.Nhotspots.AnnualSums",
         "url":"ub8/au/fire/Sentinel.MaxTemp.AnnualMaxima.nc",
         "variable":"MaxTemp",
