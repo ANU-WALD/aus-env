@@ -7,24 +7,26 @@
     "layers":[
       {
         "default":true,
-        "title":"Tree Cover",
+        "title":"Tree cover",
         "summary":"ANUWALD.TreeCover.AllYears.250m",
         "time":"{{year}}-12-31",
         "normal":{
-          "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.{{year}}.250m.nc",
+          "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.AllYears.250m.nc",
           "colorscalerange":"0,100",
-          "variable":"TreeCover",
+          "variable":"AllYears",
+          "time":"{{year}}-12-31",
           "palette":"anu_wald_darkgreen"
         },
         "delta":{
-          "url":"ub8/au/treecover/250m/ANUWALD.TreeCoverChange.{{year}}.250m.nc",
+          "url":"ub8/au/treecover/250m/ANUWALD.TreeCoverChange.ChangeAllYears.250m.nc",
           "colorscalerange":"-30,30",
-          "variable":"TreeCover",
+          "variable":"ChangeAllYears",
+          "time":"{{year}}-12-31",
           "palette":"anu_wald_gistemp"
         }
       },
       {
-        "title":"Land cover class",
+        "title":"Land cover",
         "url":"ub8/au/LandCover/DLCD_v2_MODIS_EVI_2012-2013.nc",
         "variable":"DLCD",
         "time":"2012-12-31",
@@ -41,7 +43,7 @@
     "layers":[
       {
         "default":true,
-        "title":"Maximum fire intensity",
+        "title":"Fire intensity",
         "summary":"Sentinel.Nhotspots.AnnualSums",
         "url":"ub8/au/fire/Sentinel.MaxTemp.AnnualMaxima.nc",
         "variable":"MaxTemp",
@@ -51,7 +53,7 @@
       },
       {
         "default":false,
-        "title":"Annual number of recorded fires",
+        "title":"Fire occurrence",
         "url":"ub8/au/fire/Sentinel.Nhotspots.AnnualSums.nc",
         "variable":"Nhotspots",
         "time":"{{year}}-12-31",
@@ -68,7 +70,7 @@
     "icon":"water.png",
     "layers":[
       {
-        "title":"Annual mean soil moisture availability",
+        "title":"Soil moisture",
         "summary":"OzWALD.annual.Ssoil.AnnualMeans",
         "default":true,
         "normal":{
@@ -88,7 +90,7 @@
       },
       {
         "default":false,
-        "title":"Annual mean precipitation",
+        "title":"Precipitation",
         "summary":"OzWALD.annual.Pg.AnnualSums",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc",
@@ -117,7 +119,7 @@
     "layers":[
       {
         "default":true,
-        "title":"Exposed soil fraction: annual mean",
+        "title":"Exposed soil",
         "summary":"FractCover.V3_0_1.AnnualMeans.aust.005.BS",
         "normal":{
           "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.AnnualMeans.aust.005.BS.nc",
@@ -163,7 +165,7 @@
     "layers":[
       {
         "default":true,
-        "title":"Annual mean carbon uptake",
+        "title":"Vegetation carbon uptake",
         "summary":"OzWALD.annual.GPP.AnnualSums",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.AnnualSums.nc",
@@ -208,7 +210,7 @@
     "layers":[
       {
         "default":true,
-        "title":"Annual maximum inundated area",
+        "title":"Inundation",
         "summary":"MOD09A1.OWLau.0_005deg.AnnualMaxima",
         "normal":{
           "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.AnnualMaxima.nc",
@@ -247,7 +249,7 @@
       },
       {
         "default":false,
-        "title":"River Flow",
+        "title":"River flow",
         "summary":"OzWALD.annual.Qtot.AnnualSums",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qriv.AnnualSums.nc",
