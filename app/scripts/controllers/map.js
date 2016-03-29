@@ -278,7 +278,8 @@ angular.module('ausEnvApp')
     }
 
     var prefix = '';
-    var keys = ['time','variable','url','colorscalerange','belowmincolor','abovemaxcolor'];
+    var keys = ['time','variable','url','colorscalerange',
+                'belowmincolor','abovemaxcolor','palette'];
 
     var settings = {};
     keys.forEach(function(k){settings[k] = layer[k];});
@@ -306,6 +307,10 @@ angular.module('ausEnvApp')
 
     if(settings.abovemaxcolor){
       $scope.layers.overlays.aWMS.layerParams.abovemaxcolor = settings.abovemaxcolor;
+    }
+
+    if(settings.palette) {
+      $scope.layers.overlays.aWMS.layerParams.styles = 'boxfill/'+settings.palette;
     }
     $scope.layers.overlays.aWMS.layerParams.showOnSelector = false;
     $scope.layers.overlays.aWMS.doRefresh = true;

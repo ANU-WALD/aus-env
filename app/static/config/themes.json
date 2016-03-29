@@ -13,12 +13,14 @@
         "normal":{
           "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.{{year}}.250m.nc",
           "colorscalerange":"0,100",
-          "variable":"TreeCover"
+          "variable":"TreeCover",
+          "palette":"anu_wald_darkgreen"
         },
         "delta":{
           "url":"ub8/au/treecover/250m/ANUWALD.TreeCoverChange.{{year}}.250m.nc",
           "colorscalerange":"-30,30",
-          "variable":"TreeCover"
+          "variable":"TreeCover",
+          "palette":"anu_wald_gistemp"
         }
       },
       {
@@ -26,7 +28,8 @@
         "url":"ub8/au/LandCover/DLCD_v2_MODIS_EVI_2012-2013.nc",
         "variable":"DLCD",
         "time":"2012-12-31",
-        "colorscalerange":"1,35"
+        "colorscalerange":"0,35",
+        "palette":"anu_wald_dlcd"
       }
     ]
   },
@@ -43,7 +46,8 @@
         "url":"ub8/au/fire/Sentinel.MaxTemp.AnnualMaxima.nc",
         "variable":"MaxTemp",
         "time":"{{year}}-12-31",
-        "colorscalerange":"50,200"
+        "colorscalerange":"50,200",
+        "palette":"anu_wald_hotmetal"
       },
       {
         "default":false,
@@ -52,7 +56,8 @@
         "variable":"Nhotspots",
         "time":"{{year}}-12-31",
         "logscale":true,
-        "colorscalerange":"0,250"
+        "colorscalerange":"0,250",
+        "palette":"anu_wald_hotmetal"
       }
     ]
   },
@@ -70,13 +75,15 @@
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.AnnualMeans.nc",
           "variable":"AnnualMeans",
           "time":"{{year}}-12-31",
-          "colorscalerange":"0,2000"
+          "colorscalerange":"0,2000",
+          "palette":"anu_wald_blues09"
         },
         "delta":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.ChangesAnnualMeans.nc",
           "variable":"ChangesAnnualMeans",
           "time":"{{year}}-12-31",
-          "colorscalerange":"-500,500"
+          "colorscalerange":"-500,500",
+          "palette":"anu_wald_gistemp"
         }
       },
       {
@@ -88,14 +95,16 @@
           "variable":"AnnualSums",
           "time":"{{year}}-12-31",
           "logscale":true,
-          "colorscalerange":"100,5000"
+          "colorscalerange":"100,5000",
+          "palette":"anu_wald_blues09"
         },
         "delta":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Pg.ChangesAnnualSums.nc",
           "variable":"ChangesAnnualSums",
           "time":"{{year}}-12-31",
           "colorscalerange":"-2000,2000",
-          "belowmincolor":"extend"
+          "belowmincolor":"extend",
+          "palette":"anu_wald_gistemp"
         }
       }
     ]
@@ -114,30 +123,34 @@
           "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.AnnualMeans.aust.005.BS.nc",
           "variable":"AnnualMeans",
           "time":"{{year}}-12-31",
-          "colorscalerange":"0,100"
+          "colorscalerange":"0,100",
+          "palette":"anu_wald_gisheat"
         },
         "delta":{
           "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.ChangesAnnualMean.aust.005.BS.nc",
           "variable":"ChangesAnnualMean",
           "time":"{{year}}-12-31",
-          "colorscalerange":"-75,75"
+          "colorscalerange":"-75,75",
+          "palette":"anu_wald_gistemp"
         }
       },
       {
         "default":false,
-        "title":"Annual mean canopy leaf area",
+        "title":"Vegetation leaf area",
         "summary":"OzWALD.annual.LAI.AnnualMeans",
         "normal":{
           "url":"ub8/au/LAI/MOD15A2.1000m_lai.AnnualMeans.nc",
           "variable":"AnnualMeans",
           "time":"{{year}}-12-31",
-          "colorscalerange":"0,7"
+          "colorscalerange":"0,7",
+          "palette":"anu_wald_darkgreen"
         },
         "delta":{
           "url":"ub8/au/LAI/MOD15A2.1000m_lai.ChangesAnnualMean.nc",
           "variable":"ChangesAnnualMean",
           "time":"{{year}}-12-31",
-          "colorscalerange":"-4,4"
+          "colorscalerange":"-4,4",
+          "palette":"anu_wald_gistemp"
         }
       }
     ]
@@ -156,13 +169,33 @@
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.AnnualSums.nc",
           "variable":"AnnualSums",
           "time":"{{year}}-12-31",
-          "colorscalerange":"0,4000"
+          "colorscalerange":"0,4000",
+          "palette":"anu_wald_gisheat"
         },
         "delta":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.ChangesAnnualSums.nc",
           "variable":"ChangesAnnualSums",
           "time":"{{year}}-12-31",
-          "colorscalerange":"-2000,2000"
+          "colorscalerange":"-2000,2000",
+          "palette":"anu_wald_gistemp"
+        }
+      },
+      {
+        "title":"Fire carbon emission",
+        "summary":"OzWALD.annual.GPP.AnnualSums",
+        "normal":{
+          "url":"ub8/au/FireEmissions/GFASv12.BurntCarbon.AnnualSums.nc",
+          "variable":"AnnualSums",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"0,1500",
+          "palette":"anu_wald_gmt_hot"
+        },
+        "delta":{
+          "url":"ub8/au/FireEmissions/GFASv12.BurntCarbon.ChangeAnnualSums.nc",
+          "variable":"ChangeAnnualSums",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"-1500,1500",
+          "palette":"anu_wald_gistemp"
         }
       }
     ]
@@ -179,33 +212,57 @@
         "summary":"MOD09A1.OWLau.0_005deg.AnnualMaxima",
         "normal":{
           "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.AnnualMaxima.nc",
-          "variable":"maxOWL",
+          "variable":"AnnualMaxima",
           "time":"{{year}}-12-31",
-          "colorscalerange":"0,100"
+          "colorscalerange":"0,100",
+          "palette":"anu_wald_bluescale20"
         },
         "delta":{
           "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.ChangesAnnualMaximum.nc",
           "variable":"ChangesAnnualMax",
           "time":"{{year}}-12-31",
-          "colorscalerange":"-100,100"
+          "colorscalerange":"-100,100",
+          "palette":"anu_wald_gistemp"
         }
       },
       {
         "default":false,
-        "title":"Annual mean river flow",
+        "title":"Runoff",
         "summary":"OzWALD.annual.Qtot.AnnualSums",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qtot.AnnualSums.nc",
           "variable":"AnnualSums",
           "time":"{{year}}-12-31",
-          "colorscalerange":"0,2000"
+          "colorscalerange":"0,2000",
+          "palette":"anu_wald_darkblues"
         },
         "delta":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qtot.ChangesAnnualSums.nc",
           "variable":"ChangesAnnualSums",
           "time":"{{year}}-12-31",
           "colorscalerange":"-2000,2000",
-          "belowmincolor":"extend"
+          "belowmincolor":"extend",
+          "palette":"anu_wald_gistemp"
+        }
+      },
+      {
+        "default":false,
+        "title":"River Flow",
+        "summary":"OzWALD.annual.Qtot.AnnualSums",
+        "normal":{
+          "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qriv.AnnualSums.nc",
+          "variable":"AnnualSums",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"0,2000",
+          "palette":"anu_wald_darkblues"
+        },
+        "delta":{
+          "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qriv.ChangesAnnualSums.nc",
+          "variable":"ChangesAnnualSums",
+          "time":"{{year}}-12-31",
+          "colorscalerange":"-2000,2000",
+          "belowmincolor":"extend",
+          "palette":"anu_wald_gistemp"
         }
       }
     ]
