@@ -19,4 +19,4 @@ Useful links:
 
 - Click on any of the badges above (esp. [documentation](https://aus-env.readthedocs.org))
 - [Source code](https://github.com/ANU-WALD/aus-env)
-- Online instance (TBA)
+- [Online instance](http://wenfo.org/aus-env)
