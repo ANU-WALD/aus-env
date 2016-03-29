@@ -41,6 +41,7 @@
   "dependencies": {
     "grunt-connect-proxy": "^0.2.0",
     "chalk":"~1.1.1",
-    "karma":"^0.13.19"
+    "karma":"^0.13.19",
+    "phantomjs-prebuilt":"^1.9.19"
   }
 }
