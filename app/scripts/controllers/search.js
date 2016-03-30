@@ -11,7 +11,6 @@ angular.module('ausEnvApp')
   .controller('SearchCtrl', function ($scope,$filter,staticData,selection,spatialFoci,mapmodes) {
     $scope.selection = selection;
     $scope.mapmodes = mapmodes;
-    $scope.loadingPolygons = false;
     staticData.unwrap($scope,'options',spatialFoci.regionTypes);
 
     $scope.$watch('selection.mapMode',function(newVal){
@@ -35,18 +34,7 @@ angular.module('ausEnvApp')
         return;
       }
 //      selection.mapMode = mapmodes.region;
-      $scope.loadingPolygons = true;
-      newOption.jsonData().then(function(data){
-        selection.availableFeatures = data.features.map(function(f){
-          return {
-            name:f.properties[newOption.labelField],
-            feature:f
-          };
-        });
-        selection.availableFeatures.sort(function(a,b){return a.name.localeCompare(b.name);});
-        $scope.loadingPolygons = false;
-        $scope.selection.selectedRegion = null;
-      });
+      selection.initialisePolygons(newOption);
     }; //regionTypeChanged
 
     $scope.canUseSearchText = function() {

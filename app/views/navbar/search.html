@@ -1,12 +1,11 @@
 <form class="navbar-form navbar-right">
-  <i class="loading-indicator fa fa-2x fa-spinner fa-spin" ng-show="loadingPolygons"></i>
+  <i class="loading-indicator fa fa-2x fa-spinner fa-spin" ng-show="selection.loadingPolygons"></i>
   <select class="form-control"
           uib-tooltip="Region View"
           tooltip-popup-delay="750" tooltip-placement="left"
       ng-model="selection.regionType"
       ng-change="regionTypeChanged(selection.regionType)"
       ng-options="option.name for option in options track by option.name">
-    <option value=""></option>
   </select>
   <input type="text"
          class="form-control"
@@ -19,8 +18,6 @@
          typeahead-select-on-exact="true"
          typeahead-min-length="0">
   <button type="button" class="btn btn-success" ng-click="selection.zoomToFeature()">Centre
-  </button>
-  <button type="button" class="btn btn-success" ng-click="selection.clearMap()">Clear
   </button>
 </form>
 

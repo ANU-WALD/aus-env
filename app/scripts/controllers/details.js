@@ -44,7 +44,7 @@ angular.module('ausEnvApp')
     };
 
     $scope.createCharts = function(){
-      if(!selection.regionType) {
+      if(!selection.selectedLayer || !selection.regionType) {
         $scope.clearData();
         return;
       }

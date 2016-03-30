@@ -8,7 +8,7 @@
  * Service in the ausEnvApp.
  */
 angular.module('ausEnvApp')
-  .service('spatialFoci', function (staticData) {
+  .service('spatialFoci', function (staticData,selection) {
     var service = this;
 
     service.regionTypes = staticData.deferredGet(service,'static/config/foci.json','_foci');
@@ -17,5 +17,7 @@ angular.module('ausEnvApp')
       regions.forEach(function(rt){
         rt.jsonData = staticData.deferredGet(rt,'static/selection_layers/'+rt.source+'.json','_jsonData');
       });
+      selection.regionType = regions[0];
+      selection.initialisePolygons(regions[0]);
     });
   });

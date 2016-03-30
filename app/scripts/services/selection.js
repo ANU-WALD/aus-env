@@ -36,7 +36,7 @@ angular.module('ausEnvApp')
     service.navbarCollapsed=true;
     service.leafletData = leafletData;
     service.showMapSearchBar = false;
-
+    service.loadingPolygons = false;
     /*
      * @ngdoc function
      * @name makeLayer
@@ -91,13 +91,6 @@ angular.module('ausEnvApp')
       service.navbarCollapsed = true;
     }; //zoomToFeature
 
-    service.clearMap = function() {
-      service.setMapModeGrid();
-      service.regionType = null;
-      service.clearFeatureOverlays();
-      service.navbarCollapsed = true;
-    };  //clearMap
-
     service.clearSelection = function() {
       service.selectedRegion = null;
       service.selectedRegionName();
@@ -114,6 +107,21 @@ angular.module('ausEnvApp')
 
     service.haveRegion = function() {
       return service.selectedRegion && (service.selectedRegion!=="");
+    };
+
+    service.initialisePolygons = function(newOption) {
+      service.loadingPolygons = true;
+      newOption.jsonData().then(function(data){
+        service.availableFeatures = data.features.map(function(f){
+          return {
+            name:f.properties[newOption.labelField],
+            feature:f
+          };
+        });
+        service.availableFeatures.sort(function(a,b){return a.name.localeCompare(b.name);});
+        service.selectedRegion = null;
+        service.loadingPolygons = false;
+      });
     };
 
     /*
