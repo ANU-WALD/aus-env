@@ -68,7 +68,7 @@ angular.module('ausEnvApp')
     };
 
     service.getBarChartData = function(){
-      var url = ANNUAL_TIME_SERIES+service.summaryName()+'.'+service.polygonSource(true)+'.TimeSeries.sum.csv';
+      var url = ANNUAL_TIME_SERIES+service.summaryName()+'.'+service.polygonSource(true)+'.TimeSeries.mean.csv';
       return service.retrieveCSV(url);
     };
 
