@@ -144,7 +144,7 @@
       {
         "default":false,
         "title":"Vegetation leaf area",
-        "summary":"OzWALD.annual.LAI.AnnualMeans",
+        "summary":"MOD15A2.1000m_lai.AnnualMeans",
         "palette":"anu_wald_darkgreen",
         "normal":{
           "url":"ub8/au/LAI/MOD15A2.1000m_lai.AnnualMeans.nc",
