@@ -19,7 +19,7 @@
           "palette":"anu_wald_darkgreen"
         },
         "delta":{
-          "url":"ub8/au/treecover/250m/ANUWALD.TreeCoverChange.ChangeAllYears.250m.nc",
+          "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.ChangeAllYears.250m.nc",
           "colorscalerange":"-30,30",
           "variable":"ChangeAllYears",
           "time":"{{year}}-12-31",
