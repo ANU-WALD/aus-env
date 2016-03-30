@@ -1,4 +1,7 @@
-
+<h3 class="chart-title">
+  {{bar.title}}
+  <i class="fa fa-info-circle" uib-tooltip="{{bar.description}}" tooltip-append-to-body="true"></i>
+</h3>
 <canvas id="bar" class="chart chart-bar"
   chart-data="barData" chart-labels="barLabels" chart-series="barSeries">
 </canvas>

@@ -25,6 +25,11 @@ angular.module('ausEnvApp')
       }
     ];
 
+    $scope.bar = {
+      title:null,
+      description:null
+    };
+
     $scope.barChartData = 0;
     $scope.barLabels = [];
     $scope.barSeries = [];
@@ -71,37 +76,11 @@ angular.module('ausEnvApp')
     $scope.$watch('selection.selectedLayer',$scope.createCharts);
     $scope.$watch('selection.regionType',$scope.createCharts);
 
-
-    $scope.selectBarChartData = function(newRegion){
-      // +++ Always called with newRegion undefined???
-      // +++ Can we get rid of this function???
-      $scope.barLabels = [];
-      $scope.barSeries = [];
-      $scope.barData = [];
-
-      if(!newRegion) {
-      } else {
-        //$scope.selectedBarDataReion = $scope.barChartData[newRegion.name];
-        try {
-          $scope.barLabels = $scope.barChartData.columnNames;
-          //$scope.barSeries.push('National');
-          $scope.barSeries.push(newRegion.name);
-          //$scope.barData.push($scope.barChartData.abc1);
-          $scope.barData.push($scope.barChartData[newRegion.name]);
-
-          //nationalSum = $scope.barChartData.abc1.reduce(function(a, b) { return a + b; }, 0);
-          //regionalSum = $scope.barChartData[newRegion.name].reduce(function(a, b) { return a + b; }, 0);
-        } catch(err) {
-          console.log("Error:" + err + "," + " selection is undefined");
-        }
-      }
-    };
-
-
     $scope.createBarChart = function(placeId,label){
       details.getBarChartData().then(function(data){
         $scope.barChartData = data;
-
+        $scope.bar.title = data.Title;
+        $scope.bar.description = data.Description;
         $scope.barLabels = [];
         $scope.barSeries = [];
         $scope.barData = [];
@@ -111,7 +90,6 @@ angular.module('ausEnvApp')
         var indexName = "PlaceIndex" + placeId;
         $scope.barData.push($scope.barChartData[indexName]);
       });
-
     };
 
     $scope.createPieChart = function(placeId) {
