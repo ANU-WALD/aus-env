@@ -13,16 +13,16 @@ angular.module('ausEnvApp')
 
     service.colourSchemes = {};
 
-    service.colourSchemeNameForLayer = function(layer,summaryMode) {
-      if(layer[selection.dataMode] && layer[selection.dataMode].palette && !summaryMode) {
+    service.colourSchemeNameForLayer = function(layer) {
+      if(layer[selection.dataMode] && layer[selection.dataMode].palette) {
         return layer[selection.dataMode].palette;
       } else {
         return layer.palette;
       }
     };
 
-    service.coloursFor = function(layer,summaryMode) {
-      var paletteName = service.colourSchemeNameForLayer(layer,summaryMode);
+    service.coloursFor = function(layer) {
+      var paletteName = service.colourSchemeNameForLayer(layer);
       if(!service.colourSchemes[paletteName]) {
         var result = $q.defer();
 

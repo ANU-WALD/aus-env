@@ -197,7 +197,7 @@ angular.module('ausEnvApp')
 
     $scope.fetchPolygonData = function() {
       var result = $q.defer();
-      $q.all([details.getPolygonFillData(),colourschemes.coloursFor(selection.selectedLayer,true)]).then(function(data){
+      $q.all([details.getPolygonFillData(),colourschemes.coloursFor(selection.selectedLayer)]).then(function(data){
         result.resolve(data);
       });
 
@@ -215,6 +215,22 @@ angular.module('ausEnvApp')
             colours: data[1],
             values: data[0]
           };
+          if((selection.dataMode==='delta')&&selection.selectedLayer.delta) {
+            $scope.polygonMapping.values = JSON.parse(JSON.stringify($scope.polygonMapping.values));
+            var copy = $scope.polygonMapping.values;
+            copy.columnNames.shift();
+            Object.keys(copy)
+              .filter(function(k){return k.startsWith('PlaceIndex');})
+              .forEach(function(k){
+                var prev = copy[k].slice(); prev.pop();
+                var curr = copy[k].slice(); curr.shift();
+                var diff = [];
+                for(var i=0; i<prev.length;i++){
+                  diff.push(curr[i]-prev[i]);
+                }
+                copy[k] = diff;
+              });
+          }
           $scope.polygonMapping.dataRange = $scope.dataRange($scope.polygonMapping);
           if($scope.geoJsonLayer) {
             doUpdateStyles();
@@ -229,7 +245,7 @@ angular.module('ausEnvApp')
       }
     };
 
-    ['selectedRegion','selectedLayer','regionType','mapMode'].forEach(function(prop){
+    ['selectedRegion','selectedLayer','regionType','mapMode','dataMode'].forEach(function(prop){
       $scope.$watch('selection.'+prop,$scope.updateStyling);
     });
 
