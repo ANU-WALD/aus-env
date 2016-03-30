@@ -9,6 +9,7 @@
         "default":true,
         "title":"Tree cover",
         "summary":"ANUWALD.TreeCover.AllYears.250m",
+        "palette":"anu_wald_darkgreen",
         "time":"{{year}}-12-31",
         "normal":{
           "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.AllYears.250m.nc",
@@ -54,6 +55,7 @@
       {
         "default":false,
         "title":"Fire occurrence",
+        "summary":"Sentinel.Nhotspots.AnnualSums",
         "url":"ub8/au/fire/Sentinel.Nhotspots.AnnualSums.nc",
         "variable":"Nhotspots",
         "time":"{{year}}-12-31",
@@ -72,6 +74,7 @@
       {
         "title":"Soil moisture",
         "summary":"OzWALD.annual.Ssoil.AnnualMeans",
+        "palette":"anu_wald_blues09",
         "default":true,
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.AnnualMeans.nc",
@@ -92,6 +95,7 @@
         "default":false,
         "title":"Precipitation",
         "summary":"OzWALD.annual.Pg.AnnualSums",
+        "palette":"anu_wald_blues09",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc",
           "variable":"AnnualSums",
@@ -121,6 +125,7 @@
         "default":true,
         "title":"Exposed soil",
         "summary":"FractCover.V3_0_1.AnnualMeans.aust.005.BS",
+        "palette":"anu_wald_gisheat",
         "normal":{
           "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.AnnualMeans.aust.005.BS.nc",
           "variable":"AnnualMeans",
@@ -140,6 +145,7 @@
         "default":false,
         "title":"Vegetation leaf area",
         "summary":"OzWALD.annual.LAI.AnnualMeans",
+        "palette":"anu_wald_darkgreen",
         "normal":{
           "url":"ub8/au/LAI/MOD15A2.1000m_lai.AnnualMeans.nc",
           "variable":"AnnualMeans",
@@ -167,6 +173,7 @@
         "default":true,
         "title":"Vegetation carbon uptake",
         "summary":"OzWALD.annual.GPP.AnnualSums",
+        "palette":"anu_wald_gisheat",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.AnnualSums.nc",
           "variable":"AnnualSums",
@@ -185,6 +192,7 @@
       {
         "title":"Fire carbon emission",
         "summary":"OzWALD.annual.GPP.AnnualSums",
+        "palette":"anu_wald_gmt_hot",
         "normal":{
           "url":"ub8/au/FireEmissions/GFASv12.BurntCarbon.AnnualSums.nc",
           "variable":"AnnualSums",
@@ -212,6 +220,7 @@
         "default":true,
         "title":"Inundation",
         "summary":"MOD09A1.OWLau.0_005deg.AnnualMaxima",
+        "palette":"anu_wald_bluescale20",
         "normal":{
           "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.AnnualMaxima.nc",
           "variable":"AnnualMaxima",
@@ -231,6 +240,7 @@
         "default":false,
         "title":"Runoff",
         "summary":"OzWALD.annual.Qtot.AnnualSums",
+        "palette":"anu_wald_darkblues",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qtot.AnnualSums.nc",
           "variable":"AnnualSums",
@@ -251,6 +261,7 @@
         "default":false,
         "title":"River flow",
         "summary":"OzWALD.annual.Qtot.AnnualSums",
+        "palette":"anu_wald_darkblues",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qriv.AnnualSums.nc",
           "variable":"AnnualSums",

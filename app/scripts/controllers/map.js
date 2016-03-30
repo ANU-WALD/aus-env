@@ -103,25 +103,64 @@ angular.module('ausEnvApp')
       //window.alert(args.leafletEvent.latlng.lat >= selection.ozLatLngMapBounds[0][0]);
     });
 
-    $scope.geoJsonStyling = function(feature) {
-      var fillOpacity = 0;
-      var fillColor = 'black';
+    $scope.arrayRange = function(theArray){
+      var result = [Math.min.apply(null,theArray),Math.max.apply(null,theArray)];
+      return result;
+    };
 
-      if($scope.polygonMapping && (selection.mapMode===$scope.mapmodes.region)) {
-        fillOpacity = 1;
-        var key = feature.properties[$scope.selection.regionType.keyField];
-        var vals = $scope.polygonMapping.values['PlaceIndex'+key];
-        var idx = $scope.polygonMapping.values.columnNames.indexOf(''+$scope.selection.year);
-        var val = vals[idx];
-        var range = themes.colourRange($scope.selection.selectedLayer).split(',').map(function(v){
-          return +v;
+    $scope.dataRange = function(mappingVals) {
+      var vals = mappingVals.values;
+      var polygonRanges = Object.keys(vals)
+        .filter(function(key){return key.startsWith('PlaceIndex');})
+        .map(function(key){
+          return $scope.arrayRange(vals[key]);
         });
-        var point = (range[1]-val)/(range[1]-range[0]);
-        var selectedColour = $scope.polygonMapping.colours[Math.round(point*$scope.polygonMapping.colours.length)];
+      polygonRanges = polygonRanges.filter(function(p){
+        return isFinite(p[0]) && isFinite(p[1]);
+      });
+      return [
+        Math.min.apply(null,polygonRanges.map(function(p){return p[0];})),
+        Math.max.apply(null,polygonRanges.map(function(p){return p[1];}))
+      ];
+    };
 
-        console.log(selectedColour,key,vals,idx,val,range,point);
+    $scope.polygonFillColour = function(feature) {
+      if(!$scope.polygonMapping || (selection.mapMode!==$scope.mapmodes.region)) {
+        return null;
+      }
+      var key = feature.properties[$scope.selection.regionType.keyField];
+      if(!key) {
+        return null;
+      }
 
-        fillColor = selectedColour;
+      var vals = $scope.polygonMapping.values['PlaceIndex'+key];
+      if(!vals) {
+        console.log('No values for key=' + key);
+        return null;
+      }
+
+      var idx = $scope.polygonMapping.values.columnNames.indexOf(''+$scope.selection.year);
+      var val = vals[idx];
+//      var range = themes.colourRange($scope.selection.selectedLayer).split(',').map(function(v){
+//        return +v;
+//      });
+      var range = $scope.polygonMapping.dataRange;
+      var point = (range[1]-val)/(range[1]-range[0]);
+      var pos = Math.round(point*($scope.polygonMapping.colours.length-1));
+      var selectedColour = $scope.polygonMapping.colours[pos];
+
+      //console.log(selectedColour,point,pos,key,vals,idx,val,range,point);
+
+      return selectedColour;
+    };
+
+    $scope.geoJsonStyling = function(feature) {
+      var fillOpacity = 1;
+      var fillColor = $scope.polygonFillColour(feature) || 'unfilled';
+
+      if(fillColor==='unfilled') {
+        fillColor = 'black';
+        fillOpacity = 0;
       }
 
       if(selection.selectedRegion && (feature===selection.selectedRegion.feature)){
@@ -158,7 +197,7 @@ angular.module('ausEnvApp')
 
     $scope.fetchPolygonData = function() {
       var result = $q.defer();
-      $q.all([details.getPolygonFillData(),colourschemes.coloursFor(selection.selectedLayer)]).then(function(data){
+      $q.all([details.getPolygonFillData(),colourschemes.coloursFor(selection.selectedLayer,true)]).then(function(data){
         result.resolve(data);
       });
 
@@ -176,6 +215,7 @@ angular.module('ausEnvApp')
             colours: data[1],
             values: data[0]
           };
+          $scope.polygonMapping.dataRange = $scope.dataRange($scope.polygonMapping);
           if($scope.geoJsonLayer) {
             doUpdateStyles();
           }
@@ -248,7 +288,10 @@ angular.module('ausEnvApp')
           return $scope.geoJsonLayer;
         },
         visible:true,
-        doRefresh:true
+        doRefresh:true,
+        layerParams:{
+          showOnSelector: false
+        }
       };
 //        data:resp,
 //        style:{
