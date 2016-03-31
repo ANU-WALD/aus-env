@@ -336,6 +336,13 @@ angular.module('ausEnvApp')
       return;
     }
 
+    if(selection.mapMode!==mapmodes.grid) {
+      if($scope.layers.overlays.aWMS) {
+        delete $scope.layers.overlays.aWMS;
+      }
+      return;
+    }
+
     var prefix = '';
     var keys = ['time','variable','url','colorscalerange',
                 'belowmincolor','abovemaxcolor','palette'];
@@ -376,9 +383,9 @@ angular.module('ausEnvApp')
 
   };
 
-  $scope.$watch('selection.year',$scope.showWMS);
-  $scope.$watch('selection.selectedLayer',$scope.showWMS);
-  $scope.$watch('selection.dataMode',$scope.showWMS);
+  ['year','selectedLayer','dataMode','mapMode'].forEach(function(prop){
+    $scope.$watch('selection.'+prop,$scope.showWMS);
+  })
 
   var createLeafeletCustomControl = function(pos,template) {
     var ctrl = new L.Control({position:pos});
