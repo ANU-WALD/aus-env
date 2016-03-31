@@ -30,6 +30,11 @@ angular.module('ausEnvApp')
       description:null
     };
 
+    $scope.pie = {
+      title:null,
+      description:null
+    };
+
     $scope.barChartData = 0;
     $scope.barLabels = [];
     $scope.barSeries = [];
@@ -76,15 +81,18 @@ angular.module('ausEnvApp')
     $scope.$watch('selection.selectedLayer',$scope.createCharts);
     $scope.$watch('selection.regionType',$scope.createCharts);
 
+    $scope.populateLabels = function(chart,data){
+        chart.title = data.Title;
+        chart.description = data.Description;
+    };
+
     $scope.createBarChart = function(placeId,label){
       details.getBarChartData().then(function(data){
         $scope.barChartData = data;
-        $scope.bar.title = data.Title;
-        $scope.bar.description = data.Description;
         $scope.barLabels = [];
         $scope.barSeries = [];
         $scope.barData = [];
-
+        $scope.populateLabels($scope.bar,data);
         $scope.barLabels = $scope.barChartData.columnNames;
         $scope.barSeries.push(label);
         var indexName = "PlaceIndex" + placeId;
@@ -96,6 +104,7 @@ angular.module('ausEnvApp')
       details.getPieChartData().then(function(data){
         $scope.pieChartData = data;
         $scope.pieData = [];
+        $scope.populateLabels($scope.pie,data);
 
         $scope.pieLabels = $scope.pieChartData.columnNames.map(function(column){
           return $scope.pieChartData.columnPresentation[column].Class_Name;
