@@ -27,12 +27,14 @@ angular.module('ausEnvApp')
 
     $scope.bar = {
       title:null,
-      description:null
+      description:null,
+      units: null
     };
 
     $scope.pie = {
       title:null,
-      description:null
+      description:null,
+      units: null
     };
 
     $scope.barChartData = 0;
@@ -84,11 +86,15 @@ angular.module('ausEnvApp')
     $scope.populateLabels = function(chart,data){
         chart.title = data.Title;
         chart.description = data.Description;
+        chart.units = data.Units;
     };
 
     $scope.createBarChart = function(placeId,label){
       details.getBarChartData().then(function(data){
+        console.log("new csv");
+        console.log(data);
         $scope.barChartData = data;
+        $scope.units = $scope.barChartData.Units;
         $scope.barLabels = [];
         $scope.barSeries = [];
         $scope.barData = [];
