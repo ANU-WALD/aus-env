@@ -36,6 +36,7 @@ angular
     'ngAria',
     'ngResource',
     'ngRoute',
+    'ngSanitize',
     'leaflet-directive',
     'ui.bootstrap',
     'ngTouch',

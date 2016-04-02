@@ -1,0 +1,10 @@
+<div style="display:table">
+<div style="display:table-row;padding:0;" ng-repeat="entry in colourScheme">
+  <div style="display:table-cell;padding:0;">
+    <i class="legend-entry" ng-style="{background:entry.colour}"></i>
+  </div>
+  <div style="display:table-cell;padding:0;">
+    <span ng-bind-html="entry.text"></span>
+  </div>
+</div>
+</div>

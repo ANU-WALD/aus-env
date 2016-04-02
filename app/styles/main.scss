@@ -313,6 +313,12 @@ h4.chart-subtitle{
   color:#000;
 }
 
+/**** Legend styles */
+.legend-entry {
+  float: left;
+  width: 15px !important;
+  height: 15px !important;
+}
 /*
 .theme-improving{
   background:rgb(0,184,102);

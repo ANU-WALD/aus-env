@@ -210,6 +210,8 @@ angular.module('ausEnvApp')
       };
 
       if($scope.selection.mapMode===$scope.mapmodes.region) {
+        $scope.updateColourScheme();
+
         $scope.fetchPolygonData().then(function(data){
           $scope.polygonMapping = {
             colours: data[1],
@@ -339,6 +341,8 @@ angular.module('ausEnvApp')
       return;
     }
 
+    $scope.updateColourScheme();
+
     var prefix = '';
     var keys = ['time','variable','url','colorscalerange',
                 'belowmincolor','abovemaxcolor','palette'];
@@ -376,12 +380,33 @@ angular.module('ausEnvApp')
     }
     $scope.layers.overlays.aWMS.layerParams.showOnSelector = false;
     $scope.layers.overlays.aWMS.doRefresh = true;
-
   };
 
   ['year','selectedLayer','dataMode','mapMode'].forEach(function(prop){
     $scope.$watch('selection.'+prop,$scope.showWMS);
   })
+
+  $scope.updateColourScheme = function() {
+    colourschemes.coloursFor(selection.selectedLayer).then(function(data){
+      console.log('Here is the colour scheme for the ' + selection.selectedLayer.title, data);
+      // Get range
+      var range = selection.selectedLayer.colorscalerange;
+      if(selection.selectedLayer[selection.dataMode]) {
+        range = selection.selectedLayer[selection.dataMode].colorscalerange || range;
+      }
+      range = range.split(',').map(function(e){return +e;});
+      var binSize = (range[1]-range[0])/data.length;
+
+      $scope.colourScheme = data.slice().map(function(e,idx){
+        return {
+          colour: e,
+          text: (range[0]+(idx*binSize)) + ' - ' + (range[0]+((idx+1)*binSize))
+        };
+      });
+      $scope.colourScheme[data.length-1].text = '&ge;'+range[1];
+      $scope.colourScheme.reverse();
+    });
+  };
 
   var createLeafeletCustomControl = function(pos,template) {
     var ctrl = new L.Control({position:pos});
@@ -404,6 +429,7 @@ angular.module('ausEnvApp')
 
   $scope.configureMapTools = function() {
     $scope.mapControls.custom.push(createLeafeletCustomControl('bottomleft','title'));
+    $scope.mapControls.custom.push(createLeafeletCustomControl('bottomleft','legend'));
     $scope.mapControls.custom.push(createLeafeletCustomControl('bottomright','details'));
     $scope.mapControls.custom.push(createLeafeletCustomControl('topleft','zoom'));
   };
