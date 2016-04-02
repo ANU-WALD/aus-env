@@ -9,7 +9,7 @@
  */
 
 angular.module('ausEnvApp')
-  .controller('MapCtrl', function ($scope,$route,$http,$interpolate,$compile,$q,
+  .controller('MapCtrl', function ($scope,$route,$interpolate,$compile,$q,
                                    selection,themes,mapmodes,details,colourschemes) {
 
     $scope.selection = selection;
@@ -267,10 +267,6 @@ angular.module('ausEnvApp')
     }
 
     $scope.geojson = {};
-//
-//    if(!newVal._jsonData) {
-//      newVal._jsonData = $http.get('static/'+newVal.source + '.json');
-//    }
 //    // +++ Causing stack overflows??? Due to leaflet events perhaps?
     $scope.layers.overlays.selectionLayer = {
       name: newVal.name,

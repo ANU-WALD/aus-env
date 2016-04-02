@@ -31,7 +31,7 @@ angular.module('ausEnvApp')
       }
 
       var result = $q.defer();
-      var httpPromise = $http.get(url);
+      var httpPromise = $http.get(url,{params:{nocache:(new Date().toString())}});
 
       httpPromise.then(function(resp){
         var data = csv.parseCSVWithHeader(resp.data);

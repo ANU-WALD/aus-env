@@ -26,7 +26,7 @@ angular.module('ausEnvApp')
       if(!service.colourSchemes[paletteName]) {
         var result = $q.defer();
 
-        $http.get('static/palettes/'+paletteName+'.pal').success(function(data){
+        $http.get('static/palettes/'+paletteName+'.pal',{params:{nocache:(new Date().toString())}}).success(function(data){
           var entries = data.split('\n').map(function(line){
             return line.replace(/\#.*/g,'').trim().replace(/ +/g,' ');
           }).filter(function(line){return line.length;});
