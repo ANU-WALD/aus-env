@@ -217,6 +217,8 @@ angular.module('ausEnvApp')
             colours: data[1],
             values: data[0]
           };
+          $scope.mapTitle = data[0].Title;
+          $scope.mapDescription = data[0].Description;
           if((selection.dataMode==='delta')&&selection.selectedLayer.delta) {
             $scope.polygonMapping.values = JSON.parse(JSON.stringify($scope.polygonMapping.values));
             var copy = $scope.polygonMapping.values;
@@ -341,6 +343,8 @@ angular.module('ausEnvApp')
       return;
     }
 
+    $scope.mapTitle = selection.selectedLayerTitle();
+    $scope.mapDescription = null;
     $scope.updateColourScheme();
 
     var prefix = '';
@@ -384,7 +388,7 @@ angular.module('ausEnvApp')
 
   ['year','selectedLayer','dataMode','mapMode'].forEach(function(prop){
     $scope.$watch('selection.'+prop,$scope.showWMS);
-  })
+  });
 
   $scope.updateColourScheme = function() {
     colourschemes.coloursFor(selection.selectedLayer).then(function(data){

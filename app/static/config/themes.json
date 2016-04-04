@@ -32,6 +32,8 @@
         "variable":"DLCD",
         "time":"2012-12-31",
         "colorscalerange":"0,35",
+        "summary":"ANUWALD.TreeCover.AllYears.250m",
+        "summary_palette":"anu_wald_darkgreen",
         "palette":"anu_wald_dlcd"
       }
     ]
