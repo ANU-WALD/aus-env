@@ -10,9 +10,15 @@
 angular.module('ausEnvApp')
   .controller('DetailsCtrl', function ($scope,selection,details) {
 
-  var first_year = 2000;
+/*
+  var unit_dict = [];
+  unit_dict.push({
+    key: 
+  });
+*/
+  var firstYear;
+  var currentYearIndex = selection.year - firstYear;
 
-  var currentYearIndex = selection.year - first_year;
   console.log("current year");
   console.log(currentYearIndex);
   $scope.barOptions =  {
@@ -54,9 +60,6 @@ angular.module('ausEnvApp')
       pointHighlightStroke: 'rgba(247,70,74,0.8)'
     }];
     */
-
-    $scope.barColors = [{fillColor:["#66987F"]}];
-    $scope.barColors[0].fillColor[currentYearIndex] = "#2B5F45";
 
     $scope.selection = selection;
     $scope.viewOptions = [
@@ -159,8 +162,23 @@ angular.module('ausEnvApp')
         $scope.barSeries.push(label);
         var indexName = "PlaceIndex" + placeId;
         $scope.barData.push($scope.barChartData[indexName]);
-        console.log("what is the column like is here");
-        console.log($scope.barData);
+        firstYear = $scope.barLabels[0]
+
+        for (var i=0; i<$scope.barLabels.length; i++) {
+          if (selection.year === parseInt($scope.barLabels[i])) {
+            currentYearIndex = i;
+            break;
+          }
+        }
+        $scope.barColors = [{fillColor:["#66987F"]}];
+        $scope.barColors[0].fillColor[currentYearIndex] = "#2B5F45";
+        
+        if (currentYearIndex < $scope.barLabels.length-1) {
+          $scope.barColors[0].fillColor[currentYearIndex+1] = "#66987F";
+        }
+        
+        console.log("what is the columnNames like is here");
+        console.log($scope.barLabels);
       });
     };
 
