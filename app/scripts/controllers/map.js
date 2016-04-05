@@ -118,10 +118,15 @@ angular.module('ausEnvApp')
       polygonRanges = polygonRanges.filter(function(p){
         return isFinite(p[0]) && isFinite(p[1]);
       });
-      return [
+      var actualRange = [
         Math.min.apply(null,polygonRanges.map(function(p){return p[0];})),
         Math.max.apply(null,polygonRanges.map(function(p){return p[1];}))
       ];
+      if((actualRange[0]<0)&&(actualRange[1]>0)) {
+        var extent = Math.max(Math.abs(actualRange[0]),actualRange[1]);
+        return [-extent,extent];
+      }
+      return actualRange;
     };
 
     $scope.polygonFillColour = function(feature) {
@@ -210,7 +215,6 @@ angular.module('ausEnvApp')
       };
 
       if($scope.selection.mapMode===$scope.mapmodes.region) {
-        $scope.updateColourScheme();
 
         $scope.fetchPolygonData().then(function(data){
           $scope.polygonMapping = {
@@ -236,6 +240,8 @@ angular.module('ausEnvApp')
               });
           }
           $scope.polygonMapping.dataRange = $scope.dataRange($scope.polygonMapping);
+          $scope.colourScaleRange = $scope.polygonMapping.dataRange;
+          $scope.updateColourScheme();
           if($scope.geoJsonLayer) {
             doUpdateStyles();
           }
@@ -345,6 +351,13 @@ angular.module('ausEnvApp')
 
     $scope.mapTitle = selection.selectedLayerTitle();
     $scope.mapDescription = selection.selectedLayer.description;
+
+    $scope.colourScaleRange = selection.selectedLayer.colorscalerange;
+    if(selection.selectedLayer[selection.dataMode]) {
+      $scope.colourScaleRange = selection.selectedLayer[selection.dataMode].colorscalerange || $scope.colourScaleRange;
+    }
+    $scope.colourScaleRange = $scope.colourScaleRange.split(',').map(function(e){return +e;});
+
     $scope.updateColourScheme();
 
     var prefix = '';
@@ -421,13 +434,7 @@ angular.module('ausEnvApp')
       });
     } else {
       colourschemes.coloursFor(selection.selectedLayer).then(function(data){
-        console.log('Here is the colour scheme for the ' + selection.selectedLayer.title, data);
-        // Get range
-        var range = selection.selectedLayer.colorscalerange;
-        if(selection.selectedLayer[selection.dataMode]) {
-          range = selection.selectedLayer[selection.dataMode].colorscalerange || range;
-        }
-        range = range.split(',').map(function(e){return +e;});
+        var range = $scope.colourScaleRange;
         var binSize = (range[1]-range[0])/data.length;
 
         $scope.colourScheme = data.slice().map(function(e,idx){
