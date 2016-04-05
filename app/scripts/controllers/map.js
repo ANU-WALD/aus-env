@@ -118,10 +118,15 @@ angular.module('ausEnvApp')
       polygonRanges = polygonRanges.filter(function(p){
         return isFinite(p[0]) && isFinite(p[1]);
       });
-      return [
+      var actualRange = [
         Math.min.apply(null,polygonRanges.map(function(p){return p[0];})),
         Math.max.apply(null,polygonRanges.map(function(p){return p[1];}))
       ];
+      if((actualRange[0]<0)&&(actualRange[1]>0)) {
+        var extent = Math.max(Math.abs(actualRange[0]),actualRange[1]);
+        return [-extent,extent];
+      }
+      return actualRange;
     };
 
     $scope.polygonFillColour = function(feature) {
@@ -210,13 +215,14 @@ angular.module('ausEnvApp')
       };
 
       if($scope.selection.mapMode===$scope.mapmodes.region) {
-        $scope.updateColourScheme();
 
         $scope.fetchPolygonData().then(function(data){
           $scope.polygonMapping = {
             colours: data[1],
             values: data[0]
           };
+          $scope.mapTitle = data[0].Title;
+          $scope.mapDescription = data[0].Description;
           if((selection.dataMode==='delta')&&selection.selectedLayer.delta) {
             $scope.polygonMapping.values = JSON.parse(JSON.stringify($scope.polygonMapping.values));
             var copy = $scope.polygonMapping.values;
@@ -234,6 +240,8 @@ angular.module('ausEnvApp')
               });
           }
           $scope.polygonMapping.dataRange = $scope.dataRange($scope.polygonMapping);
+          $scope.colourScaleRange = $scope.polygonMapping.dataRange;
+          $scope.updateColourScheme();
           if($scope.geoJsonLayer) {
             doUpdateStyles();
           }
@@ -341,6 +349,15 @@ angular.module('ausEnvApp')
       return;
     }
 
+    $scope.mapTitle = selection.selectedLayerTitle();
+    $scope.mapDescription = selection.selectedLayer.description;
+
+    $scope.colourScaleRange = selection.selectedLayer.colorscalerange;
+    if(selection.selectedLayer[selection.dataMode]) {
+      $scope.colourScaleRange = selection.selectedLayer[selection.dataMode].colorscalerange || $scope.colourScaleRange;
+    }
+    $scope.colourScaleRange = $scope.colourScaleRange.split(',').map(function(e){return +e;});
+
     $scope.updateColourScheme();
 
     var prefix = '';
@@ -384,28 +401,53 @@ angular.module('ausEnvApp')
 
   ['year','selectedLayer','dataMode','mapMode'].forEach(function(prop){
     $scope.$watch('selection.'+prop,$scope.showWMS);
-  })
+  });
+
+  $scope.balanceColourScheme = function(entries) {
+    if(entries.length>10) {
+      var secondaryColumn = entries.splice(entries.length/2);
+      for(var i=0;i<entries.length;i++){
+        entries[i].push(secondaryColumn.shift()[0]);
+      }
+      if(secondaryColumn.length){
+        entries.push(secondaryColumn);
+      }
+    }
+
+    return entries;
+  };
 
   $scope.updateColourScheme = function() {
-    colourschemes.coloursFor(selection.selectedLayer).then(function(data){
-      console.log('Here is the colour scheme for the ' + selection.selectedLayer.title, data);
-      // Get range
-      var range = selection.selectedLayer.colorscalerange;
-      if(selection.selectedLayer[selection.dataMode]) {
-        range = selection.selectedLayer[selection.dataMode].colorscalerange || range;
-      }
-      range = range.split(',').map(function(e){return +e;});
-      var binSize = (range[1]-range[0])/data.length;
-
-      $scope.colourScheme = data.slice().map(function(e,idx){
-        return {
-          colour: e,
-          text: (range[0]+(idx*binSize)) + ' - ' + (range[0]+((idx+1)*binSize))
-        };
+    if(selection.selectedLayer.legend) {
+      // +++ NASTY HACK TO GET DLCD CODES
+      details[selection.selectedLayer.legend]().then(function(colourCodes){
+        $scope.colourScheme = [];
+        for(var key in colourCodes) {
+          var e = colourCodes[key];
+          $scope.colourScheme.push([
+          {
+            colour: 'rgb('+e.Red+','+e.Green+','+e.Blue+')',
+            text:e.Class_Name
+          }]);
+        }
+        $scope.colourScheme = $scope.balanceColourScheme($scope.colourScheme);
       });
-      $scope.colourScheme[data.length-1].text = '&ge;'+range[1];
-      $scope.colourScheme.reverse();
-    });
+    } else {
+      colourschemes.coloursFor(selection.selectedLayer).then(function(data){
+        var range = $scope.colourScaleRange;
+        var binSize = (range[1]-range[0])/data.length;
+
+        $scope.colourScheme = data.slice().map(function(e,idx){
+          return [{
+            colour: e,
+            text: (range[0]+(idx*binSize)).toFixed() + ' - ' + (range[0]+((idx+1)*binSize)).toFixed()
+          }];
+        });
+        $scope.colourScheme[data.length-1][0].text = '&ge;'+(range[1]-binSize).toFixed();
+        $scope.colourScheme.reverse();
+        $scope.colourScheme = $scope.balanceColourScheme($scope.colourScheme);
+      });
+    }
   };
 
   var createLeafeletCustomControl = function(pos,template) {

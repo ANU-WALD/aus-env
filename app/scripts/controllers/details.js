@@ -62,18 +62,19 @@ angular.module('ausEnvApp')
     $scope.viewOptions = [
       {
         style:'bar',
-        icon:'fa-bar-chart', 
-        description: ''
+
+        icon:'fa-bar-chart',
+        tooltip:'Annual time series',
       },
       {
         style:'pie',
-        icon:'fa-pie-chart', 
-        description: ''
+        icon:'fa-pie-chart',
+        tooltip:'Proportion by land cover type',
       },
       {
         style:'timeseries',
-        icon:'fa-line-chart', 
-        description: ''
+        icon:'fa-line-chart',
+        tooltip:'Detailed time series'
       }
     ];
 

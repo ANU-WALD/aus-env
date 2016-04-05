@@ -8,17 +8,30 @@
  * Service in the ausEnvApp.
  */
 angular.module('ausEnvApp')
-  .service('colourschemes', function ($q,$http,selection) {
+  .service('colourschemes', function ($q,$http,selection,mapmodes) {
     var service = this;
 
     service.colourSchemes = {};
 
     service.colourSchemeNameForLayer = function(layer) {
-      if(layer[selection.dataMode] && layer[selection.dataMode].palette) {
-        return layer[selection.dataMode].palette;
-      } else {
-        return layer.palette;
+      var sources = [layer];
+      var properties = ['palette'];
+      if(layer[selection.dataMode]) {
+        sources.unshift(layer[selection.dataMode]);
       }
+      if(selection.mapMode===mapmodes.region) {
+        properties.unshift('summary_palette');
+      }
+
+      for(var property in properties) {
+        for(var source in sources) {
+          var palette = sources[source][properties[property]];
+          if(palette) {
+            return palette;
+          }
+        }
+      }
+      return 'rainbow';
     };
 
     service.coloursFor = function(layer) {

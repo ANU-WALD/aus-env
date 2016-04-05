@@ -1,6 +1,9 @@
 <div class="map-title">
-  <p><strong>{{selection.theme}}</strong> &gt; {{selection.selectedLayerTitle()}}</p>
-  <p>{{selection.selectedLayer.description}}</p>
+  <p>
+    <strong>{{selection.theme}}</strong> &gt; {{mapTitle}}
+    <i ng-show="mapDescription" class="fa fa-info-circle"
+       uib-tooltip="{{mapDescription}}" tooltip-append-to-body="true"></i>
+  </p>
 
   <div class="btn-group">
       <button class="btn btn-xs" ng-class="(selection.mapMode===mapmodes.grid)?'btn-primary':'btn-default'" ng-model="selection.mapMode" uib-btn-radio="mapmodes.grid" >Grid</button>
