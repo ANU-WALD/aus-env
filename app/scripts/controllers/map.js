@@ -433,10 +433,10 @@ angular.module('ausEnvApp')
         $scope.colourScheme = data.slice().map(function(e,idx){
           return [{
             colour: e,
-            text: (range[0]+(idx*binSize)) + ' - ' + (range[0]+((idx+1)*binSize))
+            text: (range[0]+(idx*binSize)).toFixed() + ' - ' + (range[0]+((idx+1)*binSize)).toFixed()
           }];
         });
-        $scope.colourScheme[data.length-1][0].text = '&ge;'+(range[1]-binSize);
+        $scope.colourScheme[data.length-1][0].text = '&ge;'+(range[1]-binSize).toFixed();
         $scope.colourScheme.reverse();
         $scope.colourScheme = $scope.balanceColourScheme($scope.colourScheme);
       });
