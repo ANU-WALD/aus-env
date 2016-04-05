@@ -41,15 +41,28 @@ html, body{
 }
 
 .navbar-icon{
+  margin-top:6px;
   height: $navbar-height * 0.7;
 }
 
 /*** OVERRIDE BOOTSTRAP THEME ***/
-
+/*.themes-nav{
+  padding-top:8px;
+}
+*/
 .themes-nav.nav > li.theme-item > a {
   display:initial;
 }
 
+li.theme-item.active {
+  background: $navbar-inverse-link-active-bg;
+}
+
+li.theme-item.open {
+  a.navbar-theme {
+      border-bottom: 10px solid $navbar-inverse-link-active-bg !important;
+  }
+}
 
 /*
 .themes-nav.nav > li.layer-item > a {
@@ -147,9 +160,13 @@ li.theme-item{
 */
 
 .navbar {
+  line-height:34px;
   background:$brand-primary;
 }
 
+.navbar-brand {
+  font-size:24px;
+}
 /*
 .themes-nav{
   position:relative;
