@@ -344,7 +344,7 @@ angular.module('ausEnvApp')
     }
 
     $scope.mapTitle = selection.selectedLayerTitle();
-    $scope.mapDescription = null;
+    $scope.mapDescription = selection.selectedLayer.description;
     $scope.updateColourScheme();
 
     var prefix = '';
