@@ -9,19 +9,71 @@
  */
 angular.module('ausEnvApp')
   .controller('DetailsCtrl', function ($scope,selection,details) {
+
+  var first_year = 2000;
+
+  var currentYearIndex = selection.year - first_year;
+  console.log("current year");
+  console.log(currentYearIndex);
+  $scope.barOptions =  {
+      // Sets the chart to be responsive
+      responsive: true,
+
+      //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+      scaleBeginAtZero : true,
+
+      //Boolean - Whether grid lines are shown across the chart
+      scaleShowGridLines : true,
+
+      //String - Colour of the grid lines
+      scaleGridLineColor : "rgba(0,0,0,.05)",
+
+      //Number - Width of the grid lines
+      scaleGridLineWidth : 1,
+
+      //Boolean - If there is a stroke on each bar
+      barShowStroke : true,
+
+      //Number - Pixel width of the bar stroke
+      barStrokeWidth : 0,
+
+      //Number - Spacing between each of the X value sets
+      barValueSpacing : 0,
+
+      //Number - Spacing between data sets within X values
+      barDatasetSpacing : 1,
+    };
+
+    /*
+    $scope.barColors = [{
+      fillColor: 'rgba(247,70,74,0.2)',
+      strokeColor: 'rgba(247,70,74,1)',
+      pointColor: 'rgba(247,70,74,1)',
+      pointStrokeColor: '#fff',
+      pointHighlightFill: '#fff',
+      pointHighlightStroke: 'rgba(247,70,74,0.8)'
+    }];
+    */
+
+    $scope.barColors = [{fillColor:["#66987F"]}];
+    $scope.barColors[0].fillColor[currentYearIndex] = "#2B5F45";
+
     $scope.selection = selection;
     $scope.viewOptions = [
       {
         style:'bar',
-        icon:'fa-bar-chart'
+        icon:'fa-bar-chart', 
+        description: ''
       },
       {
         style:'pie',
-        icon:'fa-pie-chart',
+        icon:'fa-pie-chart', 
+        description: ''
       },
       {
         style:'timeseries',
-        icon:'fa-line-chart'
+        icon:'fa-line-chart', 
+        description: ''
       }
     ];
 
@@ -87,12 +139,15 @@ angular.module('ausEnvApp')
         chart.title = data.Title;
         chart.description = data.Description;
         chart.units = data.Units;
+        if(chart === $scope.bar) {
+          $scope.viewOptions[0].description = chart.description;
+        } else if(chart === $scope.pie) {
+          $scope.viewOptions[1].description = chart.description;
+        }
     };
 
     $scope.createBarChart = function(placeId,label){
       details.getBarChartData().then(function(data){
-        console.log("new csv");
-        console.log(data);
         $scope.barChartData = data;
         $scope.units = $scope.barChartData.Units;
         $scope.barLabels = [];
@@ -103,6 +158,8 @@ angular.module('ausEnvApp')
         $scope.barSeries.push(label);
         var indexName = "PlaceIndex" + placeId;
         $scope.barData.push($scope.barChartData[indexName]);
+        console.log("what is the column like is here");
+        console.log($scope.barData);
       });
     };
 

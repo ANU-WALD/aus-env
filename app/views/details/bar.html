@@ -1,7 +1,12 @@
 <h3 class="chart-title">
-  {{bar.title}} (Units: {{bar.units}})
+  {{bar.title}} 
   <i class="fa fa-info-circle" uib-tooltip="{{bar.description}}" tooltip-append-to-body="true"></i>
+  <br>
+  (Units: {{bar.units}})
 </h3>
+
 <canvas id="bar" class="chart chart-bar"
-  chart-data="barData" chart-labels="barLabels" chart-series="barSeries">
+  chart-data="barData" chart-labels="barLabels" chart-series="barSeries" chart-options="barOptions" chart-colours="barColors">
 </canvas>
+
+
