@@ -34,7 +34,8 @@
         "colorscalerange":"0,35",
         "summary":"ANUWALD.TreeCover.AllYears.250m",
         "summary_palette":"anu_wald_darkgreen",
-        "palette":"anu_wald_dlcd"
+        "palette":"anu_wald_dlcd",
+        "legend":"landCoverCodes"
       }
     ]
   },

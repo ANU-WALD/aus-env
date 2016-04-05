@@ -390,26 +390,57 @@ angular.module('ausEnvApp')
     $scope.$watch('selection.'+prop,$scope.showWMS);
   });
 
-  $scope.updateColourScheme = function() {
-    colourschemes.coloursFor(selection.selectedLayer).then(function(data){
-      console.log('Here is the colour scheme for the ' + selection.selectedLayer.title, data);
-      // Get range
-      var range = selection.selectedLayer.colorscalerange;
-      if(selection.selectedLayer[selection.dataMode]) {
-        range = selection.selectedLayer[selection.dataMode].colorscalerange || range;
+  $scope.balanceColourScheme = function(entries) {
+    if(entries.length>10) {
+      var secondaryColumn = entries.splice(entries.length/2);
+      for(var i=0;i<entries.length;i++){
+        entries[i].push(secondaryColumn.shift()[0]);
       }
-      range = range.split(',').map(function(e){return +e;});
-      var binSize = (range[1]-range[0])/data.length;
+      if(secondaryColumn.length){
+        entries.push(secondaryColumn);
+      }
+    }
 
-      $scope.colourScheme = data.slice().map(function(e,idx){
-        return {
-          colour: e,
-          text: (range[0]+(idx*binSize)) + ' - ' + (range[0]+((idx+1)*binSize))
-        };
+    return entries;
+  };
+
+  $scope.updateColourScheme = function() {
+    if(selection.selectedLayer.legend) {
+      // +++ NASTY HACK TO GET DLCD CODES
+      details[selection.selectedLayer.legend]().then(function(colourCodes){
+        $scope.colourScheme = [];
+        for(var key in colourCodes) {
+          var e = colourCodes[key];
+          $scope.colourScheme.push([
+          {
+            colour: 'rgb('+e.Red+','+e.Green+','+e.Blue+')',
+            text:e.Class_Name
+          }]);
+        }
+        $scope.colourScheme = $scope.balanceColourScheme($scope.colourScheme);
       });
-      $scope.colourScheme[data.length-1].text = '&ge;'+range[1];
-      $scope.colourScheme.reverse();
-    });
+    } else {
+      colourschemes.coloursFor(selection.selectedLayer).then(function(data){
+        console.log('Here is the colour scheme for the ' + selection.selectedLayer.title, data);
+        // Get range
+        var range = selection.selectedLayer.colorscalerange;
+        if(selection.selectedLayer[selection.dataMode]) {
+          range = selection.selectedLayer[selection.dataMode].colorscalerange || range;
+        }
+        range = range.split(',').map(function(e){return +e;});
+        var binSize = (range[1]-range[0])/data.length;
+
+        $scope.colourScheme = data.slice().map(function(e,idx){
+          return [{
+            colour: e,
+            text: (range[0]+(idx*binSize)) + ' - ' + (range[0]+((idx+1)*binSize))
+          }];
+        });
+        $scope.colourScheme[data.length-1][0].text = '&ge;'+(range[1]-binSize);
+        $scope.colourScheme.reverse();
+        $scope.colourScheme = $scope.balanceColourScheme($scope.colourScheme);
+      });
+    }
   };
 
   var createLeafeletCustomControl = function(pos,template) {
