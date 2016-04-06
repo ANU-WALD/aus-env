@@ -41,10 +41,10 @@ angular.module('ausEnvApp')
       barShowStroke : true,
 
       //Number - Pixel width of the bar stroke
-      barStrokeWidth : 0,
+      barStrokeWidth : 0.1,
 
       //Number - Spacing between each of the X value sets
-      barValueSpacing : 0,
+      barValueSpacing : 2,
 
       //Number - Spacing between data sets within X values
       barDatasetSpacing : 1,
@@ -162,7 +162,7 @@ angular.module('ausEnvApp')
         $scope.barSeries.push(label);
         var indexName = "PlaceIndex" + placeId;
         $scope.barData.push($scope.barChartData[indexName]);
-        firstYear = $scope.barLabels[0]
+        firstYear = $scope.barLabels[0];
 
         for (var i=0; i<$scope.barLabels.length; i++) {
           if (selection.year === parseInt($scope.barLabels[i])) {
@@ -170,12 +170,20 @@ angular.module('ausEnvApp')
             break;
           }
         }
+
+        /*
+        for (var i=0; i<$scope.barLabels.length; i++) {
+          $scope.barColors[0].fillColor[i] = "#66987F";
+        }
+        */
+
         $scope.barColors = [{fillColor:["#66987F"]}];
         $scope.barColors[0].fillColor[currentYearIndex] = "#2B5F45";
         
         if (currentYearIndex < $scope.barLabels.length-1) {
           $scope.barColors[0].fillColor[currentYearIndex+1] = "#66987F";
         }
+        
         
         console.log("what is the columnNames like is here");
         console.log($scope.barLabels);
