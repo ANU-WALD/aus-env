@@ -162,10 +162,14 @@ angular.module('ausEnvApp')
     $scope.geoJsonStyling = function(feature) {
       var fillOpacity = 1;
       var fillColor = $scope.polygonFillColour(feature) || 'unfilled';
+      var weight=0, strokeOpacity=0;
 
       if(fillColor==='unfilled') {
         fillColor = 'black';
         fillOpacity = 0;
+      } else {
+        weight = 1;
+        strokeOpacity = 1;
       }
 
       if(selection.selectedRegion && (feature===selection.selectedRegion.feature)){
@@ -178,8 +182,8 @@ angular.module('ausEnvApp')
         };
       }
       return {
-        weight:0,
-        strokeOpacity:0,
+        weight:weight,
+        strokeOpacity:strokeOpacity,
         color:'#000',
         fillOpacity:fillOpacity,
         fillColor:fillColor
