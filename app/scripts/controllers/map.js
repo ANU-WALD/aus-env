@@ -178,8 +178,8 @@ angular.module('ausEnvApp')
         };
       }
       return {
-        weight:1,
-        strokeOpacity:1,
+        weight:0,
+        strokeOpacity:0,
         color:'#000',
         fillOpacity:fillOpacity,
         fillColor:fillColor
