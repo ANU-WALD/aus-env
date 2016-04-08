@@ -362,11 +362,9 @@ angular.module('ausEnvApp')
     }
     $scope.colourScaleRange = $scope.colourScaleRange.split(',').map(function(e){return +e;});
 
-    $scope.updateColourScheme();
-
     var prefix = '';
     var keys = ['time','variable','url','colorscalerange',
-                'belowmincolor','abovemaxcolor','palette'];
+                'belowmincolor','abovemaxcolor','palette','logscale'];
 
     var settings = {};
     keys.forEach(function(k){settings[k] = layer[k];});
@@ -379,6 +377,8 @@ angular.module('ausEnvApp')
       });
     }
     $scope.layers.overlays.aWMS = $scope.selection.makeLayer();
+
+    $scope.updateColourScheme(settings.logscale);
 
     var fn = $interpolate(settings.url)(selection);
     var BASE_URL='http://dapds00.nci.org.au/thredds';
@@ -399,6 +399,11 @@ angular.module('ausEnvApp')
     if(settings.palette) {
       $scope.layers.overlays.aWMS.layerParams.styles = 'boxfill/'+settings.palette;
     }
+
+    if(settings.logscale) {
+      $scope.layers.overlays.aWMS.layerParams.logscale = true;
+    }
+
     $scope.layers.overlays.aWMS.layerParams.showOnSelector = false;
     $scope.layers.overlays.aWMS.doRefresh = true;
   };
@@ -421,7 +426,7 @@ angular.module('ausEnvApp')
     return entries;
   };
 
-  $scope.updateColourScheme = function() {
+  $scope.updateColourScheme = function(applyLogTransform) {
     if(selection.selectedLayer.legend) {
       // +++ NASTY HACK TO GET DLCD CODES
       details[selection.selectedLayer.legend]().then(function(colourCodes){
@@ -439,15 +444,25 @@ angular.module('ausEnvApp')
     } else {
       colourschemes.coloursFor(selection.selectedLayer).then(function(data){
         var range = $scope.colourScaleRange;
+        if(applyLogTransform) {
+          range = range.map(Math.log);
+        }
         var binSize = (range[1]-range[0])/data.length;
+
+        var valToText = function(val){
+          if(applyLogTransform){
+            val = Math.exp(val);
+          }
+          return val.toFixed();
+        }
 
         $scope.colourScheme = data.slice().map(function(e,idx){
           return [{
             colour: e,
-            text: (range[0]+(idx*binSize)).toFixed() + ' - ' + (range[0]+((idx+1)*binSize)).toFixed()
+            text: valToText(range[0]+(idx*binSize)) + ' - ' + valToText(range[0]+((idx+1)*binSize))
           }];
         });
-        $scope.colourScheme[data.length-1][0].text = '&ge;'+(range[1]-binSize).toFixed();
+        $scope.colourScheme[data.length-1][0].text = '&ge;'+valToText(range[1]-binSize);
         $scope.colourScheme.reverse();
         $scope.colourScheme = $scope.balanceColourScheme($scope.colourScheme);
       });
