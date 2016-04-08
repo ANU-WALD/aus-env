@@ -26,7 +26,7 @@ angular.module('ausEnvApp')
       responsive: true,
 
       //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
-      scaleBeginAtZero : true,
+      scaleBeginAtZero : false,
 
       //Boolean - Whether grid lines are shown across the chart
       scaleShowGridLines : true,
