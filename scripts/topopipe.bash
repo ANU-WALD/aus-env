@@ -5,7 +5,7 @@ export PATH='~/node_modules/.bin:'+$PATH #for topojson
 ##ogr2ogr -f GeoJSON -dialect SQLite ramsar/orig_ibra7_subresions.json originals/ShapeFiles/ibra7_subresions.shp
 ##getting metadata to strip
 #echo $PATH
-#echo '=============================METADATA==========================================='
+echo '=============================METADATA==========================================='
 #echo '========================================================================'
 # CAPAD subset with just 'National Park', 'National Park (Commonwealth)' and 'National Park Aboriginal'
 # and with features with 'GIS AREA' greater than 5000 (Hectares).
@@ -18,8 +18,6 @@ echo '========================================================================'
 ogrinfo ../derived/CAPAD_2014_terrestrial_wid_wgs/CAPAD_2014_terrestrial_wid_wgs.shp CAPAD_2014_terrestrial_wid_wgs | head -n 64
 echo '========================================================================'
 ogrinfo ../originals/ShapeFiles/HR_Regions_river_region.shp HR_Regions_river_region | head -n 52
-#echo '========================================================================'
-#ogrinfo originals/ShapeFiles/ibra7_subresions.shp ibra7_subresions | head -n 50
 echo '========================================================================'
 ogrinfo sacrificial/NRMR_2011_AUST_1.shp NRMR_2011_AUST_1 | head -n 20
 echo '========================================================================'
@@ -31,46 +29,27 @@ ogrinfo ../originals/ShapeFiles/SA3_2011_AUST.shp SA3_2011_AUST | head -n 24
 echo '========================================================================'
 ogrinfo ../originals/ShapeFiles/ibra7_regions.shp ibra7_regions | head -n 36
 echo '========================================================================'
-#echo '===========================BIG GEO JSONS============================================='
-#echo '================================CAPAD========================================'
-#ogr2ogr -f GeoJSON -dialect SQLite json/big/big_CAPAD_2014_terrestrial_wgs.json originals/ShapeFiles/CAPAD_2014_terrestrial_wgs.shp
-#echo '=================================HR REGIONS RIVER REGION======================================='
-#ogr2ogr -f GeoJSON -dialect SQLite json/big/big_HR_Regions_river_region.json originals/ShapeFiles/HR_Regions_river_region.shp
-#echo '===================================IBRA SUBREGIONS====================================='
-#ogr2ogr -f GeoJSON -dialect SQLite json/big/big_ibra7_subresions.json originals/ShapeFiles/ibra7_subresions.shp
-#echo '=======================================NRMR 2011================================='
-#ogr2ogr -f GeoJSON -dialect SQLite json/big/big_NRMR_2011_AUST.json originals/ShapeFiles/NRMR_2011_AUST.shp
-#echo '=======================================RAMSAR 2015================================='
-#ogr2ogr -f GeoJSON -dialect SQLite json/big/big_ramsar2015.json originals/ShapeFiles/ramsar2015.shp
-#echo '====================================SA1 2011===================================='
-#ogr2ogr -f GeoJSON -dialect SQLite json/big/big_SA1_2011_AUST.json originals/ShapeFiles/SA1_2011_AUST.shp
 #
 #
 #
 #
 echo '==========================SMALL GEO JSONS=============================================='
-# ##### CAPAD AND NATPARKS  CAN WAIT UNTIL TINY POLYGONS ARE STRIPPED FROM THE DERIVED SHAPEFILE
-echo '=========================STATES==============================================='
-#
-#ogr2ogr -f GeoJSON -lco COORDINATE_PRECISION=3 -simplify 0.02 -dialect SQLite -select STATE_CODE,STATE_NAME json/small/states4326.json derived/states4326/states4326.shp
-#
-#ogr2ogr -f GeoJSON -lco COORDINATE_PRECISION=2 -simplify 0.05 -dialect SQLite -select PA_ID,NAME,TYPE json/small/small_NatParks.json originals/ShapeFiles/NatParks.shp
 echo '=================================NAT PARKS EXCEPT MINISCULE====================================='
 #
-#ogr2ogr -f GeoJSON -lco COORDINATE_PRECISION=2 -simplify 0.05 -dialect SQLite -select wenfo_ID,NAME json/small/NatParks.json derived/NP_GT_5K/NP_GT_5K.shp
+ogr2ogr -f GeoJSON -lco COORDINATE_PRECISION=3 -simplify 0.025 -dialect SQLite -select wenfo_ID,NAME ../json/small/NatParks.json ../derived/NP_GT_5K/NP_GT_5K.shp
 #
 #ogr2ogr -f GeoJSON -lco COORDINATE_PRECISION=2 -simplify 0.25 -dialect SQLite -select PA_ID,NAME json/small/small_CAPAD_2014_terrestrial_wgs.json originals/ShapeFiles/CAPAD_2014_terrestrial_wgs.shp
-echo '=========================HR REGIONS==============================================='
+#echo '=========================HR REGIONS==============================================='
 #ogr2ogr -f GeoJSON -lco COORDINATE_PRECISION=3 -simplify 0.05 -dialect SQLite -select OBJECTID,RivRegName json/small/HR_Regions_river_region.json originals/ShapeFiles/HR_Regions_river_region.shp
-echo '================IBRA========================================================'
+#echo '================IBRA========================================================'
 #ogr2ogr -f GeoJSON -lco COORDINATE_PRECISION=2 -simplify 0.08 -dialect SQLite -select REC_ID,REG_NAME_7 json/small/ibra7_regions.json originals/ShapeFiles/ibra7_regions.shp
-echo '====================LGA==================================================='
+#echo '====================LGA==================================================='
 #ogr2ogr -f GeoJSON -lco COORDINATE_PRECISION=3 -simplify 0.05 -dialect SQLite -select LGA_CODE11,LGA_NAME11 LGA11aAust.json sacrifical/LGA11aAust.shp
-echo '====================NRMR===================================================='
+#echo '====================NRMR===================================================='
 #ogr2ogr -f GeoJSON -dialect SQLite -select NRMR_CODE,NRMR_NAME json/small/NRMR_2011_AUST_1.json sacrificial/ShapeFiles/NRMR_2011_AUST_1.shp
 echo '========================RAMSAR================================================'
-#ogr2ogr -f GeoJSON -lco COORDINATE_PRECISION=3 -simplify 0.05 -dialect SQLite -select OBJECTID,RAMSAR_NAM,WETLAND_NA json/small/ramsar2015.json originals/ShapeFiles/ramsar2015.shp
-echo '==============================SA 2011=========================================='
+ogr2ogr -f GeoJSON -lco COORDINATE_PRECISION=4 -simplify 0.005 -dialect SQLite -select OBJECTID,RAMSAR_NAM,WETLAND_NA ../json/small/ramsar2015.json ../originals/ShapeFiles/ramsar2015.shp
+#echo '==============================SA 2011=========================================='
 #ogr2ogr -f GeoJSON -lco COORDINATE_PRECISION=3 -simplify 0.05 -dialect SQLite -select SA3_CODE,SA3_NAME json/small/SA3_2011_AUST.json originals/ShapeFiles/SA3_2011_AUST.shp
 #
 #
@@ -78,35 +57,22 @@ echo '==============================SA 2011=====================================
 echo '=====================================TOPO JSON SMALL==================================='
 #echo '==============================CAPAD=========================================='
 #topojson --simplify-proportion 0.00005 --quantization 1e3 --properties PA_ID,NAME -o json/smalltopo/s_topo_CAPAD_2014_terrestrial_wgs.json originals/ShapeFiles/CAPAD_2014_terrestrial_wgs.shp
-echo '==============================NATPARKS=========================================='
-topojson --simplify-proportion 0.001 --quantization 1e4 --properties PA_ID,NAME -o ../json/smalltopo/bigNatParks_topo.json ../derived/NP_GT_5K/NP_GT_5K.shp
+#echo '==============================NATPARKS=========================================='
+#topojson --simplify-proportion 0.001 --quantization 1e4 --properties PA_ID,NAME -o ../json/smalltopo/bigNatParks_topo.json ../derived/NP_GT_5K/NP_GT_5K.shp
 echo '===================================STATES (todo)====================================='
-topojson --simplify-proportion 0.005 --quantization 1e4 --properties STATE_CODE,STATE_NAME -o ../json/smalltopo/states4326_topo.json ../derived/states4326/states4326.shp
+topojson --simplify-proportion 0.25 --quantization 1e4 --properties STATE_CODE,STATE_NAME -o ../json/smalltopo/states4326_topo.json ../derived/states4326/states4326.shp
 echo '===================================HR REGIONS====================================='
 topojson --simplify-proportion 0.002 --quantization 1e4 --properties OBJECTID,RivRegName -o ../json/smalltopo/HR_Regions_river_region_topo.json ../originals/ShapeFiles/HR_Regions_river_region.shp
 echo '===================================IBRA====================================='
-topojson --simplify-proportion 0.0002 --quantization 1e3 --properties REC_ID,REG_NAME_7 -o ../json/smalltopo/ibra7_regions_topo.json ../originals/ShapeFiles/ibra7_regions.shp
+topojson --simplify-proportion 0.02 --quantization 4e4 --properties REC_ID,REG_NAME_7 -o ../json/smalltopo/ibra7_regions_topo.json ../originals/ShapeFiles/ibra7_regions.shp
 echo '======================================LGA================================='
 topojson --simplify-proportion 0.001 --quantization 1e4 --properties LGA_CODE11,LGA_NAME11 -o ../json/smalltopo/LGA11aAust_topo.json sacrificial/LGA11aAust.shp
 echo '=======================================NRMR================================='
-topojson --simplify-proportion 0.001 --quantization 1e4 --properties NRMR_CODE,NRMR_NAME -o ../json/smalltopo/NRMR_2011_AUST_1_topo.json sacrificial/NRMR_2011_AUST_1.shp
-echo '===========================================RAMSAR============================='
-topojson --simplify-proportion 0.0005 --quantization 1e5 --properties OBJECTID,RAMSAR_NAM,WETLAND_NA -o ../json/smalltopo/ramsar2015_topo.json ../originals/ShapeFiles/ramsar2015.shp
+topojson --simplify-proportion 0.002 --quantization 1e4 --properties NRMR_CODE,NRMR_NAME -o ../json/smalltopo/NRMR_2011_AUST_1_topo.json sacrificial/NRMR_2011_AUST_1.shp
+#echo '===========================================RAMSAR============================='
+#topojson --simplify-proportion 0.001 --quantization 1e5 --properties OBJECTID,RAMSAR_NAM,WETLAND_NA -o ../json/smalltopo/ramsar2015_topo.json ../originals/ShapeFiles/ramsar2015.shp
 echo '=================================================SA3======================='
-topojson --simplify-proportion 0.001 --quantization 1e4 --properties SA3_CODE,SA3_NAME -o ../json/smalltopo/SA3_2011_AUST_topo.json ../originals/ShapeFiles/SA3_2011_AUST.shp
-#echo '================TOPO JSON LARGE========================================================'
-#echo '============================CAPAD============================================'
-#topojson --properties-o json/bigtopo/topo_CAPAD_2014_terrestrial_wgs.json originals/ShapeFiles/CAPAD_2014_terrestrial_wgs.shp
-#echo '===============================HR========================================='
-#topojson --properties -o json/bigtopo/topo_HR_Regions_river_region originals/ShapeFiles/HR_Regions_river_region.shp
-#echo '=================================IBRA======================================='
-#topojson --properties -o json/bigtopo/topo_ibra7_subresions.json originals/ShapeFiles/ibra7_subresions.shp
-#echo '=====================================NRMR==================================='
-#topojson --properties -o json/bigtopo/topo_NRMR_2011_AUST.json originals/ShapeFiles/NRMR_2011_AUST.shp
-#echo '=========================================RAMSAR==============================='
-#topojson --properties -o json/bigtopo/topo_ramsar2015.json originals/ShapeFiles/ramsar2015.shp
-#echo '===========================================SA============================='
-##topojson --properties -o json/bigtopo/topo_SA1_2011_AUST.json originals/ShapeFiles/SA1_2011_AUST.shp
+topojson --simplify-proportion 0.2 --quantization 1e4 --properties SA3_CODE,SA3_NAME -o ../json/smalltopo/SA3_2011_AUST_topo.json ../originals/ShapeFiles/SA3_2011_AUST.shp
 echo '=====================================DONE==================================='
 
 
