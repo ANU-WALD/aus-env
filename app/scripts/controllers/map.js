@@ -110,18 +110,17 @@ angular.module('ausEnvApp')
 
     $scope.dataRange = function(mappingVals) {
       var vals = mappingVals.values;
-      var polygonRanges = Object.keys(vals)
+      var colIdx = vals.columnNames.indexOf(''+$scope.selection.year);
+      var polygonValues = Object.keys(vals)
         .filter(function(key){return key.startsWith('PlaceIndex');})
         .map(function(key){
-          return $scope.arrayRange(vals[key]);
+          return vals[key][colIdx];
         });
-      polygonRanges = polygonRanges.filter(function(p){
-        return isFinite(p[0]) && isFinite(p[1]);
+      polygonValues = polygonValues.filter(function(v){
+        return isFinite(v);
       });
-      var actualRange = [
-        Math.min.apply(null,polygonRanges.map(function(p){return p[0];})),
-        Math.max.apply(null,polygonRanges.map(function(p){return p[1];}))
-      ];
+      var actualRange = $scope.arrayRange(polygonValues);
+
       if((actualRange[0]<0)&&(actualRange[1]>0)) {
         var extent = Math.max(Math.abs(actualRange[0]),actualRange[1]);
         return [-extent,extent];
@@ -444,6 +443,7 @@ angular.module('ausEnvApp')
     } else {
       colourschemes.coloursFor(selection.selectedLayer).then(function(data){
         var range = $scope.colourScaleRange;
+        var decimalPlaces = Math.max(0,2-(+Math.log10(range[1]-range[0]).toFixed()));
         if(applyLogTransform) {
           range = range.map(Math.log);
         }
@@ -453,7 +453,7 @@ angular.module('ausEnvApp')
           if(applyLogTransform){
             val = Math.exp(val);
           }
-          return val.toFixed();
+          return val.toFixed(decimalPlaces);
         }
 
         $scope.colourScheme = data.slice().map(function(e,idx){
@@ -528,8 +528,6 @@ angular.module('ausEnvApp')
       $scope.geojson.style.color='black';
       //console.log($scope.layers.overlays.selectionLayer.layerOptions);
       //console.log($scope.layers.overlays.selectionLayer);
-
-
     }
   };
 
