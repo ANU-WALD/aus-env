@@ -14,7 +14,7 @@
     "font-awesome": "~4.5.0",
     "ng-static-data": "flowmatters/ng-static-data",
     "angular-chart.js": "^0.9.0",
-    "Chart.js": "^1.0.1",
+    "Chart.js": "~1.1.1",
     "angular-screenfull": "^0.1.0",
     "dap-query-js": "flowmatters/dap-query-js",
     "angular-sanitize": "^1.5.1"
@@ -34,6 +34,7 @@
     }
   },
   "resolutions": {
-    "angular": "~1.5.1"
+    "angular": "~1.5.1",
+    "Chart.js": "~1.1.1"
   }
 }
