@@ -14,18 +14,17 @@ angular.module('ausEnvApp')
   var unit_dict = [];
   unit_dict['frequency'] = "occurrences/year";
   unit_dict['percent'] = "%";
-  unit_dict['percent'] = "%"; 
+  unit_dict['percent'] = "%";
   unit_dict['m2/m2'] = "m" + "2".sup() + "/m" + "2".sup();
-  unit_dict['gC/m2'] = "gC/m" + "2".sup(); 
+  unit_dict['gC/m2'] = "gC/m" + "2".sup();
   */
 
   var unit_dict = [];
   unit_dict["frequency"] = "occurrences/year";
   unit_dict["percent"] = "%";
-  unit_dict["percent"] = "%"; 
+  unit_dict["percent"] = "%";
   unit_dict["m2/m2"] = "m^2/m^2";
-  unit_dict["gC/m2"] = "gC/m^2"; 
-
+  unit_dict["gC/m2"] = "gC/m^2";
   var firstYear;
   var currentYearIndex = selection.year - firstYear;
 
@@ -160,7 +159,7 @@ angular.module('ausEnvApp')
         }
     };
 
-    
+
 
     $scope.createBarChart = function(placeId,label){
       details.getBarChartData().then(function(data){
@@ -191,14 +190,14 @@ angular.module('ausEnvApp')
 
         $scope.barColors = [{fillColor:["#66987F"]}];
         $scope.barColors[0].fillColor[currentYearIndex] = "#2B5F45";
-        
+
         if (currentYearIndex < $scope.barLabels.length-1) {
           $scope.barColors[0].fillColor[currentYearIndex+1] = "#66987F";
         }
-        
-        
-        console.log("what is the columnNames like is here");
-        console.log($scope.barLabels);
+
+
+//        console.log("what is the columnNames like is here");
+//        console.log($scope.barLabels);
       });
     };
 
