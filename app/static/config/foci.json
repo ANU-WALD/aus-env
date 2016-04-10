@@ -33,7 +33,7 @@
   {
     "name":"National Parks",
     "source":"NatParks",
-    "sourceWMS":"CAPAD_2014_terrestrial_wgs",
+    "sourceWMS":"NP_GT_5K",
     "labelField":"NAME",
     "keyField":"wenfo_ID",
     "summaryName":"NP_GT_5K"
