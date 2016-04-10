@@ -10,12 +10,22 @@
 angular.module('ausEnvApp')
   .controller('DetailsCtrl', function ($scope,selection,details) {
 
-/*
+    /*
   var unit_dict = [];
-  unit_dict.push({
-    key: 
-  });
-*/
+  unit_dict['frequency'] = "occurrences/year";
+  unit_dict['percent'] = "%";
+  unit_dict['percent'] = "%"; 
+  unit_dict['m2/m2'] = "m" + "2".sup() + "/m" + "2".sup();
+  unit_dict['gC/m2'] = "gC/m" + "2".sup(); 
+  */
+
+  var unit_dict = [];
+  unit_dict["frequency"] = "occurrences/year";
+  unit_dict["percent"] = "%";
+  unit_dict["percent"] = "%"; 
+  unit_dict["m2/m2"] = "m^2/m^2";
+  unit_dict["gC/m2"] = "gC/m^2"; 
+
   var firstYear;
   var currentYearIndex = selection.year - firstYear;
 
@@ -142,7 +152,7 @@ angular.module('ausEnvApp')
     $scope.populateLabels = function(chart,data){
         chart.title = data.Title;
         chart.description = data.Description;
-        chart.units = data.Units;
+        chart.units = (data.Units in unit_dict) ? unit_dict[data.Units] : data.Units;
         if(chart === $scope.bar) {
           $scope.viewOptions[0].description = chart.description;
         } else if(chart === $scope.pie) {
@@ -150,10 +160,12 @@ angular.module('ausEnvApp')
         }
     };
 
+    
+
     $scope.createBarChart = function(placeId,label){
       details.getBarChartData().then(function(data){
         $scope.barChartData = data;
-        $scope.units = $scope.barChartData.Units;
+        $scope.units = ($scope.barChartData.Units in unit_dict) ? unit_dict[$scope.barChartData.Units] : $scope.barChartData.Units;
         $scope.barLabels = [];
         $scope.barSeries = [];
         $scope.barData = [];
