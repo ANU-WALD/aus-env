@@ -449,17 +449,33 @@ angular.module('ausEnvApp')
         }
         var binSize = (range[1]-range[0])/data.length;
 
-        var valToText = function(val){
+        var valToText = function(val,dp){
+          dp = dp || decimalPlaces
           if(applyLogTransform){
             val = Math.exp(val);
           }
-          return val.toFixed(decimalPlaces);
+          return val.toFixed(dp);
         }
 
+        var distinctText = function(val,lowerText){
+          var valText;
+          var dp = decimalPlaces;
+          do{
+            valText = valToText(val,dp);
+            dp++;
+          }while(+lowerText>=+valText);
+
+          return valText;
+        };
+
+        var lowerText = valToText(range[0]);
         $scope.colourScheme = data.slice().map(function(e,idx){
+          var upperText = distinctText(range[0]+((idx+1)*binSize),lowerText);
+          var label = lowerText + ' - ' + upperText;
+          lowerText = upperText;
           return [{
             colour: e,
-            text: valToText(range[0]+(idx*binSize)) + ' - ' + valToText(range[0]+((idx+1)*binSize))
+            text: label
           }];
         });
         $scope.colourScheme[data.length-1][0].text = '&ge;'+valToText(range[1]-binSize);

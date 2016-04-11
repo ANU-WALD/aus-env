@@ -67,7 +67,7 @@
         "variable":"Nhotspots",
         "time":"{{year}}-12-31",
         "logscale":true,
-        "colorscalerange":"0,250",
+        "colorscalerange":"0.002,250",
         "palette":"anu_wald_hotmetal"
       }
     ]
