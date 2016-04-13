@@ -92,14 +92,15 @@ angular.module('ausEnvApp')
     });
 
     $scope.$on('leafletDirectiveMap.click', function(event, args){
-      if (args.leafletEvent.latlng.lat <= selection.ozLatLngMapBounds[0][0] &&
-        args.leafletEvent.latlng.lat >= selection.ozLatLngMapBounds[1][0] &&
-        args.leafletEvent.latlng.lng >= selection.ozLatLngMapBounds[0][1] &&
-        args.leafletEvent.latlng.lng <= selection.ozLatLngMapBounds[1][1]) {
-      }
-      else {
-        selection.clearSelection();
-      }
+//      if (args.leafletEvent.latlng.lat <= selection.ozLatLngMapBounds[0][0] &&
+//        args.leafletEvent.latlng.lat >= selection.ozLatLngMapBounds[1][0] &&
+//        args.leafletEvent.latlng.lng >= selection.ozLatLngMapBounds[0][1] &&
+//        args.leafletEvent.latlng.lng <= selection.ozLatLngMapBounds[1][1]) {
+//      }
+//      else {
+//        selection.clearSelection();
+//      }
+      selection.clearSelection();
       //window.alert(args.leafletEvent.latlng.lat >= selection.ozLatLngMapBounds[0][0]);
     });
 
