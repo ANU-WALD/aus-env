@@ -404,7 +404,10 @@ angular.module('ausEnvApp')
     }
 
     $scope.layers.overlays.aWMS.layerParams.showOnSelector = false;
-    $scope.layers.overlays.aWMS.doRefresh = true;
+    colourschemes.coloursFor(selection.selectedLayer).then(function(colours){
+      $scope.layers.overlays.aWMS.doRefresh = true;
+      $scope.layers.overlays.aWMS.layerParams.numcolorbands = colours.length;
+    })
   };
 
   ['year','selectedLayer','dataMode','mapMode'].forEach(function(prop){
