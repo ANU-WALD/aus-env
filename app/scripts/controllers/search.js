@@ -38,6 +38,6 @@ angular.module('ausEnvApp')
     }; //regionTypeChanged
 
     $scope.canUseSearchText = function() {
-      return ((!selection.isMapModeGrid()) && (selection.regionType !== null));
+      return selection.regionType !== null;
     };  //canUseSearchText
   });

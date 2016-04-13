@@ -1,2 +1,2 @@
-<button type="button" class="btn btn-default" uib-tooltip="Australia" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="selection.zoomToFeature(true)"><span class="glyphicon glyphicon-globe"/></button>
-<button type="button" class="btn btn-default" uib-tooltip="Zoom To" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="selection.zoomToFeature()"><span class="glyphicon glyphicon-picture"/></button>
+<button type="button" class="btn btn-default map-button" uib-tooltip="Zoom To Australia" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="selection.zoomToFeature(true)"><span class="fa fa-lg fa-arrows-alt"/></button>
+<button type="button" class="btn btn-default map-button" ng-class="{'disabled':!selection.haveRegion()}" uib-tooltip="Zoom To Selection" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="selection.zoomToFeature()"><span class="fa fa-lg fa-search"/></button>

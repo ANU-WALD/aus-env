@@ -80,7 +80,7 @@ angular.module('ausEnvApp')
      */
     service.zoomToFeature = function(forceAustralia) {
       // +++ CHECK. No longer enfore mapMode = Polygon when displaying polygon layers
-      if (!forceAustralia && (service.mapMode === mapmodes.region) && (service.selectedRegion !== undefined)) {
+      if (!forceAustralia && (service.selectedRegion !== undefined)) {
         var geojson = L.geoJson(service.selectedRegion.feature);
         leafletData.getMap().then(function (map) {
           map.fitBounds(geojson.getBounds(), {maxZoom: 13});
