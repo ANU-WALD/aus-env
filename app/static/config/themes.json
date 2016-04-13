@@ -205,13 +205,13 @@
         "title":"Fire carbon emission",
         "description":"Albert to fill in",
         "summary":"OzWALD.annual.GPP.AnnualSums",
-        "palette":"anu_wald_gmt_hot",
+        "palette":"anu_wald_gmthot",
         "normal":{
           "url":"ub8/au/FireEmissions/GFASv12.BurntCarbon.AnnualSums.nc",
           "variable":"AnnualSums",
           "time":"{{year}}-12-31",
           "colorscalerange":"0,1500",
-          "palette":"anu_wald_gmt_hot"
+          "palette":"anu_wald_gmthot"
         },
         "delta":{
           "url":"ub8/au/FireEmissions/GFASv12.BurntCarbon.ChangeAnnualSums.nc",
