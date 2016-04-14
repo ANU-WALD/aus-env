@@ -159,8 +159,6 @@ angular.module('ausEnvApp')
           $scope.viewOptions[1].description = chart.description;
         }
         */
-        console.log("pie cahrt colour");
-        console.log($scope.pieColours);
     };
 
 
@@ -205,8 +203,6 @@ angular.module('ausEnvApp')
       });
     };
 
-    var PieChartColourTemp = [];
-
     $scope.createPieChart = function(placeId) {
       details.getPieChartData().then(function(data){
         $scope.pieChartData = data;
@@ -228,7 +224,6 @@ angular.module('ausEnvApp')
           return hex;
         });
 
-        console.log($scope.pieColours);
 //        $scope.pieData = $scope.pieChartData[indexName].map(function(value,idx){
 //          var col = $scope.pieChartData.columnNames[idx];
 //          var presentation = $scope.pieChartData.columnPresentation[col];
