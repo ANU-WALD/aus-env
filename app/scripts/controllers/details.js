@@ -152,11 +152,15 @@ angular.module('ausEnvApp')
         chart.title = data.Title;
         chart.description = data.Description;
         chart.units = (data.Units in unit_dict) ? unit_dict[data.Units] : data.Units;
+        /*
         if(chart === $scope.bar) {
           $scope.viewOptions[0].description = chart.description;
         } else if(chart === $scope.pie) {
           $scope.viewOptions[1].description = chart.description;
         }
+        */
+        console.log("pie cahrt colour");
+        console.log($scope.pieColours);
     };
 
 
@@ -201,6 +205,8 @@ angular.module('ausEnvApp')
       });
     };
 
+    var PieChartColourTemp = [];
+
     $scope.createPieChart = function(placeId) {
       details.getPieChartData().then(function(data){
         $scope.pieChartData = data;
@@ -213,10 +219,16 @@ angular.module('ausEnvApp')
 
         var indexName = "PlaceIndex" + placeId;
         $scope.pieData = $scope.pieChartData[indexName];
-        $scope.pieChartColours = $scope.pieChartData.columnNames.map(function(col){
+
+        $scope.pieColours = $scope.pieChartData.columnNames.map(function(col){
           var presentation = $scope.pieChartData.columnPresentation[col];
-          return 'rgb('+presentation.Red+','+presentation.Green+','+presentation.Blue+')';
+          console.log(presentation);
+          //return 'rgb('+presentation.Red+','+presentation.Green+','+presentation.Blue+')';
+          var hex = rgbToHex(presentation.Red, presentation.Green, presentation.Blue);
+          return hex;
         });
+
+        console.log($scope.pieColours);
 //        $scope.pieData = $scope.pieChartData[indexName].map(function(value,idx){
 //          var col = $scope.pieChartData.columnNames[idx];
 //          var presentation = $scope.pieChartData.columnPresentation[col];
@@ -228,6 +240,15 @@ angular.module('ausEnvApp')
 //        });
       });
     };
+
+    function componentToHex(c) {
+      var hex = c.toString(16);
+      return hex.length == 1 ? "0" + hex : hex;
+    }
+
+    function rgbToHex(r, g, b) {
+      return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    }
 
     //<editor-fold desc="pete linegraph">
     $scope.createLineChart = function(/*placeId,label*/){
@@ -290,6 +311,7 @@ angular.module('ausEnvApp')
 
     $scope.onLineClick = function (points, evt) {
       console.log(points, evt);
+
     };
 
     $scope.$on('create', function (event, chart) {  //how to limit to just line graph?
