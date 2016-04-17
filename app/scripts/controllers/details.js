@@ -9,10 +9,15 @@
  */
 angular.module('ausEnvApp')
   .config(['ChartJsProvider', function (ChartJsProvider) {
-    console.log(document.getElementById("line"));
+    window.onload = function() {
+      console.log(document.getElementById("pie"));
+      var myPieCanvas = document.getElementById("pie").getContext("2d");
+    };
     // Configure all line charts 
     ChartJsProvider.setOptions('Pie', {
-      tooltipFontSize: 9,
+      tooltipFontSize: 10,
+      tooltipXPadding: 1,
+
     });
   }])
 
