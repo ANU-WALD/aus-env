@@ -42,7 +42,8 @@ angular
     'ngTouch',
     'ng-static-data',
     'chart.js',
-    'angularScreenfull'
+    'angularScreenfull', 
+    'googlechart'
   ])
   .config(function ($routeProvider,$logProvider) {
     $routeProvider

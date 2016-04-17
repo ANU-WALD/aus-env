@@ -8,6 +8,14 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
+  .config(['ChartJsProvider', function (ChartJsProvider) {
+    console.log(document.getElementById("line"));
+    // Configure all line charts 
+    ChartJsProvider.setOptions('Pie', {
+      tooltipFontSize: 9,
+    });
+  }])
+
   .controller('DetailsCtrl', function ($scope,selection,details) {
 
     /*
@@ -20,11 +28,10 @@ angular.module('ausEnvApp')
   */
 
   var unit_dict = [];
-  unit_dict["frequency"] = "occurrences/year";
-  unit_dict["percent"] = "%";
-  unit_dict["percent"] = "%";
-  unit_dict["m2/m2"] = "m^2/m^2";
-  unit_dict["gC/m2"] = "gC/m^2";
+  unit_dict.frequency = "occurrences/year";
+  unit_dict.percent = "%";
+  unit_dict['m2/m2'] = "m^2/m^2";
+  unit_dict['gC/m2'] = "gC/m^2";
   var firstYear;
   var currentYearIndex = selection.year - firstYear;
 
@@ -162,7 +169,6 @@ angular.module('ausEnvApp')
     };
 
 
-
     $scope.createBarChart = function(placeId,label){
       details.getBarChartData().then(function(data){
         $scope.barChartData = data;
@@ -206,6 +212,8 @@ angular.module('ausEnvApp')
     $scope.createPieChart = function(placeId) {
       details.getPieChartData().then(function(data){
         $scope.pieChartData = data;
+        console.log("pie chart data");
+        console.log($scope.pieChartData);
         $scope.pieData = [];
         $scope.populateLabels($scope.pie,data);
 
@@ -218,7 +226,6 @@ angular.module('ausEnvApp')
 
         $scope.pieColours = $scope.pieChartData.columnNames.map(function(col){
           var presentation = $scope.pieChartData.columnPresentation[col];
-          console.log(presentation);
           //return 'rgb('+presentation.Red+','+presentation.Green+','+presentation.Blue+')';
           var hex = rgbToHex(presentation.Red, presentation.Green, presentation.Blue);
           return hex;
@@ -234,11 +241,11 @@ angular.module('ausEnvApp')
 //          };
 //        });
       });
-    };
+    };  
 
     function componentToHex(c) {
       var hex = c.toString(16);
-      return hex.length == 1 ? "0" + hex : hex;
+      return hex.length === 1 ? "0" + hex : hex;
     }
 
     function rgbToHex(r, g, b) {
@@ -318,10 +325,9 @@ angular.module('ausEnvApp')
       console.log("update");
       console.log(chart);
     });
-    //</editor-fold>
 
     $scope.pieChartOptions = {
       animateRotate: false,
-      animationSteps: 1
+      animationSteps: 1, 
     };
   });
