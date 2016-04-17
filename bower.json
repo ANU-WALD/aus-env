@@ -36,6 +36,6 @@
   },
   "resolutions": {
     "angular": "~1.5.1",
-    "Chart.js": "~2.0.0"
+    "Chart.js": "~1.1.1"
   }
 }
