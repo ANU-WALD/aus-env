@@ -342,6 +342,18 @@ h4.chart-subtitle{
   width: 15px !important;
   height: 15px !important;
 }
+
+.legend-colour{
+  display:table-cell;
+  padding:0px;
+}
+
+.legend-label{
+  display:table-cell;
+  padding:0px 4px 2px 2px;
+  font-size:10px;
+  vertical-align:middle;
+}
 /*
 .theme-improving{
   background:rgb(0,184,102);

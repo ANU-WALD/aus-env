@@ -25,7 +25,7 @@ angular.module('ausEnvApp')
         attributionControl: false,
         zoomControl:false,
         maxZoom: 12,
-        minZoom: 4,
+        minZoom: 2,
       }, //defaults
 
       mapCentre: {
