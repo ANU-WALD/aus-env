@@ -423,7 +423,8 @@ angular.module('ausEnvApp')
         entries[i].push(secondaryColumn.shift()[0]);
       }
       if(secondaryColumn.length){
-        entries.push(secondaryColumn);
+        secondaryColumn[0].unshift({});
+        entries.push(secondaryColumn[0]);
       }
     }
 
