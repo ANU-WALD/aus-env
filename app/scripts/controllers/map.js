@@ -456,7 +456,8 @@ angular.module('ausEnvApp')
         var binSize = (range[1]-range[0])/data.length;
 
         var valToText = function(val,dp){
-          dp = dp || decimalPlaces
+          dp = dp || decimalPlaces;
+          dp = Math.min(dp,10);
           if(applyLogTransform){
             val = Math.exp(val);
           }
@@ -469,7 +470,7 @@ angular.module('ausEnvApp')
           do{
             valText = valToText(val,dp);
             dp++;
-          }while(+lowerText>=+valText);
+          }while((+lowerText>=+valText)&&(dp<=10));
 
           return valText;
         };
