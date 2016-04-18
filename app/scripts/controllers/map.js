@@ -150,7 +150,7 @@ angular.module('ausEnvApp')
 //        return +v;
 //      });
       var range = $scope.polygonMapping.dataRange;
-      var point = (range[1]-val)/(range[1]-range[0]);
+      var point = (val-range[0])/(range[1]-range[0]);
       var pos = Math.round(point*($scope.polygonMapping.colours.length-1));
       var selectedColour = $scope.polygonMapping.colours[pos];
 
