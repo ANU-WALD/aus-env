@@ -1,5 +1,5 @@
   <div ng-repeat="line in colourScheme[0]">
-    <div class="col-xs-3" ng-repeat="entry in colourScheme">
+    <div ng-show="entry[$parent.$index].text" class="col-xs-3" ng-repeat="entry in colourScheme">
       <div class="legend-colour">
         <i class="legend-entry" ng-style="{background:entry[$parent.$index].colour}"></i>
       </div>
