@@ -91,7 +91,7 @@ angular.module('ausEnvApp')
       //console.log(args);
     });
 
-    $scope.$on('leafletDirectiveMap.click', function(event, args){
+    $scope.$on('leafletDirectiveMap.click', function(/*event, args*/){
 //      if (args.leafletEvent.latlng.lat <= selection.ozLatLngMapBounds[0][0] &&
 //        args.leafletEvent.latlng.lat >= selection.ozLatLngMapBounds[1][0] &&
 //        args.leafletEvent.latlng.lng >= selection.ozLatLngMapBounds[0][1] &&
@@ -409,7 +409,7 @@ angular.module('ausEnvApp')
     colourschemes.coloursFor(selection.selectedLayer).then(function(colours){
       $scope.layers.overlays.aWMS.doRefresh = true;
       $scope.layers.overlays.aWMS.layerParams.numcolorbands = colours.length;
-    })
+    });
   };
 
   ['year','selectedLayer','dataMode','mapMode'].forEach(function(prop){
@@ -462,7 +462,7 @@ angular.module('ausEnvApp')
             val = Math.exp(val);
           }
           return val.toFixed(dp);
-        }
+        };
 
         var distinctText = function(val,lowerText){
           var valText;

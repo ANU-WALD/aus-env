@@ -15,7 +15,7 @@ angular.module('ausEnvApp')
       var myPieCanvas = document.getElementById("pie").getContext("2d");
     };
     */
-    // Configure all line charts 
+    // Configure all line charts
     ChartJsProvider.setOptions('Pie', {
       tooltipFontSize: 10,
       tooltipXPadding: 1,
@@ -88,7 +88,6 @@ angular.module('ausEnvApp')
     $scope.viewOptions = [
       {
         style:'bar',
-
         icon:'fa-bar-chart',
         tooltip:'Annual time series',
       },
@@ -248,7 +247,7 @@ angular.module('ausEnvApp')
 //          };
 //        });
       });
-    };  
+    };
 
     function componentToHex(c) {
       var hex = c.toString(16);
@@ -335,6 +334,6 @@ angular.module('ausEnvApp')
 
     $scope.pieChartOptions = {
       animateRotate: false,
-      animationSteps: 1, 
+      animationSteps: 1
     };
   });
