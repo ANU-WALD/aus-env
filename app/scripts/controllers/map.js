@@ -527,7 +527,7 @@ angular.module('ausEnvApp')
   };
 
   $scope.selectDefaultLayer = function(themeObject){
-    var defaultLayer = themeObject.layers.find(function(l){return l.default;});
+    var defaultLayer = themeObject.layers.filter(function(l){return l.default;})[0];
 
     $scope.selection.selectedLayer = defaultLayer;
     $scope.selection.selectedLayerName = defaultLayer.title;
