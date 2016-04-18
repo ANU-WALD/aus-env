@@ -20,6 +20,20 @@ if (typeof Function.prototype.bind !== 'function') {
         return bound;
     };
 }
+
+// Math.log10 polyfil for IE
+Math.log10 = Math.log10 || function(x) {
+    return Math.log(x) / Math.LN10;
+  };
+
+
+if (!String.prototype.startsWith) {
+  String.prototype.startsWith = function(searchString, position){
+    position = position || 0;
+    return this.substr(position, searchString.length) === searchString;
+  };
+}
+
 /* jshint ignore:end */
 
 /**
