@@ -201,6 +201,7 @@ angular.module('ausEnvApp')
     });
 
     $scope.polygonSelected = function(evt) {
+      L.DomEvent.stopPropagation(evt);
       $scope.selectFeature(evt.target.feature);
     };
 
