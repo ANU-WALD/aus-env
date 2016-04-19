@@ -42,8 +42,6 @@ angular.module('ausEnvApp')
   var firstYear;
   var currentYearIndex = selection.year - firstYear;
 
-  console.log("current year");
-  console.log(currentYearIndex);
   $scope.barOptions =  {
       // Sets the chart to be responsive
       responsive: true,
@@ -208,18 +206,12 @@ angular.module('ausEnvApp')
         if (currentYearIndex < $scope.barLabels.length-1) {
           $scope.barColors[0].fillColor[currentYearIndex+1] = "#66987F";
         }
-
-
-//        console.log("what is the columnNames like is here");
-//        console.log($scope.barLabels);
       });
     };
 
     $scope.createPieChart = function(placeId) {
       details.getPieChartData().then(function(data){
         $scope.pieChartData = data;
-        console.log("pie chart data");
-        console.log($scope.pieChartData);
         $scope.pieData = [];
         $scope.populateLabels($scope.pie,data);
 
@@ -260,7 +252,6 @@ angular.module('ausEnvApp')
 
     //<editor-fold desc="pete linegraph">
     $scope.createLineChart = function(/*placeId,label*/){
-//      console.log("Trying a line graph");
       $scope.lineLabels = details.makeSimpleLabels(10);
       $scope.lineSeries = ['one','two'];
       $scope.lineData = [];
@@ -317,20 +308,15 @@ angular.module('ausEnvApp')
 
     };
 
-    $scope.onLineClick = function (points, evt) {
-      console.log(points, evt);
-
-    };
-
-    $scope.$on('create', function (event, chart) {  //how to limit to just line graph?
-      console.log("create");
-      console.log(chart);
-    });
-
-    $scope.$on('update', function (event, chart) {  //how to limit to just line graph?
-      console.log("update");
-      console.log(chart);
-    });
+//    $scope.onLineClick = function (points, evt) {
+//
+//    };
+//
+//    $scope.$on('create', function (event, chart) {  //how to limit to just line graph?
+//    });
+//
+//    $scope.$on('update', function (event, chart) {  //how to limit to just line graph?
+//    });
 
     $scope.pieChartOptions = {
       animateRotate: false,
