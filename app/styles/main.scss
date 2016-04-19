@@ -379,6 +379,11 @@ sup {
   vertical-align:super;
 }
 
+.pie {
+  position: fixed;
+  z-index: 999;
+}
+
 
 /*** Loading ***/
 .thinking {

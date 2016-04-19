@@ -9,17 +9,31 @@
  */
 angular.module('ausEnvApp')
   .config(['ChartJsProvider', function (ChartJsProvider) {
+    
     /*
     window.onload = function() {
       console.log(document.getElementById("pie"));
       var myPieCanvas = document.getElementById("pie").getContext("2d");
+
+      var myPieChart = new Chart(myPieCanvas).Pie(data, {
+      customTooltips: function(tooltip) {
+
+        // tooltip will be false if tooltip is not visible or should be hidden
+        if (!tooltip) {
+            return;
+        }
+
+        };
+      });
     };
     */
+    
     // Configure all line charts 
     ChartJsProvider.setOptions('Pie', {
       tooltipFontSize: 10,
       tooltipXPadding: 1,
-
+      tooltipYPadding: 3,
+      tooltipFontStyle: "300",
     });
   }])
 
