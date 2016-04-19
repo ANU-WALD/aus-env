@@ -48,6 +48,7 @@ html, body{
 .main-logo{
   margin-top:-6px;
 }
+
 /*** OVERRIDE BOOTSTRAP THEME ***/
 /*.themes-nav{
   padding-top:8px;
@@ -107,6 +108,28 @@ li.theme-item.open {
 */
 }
 
+.navbar-brand {
+  font-size:24px;
+}
+
+@media screen and (max-width:1500px){
+  .navbar-brand {
+    font-size:20px;
+  }
+}
+
+@media screen and (max-width:1330px){
+  .navbar-brand {
+    font-size:18px;
+  }
+}
+
+@media screen and (max-width:$container-sm){
+  .navbar-brand {
+    font-size:14px;
+  }
+}
+
 @media screen and (min-width:$container-sm) and (max-width:1400px) {
   .nav > li {
     a.navbar-theme {
@@ -124,6 +147,15 @@ li.theme-item.open {
     button.btn {
       padding-left:5px;
       padding-right:5px;
+    }
+  }
+}
+
+@media screen and (min-width:$container-md) and (max-width:1330px) {
+  .navbar-form{
+
+    .form-control{
+      width:120px;
     }
   }
 }
@@ -167,9 +199,6 @@ li.theme-item{
   background:$brand-primary;
 }
 
-.navbar-brand {
-  font-size:24px;
-}
 /*
 .themes-nav{
   position:relative;
