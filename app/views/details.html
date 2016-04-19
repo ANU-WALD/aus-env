@@ -1,9 +1,12 @@
 <h2 class="details-heading">{{selection.selectedRegionName()}}</h2>
-<uib-tabset type="pills" justified="true">
+<uib-tabset active="selection.detailsView" type="pills" justified="true">
   <uib-tab index="$index" ng-repeat="view in viewOptions">
-    <uib-tab-heading uib-tooltip="{{view.tooltip}}" tooltip-append-to-body="true">
+    <uib-tab-heading
+      uib-tooltip="{{view.tooltip}}"
+      tooltip-placement="bottom-left"
+      tooltip-append-to-body="true">
       <i class="fa fa-lg" ng-class="view.icon"></i>
-      <i uib-tooltip="{{view.description}}" tooltip-append-to-body="true" tooltip-enable="true" tooltip-trigger="mouseenter"><span class="sr-only">{{view.style}}</span></i>
+      <span class="sr-only">{{view.style}}</span>
     </uib-tab-heading>
     <div ng-include="'views/details/'+view.style+'.html'"></div>
   </uib-tab>

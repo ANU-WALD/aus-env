@@ -25,7 +25,7 @@ angular.module('ausEnvApp')
         attributionControl: false,
         zoomControl:false,
         maxZoom: 12,
-        minZoom: 4,
+        minZoom: 2,
       }, //defaults
 
       mapCentre: {
@@ -91,7 +91,7 @@ angular.module('ausEnvApp')
       //console.log(args);
     });
 
-    $scope.$on('leafletDirectiveMap.click', function(event, args){
+    $scope.$on('leafletDirectiveMap.click', function(/*event, args*/){
 //      if (args.leafletEvent.latlng.lat <= selection.ozLatLngMapBounds[0][0] &&
 //        args.leafletEvent.latlng.lat >= selection.ozLatLngMapBounds[1][0] &&
 //        args.leafletEvent.latlng.lng >= selection.ozLatLngMapBounds[0][1] &&
@@ -150,7 +150,7 @@ angular.module('ausEnvApp')
 //        return +v;
 //      });
       var range = $scope.polygonMapping.dataRange;
-      var point = (range[1]-val)/(range[1]-range[0]);
+      var point = (val-range[0])/(range[1]-range[0]);
       var pos = Math.round(point*($scope.polygonMapping.colours.length-1));
       var selectedColour = $scope.polygonMapping.colours[pos];
 
@@ -201,6 +201,7 @@ angular.module('ausEnvApp')
     });
 
     $scope.polygonSelected = function(evt) {
+      L.DomEvent.stopPropagation(evt);
       $scope.selectFeature(evt.target.feature);
     };
 
@@ -408,7 +409,7 @@ angular.module('ausEnvApp')
     colourschemes.coloursFor(selection.selectedLayer).then(function(colours){
       $scope.layers.overlays.aWMS.doRefresh = true;
       $scope.layers.overlays.aWMS.layerParams.numcolorbands = colours.length;
-    })
+    });
   };
 
   ['year','selectedLayer','dataMode','mapMode'].forEach(function(prop){
@@ -422,7 +423,8 @@ angular.module('ausEnvApp')
         entries[i].push(secondaryColumn.shift()[0]);
       }
       if(secondaryColumn.length){
-        entries.push(secondaryColumn);
+        secondaryColumn[0].unshift({});
+        entries.push(secondaryColumn[0]);
       }
     }
 
@@ -454,12 +456,13 @@ angular.module('ausEnvApp')
         var binSize = (range[1]-range[0])/data.length;
 
         var valToText = function(val,dp){
-          dp = dp || decimalPlaces
+          dp = dp || decimalPlaces;
+          dp = Math.min(dp,10);
           if(applyLogTransform){
             val = Math.exp(val);
           }
           return val.toFixed(dp);
-        }
+        };
 
         var distinctText = function(val,lowerText){
           var valText;
@@ -467,7 +470,7 @@ angular.module('ausEnvApp')
           do{
             valText = valToText(val,dp);
             dp++;
-          }while(+lowerText>=+valText);
+          }while((+lowerText>=+valText)&&(dp<=10));
 
           return valText;
         };
@@ -524,7 +527,7 @@ angular.module('ausEnvApp')
   };
 
   $scope.selectDefaultLayer = function(themeObject){
-    var defaultLayer = themeObject.layers.find(function(l){return l.default;});
+    var defaultLayer = themeObject.layers.filter(function(l){return l.default;})[0];
 
     $scope.selection.selectedLayer = defaultLayer;
     $scope.selection.selectedLayerName = defaultLayer.title;

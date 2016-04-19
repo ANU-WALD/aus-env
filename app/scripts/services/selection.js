@@ -14,9 +14,6 @@ angular.module('ausEnvApp')
     var service = this;
     service.mapmodes = mapmodes;
 
-    console.log(mapmodes);
-    console.log(mapmodes.grid);
-
     service.year = 2015;
     service.theme = 'Tree Cover';
     service.themeObject = null;

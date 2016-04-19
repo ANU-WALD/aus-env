@@ -1,10 +1,12 @@
-<div style="display:table;line-height:15px">
-<div style="display:table-row;padding:0;" ng-repeat="row in colourScheme">
-  <div ng-repeat-start="entry in row" style="display:table-cell;padding:0;">
-    <i class="legend-entry" ng-style="{background:entry.colour}"></i>
+<div class="panel panel-group hidden-xs">
+  <div style="display:table;line-height:15px">
+  <div style="display:table-row;padding:0;" ng-repeat="row in colourScheme">
+    <div ng-repeat-start="entry in row" class="legend-colour">
+      <i class="legend-entry" ng-style="{background:entry.colour}"></i>
+    </div>
+    <div ng-repeat-end class="legend-label">
+      <span ng-bind-html="entry.text"></span>
+    </div>
   </div>
-  <div ng-repeat-end style="display:table-cell;padding:0;font-size:10px">
-    <span ng-bind-html="entry.text"></span>
   </div>
-</div>
 </div>

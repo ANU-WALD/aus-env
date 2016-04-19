@@ -24,7 +24,7 @@
           "colorscalerange":"-30,30",
           "variable":"ChangeAllYears",
           "time":"{{year}}-12-31",
-          "palette":"anu_wald_gistemp"
+          "palette":"anu_wald_gistemp_inv"
         }
       },
       {
@@ -96,7 +96,7 @@
           "variable":"ChangesAnnualMeans",
           "time":"{{year}}-12-31",
           "colorscalerange":"-500,500",
-          "palette":"anu_wald_gistemp"
+          "palette":"anu_wald_gistemp_inv"
         }
       },
       {
@@ -111,6 +111,7 @@
           "time":"{{year}}-12-31",
           "logscale":true,
           "colorscalerange":"100,5000",
+          "belowmincolor":"extend",
           "palette":"anu_wald_blues09"
         },
         "delta":{
@@ -119,7 +120,7 @@
           "time":"{{year}}-12-31",
           "colorscalerange":"-2000,2000",
           "belowmincolor":"extend",
-          "palette":"anu_wald_gistemp"
+          "palette":"anu_wald_gistemp_inv"
         }
       }
     ]
@@ -141,6 +142,7 @@
           "variable":"AnnualMeans",
           "time":"{{year}}-12-31",
           "colorscalerange":"0,100",
+          "belowmincolor":"extend",
           "palette":"anu_wald_gisheat"
         },
         "delta":{
@@ -169,7 +171,7 @@
           "variable":"ChangesAnnualMean",
           "time":"{{year}}-12-31",
           "colorscalerange":"-4,4",
-          "palette":"anu_wald_gistemp"
+          "palette":"anu_wald_gistemp_inv"
         }
       }
     ]
@@ -185,33 +187,33 @@
         "title":"Vegetation carbon uptake",
         "description":"Albert to fill in",
         "summary":"OzWALD.annual.GPP.AnnualSums",
-        "palette":"anu_wald_gisheat",
+        "palette":"anu_wald_darkgreen",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.AnnualSums.nc",
           "variable":"AnnualSums",
           "time":"{{year}}-12-31",
           "colorscalerange":"0,4000",
-          "palette":"anu_wald_gisheat"
+          "palette":"anu_wald_darkgreen"
         },
         "delta":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.ChangesAnnualSums.nc",
           "variable":"ChangesAnnualSums",
           "time":"{{year}}-12-31",
           "colorscalerange":"-2000,2000",
-          "palette":"anu_wald_gistemp"
+          "palette":"anu_wald_gistemp_inv"
         }
       },
       {
         "title":"Fire carbon emission",
         "description":"Albert to fill in",
         "summary":"OzWALD.annual.GPP.AnnualSums",
-        "palette":"anu_wald_gmthot",
+        "palette":"anu_wald_gisheat_inv",
         "normal":{
           "url":"ub8/au/FireEmissions/GFASv12.BurntCarbon.AnnualSums.nc",
           "variable":"AnnualSums",
           "time":"{{year}}-12-31",
           "colorscalerange":"0,1500",
-          "palette":"anu_wald_gmthot"
+          "palette":"anu_wald_gisheat_inv"
         },
         "delta":{
           "url":"ub8/au/FireEmissions/GFASv12.BurntCarbon.ChangeAnnualSums.nc",
@@ -247,7 +249,7 @@
           "variable":"ChangesAnnualMax",
           "time":"{{year}}-12-31",
           "colorscalerange":"-100,100",
-          "palette":"anu_wald_gistemp"
+          "palette":"anu_wald_gistemp_inv"
         }
       },
       {
@@ -269,7 +271,7 @@
           "time":"{{year}}-12-31",
           "colorscalerange":"-2000,2000",
           "belowmincolor":"extend",
-          "palette":"anu_wald_gistemp"
+          "palette":"anu_wald_gistemp_inv"
         }
       },
       {
@@ -282,8 +284,9 @@
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qriv.AnnualSums.nc",
           "variable":"AnnualSums",
           "time":"{{year}}-12-31",
-          "colorscalerange":"0,2000",
-          "palette":"anu_wald_darkblues"
+          "colorscalerange":"0.1,2000",
+          "palette":"anu_wald_darkblues",
+          "logscale":true
         },
         "delta":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qriv.ChangesAnnualSums.nc",
@@ -291,7 +294,7 @@
           "time":"{{year}}-12-31",
           "colorscalerange":"-2000,2000",
           "belowmincolor":"extend",
-          "palette":"anu_wald_gistemp"
+          "palette":"anu_wald_gistemp_inv"
         }
       }
     ]
