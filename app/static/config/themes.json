@@ -206,7 +206,7 @@
       {
         "title":"Fire carbon emission",
         "description":"Albert to fill in",
-        "summary":"OzWALD.annual.GPP.AnnualSums",
+        "summary":"GFASv12.BurntCarbon.AnnualSums",
         "palette":"anu_wald_gisheat_inv",
         "normal":{
           "url":"ub8/au/FireEmissions/GFASv12.BurntCarbon.AnnualSums.nc",
