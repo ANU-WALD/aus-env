@@ -9,16 +9,23 @@
       ng-change="regionTypeChanged(selection.regionType)"
       ng-options="option.name for option in options track by option.name">
   </select>
-  <input type="text"
-         class="form-control"
-         placeholder="Search or select"
-         ng-disabled="!canUseSearchText()"
-         ng-model="selection.selectedRegion"
-         ng-model-options="{debounce:{'default':500,'blur':0}}"
-         uib-typeahead="feature as feature.name for feature in selection.availableFeatures | filter:$viewValue"
-         typeahead-editable="false"
-         typeahead-select-on-exact="true"
-         typeahead-min-length="0">
+  <div class="btn-group">
+    <input type="text"
+           class="form-control"
+           placeholder="Search or select"
+           ng-disabled="!canUseSearchText()"
+           ng-model="selection.selectedRegion"
+           ng-model-options="{debounce:{'default':500,'blur':0}}"
+           uib-typeahead="feature as feature.name for feature in selection.availableFeatures | filter:$viewValue"
+           typeahead-editable="false"
+           typeahead-select-on-exact="true"
+           typeahead-min-length="0">
+    <span id="searchClear"
+          class="fa fa-times-circle"
+          ng-click="selection.selectedRegion=null"
+          ng-show="selection.selectedRegion">
+    </span>
+  </div>
   <button type="button" class="btn btn-success" ng-click="selection.zoomToFeature()">Centre
   </button>
 </form>

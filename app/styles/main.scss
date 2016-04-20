@@ -254,6 +254,18 @@ li.theme-item{
   width:70%;
 }
 
+#searchClear {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  bottom: 0;
+  height: 14px;
+  margin: auto;
+  font-size: 14px;
+  cursor: pointer;
+  color: #ccc;
+}
+
 .full-screen-toggle{
   position:fixed;
   top:0px;
