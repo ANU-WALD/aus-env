@@ -521,8 +521,8 @@ angular.module('ausEnvApp')
   $scope.configureMapTools();
 
   $scope.setDefaultTheme = function(themesData){
-    selection.theme = themesData[1].name;
-    selection.themeObject = themesData[1];
+    selection.theme = themesData[0].name;
+    selection.themeObject = themesData[0];
     $scope.selectDefaultLayer(selection.themeObject);
   };
 
