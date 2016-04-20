@@ -194,6 +194,15 @@ li.theme-item{
 }
 */
 
+/*
+ * Added by PM to fix IE not rendering the navbar icon links the same as Chrome
+ * Appears to have no impact on Chrome.
+ */
+.fix-ie-navbar {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
 .navbar {
   line-height:34px;
   background:$brand-primary;
