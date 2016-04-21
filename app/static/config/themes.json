@@ -58,7 +58,7 @@
         "variable":"MaxTemp",
         "time":"{{year}}-12-31",
         "colorscalerange":"50,200",
-        "palette":"anu_wald_hotmetal"
+        "palette":"anu_wald_gisheat_inv"
       },
       {
         "default":false,
@@ -69,7 +69,7 @@
         "time":"{{year}}-12-31",
         "logscale":false,
         "colorscalerange":"0.002,250",
-        "palette":"anu_wald_hotmetal"
+        "palette":"anu_wald_gisheat_inv"
       }
     ]
   },
@@ -134,14 +134,14 @@
         "default":true,
         "title":"Exposed soil",
         "summary":"FractCover.V3_0_1.AnnualMeans.aust.005.BS",
-        "palette":"anu_wald_gisheat",
+        "palette":"anu_wald_gisheat_inv",
         "normal":{
           "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.AnnualMeans.aust.005.BS.nc",
           "variable":"AnnualMeans",
           "time":"{{year}}-12-31",
           "colorscalerange":"0,100",
           "belowmincolor":"extend",
-          "palette":"anu_wald_gisheat"
+          "palette":"anu_wald_gisheat_inv"
         },
         "delta":{
           "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.ChangesAnnualMean.aust.005.BS.nc",
