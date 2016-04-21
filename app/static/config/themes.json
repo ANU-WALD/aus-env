@@ -34,8 +34,8 @@
         "variable":"DLCD",
         "time":"2012-12-31",
         "colorscalerange":"0,35",
-        "summary":"ANUWALD.TreeCover.AllYears.250m",
-        "summary_palette":"anu_wald_darkgreen",
+        "summary":false,
+        "disablePolygons":true,
         "palette":"anu_wald_dlcd",
         "legend":"landCoverCodes"
       }
@@ -52,6 +52,7 @@
         "title":"Fire intensity",
         "description":"Albert to fill in",
         "summary":"Sentinel.Nhotspots.AnnualSums",
+        "disablePolygons":true,
         "url":"ub8/au/fire/Sentinel.MaxTemp.AnnualMaxima.nc",
         "variable":"MaxTemp",
         "time":"{{year}}-12-31",

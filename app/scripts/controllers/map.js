@@ -216,12 +216,25 @@ angular.module('ausEnvApp')
 
     $scope.updateStyling = function(){
       var doUpdateStyles = function(){
-        $scope.geoJsonLayer.setStyle($scope.geoJsonStyling);
+        if($scope.geoJsonLayer){
+          $scope.geoJsonLayer.setStyle($scope.geoJsonStyling);
+        }
       };
+
+      var resetPolygonColours = function() {
+        $scope.polygonColours = null;
+      }
 
       if($scope.selection.mapMode===$scope.mapmodes.region) {
 
         $scope.fetchPolygonData().then(function(data){
+          if($scope.selection.mapMode!==$scope.mapmodes.region) {
+            resetPolygonColours();
+            doUpdateStyles();
+
+            return;
+          }
+
           $scope.polygonMapping = {
             colours: data[1],
             values: data[0]
@@ -247,17 +260,13 @@ angular.module('ausEnvApp')
           $scope.polygonMapping.dataRange = $scope.dataRange($scope.polygonMapping);
           $scope.colourScaleRange = $scope.polygonMapping.dataRange;
           $scope.updateColourScheme();
-          if($scope.geoJsonLayer) {
-            doUpdateStyles();
-          }
+          doUpdateStyles();
         });
       } else {
-        $scope.polygonColours = null;
+        resetPolygonColours();
       }
 
-      if($scope.geoJsonLayer) {
-          doUpdateStyles();
-      }
+      doUpdateStyles();
     };
 
     ['selectedRegion','selectedLayer','regionType','mapMode','dataMode'].forEach(function(prop){
@@ -345,6 +354,10 @@ angular.module('ausEnvApp')
     var layer = selection.selectedLayer;
     if(!layer){
       return;
+    }
+
+    if(!$scope.mapModesAvailable()) {
+      selection.mapMode = mapmodes.grid;
     }
 
     if(selection.mapMode!==mapmodes.grid) {
@@ -579,5 +592,10 @@ angular.module('ausEnvApp')
            $scope.selection.selectedLayer.delta;
   };
 
+  $scope.mapModesAvailable = function() {
+    return $scope.selection.selectedLayer &&
+           selection.selectedLayer.summary &&
+           !selection.selectedLayer.disablePolygons;
+  };
   themes.themes().then($scope.setDefaultTheme); // Move to app startup
 });
