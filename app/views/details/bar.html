@@ -1,8 +1,6 @@
 <h3 class="chart-title">
-  {{bar.title}}
+  {{bar.title}} (<span ng-bind-html="bar.units"></span>)
   <i class="fa fa-info-circle" uib-tooltip="{{bar.description}}" tooltip-append-to-body="true"></i>
-  <br>
-  (<span ng-bind-html="bar.units"></span>)
 </h3>
 
 <canvas id="bar" class="chart chart-bar"

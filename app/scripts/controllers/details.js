@@ -41,6 +41,40 @@ angular.module('ausEnvApp')
   var firstYear;
   var currentYearIndex = selection.year - firstYear;
 
+  $scope.formatValue = function(val){
+    return +val;
+  };
+
+  $scope.tooltipSafeUnits = function(chart){
+    if(chart.units.indexOf('<su')>=0) {
+      return chart.originalUnits;
+    } else {
+      return chart.units;
+    }
+  };
+
+  $scope.tooltipTextFunction = function(chart){
+    return function(label){
+//      console.log('Here with ',label);
+      return label.label + ': ' + $scope.formatValue(label.value) + ' ' + $scope.tooltipSafeUnits(chart);
+    };
+  };
+
+
+  $scope.bar = {
+    title:null,
+    description:null,
+    units: null,
+    originalUnits: null
+  };
+
+  $scope.pie = {
+    title:null,
+    description:null,
+    units: null,
+    originalUnits: null
+  };
+
   $scope.barOptions =  {
       // Sets the chart to be responsive
       responsive: true,
@@ -68,6 +102,7 @@ angular.module('ausEnvApp')
 
       //Number - Spacing between data sets within X values
       barDatasetSpacing : 1,
+      tooltipTemplate: $scope.tooltipTextFunction($scope.bar)
     };
 
     /*
@@ -99,18 +134,6 @@ angular.module('ausEnvApp')
         tooltip:'Detailed time series'
       }
     ];
-
-    $scope.bar = {
-      title:null,
-      description:null,
-      units: null
-    };
-
-    $scope.pie = {
-      title:null,
-      description:null,
-      units: null
-    };
 
     $scope.barChartData = 0;
     $scope.barLabels = [];
@@ -162,6 +185,7 @@ angular.module('ausEnvApp')
         chart.title = data.Title;
         chart.description = data.Description;
         chart.units = details.unitsText(data.Units);
+        chart.originalUnits = data.Units;
         /*
         if(chart === $scope.bar) {
           $scope.viewOptions[0].description = chart.description;
@@ -175,7 +199,7 @@ angular.module('ausEnvApp')
     $scope.createBarChart = function(placeId,label){
       details.getBarChartData().then(function(data){
         $scope.barChartData = data;
-        $scope.units = details.unitsText($scope.barChartData.Units);
+        //$scope.units = details.unitsText($scope.barChartData.Units);
         $scope.barLabels = [];
         $scope.barSeries = [];
         $scope.barData = [];
@@ -319,6 +343,7 @@ angular.module('ausEnvApp')
 
     $scope.pieChartOptions = {
       animateRotate: false,
-      animationSteps: 1
+      animationSteps: 1,
+      tooltipTemplate: $scope.tooltipTextFunction($scope.pie)
     };
   });

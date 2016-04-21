@@ -130,10 +130,11 @@ angular.module('ausEnvApp')
   */
 
     var unit_dict = [];
-    unit_dict.frequency = "occurrences/year";
+//    unit_dict.frequency = "occurrences/year";
     unit_dict.percent = "%";
     unit_dict['m2/m2'] = "m^2/m^2";
     unit_dict['gC/m2'] = "gC/m^2";
+    unit_dict['km2'] = "km^2";
 
     service.unitsText = function(units) {
       var text = (units in unit_dict) ? unit_dict[units] : units;
