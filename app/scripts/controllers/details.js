@@ -42,7 +42,12 @@ angular.module('ausEnvApp')
   var currentYearIndex = selection.year - firstYear;
 
   $scope.formatValue = function(val){
-    return +val;
+    // Add thousand's separator. Source: http://stackoverflow.com/a/2901298
+    var parts = val.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");    return +val;
+
+    //return val.toLocaleString();
   };
 
   $scope.tooltipSafeUnits = function(chart){
