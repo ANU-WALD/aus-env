@@ -85,10 +85,8 @@ angular.module('ausEnvApp')
 
     $scope.$on('leafletDirectiveMap.click', function(/*event, args*/){
       // +++ REMOVE?
-      //console.log(args.leafletEvent.target);
       //selection.setCoordinates(args.leafletEvent.latlng);
       //selection.leafletData.getMap().then(function(map) { console.log(map); });
-      //console.log(args);
     });
 
     $scope.$on('leafletDirectiveMap.click', function(/*event, args*/){
@@ -140,7 +138,7 @@ angular.module('ausEnvApp')
 
       var vals = $scope.polygonMapping.values['PlaceIndex'+key];
       if(!vals) {
-        console.log('No values for key=' + key);
+//        console.log('No values for key=' + key);
         return null;
       }
 
