@@ -18,7 +18,7 @@ angular.module('ausEnvApp')
     service.theme = 'Tree Cover';
     service.themeObject = null;
     service.mapMode = mapmodes.grid;
-    service.dataMode = 'delta'; // vs normal
+    service.dataMode = 'normal'; // vs delta
     service.regionType = null;
     service.regionName = null;
     service.selectedLayerName = null; // USED????
@@ -175,15 +175,15 @@ angular.module('ausEnvApp')
       }
     };
 
-    service.selectedLayerTitle = function() {
+    service.selectedLayerTitle = function(text) {
       if(!service.selectedLayer) {
         return '';
       }
 
       if(service.selectedLayer.delta && (service.dataMode==='delta')){
-        return 'Change in ' + service.selectedLayer.title;
+        return 'Change in ' + (text||service.selectedLayer.title);
       }
-      return service.selectedLayer.title;
+      return text||service.selectedLayer.title;
     };
 
     function _makeLayer() {

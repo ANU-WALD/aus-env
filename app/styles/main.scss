@@ -390,6 +390,11 @@ h4.chart-subtitle{
 }
 
 /**** Legend styles */
+.legend {
+  border: 1px black solid;
+  padding: 4px;
+}
+
 .legend-entry {
   float: left;
   width: 15px !important;

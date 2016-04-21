@@ -1,8 +1,4 @@
 <div class="map-title hidden-xs">
-  <p>
-    <ng-include src="'views/maptools/titlecontent.html'"></ng-include>
-  </p>
-
   <div class="btn-group">
       <button ng-disabled="!mapModesAvailable()" class="btn btn-xs" ng-class="(selection.mapMode===mapmodes.grid)?'btn-primary':'btn-default'" ng-model="selection.mapMode" uib-btn-radio="mapmodes.grid" >Grid</button>
       <button ng-disabled="!mapModesAvailable()" class="btn btn-xs" ng-class="(selection.mapMode===mapmodes.region)?'btn-primary':'btn-default'" ng-model="selection.mapMode" uib-btn-radio="mapmodes.region">Region</button>

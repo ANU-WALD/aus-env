@@ -239,8 +239,6 @@ angular.module('ausEnvApp')
             colours: data[1],
             values: data[0]
           };
-          $scope.mapTitle = data[0].Title;
-          $scope.mapDescription = data[0].Description;
           if((selection.dataMode==='delta')&&selection.selectedLayer.delta) {
             $scope.polygonMapping.values = JSON.parse(JSON.stringify($scope.polygonMapping.values));
             var copy = $scope.polygonMapping.values;
@@ -269,8 +267,34 @@ angular.module('ausEnvApp')
       doUpdateStyles();
     };
 
+    $scope.updateMapTitles = function() {
+      $scope.mapTitle = null;
+      $scope.mapDescription = null;
+      $scope.mapUnits = null;
+
+      if(!selection.selectedLayer) {
+        return;
+      }
+
+      $scope.mapTitle = selection.selectedLayerTitle();
+      $scope.mapDescription = selection.selectedLayer.description;
+      $scope.mapUnits = selection.selectedLayer.units;
+
+      $scope.fetchPolygonData().then(function(data){
+        if($scope.selection.mapMode===$scope.mapmodes.region) {
+          $scope.mapTitle = selection.selectedLayerTitle(data[0].Title);
+        }
+        $scope.mapDescription = $scope.mapDescription || data[0].Description;
+        $scope.mapUnits = $scope.mapUnits || details.unitsText(data[0].Units);
+      });
+    };
+
     ['selectedRegion','selectedLayer','regionType','mapMode','dataMode'].forEach(function(prop){
       $scope.$watch('selection.'+prop,$scope.updateStyling);
+    });
+
+    ['selectedLayer','regionType','mapMode','dataMode'].forEach(function(prop){
+      $scope.$watch('selection.'+prop,$scope.updateMapTitles);
     });
 
   $scope.$watch('selection.themeObject',function(newVal){
@@ -366,9 +390,6 @@ angular.module('ausEnvApp')
       }
       return;
     }
-
-    $scope.mapTitle = selection.selectedLayerTitle();
-    $scope.mapDescription = selection.selectedLayer.description;
 
     $scope.colourScaleRange = selection.selectedLayer.colorscalerange;
     if(selection.selectedLayer[selection.dataMode]) {
@@ -525,7 +546,8 @@ angular.module('ausEnvApp')
   };
 
   $scope.configureMapTools = function() {
-    $scope.mapControls.custom.push(createLeafeletCustomControl('bottomleft','title'));
+    $scope.mapControls.custom.push(createLeafeletCustomControl('topright','title'));
+    $scope.mapControls.custom.push(createLeafeletCustomControl('bottomleft','links'));
     $scope.mapControls.custom.push(createLeafeletCustomControl('bottomleft','legend'));
     $scope.mapControls.custom.push(createLeafeletCustomControl('bottomright','details'));
     $scope.mapControls.custom.push(createLeafeletCustomControl('topleft','zoom'));

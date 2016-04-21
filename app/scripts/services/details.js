@@ -120,4 +120,24 @@ angular.module('ausEnvApp')
     };
     //</editor-fold>
 
+    /*
+  var unit_dict = [];
+  unit_dict['frequency'] = "occurrences/year";
+  unit_dict['percent'] = "%";
+  unit_dict['percent'] = "%";
+  unit_dict['m2/m2'] = "m" + "2".sup() + "/m" + "2".sup();
+  unit_dict['gC/m2'] = "gC/m" + "2".sup();
+  */
+
+    var unit_dict = [];
+    unit_dict.frequency = "occurrences/year";
+    unit_dict.percent = "%";
+    unit_dict['m2/m2'] = "m^2/m^2";
+    unit_dict['gC/m2'] = "gC/m^2";
+
+    service.unitsText = function(units) {
+      var text = (units in unit_dict) ? unit_dict[units] : units;
+      text = text.replace(/\^2/g,'<sup>2</sup>');
+      return text;
+    };
   });
