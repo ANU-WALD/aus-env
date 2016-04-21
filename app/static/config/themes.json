@@ -28,7 +28,7 @@
       },
       {
         "title":"Land cover",
-        "description":"Albert to fill in",
+        "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
         "units":"classification",
         "url":"ub8/au/LandCover/DLCD_v2_MODIS_EVI_2012-2013.nc",
         "variable":"DLCD",
@@ -50,8 +50,8 @@
       {
         "default":true,
         "title":"Fire intensity",
-        "description":"Albert to fill in",
-        "units":"?&deg;C",
+        "description":"Annual maximum fire intensity derived from satellite observations by Geoscience Australia's Sentinel Hotspots system",
+        "units":"&deg;C",
         "summary":"Sentinel.Nhotspots.AnnualSums",
         "disablePolygons":true,
         "url":"ub8/au/fire/Sentinel.MaxTemp.AnnualMaxima.nc",
