@@ -271,9 +271,15 @@ angular.module('ausEnvApp')
       $scope.mapTitle = null;
       $scope.mapDescription = null;
       $scope.mapUnits = null;
-
+      $scope.mapTimePeriod = null;
       if(!selection.selectedLayer) {
         return;
+      }
+
+      if(selection.selectedLayer.delta && (selection.dataMode==='delta')){
+        $scope.mapTimePeriod = +(selection.year-1) + ' - ' + selection.year;
+      } else {
+        $scope.mapTimePeriod = +selection.year;
       }
 
       $scope.mapTitle = selection.selectedLayerTitle();
