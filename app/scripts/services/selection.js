@@ -98,8 +98,7 @@ angular.module('ausEnvApp')
         return 'National';
       }
 
-      return service.regionType.name + ' > ' +
-        service.selectedRegion.feature.properties[service.regionType.labelField];
+      return service.selectedRegion.feature.properties[service.regionType.labelField];
     };
 
     service.haveRegion = function() {

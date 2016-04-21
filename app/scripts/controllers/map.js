@@ -275,7 +275,7 @@ angular.module('ausEnvApp')
       }
 
       if(selection.selectedLayer.delta && (selection.dataMode==='delta')){
-        $scope.mapTimePeriod = +(selection.year-1) + ' - ' + selection.year;
+        $scope.mapTimePeriod = +(selection.year-1) + ' to ' + selection.year;
       } else {
         $scope.mapTimePeriod = +selection.year;
       }
