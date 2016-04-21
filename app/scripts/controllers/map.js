@@ -405,7 +405,8 @@ angular.module('ausEnvApp')
 
     var prefix = '';
     var keys = ['time','variable','url','colorscalerange',
-                'belowmincolor','abovemaxcolor','palette','logscale'];
+                'belowmincolor','abovemaxcolor','palette','logscale',
+                'transparent','bgcolor'];
 
     var settings = {};
     keys.forEach(function(k){settings[k] = layer[k];});
@@ -414,7 +415,9 @@ angular.module('ausEnvApp')
         prefix = 'Change in ';
       }
       keys.forEach(function(k){
-        settings[k] = layer[selection.dataMode][k] || settings[k];
+        if(layer[selection.dataMode][k]!==undefined) {
+          settings[k] = layer[selection.dataMode][k];
+        }
       });
     }
     $scope.layers.overlays.aWMS = $scope.selection.makeLayer();
@@ -429,22 +432,16 @@ angular.module('ausEnvApp')
     $scope.layers.overlays.aWMS.layerParams.time = $interpolate(settings.time)(selection);
     $scope.layers.overlays.aWMS.layerParams.layers = settings.variable;
     $scope.layers.overlays.aWMS.layerParams.colorscalerange = settings.colorscalerange;
-    if(settings.belowmincolor){
-      $scope.layers.overlays.aWMS.layerParams.belowmincolor = settings.belowmincolor;
-    }
-
-    if(settings.abovemaxcolor){
-      $scope.layers.overlays.aWMS.layerParams.abovemaxcolor = settings.abovemaxcolor;
-    }
-
+    keys = ['transparent','bgcolor',
+            'belowmincolor','abovemaxcolor','logscale'];
+    keys.forEach(function(key){
+      if(settings[key] !== undefined) {
+        $scope.layers.overlays.aWMS.layerParams[key] = settings[key];
+      }
+    })
     if(settings.palette) {
       $scope.layers.overlays.aWMS.layerParams.styles = 'boxfill/'+settings.palette;
     }
-
-    if(settings.logscale) {
-      $scope.layers.overlays.aWMS.layerParams.logscale = true;
-    }
-
     $scope.layers.overlays.aWMS.layerParams.showOnSelector = false;
     colourschemes.coloursFor(selection.selectedLayer).then(function(colours){
       $scope.layers.overlays.aWMS.doRefresh = true;

@@ -148,7 +148,9 @@
           "variable":"ChangesAnnualMean",
           "time":"{{year}}-12-31",
           "colorscalerange":"-75,75",
-          "palette":"anu_wald_gistemp"
+          "palette":"anu_wald_gistemp",
+          "transparent":false,
+          "bgcolor":"0xFFFFFF"
         }
       },
       {
