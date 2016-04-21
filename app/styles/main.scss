@@ -3,7 +3,8 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 @import "_colour_schemes.scss";
 
 $brand-primary:$color-primary-0;
-$navbar-default-bg:lighten($color-secondary-2-0,5%);
+$selected-item-background:lighten($color-secondary-2-0,5%);
+$navbar-default-bg:$selected-item-background;
 $navbar-inverse-link-active-bg:$navbar-default-bg;
 $navbar-default-link-color:#ccc;
 /*$navbar-default-brand-color:#fff;*/
@@ -60,7 +61,7 @@ html, body{
 }
 
 li.theme-item.active {
-  background: $navbar-inverse-link-active-bg;
+  background: $selected-item-background;
 }
 
 li.theme-item.open {
@@ -365,8 +366,20 @@ h4.chart-subtitle{
   font-size:1.2em;
   color:#ddd;
   padding:5px;
-  background:$navbar-default-bg;
+  background:$brand-primary;
 }
+
+.btn-primary.toggle{
+  background:$selected-item-background !important;
+  border: 1px solid #FFF !important;
+  color:#FFF;
+}
+
+.btn-default.toggle{
+  background:$brand-primary;
+  color:#FFF;
+}
+
 .container-narrow > hr {
   margin: 30px 0;
 }
