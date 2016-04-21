@@ -66,7 +66,7 @@ topojson --simplify-proportion 0.002 --quantization 1e4 --properties OBJECTID,Ri
 echo '===================================IBRA====================================='
 topojson --simplify-proportion 0.02 --quantization 4e4 --properties REC_ID,REG_NAME_7 -o ../json/smalltopo/ibra7_regions_topo.json ../originals/ShapeFiles/ibra7_regions.shp
 echo '======================================LGA================================='
-topojson --simplify-proportion 0.001 --quantization 1e4 --properties LGA_CODE11,LGA_NAME11 -o ../json/smalltopo/LGA11aAust_topo.json sacrificial/LGA11aAust.shp
+topojson --simplify-proportion 0.3 --quantization 5e3 --properties LGA_CODE11,LGA_NAME11 -o ../json/smalltopo/LGA11aAust_topo.json sacrificial/LGA11aAust.shp
 echo '=======================================NRMR================================='
 topojson --simplify-proportion 0.25 --quantization 6e3 --properties NRMR_CODE,NRMR_NAME -o ../json/smalltopo/NRMR_2011_AUST_1_topo.json sacrificial/NRMR_2011_AUST_1.shp
 #echo '===========================================RAMSAR============================='
