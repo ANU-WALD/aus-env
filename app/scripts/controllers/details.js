@@ -132,12 +132,12 @@ angular.module('ausEnvApp')
         style:'pie',
         icon:'fa-pie-chart',
         tooltip:'Proportion by land cover type',
-      },
-      {
-        style:'timeseries',
-        icon:'fa-line-chart',
-        tooltip:'Detailed time series'
-      }
+      }//,
+//      {
+//        style:'timeseries',
+//        icon:'fa-line-chart',
+//        tooltip:'Detailed time series'
+//      }
     ];
 
     $scope.barChartData = 0;

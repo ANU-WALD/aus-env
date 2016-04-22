@@ -48,7 +48,11 @@ html, body{
 
 .main-logo{
   margin-top:-6px;
-  padding-right:10px;
+  padding-right:24px;
+}
+
+.fullscreen-form{
+  margin-left:15px !important;
 }
 
 /*** OVERRIDE BOOTSTRAP THEME ***/
@@ -367,6 +371,7 @@ h4.chart-subtitle{
   color:#ddd;
   padding:5px;
   background:$brand-primary;
+  border-radius:4px;
 }
 
 .btn-primary.toggle{
@@ -426,27 +431,30 @@ h4.chart-subtitle{
   font-size:10px;
   vertical-align:middle;
 }
-/*
-.theme-improving{
-  background:rgb(0,184,102);
+
+div:-moz-full-screen {
+  .nudge-left{
+    margin-left:20px;
+  }
 }
 
-.theme-degrading{
-  background:rgb(223,128,35);
+div:-webkit-full-screen {
+  .nudge-left{
+    margin-left:20px;
+  }
 }
 
-.theme-constant{
-  background:rgb(98,150,199);
-
+div:-ms-full-screen {
+  .nudge-left{
+    margin-left:20px;
+  }
 }
-*/
 
-
-/*
-.navigation-panel {
-  min-height:120px;
+div:fullscreen {
+  .nudge-left{
+    margin-left:20px;
+  }
 }
-*/
 
 .layer-btn {
   width:100%;

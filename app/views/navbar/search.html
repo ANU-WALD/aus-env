@@ -26,7 +26,9 @@
           ng-show="selection.selectedRegion">
     </span>
   </div>
-  <button type="button" class="btn btn-success" ng-click="selection.zoomToFeature()">Centre
+  <button type="button" class="btn btn-success" ng-click="selection.zoomToFeature()"
+           uib-tooltip="Zoom to selected region" tooltip-append-to-body="true"
+           tooltip-placement="bottom">Zoom To
   </button>
 </form>
 

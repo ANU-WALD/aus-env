@@ -19,8 +19,9 @@
         &nbsp{{selection.year}}</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse" ng-class="{'in':!selection.navbarCollapsed}">
-          <form class="navbar-form navbar-right">
-            <button ngsf-toggle-fullscreen class="btn btn-primary" uib-tooltip="Toggle Fullscreen">
+          <form class="fullscreen-form navbar-form navbar-right">
+            <button ngsf-toggle-fullscreen class="btn btn-primary" uib-tooltip="Toggle Fullscreen"
+                    tooltip-placement="bottom" tooltip-append-to-body="true">
               <i show-if-fullscreen=false class="fa fa-expand"></i>
               <i show-if-fullscreen=true class="fa fa-compress"></i>
             </button>
