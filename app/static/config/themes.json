@@ -68,7 +68,7 @@
         "variable":"Nhotspots",
         "time":"{{year}}-12-31",
         "logscale":false,
-        "colorscalerange":"0.002,250",
+        "colorscalerange":"0.002,100",
         "palette":"anu_wald_gisheat_inv"
       }
     ]
@@ -274,6 +274,7 @@
         "title":"River flow",
         "summary":"OzWALD.annual.Qtot.AnnualSums",
         "palette":"anu_wald_darkblues",
+        "units":"ML",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qriv.AnnualSums.nc",
           "variable":"AnnualSums",

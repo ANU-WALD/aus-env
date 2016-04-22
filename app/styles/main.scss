@@ -340,6 +340,10 @@ li.theme-item{
   padding-left:6px;
   padding-right:6px;
 }
+
+.link-bar a {
+  color:$brand-primary !important;
+}
 /*
 @media screen and (min-width:$container-desktop) {
   .details-map-tool {
@@ -347,6 +351,24 @@ li.theme-item{
   }
 }
 */
+
+.nav-pills {
+  > li {
+    > a {
+      /* Unselected tab */
+      color:#FFF;
+      background-color: $brand-primary;
+    }
+
+    &.active > a {
+      &, &:hover, &:focus {
+        /* Selected tab */
+        color:#FFF;
+        background-color: $selected-item-background;
+      }
+    }
+  }
+}
 
 h2.details-heading {
   font-size:14px;
