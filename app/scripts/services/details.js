@@ -16,6 +16,7 @@ angular.module('ausEnvApp')
 
     var STATIC_CSV_SOURCE='/aucsv/accounts/';
     var ANNUAL_TIME_SERIES=STATIC_CSV_SOURCE;
+    var REGION_AREAS='/aucsv/region_areas/';
     var PIE_CHART_DATA=STATIC_CSV_SOURCE;
     service.dap = $window.dap;
     service.MAX_CACHE_LENGTH=20;
@@ -35,6 +36,7 @@ angular.module('ausEnvApp')
 
       httpPromise.then(function(resp){
         var data = csv.parseCSVWithHeader(resp.data);
+        data.URL = url;
         result.resolve(data);
       });
 
@@ -91,6 +93,11 @@ angular.module('ausEnvApp')
         result.resolve(data);
       });
       return result.promise;
+    };
+
+    service.getRegionAreas = function() {
+      var url = REGION_AREAS+service.polygonSource(true)+'.csv';
+      return service.retrieveCSV(url);
     };
 
     service.landCoverCodes = staticData.deferredGet(service,'static/config/DLCD_codes.csv','_landcoverText',function(text){

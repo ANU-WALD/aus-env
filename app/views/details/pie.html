@@ -8,3 +8,5 @@
 <canvas id="pie" class="chart chart-pie"
   chart-data="pieData" chart-labels="pieLabels" chart-options="pieChartOptions" chart-colours="pieColours">
 </canvas>
+<a class="download-link" ng-href="{{pie.download}}"><i class="fa fa-download"></i>Get the data</a>
+<span class="pull-right" ng-show="selectedRegionArea">{{selectedRegionArea}}</span>

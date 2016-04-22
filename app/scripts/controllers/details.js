@@ -65,19 +65,22 @@ angular.module('ausEnvApp')
     };
   };
 
+  $scope.selectedRegionArea = null;
 
   $scope.bar = {
     title:null,
     description:null,
     units: null,
-    originalUnits: null
+    originalUnits: null,
+    download: null
   };
 
   $scope.pie = {
     title:null,
     description:null,
     units: null,
-    originalUnits: null
+    originalUnits: null,
+    download: null
   };
 
   $scope.barOptions =  {
@@ -158,6 +161,25 @@ angular.module('ausEnvApp')
       $scope.pieLabels = [];
     };
 
+    $scope.updateRegionArea = function(PlaceId) {
+      if(PlaceId===9999) {
+        $scope.selectedRegionArea=null;
+      } else {
+        details.getRegionAreas().then(function(data){
+          if(PlaceId===9999){
+            $scope.selectedRegionArea=null;
+          } else {
+            var row = data['PlaceIndex'+PlaceId];
+            if(row) {
+              $scope.selectedRegionArea=row[row.length-1].toFixed();
+            } else {
+              $scope.selectedRegionArea=null;
+            }
+          }
+        });
+      }
+    };
+
     $scope.createCharts = function(){
       if(!selection.selectedLayer || !selection.regionType) {
         $scope.clearData();
@@ -169,7 +191,12 @@ angular.module('ausEnvApp')
       if(selection.selectedRegion && selection.selectedRegion.name) {
         var keyField = selection.regionType.keyField;
         PlaceId = selection.selectedRegion.feature.properties[keyField];
-        label = selection.selectedRegion.name;
+        if(PlaceId) {
+          label = selection.selectedRegion.name;
+        } else {
+          PlaceId = 9999;
+          label = 'National';
+        }
       } else if(!selection.haveRegion()){
         PlaceId = 9999;
         label = 'National';
@@ -179,6 +206,7 @@ angular.module('ausEnvApp')
 
       $scope.createBarChart(PlaceId,label);
       $scope.createPieChart(PlaceId);
+      $scope.updateRegionArea(PlaceId);
 //      $scope.createLineChart(PlaceId,label);
     };
 
@@ -204,6 +232,7 @@ angular.module('ausEnvApp')
     $scope.createBarChart = function(placeId,label){
       details.getBarChartData().then(function(data){
         $scope.barChartData = data;
+        $scope.bar.download = data.URL;
         //$scope.units = details.unitsText($scope.barChartData.Units);
         $scope.barLabels = [];
         $scope.barSeries = [];
@@ -240,6 +269,7 @@ angular.module('ausEnvApp')
     $scope.createPieChart = function(placeId) {
       details.getPieChartData().then(function(data){
         $scope.pieChartData = data;
+        $scope.pie.download = data.URL;
         $scope.pieData = [];
         $scope.populateLabels($scope.pie,data);
 
