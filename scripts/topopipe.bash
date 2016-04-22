@@ -64,7 +64,7 @@ topojson --simplify-proportion 0.25 --quantization 1e4 --properties STATE_CODE,S
 echo '===================================HR REGIONS====================================='
 topojson --simplify-proportion 0.1 --quantization 1e4 --properties OBJECTID,RivRegName -o ../json/smalltopo/HR_Regions_river_region_topo.json ../originals/ShapeFiles/HR_Regions_river_region.shp
 echo '===================================IBRA====================================='
-topojson --simplify-proportion 0.02 --quantization 4e4 --properties REC_ID,REG_NAME_7 -o ../json/smalltopo/ibra7_regions_topo.json ../originals/ShapeFiles/ibra7_regions.shp
+topojson --simplify-proportion 0.47 --quantization 2.6e3 --properties REC_ID,REG_NAME_7 -o ../json/smalltopo/ibra7_regions_topo.json ../originals/ShapeFiles/ibra7_regions.shp
 echo '======================================LGA================================='
 topojson --simplify-proportion 0.3 --quantization 5e3 --properties LGA_CODE11,LGA_NAME11 -o ../json/smalltopo/LGA11aAust_topo.json sacrificial/LGA11aAust.shp
 echo '=======================================NRMR================================='
