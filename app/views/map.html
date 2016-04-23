@@ -3,18 +3,17 @@
 <br/>
 <p>second </p>{{selection.selectedLayer}}
 -->
-<div class="panel-default visible-xs-block">
+<div class="visible-xs-block">
   <ng-include src="'views/maptools/titlecontent.html'"></ng-include>
   <div class="btn-group btn-group-inline btn-group-justified btn-group-lg">
     <ng-include src="'views/maptools/zoom-buttons.html'"/>
     <ng-include src="'views/maptools/zoom-buttons-other.html'"/>
   </div>
 </div>
-<div class="row main-map panel panel-default">
+<div class="row main-map">
 	<leaflet defaults="defaults" data-controls="mapControls" maxbounds="maxBounds" center="mapCentre" height="100%" width="100%" layers="layers" events="events" markers="mapMarkers"></leaflet>
 </div>
-
-<div class="panel-default visible-xs-block">
+<div class="visible-xs-block">
   <ng-include src="'views/maptools/legendcontent.html'"></ng-include>
 </div>
 

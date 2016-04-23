@@ -313,17 +313,13 @@ li.theme-item{
   }
 }
 
-@media screen and (min-width:$container-sm) {
+@media screen and (min-width:($screen-xs-max+1)) {
   .main-map {
     position:fixed;
     top:$navbar-height;
     bottom:0px;
     width:100%;
     height:auto;
-  }
-
-  .side-panel {
-    display:none;
   }
 }
 
