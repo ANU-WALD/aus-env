@@ -104,7 +104,9 @@ angular.module('ausEnvApp')
 
       //Number - Spacing between data sets within X values
       barDatasetSpacing : 1,
-      tooltipTemplate: $scope.tooltipTextFunction($scope.bar)
+      tooltipTemplate: $scope.tooltipTextFunction($scope.bar),
+
+      scaleLabel: "      <%=value%>"
     };
 
     /*
@@ -227,6 +229,7 @@ angular.module('ausEnvApp')
       details.getBarChartData().then(function(data){
         $scope.barChartData = data;
         $scope.bar.download = data.URL;
+        $scope.units = data.Units;
         //$scope.units = details.unitsText($scope.barChartData.Units);
         $scope.barLabels = [];
         $scope.barSeries = [];
