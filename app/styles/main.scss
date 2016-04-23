@@ -496,11 +496,12 @@ sup {
   vertical-align:super;
 }
 
-.pie {
-  position: fixed;
-  z-index: 999;
-}
 
+canvas {
+    width: 100%;
+    height: auto !important;
+    z-index: 999;
+}
 
 /*** Loading ***/
 .thinking {

@@ -16,20 +16,14 @@ angular.module('ausEnvApp')
       var myPieCanvas = document.getElementById("pie").getContext("2d");
 
       var myPieChart = new Chart(myPieCanvas).Pie(data, {
-      customTooltips: function(tooltip) {
-
-        // tooltip will be false if tooltip is not visible or should be hidden
-        if (!tooltip) {
-            return;
+        customTooltips: function(tooltip) {
         }
-
-        };
       });
     };
     */
 
     ChartJsProvider.setOptions('Pie', {
-      tooltipFontSize: 10,
+      tooltipFontSize: 9,
       tooltipXPadding: 1,
       tooltipYPadding: 3,
       tooltipFontStyle: "300",
@@ -61,7 +55,7 @@ angular.module('ausEnvApp')
   $scope.tooltipTextFunction = function(chart){
     return function(label){
 //      console.log('Here with ',label);
-      return label.label + ': ' + $scope.formatValue(label.value) + ' ' + $scope.tooltipSafeUnits(chart);
+      return label.label + ':' + $scope.formatValue(label.value) + ' ' + $scope.tooltipSafeUnits(chart);
     };
   };
 
@@ -307,7 +301,7 @@ angular.module('ausEnvApp')
     function rgbToHex(r, g, b) {
       return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
     }
-
+    
     //<editor-fold desc="pete linegraph">
     $scope.createLineChart = function(/*placeId,label*/){
       $scope.lineLabels = details.makeSimpleLabels(10);
