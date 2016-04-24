@@ -1,6 +1,6 @@
 <div class="btn-group">
   <button ng-disabled="!mapModesAvailable()"
-          class="btn btn-sm toggle"
+          class="btn toggle"
           ng-class="(selection.mapMode===mapmodes.grid)?'btn-primary':'btn-default'"
           ng-model="selection.mapMode"
           uib-btn-radio="mapmodes.grid"
@@ -8,7 +8,7 @@
           tooltip-placement="bottom"
           uib-tooltip="Original data">Grid</button>
   <button ng-disabled="!mapModesAvailable()"
-          class="btn btn-sm toggle"
+          class="btn toggle"
           ng-class="(selection.mapMode===mapmodes.region)?'btn-primary':'btn-default'"
           ng-model="selection.mapMode"
           uib-btn-radio="mapmodes.region"
@@ -19,7 +19,7 @@
 
 <div class="btn-group">
   <button ng-disabled="!dataModesAvailable()"
-          class="btn btn-sm toggle"
+          class="btn toggle"
           ng-class="(selection.dataMode==='normal')?'btn-primary':'btn-default'"
           ng-model="selection.dataMode"
           uib-btn-radio="'normal'"
@@ -27,7 +27,7 @@
           tooltip-placement="bottom"
           uib-tooltip="Value for the year">Actual</button>
   <button ng-disabled="!dataModesAvailable()"
-          class="btn btn-sm toggle"
+          class="btn toggle"
           ng-class="(selection.dataMode==='delta')?'btn-primary':'btn-default'"
           ng-model="selection.dataMode"
           uib-btn-radio="'delta'"

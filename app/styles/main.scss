@@ -428,13 +428,14 @@ h4.chart-subtitle{
 }
 .btn-primary.toggle{
   background:$selected-item-background !important;
-  border: 1px solid #FFF !important;
+  border: 1px solid #000 !important;
   color:#FFF;
 }
 
 .btn-default.toggle{
   background:$brand-primary;
   color:#FFF;
+  border: 1px solid #000;
 }
 
 .container-narrow > hr {
