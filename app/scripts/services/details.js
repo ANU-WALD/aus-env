@@ -62,11 +62,11 @@ angular.module('ausEnvApp')
     };
 
     service.polygonSource = function(needRegion) {
-      if(!needRegion||selection.haveRegion()) {
-        return selection.regionType.summaryName || selection.regionType.source;
-      } else {
-        return "SA3_2011_AUST";
-      }
+//      if(!needRegion||selection.haveRegion()) {
+      return selection.regionType.summaryName || selection.regionType.source;
+//      } else {
+//        return "SA3_2011_AUST";
+//      }
     };
 
     service.getBarChartData = function(){

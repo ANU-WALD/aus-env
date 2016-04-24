@@ -194,22 +194,22 @@ angular.module('ausEnvApp')
     };
 
     $scope.updateRegionArea = function(PlaceId) {
-      if(PlaceId===9999) {
-        $scope.selectedRegionArea=null;
-      } else {
-        details.getRegionAreas().then(function(data){
-          if(PlaceId===9999){
-            $scope.selectedRegionArea=null;
-          } else {
-            var row = data['PlaceIndex'+PlaceId];
-            if(row) {
-              $scope.selectedRegionArea=row[row.length-1].toFixed();
-            } else {
-              $scope.selectedRegionArea=null;
-            }
-          }
-        });
-      }
+//      if(PlaceId===9999) {
+//        $scope.selectedRegionArea=null;
+//      } else {
+      details.getRegionAreas().then(function(data){
+//        if(PlaceId===9999){
+//          $scope.selectedRegionArea=null;
+//        } else {
+        var row = data['PlaceIndex'+PlaceId];
+        if(row) {
+          $scope.selectedRegionArea=row[row.length-1].toFixed();
+        } else {
+          $scope.selectedRegionArea=null;
+        }
+//        }
+      });
+//      }
     };
 
     $scope.createCharts = function(){
