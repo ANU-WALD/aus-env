@@ -284,13 +284,15 @@ angular.module('ausEnvApp')
       $scope.mapDescription = selection.selectedLayer.description;
       $scope.mapUnits = selection.selectedLayer.units;
 
-      $scope.fetchPolygonData().then(function(data){
-        if($scope.selection.mapMode===$scope.mapmodes.region) {
-          $scope.mapTitle = selection.selectedLayerTitle(data[0].Title);
-        }
-        $scope.mapDescription = $scope.mapDescription || data[0].Description;
-        $scope.mapUnits = $scope.mapUnits || details.unitsText(data[0].Units);
-      });
+      if(!selection.selectedLayer.disablePolygons) {
+        $scope.fetchPolygonData().then(function(data){
+          if($scope.selection.mapMode===$scope.mapmodes.region) {
+            $scope.mapTitle = selection.selectedLayerTitle(data[0].Title);
+          }
+          $scope.mapDescription = $scope.mapDescription || data[0].Description;
+          $scope.mapUnits = $scope.mapUnits || details.unitsText(data[0].Units);
+        });
+      }
     };
 
     ['selectedRegion','selectedLayer','regionType','mapMode','dataMode'].forEach(function(prop){

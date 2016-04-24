@@ -77,6 +77,14 @@ angular.module('ausEnvApp')
     download: null
   };
 
+  $scope.clearChart = function(chart){
+    chart.title = null;
+    chart.description = null;
+    chart.units = null;
+    chart.originalUnits = null;
+    chart.download = null
+  };
+
   $scope.barOptions =  {
       // Sets the chart to be responsive
       responsive: true,
@@ -121,7 +129,7 @@ angular.module('ausEnvApp')
     */
 
     $scope.selection = selection;
-    $scope.viewOptions = [
+    $scope.origViewOptions = [
       {
         style:'bar',
         icon:'fa-bar-chart',
@@ -139,6 +147,25 @@ angular.module('ausEnvApp')
 //      }
     ];
 
+    $scope.viewOptions = $scope.origViewOptions.slice();
+
+    $scope.updateViewOptions = function(layer){
+      if(($scope.selection.selectedDetailsView===null)||
+         ($scope.selection.selectedDetailsView===undefined)){
+        return;
+      }
+//      $scope.viewOptions = $scope.origViewOptions.filter(function(option){
+//        return !layer['disable-'+option.style];
+//      });
+//      $scope.selection.selectedDetailsView =
+//        Math.min($scope.selection.selectedDetailsView,$scope.viewOptions.length-1);
+      var selected = $scope.viewOptions[$scope.selection.selectedDetailsView].style;
+      if(layer['disable-'+selected]) {
+        $scope.selection.selectedDetailsView =
+          ($scope.selection.selectedDetailsView+1)%$scope.viewOptions.length;
+      }
+    };
+
     $scope.barChartData = 0;
     $scope.barLabels = [];
     $scope.barSeries = [];
@@ -148,13 +175,22 @@ angular.module('ausEnvApp')
     $scope.pieLabels = [];
 
     $scope.clearData = function(){
+      $scope.clearBarData();
+      $scope.clearPieData();
+    };
+
+    $scope.clearBarData = function(){
       $scope.barChartData = 0;
       $scope.barLabels = [];
       $scope.barSeries = [];
       $scope.barData = [];
+      $scope.clearChart($scope.bar);
+    };
 
+    $scope.clearPieData = function(){
       $scope.pieData = [];
       $scope.pieLabels = [];
+      $scope.clearChart($scope.pie);
     };
 
     $scope.updateRegionArea = function(PlaceId) {
@@ -182,6 +218,7 @@ angular.module('ausEnvApp')
         return;
       }
 
+      $scope.updateViewOptions(selection.selectedLayer);
       var PlaceId = null;
       var label = null;
       if(selection.selectedRegion && selection.selectedRegion.name) {
@@ -200,8 +237,17 @@ angular.module('ausEnvApp')
         return;
       }
 
-      $scope.createBarChart(PlaceId,label);
-      $scope.createPieChart(PlaceId);
+      if(selection.selectedLayer['disable-bar']){
+        $scope.clearBarData();
+      } else{
+        $scope.createBarChart(PlaceId,label);
+      }
+
+      if(selection.selectedLayer['disable-pie']){
+        $scope.clearPieData();
+      } else {
+        $scope.createPieChart(PlaceId);
+      }
       $scope.updateRegionArea(PlaceId);
 //      $scope.createLineChart(PlaceId,label);
     };
@@ -304,7 +350,7 @@ angular.module('ausEnvApp')
     function rgbToHex(r, g, b) {
       return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
     }
-    
+
     //<editor-fold desc="pete linegraph">
     $scope.createLineChart = function(/*placeId,label*/){
       $scope.lineLabels = details.makeSimpleLabels(10);

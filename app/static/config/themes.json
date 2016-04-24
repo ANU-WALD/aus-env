@@ -34,10 +34,11 @@
         "variable":"DLCD",
         "time":"2012-12-31",
         "colorscalerange":"0,35",
-        "summary":false,
+        "summary":"",
         "disablePolygons":true,
         "palette":"anu_wald_dlcd",
-        "legend":"landCoverCodes"
+        "legend":"landCoverCodes",
+        "disable-bar":true
       }
     ]
   },

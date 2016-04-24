@@ -80,7 +80,11 @@ angular.module('ausEnvApp')
     };
 
     service.getPieChartData = function(){
-      var url = PIE_CHART_DATA+service.summaryName()+'.'+service.polygonSource(true)+'.DLCD.'+selection.year+'.sum.csv';
+      var summaryName = service.summaryName();
+      if(summaryName.length) {
+        summaryName += '.';
+      }
+      var url = PIE_CHART_DATA+summaryName+service.polygonSource(true)+'.DLCD.'+selection.year+'.sum.csv';
       var mainData = service.retrieveCSV(url);
       var landCover = service.landCoverCodes();
       var result = $q.defer();
