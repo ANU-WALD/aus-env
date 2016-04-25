@@ -74,7 +74,8 @@ angular.module('ausEnvApp')
     description:null,
     units: null,
     originalUnits: null,
-    download: null
+    download: null,
+    sum:null
   };
 
   $scope.clearChart = function(chart){
@@ -228,11 +229,11 @@ angular.module('ausEnvApp')
           label = selection.selectedRegion.name;
         } else {
           PlaceId = 9999;
-          label = 'National';
+          label = selection.regionType.globalLabel || 'National';
         }
       } else if(!selection.haveRegion()){
         PlaceId = 9999;
-        label = 'National';
+        label = selection.regionType.globalLabel || 'National';
       } else {
         return;
       }
@@ -322,6 +323,7 @@ angular.module('ausEnvApp')
 
         var indexName = "PlaceIndex" + placeId;
         $scope.pieData = $scope.pieChartData[indexName];
+        $scope.pie.sum = $scope.pieData.reduce(function(x,y){return x+y;}).toFixed();
 
         $scope.pieColours = $scope.pieChartData.columnNames.map(function(col){
           var presentation = $scope.pieChartData.columnPresentation[col];

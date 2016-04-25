@@ -10,4 +10,4 @@
 </canvas>
 
 <a class="download-link" ng-show="pie.download" ng-href="{{pie.download}}"><i class="fa fa-download"></i>Get the data</a>
-<span class="pull-right" ng-show="selectedRegionArea">Area: {{selectedRegionArea | number}} km<sup>2</sup></span>
+<span class="pull-right" ng-show="pie.sum">Total: {{pie.sum | number}}&nbsp<span ng-bind-html="pie.units"/>&nbsp</span>

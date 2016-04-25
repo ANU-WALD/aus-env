@@ -1,6 +1,6 @@
 <h2 class="details-heading">{{selection.selectedRegionName()}}</h2>
 <h3 class="chart-title">
-  {{bar.title}} (<span ng-bind-html="bar.units"></span>)
+  {{bar.title}}
   <i class="fa fa-info-circle" uib-tooltip="{{bar.description}}" tooltip-append-to-body="true"></i>
 </h3>
 
@@ -10,5 +10,5 @@
   </canvas>
   <a class="download-link" ng-show="bar.download" ng-href="{{bar.download}}"><i class="fa fa-download"></i>&nbspGet the data</a>
   <span class="pull-right" ng-show="selectedRegionArea">Area: {{selectedRegionArea | number}} km<sup>2</sup></span>
-  <div class="text-center verticaltext_content chart-vertical-position">{{units}}</div>
+  <div class="text-center verticaltext_content chart-vertical-position"><span ng-bind-html="bar.units"/></div>
 </div>
