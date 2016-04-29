@@ -48,7 +48,8 @@ angular.module('ausEnvApp')
               layers: 'public:water_polygons_simple25',
               transparent: true,
               showOnSelector: false,
-              zIndex:100
+              zIndex:100,
+              tiled:true
             }
           },  //overlays.mask
         } //layers.overlays
@@ -334,7 +335,8 @@ angular.module('ausEnvApp')
         layers:'wald:'+(newVal.sourceWMS||newVal.source),
         transparent:true,
         zIndex:50,
-        showOnSelector: false
+        showOnSelector: false,
+        tiled:true
       }
     };
     newVal.jsonData().then(function(resp){
