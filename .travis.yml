@@ -11,11 +11,18 @@ script:
   - grunt test
   - grunt build
 deploy:
-  skip_cleanup: true
-  provider: script
-  script: bash -c "cd dist && find . -type f -exec curl -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp.wenfo.org{} \;"
-  on:
-    branch: production
+  # deploy to "wenfo.org/staging/aus-env" on branch master
+  - skip_cleanup: true
+    provider: script
+    script: bash -c "cd dist && find . -type f -exec curl -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp.wenfo.org/staging/{} \;"
+    on:
+      branch: master
+  # deploy to "wenfo.org/aus-env" on branch production
+  - skip_cleanup: true
+    provider: script
+    script: bash -c "cd dist && find . -type f -exec curl -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp.wenfo.org{} \;"
+    on:
+      branch: production
 notifications:
   email: false
   slack:
