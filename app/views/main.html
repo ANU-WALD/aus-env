@@ -16,7 +16,23 @@
 
         <span>&nbspAustralia's Environment in</span>
 
-        &nbsp{{selection.year}}</a>
+        <span class="current-year">
+           &nbsp{{selection.year}}&nbsp
+        </span>
+        <div class="pull-right year-selectors">
+          <button class="btn btn-default btn-xs"
+                  uib-tooltip="Next year"
+                  tooltip-placement="right"
+                  tooltip-append-to-body="true"
+                  ng-click="moveYear(1)">+</button>
+          <br/>
+          <button class="btn btn-default btn-xs"
+                  uib-tooltip="Previous year"
+                  tooltip-placement="right"
+                  tooltip-append-to-body="true"
+                  ng-click="moveYear(-1)">-</button>
+        </div>
+        </a>
       </div>
       <div id="navbar" class="navbar-collapse collapse" ng-class="{'in':!selection.navbarCollapsed}">
           <form class="fullscreen-form navbar-form navbar-right">

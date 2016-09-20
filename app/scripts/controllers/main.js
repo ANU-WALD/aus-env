@@ -10,10 +10,9 @@
 angular.module('ausEnvApp')
   .controller('MainCtrl', function ($scope,selection) {
     $scope.selection = selection;
-    $scope.YearAddOne = function() {
-    	//window.alert($scope.selection.year);
-    	//$scope.selection.year = $scope.selection.year + 1;
-    };
 
+    $scope.moveYear = function(dir){
+      $scope.selection.moveYear(dir);
+    }
     $scope.runningLocally = (window.location.hostname==='localhost');
   });

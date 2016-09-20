@@ -14,6 +14,13 @@ angular.module('ausEnvApp')
     var service = this;
     service.mapmodes = mapmodes;
 
+    service.bounds = {
+      year:{
+        min:2004,
+        max:2015
+      }
+    };
+
     service.year = 2015;
     service.theme = 'Tree Cover';
     service.themeObject = null;
@@ -34,6 +41,13 @@ angular.module('ausEnvApp')
     service.leafletData = leafletData;
     service.showMapSearchBar = false;
     service.loadingPolygons = false;
+
+    service.moveYear = function(dir){
+      service.year += dir;
+
+      service.year = Math.max(service.bounds.year.min,service.year);
+      service.year = Math.min(service.bounds.year.max,service.year);
+    };
     /*
      * @ngdoc function
      * @name makeLayer
