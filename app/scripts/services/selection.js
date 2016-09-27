@@ -109,7 +109,7 @@ angular.module('ausEnvApp')
 
     service.selectedRegionName = function() {
       if(!service.selectedRegion || !service.selectedRegion.feature) {
-        return service.regionType.globalLabel || 'National';
+        return (service.regionType&&service.regionType.globalLabel) || 'National';
       }
 
       return service.selectedRegion.feature.properties[service.regionType.labelField];
