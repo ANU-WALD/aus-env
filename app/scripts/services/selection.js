@@ -31,7 +31,7 @@ angular.module('ausEnvApp')
     service.selectedLayerName = null; // USED????
     service.selectedLayer = null;
     service.detailsVisible = true;
-    service.selectedDetailsView = null;
+    service.selectedDetailsView = 0;
     service.selectedRegion = null;
     service.availableFeatures = [];
     service.WMS_SERVER = 'http://hydrograph.flowmatters.com.au';
