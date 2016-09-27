@@ -8,6 +8,8 @@ install:
   - bower install
   - gem install compass
 script:
+  - bower list
+  - npm list
   - grunt test
   - grunt build
 deploy:
