@@ -61,22 +61,33 @@ angular.module('ausEnvApp')
       return summaryName;
     };
 
-    service.polygonSource = function(needRegion) {
+    service.polygonSource = function(/*needRegion*/) {
 //      if(!needRegion||selection.haveRegion()) {
+      // +++TODO Getting called before region type is available and hence failling...
       return selection.regionType.summaryName || selection.regionType.source;
 //      } else {
 //        return "SA3_2011_AUST";
 //      }
     };
 
+    service.getAnnualTimeSeries = function(){
+      if(selection.regionType.name==='Point'){
+        // +++TODO
+        var result = $q.defer();
+        result.resolve(null);
+        return result.promise;
+      } else {
+        var url = ANNUAL_TIME_SERIES+service.summaryName()+'.'+service.polygonSource()+'.TimeSeries.mean.csv';
+        return service.retrieveCSV(url);
+      }
+    };
+
     service.getBarChartData = function(){
-      var url = ANNUAL_TIME_SERIES+service.summaryName()+'.'+service.polygonSource(true)+'.TimeSeries.mean.csv';
-      return service.retrieveCSV(url);
+      return service.getAnnualTimeSeries();
     };
 
     service.getPolygonFillData = function() {
-      var url = ANNUAL_TIME_SERIES+service.summaryName()+'.'+service.polygonSource()+'.TimeSeries.mean.csv';
-      return service.retrieveCSV(url);
+      return service.getAnnualTimeSeries();
     };
 
     service.getPieChartData = function(){

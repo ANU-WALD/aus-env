@@ -25,13 +25,14 @@ angular.module('ausEnvApp')
         if(!selection.regionType && $scope.options) {
           selection.regionType = $scope.options[0];
         }
+        // +++TODO If options isn't set at this point in startup,
+        // +++     regionType might not be configured in time
       }
     });
 
     $scope.regionTypeChanged = function(newOption) {
-      if(!newOption){
+      if(!spatialFoci.show(newOption)){
         selection.mapMode = mapmodes.grid;
-        return;
       }
 //      selection.mapMode = mapmodes.region;
       selection.initialisePolygons(newOption);

@@ -1,14 +1,45 @@
-<form class="navbar-form navbar-right">
+<form class="navbar-form navbar-right form-inline">
 <!--
   <i class="loading-indicator fa fa-2x fa-spinner fa-spin" ng-show="selection.loadingPolygons"></i>
 -->
-  <select class="form-control"
-          uib-tooltip="Region View"
-          tooltip-popup-delay="750" tooltip-placement="left"
-      ng-model="selection.regionType"
-      ng-change="regionTypeChanged(selection.regionType)"
-      ng-options="option.name for option in options track by option.name">
-  </select>
+  <div class="form-group">
+    <div class="input-group">
+
+      <div class="input-group-addon">
+        <i class="fa fa-mouse-pointer"></i>
+      </div>
+
+<!--
+      <select class="form-control"
+              uib-tooltip="Region View"
+              tooltip-popup-delay="750" tooltip-placement="left"
+              ng-model="selection.regionType"
+              ng-change="regionTypeChanged(selection.regionType)"
+              ng-options="option.name for option in options track by option.name">
+      </select>
+      +++TODO Fix width to not change with item width!!!
+-->
+      <ui-select ng-model="selection.regionType"
+                 on-select="regionTypeChanged($item)"
+                 style="width: 180px;"
+                 theme="bootstrap"
+                 search-enabled="false"
+                 title="Map selection mode"
+                 >
+
+        <ui-select-match placeholder="Select a person in the list or search his name/age...">
+          {{$select.selected.name}}
+        </ui-select-match>
+        <ui-select-choices repeat="option in options">
+          <div>
+            <i ng-if="option.icon" class="fa" ng-class="option.icon"></i>
+            {{option.name}}
+          </div>
+          <small ng-bind-html="option.description||option.name"></small>
+        </ui-select-choices>
+      </ui-select>
+    </div>
+  </div>
   <div class="btn-group">
     <input type="text"
            class="form-control"

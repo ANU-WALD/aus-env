@@ -120,6 +120,14 @@ li.theme-item.open {
   font-size:24px;
 }
 
+.navbar-dropdown{
+  width:300px;
+}
+
+span.form-control.ui-select-toggle{
+  width:100% !important;
+}
+
 @media screen and (max-width:1500px){
   .navbar-brand {
     font-size:20px;
@@ -181,7 +189,7 @@ li.theme-item.open {
 @media screen and (min-width:$container-md) and (max-width:1330px) {
   .navbar-form{
 
-    .form-control{
+    .form-control, .navbar-dropdown{
       width:120px;
     }
   }

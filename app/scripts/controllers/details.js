@@ -134,21 +134,25 @@ angular.module('ausEnvApp')
       {
         style:'bar',
         icon:'fa-bar-chart',
-        tooltip:'Annual time series',
+        tooltip:'Annual time series'
       },
       {
         style:'pie',
         icon:'fa-pie-chart',
-        tooltip:'Proportion by land cover type',
-      }//,
-//      {
-//        style:'timeseries',
-//        icon:'fa-line-chart',
-//        tooltip:'Detailed time series'
-//      }
+        tooltip:'Proportion by land cover type'
+      },
+      {
+        style:'timeseries',
+        icon:'fa-line-chart',
+        tooltip:'Detailed time series'
+      }
     ];
 
     $scope.viewOptions = $scope.origViewOptions.slice();
+
+    $scope.canShowChart = function(style,layer,regionType){
+      return !(layer['disable-'+style]||regionType['disable-'+style]);
+    };
 
     $scope.updateViewOptions = function(layer){
       if(($scope.selection.selectedDetailsView===null)||
@@ -160,8 +164,8 @@ angular.module('ausEnvApp')
 //      });
 //      $scope.selection.selectedDetailsView =
 //        Math.min($scope.selection.selectedDetailsView,$scope.viewOptions.length-1);
-      var selected = $scope.viewOptions[$scope.selection.selectedDetailsView].style;
-      if(layer['disable-'+selected]) {
+      var selected = $scope.viewOptions[$scope.selection.selectedDetailsView];
+      if(!$scope.canShowChart(selected.style,layer,$scope.selection.regionType)) {
         $scope.selection.selectedDetailsView =
           ($scope.selection.selectedDetailsView+1)%$scope.viewOptions.length;
       }
@@ -274,6 +278,10 @@ angular.module('ausEnvApp')
 
     $scope.createBarChart = function(placeId,label){
       details.getBarChartData().then(function(data){
+        if(!data){
+          // +++TODO Clear
+          return;
+        }
         $scope.barChartData = data;
         $scope.bar.download = data.URL;
         $scope.units = data.Units;

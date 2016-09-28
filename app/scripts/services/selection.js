@@ -10,7 +10,7 @@
  * Responsible for managing selection choices and the map.
  */
 angular.module('ausEnvApp')
-  .service('selection', function (leafletData,mapmodes) {
+  .service('selection', function (leafletData,mapmodes,spatialFoci) {
     var service = this;
     service.mapmodes = mapmodes;
 
@@ -19,12 +19,17 @@ angular.module('ausEnvApp')
         min:2004,
         max:2015
       }
+      // +++TODO Limit pan and zoom
     };
 
-    service.year = 2015;
+    service.year = service.bounds.year.max;
     service.theme = 'Tree Cover';
     service.themeObject = null;
     service.mapMode = mapmodes.grid;
+//    service.highlight = {
+//      region: true,
+//      point: false
+//    };
     service.dataMode = 'normal'; // vs delta
     service.regionType = null;
     service.regionName = null;
@@ -34,6 +39,8 @@ angular.module('ausEnvApp')
     service.selectedDetailsView = 0;
     service.selectedRegion = null;
     service.availableFeatures = [];
+    service.selectedPoint = null;
+//    service.WMS_SERVER = 'http://localhost:8881';
     service.WMS_SERVER = 'http://hydrograph.flowmatters.com.au';
     service.ozLatLngZm = { lat: -23.07, lng: 135.08, zoom: 5 };
     service.ozLatLngMapBounds = [[-10,110],[-45,150]];
@@ -41,6 +48,11 @@ angular.module('ausEnvApp')
     service.leafletData = leafletData;
     service.showMapSearchBar = false;
     service.loadingPolygons = false;
+
+    spatialFoci.regionTypes().then(function(regions){
+      service.regionType = regions[0];
+      service.initialisePolygons(regions[0]);
+    });
 
     service.moveYear = function(dir){
       service.year += dir;
@@ -61,23 +73,6 @@ angular.module('ausEnvApp')
      *
      */
     service.makeLayer = _makeLayer;
-
-    /*
-     * @ngdoc function
-     * @name setCoordinates
-     * @module ausEnvApp
-     * @kind function
-     *
-     * @description
-     * Sets the current coordinates.  Does not move or zoom the map.
-     *
-     * @params {array} An array of two numbers, lat and long.
-     * @returns void
-     *
-     */
-    service.setCoordinates = function(latlngArray) {
-      service.coordinates = latlngArray;
-    }; //_setCoordinates;
 
     /*
      * @ngdoc function
@@ -102,7 +97,7 @@ angular.module('ausEnvApp')
       service.navbarCollapsed = true;
     }; //zoomToFeature
 
-    service.clearSelection = function() {
+    service.clearRegionSelection = function() {
       service.selectedRegion = null;
       service.selectedRegionName();
     };
@@ -120,6 +115,13 @@ angular.module('ausEnvApp')
     };
 
     service.initialisePolygons = function(newOption) {
+      service.availableFeatures = [];
+      service.selectedRegion = null;
+
+      if(!spatialFoci.show(newOption)){
+        return;
+      }
+
       service.loadingPolygons = true;
       newOption.jsonData().then(function(data){
         service.availableFeatures = data.features.map(function(f){
@@ -129,7 +131,6 @@ angular.module('ausEnvApp')
           };
         });
         service.availableFeatures.sort(function(a,b){return a.name.localeCompare(b.name);});
-        service.selectedRegion = null;
         service.loadingPolygons = false;
       });
     };
@@ -156,9 +157,6 @@ angular.module('ausEnvApp')
     };
 
     service.clearFeatureOverlays = function() {
-      //console.log("here");
-      //console.log(service.geojson);
-      //console.log(service.layers.overlays);
       if(service.layers.overlays.selectionLayer) {
         delete service.layers.overlays.selectionLayer;
       }

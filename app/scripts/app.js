@@ -78,7 +78,8 @@ angular
     'ngTouch',
     'ng-static-data',
     'chart.js',
-    'angularScreenfull'
+    'angularScreenfull',
+    'ui.select'
   ])
   .config(function ($routeProvider,$logProvider) {
     $routeProvider

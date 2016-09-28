@@ -13,6 +13,7 @@ angular.module('ausEnvApp')
 
     $scope.moveYear = function(dir){
       $scope.selection.moveYear(dir);
-    }
+    };
+
     $scope.runningLocally = (window.location.hostname==='localhost');
   });

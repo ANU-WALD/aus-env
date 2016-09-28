@@ -1,30 +1,43 @@
 [
   {
+    "name":"Point",
+    "description":"Select individual points or search by lat/lon",
+    "source":"states4326",
+    "hide":true,
+    "icon":"fa-thumb-tack",
+    "disable-pie":true
+  },
+  {
     "name":"States and Territories",
+    "description":"TODO",
     "source":"states4326",
     "labelField":"STATE_NAME",
     "keyField":"STATE_CODE"
   },
   {
     "name":"Statistical Region (ABS)",
+    "description":"Statistical Areas Level 3 (SA3s) provide a standardised regional breakup of Australia",
     "source":"SA3_2011_AUST",
     "labelField":"SA3_NAME",
     "keyField":"SA3_CODE"
   },
   {
     "name":"BoM river regions",
+    "description":"TODO",
     "source":"HR_Regions_river_region",
     "labelField":"RivRegName",
     "keyField":"OBJECTID"
   },
   {
     "name":"Bioregions (IBRA)",
+    "description":"TODO",
     "source":"ibra7_regions",
     "labelField":"REG_NAME_7",
     "keyField":"REC_ID"
   },
   {
     "name":"NRM Regions",
+    "description":"TODO",
     "source":"NRMR_2011_AUST_1",
     "sourceWMS":"NRMR_2011_AUST",
     "labelField":"NRMR_NAME",
@@ -32,6 +45,7 @@
   },
   {
     "name":"National Parks",
+    "description":"TODO",
     "source":"NatParks",
     "globalLabel":"All National Parks",
     "sourceWMS":"NP_GT_5K",
@@ -41,12 +55,14 @@
   },
   {
     "name":"Local Government Areas",
+    "description":"TODO",
     "source":"LGA11aAust",
     "labelField":"LGA_NAME11",
     "keyField":"LGA_CODE11"
   },
   {
     "name":"Ramsar Wetlands",
+    "description":"TODO",
     "source":"ramsar2015",
     "globalLabel":"All Ramsar Wetlands",
     "labelField":"WETLAND_NA",
