@@ -95,31 +95,6 @@ angular.module('ausEnvApp')
       $scope.selectFeature(args.leafletEvent.target.feature);
     });
 
-    $scope.arrayRange = function(theArray){
-      var result = [Math.min.apply(null,theArray),Math.max.apply(null,theArray)];
-      return result;
-    };
-
-    $scope.dataRange = function(mappingVals) {
-      var vals = mappingVals.values;
-      var colIdx = vals.columnNames.indexOf(''+$scope.selection.year);
-      var polygonValues = Object.keys(vals)
-        .filter(function(key){return key.startsWith('PlaceIndex');})
-        .map(function(key){
-          return vals[key][colIdx];
-        });
-      polygonValues = polygonValues.filter(function(v){
-        return isFinite(v);
-      });
-      var actualRange = $scope.arrayRange(polygonValues);
-
-      if((actualRange[0]<0)&&(actualRange[1]>0)) {
-        var extent = Math.max(Math.abs(actualRange[0]),actualRange[1]);
-        return [-extent,extent];
-      }
-      return actualRange;
-    };
-
     $scope.polygonFillColour = function(feature) {
       if(!$scope.polygonMapping || (selection.mapMode!==$scope.mapmodes.region)) {
         return null;
@@ -240,7 +215,7 @@ angular.module('ausEnvApp')
                 copy[k] = diff;
               });
           }
-          $scope.polygonMapping.dataRange = $scope.dataRange($scope.polygonMapping);
+          $scope.polygonMapping.dataRange = colourschemes.dataRange($scope.polygonMapping,$scope.selection.year);
           $scope.colourScaleRange = $scope.polygonMapping.dataRange;
           $scope.updateColourScheme();
           doUpdateStyles();
@@ -288,7 +263,7 @@ angular.module('ausEnvApp')
 
     $scope.updateDropPins = function(){
       $scope.mapMarkers = [];
-      if(selection.selectedPoint&&!spatialFoci.show(selection.regionType)){
+      if(selection.useSelectedPoint()){
         $scope.mapMarkers.push(selection.selectedPoint);
       }
     };

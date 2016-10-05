@@ -54,4 +54,31 @@ angular.module('ausEnvApp')
       }
       return service.colourSchemes[paletteName];
     };
+
+    service.arrayRange = function(theArray){
+      var result = [Math.min.apply(null,theArray),Math.max.apply(null,theArray)];
+      return result;
+    };
+
+    service.dataRange = function(mappingVals,year) {
+      var vals = mappingVals.values;
+      var colIdx = vals.columnNames.indexOf(''+year);
+      var polygonValues = Object.keys(vals)
+        .filter(function(key){return key.startsWith('PlaceIndex');})
+        .map(function(key){
+          return vals[key][colIdx];
+        });
+      polygonValues = polygonValues.filter(function(v){
+        return isFinite(v);
+      });
+      var actualRange = service.arrayRange(polygonValues);
+
+      if((actualRange[0]<0)&&(actualRange[1]>0)) {
+        var extent = Math.max(Math.abs(actualRange[0]),actualRange[1]);
+        return [-extent,extent];
+      }
+      return actualRange;
+    };
+
+
   });

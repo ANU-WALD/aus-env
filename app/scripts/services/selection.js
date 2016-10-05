@@ -224,4 +224,7 @@ angular.module('ausEnvApp')
       }; //return
     } //service.makeLayer
 
+    service.useSelectedPoint = function(){
+      return service.selectedPoint&&!spatialFoci.show(service.regionType);
+    };
   });

@@ -30,7 +30,7 @@ angular.module('ausEnvApp')
     });
   }])
 
-  .controller('DetailsCtrl', function ($scope,selection,details) {
+  .controller('DetailsCtrl', function ($scope,selection,details,timeseries) {
 
   var firstYear;
   var currentYearIndex = selection.year - firstYear;
@@ -151,6 +151,8 @@ angular.module('ausEnvApp')
     $scope.viewOptions = $scope.origViewOptions.slice();
 
     $scope.canShowChart = function(style,layer,regionType){
+      layer = layer || $scope.selection.selectedLayer;
+      regionType = regionType || $scope.selection.regionType;
       return !(layer['disable-'+style]||regionType['disable-'+style]);
     };
 
@@ -165,7 +167,7 @@ angular.module('ausEnvApp')
 //      $scope.selection.selectedDetailsView =
 //        Math.min($scope.selection.selectedDetailsView,$scope.viewOptions.length-1);
       var selected = $scope.viewOptions[$scope.selection.selectedDetailsView];
-      if(!$scope.canShowChart(selected.style,layer,$scope.selection.regionType)) {
+      if(!$scope.canShowChart(selected.style,layer)) {
         $scope.selection.selectedDetailsView =
           ($scope.selection.selectedDetailsView+1)%$scope.viewOptions.length;
       }
@@ -217,12 +219,36 @@ angular.module('ausEnvApp')
 //      }
     };
 
+    $scope.pointChartMode = function(){
+      return selection.useSelectedPoint();
+    };
+
     $scope.createCharts = function(){
+      $scope.clearData();
       if(!selection.selectedLayer || !selection.regionType) {
-        $scope.clearData();
         return;
       }
 
+      if($scope.pointChartMode()){
+        $scope.createPointCharts();
+      } else {
+        $scope.createRegionCharts();
+      }
+    };
+
+    $scope.createPointCharts = function(){
+      // Annual time series...
+      if($scope.canShowChart('bar')){
+        $scope.createAnnualTimeSeriesPoint();
+      }
+
+      // High frequency time series...
+      if($scope.canShowChart('timeseries')){
+        $scope.createTimeSeriesPoint();
+      }
+    };
+
+    $scope.createRegionCharts = function(){
       $scope.updateViewOptions(selection.selectedLayer);
       var PlaceId = null;
       var label = null;
@@ -242,24 +268,43 @@ angular.module('ausEnvApp')
         return;
       }
 
-      if(selection.selectedLayer['disable-bar']){
-        $scope.clearBarData();
-      } else{
+      if($scope.canShowChart('bar')) {
         $scope.createBarChart(PlaceId,label);
       }
 
-      if(selection.selectedLayer['disable-pie']){
-        $scope.clearPieData();
-      } else {
+      if($scope.canShowChart('pie')) {
         $scope.createPieChart(PlaceId);
       }
       $scope.updateRegionArea(PlaceId);
 //      $scope.createLineChart(PlaceId,label);
     };
 
-    $scope.$watch('selection.selectedRegion',$scope.createCharts);
-    $scope.$watch('selection.selectedLayer',$scope.createCharts);
-    $scope.$watch('selection.regionType',$scope.createCharts);
+    $scope.createAnnualTimeSeriesPoint = function(){
+      var layer = $scope.selection.selectedLayer;
+      layer = layer.normal || layer;
+      var pt = $scope.selection.selectedPoint;
+
+      timeseries.retrieveAnnualForPoint(pt,layer).then(function(data){
+        // +++TODO Is it making multiple Opendap requests???
+        //console.log(data);
+        $scope.barData = [];
+        $scope.barData.push(data[layer.variable]);
+        $scope.barLabels = data.time.map(function(dt){return dt.getFullYear();});
+        $scope.barSeries = ['TS'];
+        $scope.assignBarChartColours();
+      });
+    };
+
+    $scope.createTimeSeriesPoint = function(){
+
+    };
+
+    ['selectedRegion','selectedLayer','regionType','selectedPoint'].forEach(function(prop){
+      $scope.$watch('selection.'+prop,$scope.createCharts);
+    });
+//    $scope.$watch('selection.selectedRegion',$scope.createCharts);
+//    $scope.$watch('selection.selectedLayer',$scope.createCharts);
+//    $scope.$watch('selection.regionType',$scope.createCharts);
 
     $scope.populateLabels = function(chart,data){
         chart.title = data.Title;
@@ -294,28 +339,28 @@ angular.module('ausEnvApp')
         $scope.barSeries.push(label);
         var indexName = "PlaceIndex" + placeId;
         $scope.barData.push($scope.barChartData[indexName]);
-        firstYear = $scope.barLabels[0];
+        firstYear = $scope.barLabels[0]; // +++TODO Remove?
 
-        for (var i=0; i<$scope.barLabels.length; i++) {
-          if (selection.year === parseInt($scope.barLabels[i])) {
-            currentYearIndex = i;
-            break;
-          }
-        }
-
-        /*
-        for (var i=0; i<$scope.barLabels.length; i++) {
-          $scope.barColors[0].fillColor[i] = "#66987F";
-        }
-        */
-
-        $scope.barColors = [{fillColor:["#66987F"]}];
-        $scope.barColors[0].fillColor[currentYearIndex] = "#2B5F45";
-
-        if (currentYearIndex < $scope.barLabels.length-1) {
-          $scope.barColors[0].fillColor[currentYearIndex+1] = "#66987F";
-        }
+        $scope.assignBarChartColours();
       });
+    };
+
+    $scope.assignBarChartColours = function(){
+      // +++TODO: Extract to respond to changed year...
+      // +++TODO: Tidy up!
+      for (var i=0; i<$scope.barLabels.length; i++) {
+        if (selection.year === parseInt($scope.barLabels[i])) {
+          currentYearIndex = i;
+          break;
+        }
+      }
+
+      $scope.barColors = [{fillColor:["#66987F"]}];
+      $scope.barColors[0].fillColor[currentYearIndex] = "#2B5F45";
+
+      if (currentYearIndex < $scope.barLabels.length-1) {
+        $scope.barColors[0].fillColor[currentYearIndex+1] = "#66987F";
+      }
     };
 
     $scope.createPieChart = function(placeId) {
