@@ -8,7 +8,7 @@
  * Service in the ausEnvApp.
  */
 angular.module('ausEnvApp')
-  .service('timeseries', function ($window,$q,$http/*,selection*/) {
+  .service('timeseries', function ($window,$q,$http,$interpolate/*,selection*/) {
     var service = this;
     var dap = $window.dap;
     var BASE_URL='http://dapds00.nci.org.au/thredds/dodsC/';
@@ -55,17 +55,26 @@ angular.module('ausEnvApp')
     };
 
     service.retrieveAnnualForPoint = function(pt,layer){
+      return service.retrieveTimeSeriesForPoint(pt,layer);
+    };
+
+
+    service.retrieveTimeSeriesForPoint = function(pt,layer,year){
       var result = $q.defer();
 
 //      console.log('Annual time series for point... Layer');
 //      console.log(layer);
 //      console.log(pt);
 
-      $q.all(['das','ddx'].map(function(m){return service.retrieveMetadata(layer.url,m);}))
+      // Fill in actual url;
+      var url = $interpolate(layer.url)({year:year});
+      console.log(url);
+
+      $q.all(['das','ddx'].map(function(m){return service.retrieveMetadata(url,m);}))
         .then(function(allMeta){
           var ddx = allMeta[1];
           $q.all(['time','longitude','latitude'].map(function(dim){
-            return service.retrieveDimension(layer.url,dim);
+            return service.retrieveDimension(url,dim);
           })).then(function(dimensions){
             var t = dimensions[0].time;
             var lng = dimensions[1].longitude;
@@ -75,7 +84,7 @@ angular.module('ausEnvApp')
             var latIndex = service.indexInDimension(pt.lat,lat,true);
 
             // http://dapds00.nci.org.au/thredds/dodsC/ub8/au/treecover/250m/ANUWALD.TreeCover.AllYears.250m.nc.ascii?AllYears[0:1:22][1746:1:1746][9042:1:9042]
-            var query = BASE_URL+layer.url+'.ascii?';
+            var query = BASE_URL+url+'.ascii?';
             query += layer.variable;
             query += service.dapRangeQuery(0,t.length-1);
             query += service.dapRangeQuery(lngIndex);

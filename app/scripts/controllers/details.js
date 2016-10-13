@@ -78,6 +78,12 @@ angular.module('ausEnvApp')
     sum:null
   };
 
+  $scope.line = {
+    title:null,
+    description:null,
+    units:null
+  };
+
   $scope.clearChart = function(chart){
     chart.title = null;
     chart.description = null;
@@ -296,7 +302,24 @@ angular.module('ausEnvApp')
     };
 
     $scope.createTimeSeriesPoint = function(){
+      // Clear data...
 
+      var layer = $scope.selection.selectedLayer.timeseries;
+      if(!layer){
+        return;
+      }
+      var pt = $scope.selection.selectedPoint;
+
+      timeseries.retrieveTimeSeriesForPoint(pt,layer,selection.year).then(function(data){
+        // +++TODO Is it making multiple Opendap requests???
+        console.log(data);
+        $scope.createLineChart(data[layer.variable]);
+//        $scope.barData = [];
+//        $scope.barData.push(data[layer.variable]);
+//        $scope.barLabels = data.time.map(function(dt){return dt.getFullYear();});
+//        $scope.barSeries = ['TS'];
+//        $scope.assignBarChartColours();
+      });
     };
 
     ['selectedRegion','selectedLayer','regionType','selectedPoint'].forEach(function(prop){
@@ -407,12 +430,10 @@ angular.module('ausEnvApp')
     }
 
     //<editor-fold desc="pete linegraph">
-    $scope.createLineChart = function(/*placeId,label*/){
-      $scope.lineLabels = details.makeSimpleLabels(10);
-      $scope.lineSeries = ['one','two'];
+    $scope.createLineChart = function(series){
+      $scope.lineLabels = details.makeSimpleLabels(series.length);
       $scope.lineData = [];
-      $scope.lineData.push(details.randomDataArray(10));
-      $scope.lineData.push(details.randomDataArray(10));
+      $scope.lineData.push(series);
       $scope.lineOptions = {
 
         ///Boolean - Whether grid lines are shown across the chart

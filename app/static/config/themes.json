@@ -25,6 +25,10 @@
           "time":"{{year}}-12-31",
           "palette":"anu_wald_gistemp_inv",
           "belowmincolor":"extend"
+        },
+        "timeseries":{
+          "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.{{year}}.250m.nc",
+          "variable":"TreeCover"
         }
       },
       {
@@ -99,6 +103,10 @@
           "time":"{{year}}-12-31",
           "colorscalerange":"-500,500",
           "palette":"anu_wald_gistemp_inv"
+        },
+        "timeseries":{
+          "url":"ub8/au/OzWALD/daily/OzWALD.daily.Ssoil.{{2015}}.nc",
+          "variable":"Ssoil"
         }
       },
       {
@@ -122,6 +130,10 @@
           "colorscalerange":"-2000,2000",
           "belowmincolor":"extend",
           "palette":"anu_wald_gistemp_inv"
+        },
+        "timeseries":{
+          "url":"ub8/au/OzWALD/daily/OzWALD.daily.Pg.{{2015}}.nc",
+          "variable":"Pg"
         }
       }
     ]
@@ -171,6 +183,10 @@
           "colorscalerange":"-2000,2000",
           "belowmincolor":"extend",
           "palette":"anu_wald_gistemp_inv"
+        },
+        "timeseries":{
+          "url":"ub8/au/OzWALD/daily/OzWALD.daily.Qtot.{{2015}}.nc",
+          "variable":"Qtot"
         }
       },
       {
@@ -195,6 +211,10 @@
           "colorscalerange":"-1000000,1000000",
           "belowmincolor":"extend",
           "palette":"anu_wald_gistemp_inv"
+        },
+        "timeseries":{
+          "url":"ub8/au/OzWALD/daily/OzWALD.daily.Qriv.{{2015}}.nc",
+          "variable":"Qriv"
         }
       }
     ]
