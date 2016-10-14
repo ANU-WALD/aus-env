@@ -64,7 +64,11 @@
         "variable":"MaxTemp",
         "time":"{{year}}-12-31",
         "colorscalerange":"50,200",
-        "palette":"anu_wald_gisheat_inv"
+        "palette":"anu_wald_gisheat_inv",
+        "timeseries":{
+          "url":"ub8/au/fire/Sentinel.MaxTemp.{{year}}.nc",
+          "variable":"MaxTemp"
+        }
       },
       {
         "default":false,
@@ -75,7 +79,11 @@
         "time":"{{year}}-12-31",
         "logscale":false,
         "colorscalerange":"0.002,100",
-        "palette":"anu_wald_gisheat_inv"
+        "palette":"anu_wald_gisheat_inv",
+        "timeseries":{
+          "url":"ub8/au/fire/Sentinel.Nhotspots.{{year}}.nc",
+          "variable":"Nhotspots"
+        }
       }
     ]
   },
@@ -105,7 +113,7 @@
           "palette":"anu_wald_gistemp_inv"
         },
         "timeseries":{
-          "url":"ub8/au/OzWALD/daily/OzWALD.daily.Ssoil.{{2015}}.nc",
+          "url":"ub8/au/OzWALD/daily/OzWALD.daily.Ssoil.{{year}}.nc",
           "variable":"Ssoil"
         }
       },
@@ -132,7 +140,7 @@
           "palette":"anu_wald_gistemp_inv"
         },
         "timeseries":{
-          "url":"ub8/au/OzWALD/daily/OzWALD.daily.Pg.{{2015}}.nc",
+          "url":"ub8/au/OzWALD/daily/OzWALD.daily.Pg.{{year}}.nc",
           "variable":"Pg"
         }
       }
@@ -162,6 +170,10 @@
           "time":"{{year}}-12-31",
           "colorscalerange":"-100,100",
           "palette":"anu_wald_gistemp_inv"
+        },
+        "timeseries":{
+          "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.{{year}}.nc",
+          "variable":"OWL"
         }
       },
       {
@@ -185,7 +197,7 @@
           "palette":"anu_wald_gistemp_inv"
         },
         "timeseries":{
-          "url":"ub8/au/OzWALD/daily/OzWALD.daily.Qtot.{{2015}}.nc",
+          "url":"ub8/au/OzWALD/daily/OzWALD.daily.Qtot.{{year}}.nc",
           "variable":"Qtot"
         }
       },
@@ -213,7 +225,7 @@
           "palette":"anu_wald_gistemp_inv"
         },
         "timeseries":{
-          "url":"ub8/au/OzWALD/daily/OzWALD.daily.Qriv.{{2015}}.nc",
+          "url":"ub8/au/OzWALD/daily/OzWALD.daily.Qriv.{{year}}.nc",
           "variable":"Qriv"
         }
       }
@@ -246,6 +258,10 @@
           "palette":"anu_wald_gistemp",
           "transparent":false,
           "bgcolor":"0xFFFFFF"
+        },
+        "timeseries":{
+          "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.{{year}}.aust.005.BS.nc",
+          "variable":"BS"
         }
       },
       {
@@ -266,6 +282,10 @@
           "time":"{{year}}-12-31",
           "colorscalerange":"-4,4",
           "palette":"anu_wald_gistemp_inv"
+        },
+        "timeseries":{
+          "url":"ub8/au/LAI/MOD15A2.1000m_lai.{{year}}.nc",
+          "variable":"LAI"
         }
       }
     ]
@@ -294,6 +314,10 @@
           "time":"{{year}}-12-31",
           "colorscalerange":"-2000,2000",
           "palette":"anu_wald_gistemp_inv"
+        },
+        "timeseries":{
+          "url":"ub8/au/OzWALD/daily/OzWALD.daily.GPP.{{year}}.nc",
+          "variable":"GPP"
         }
       },
       {
@@ -313,6 +337,10 @@
           "time":"{{year}}-12-31",
           "colorscalerange":"-1500,1500",
           "palette":"anu_wald_gistemp"
+        },
+        "timeseries":{
+          "url":"ub8/au/FireEmissions/GFASv12.BurntCarbon.{{year}}.nc",
+          "variable":"BurntCarbon"
         }
       }
     ]
