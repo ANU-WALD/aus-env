@@ -36,6 +36,16 @@ angular.module('ausEnvApp')
         lng: selection.ozLatLngZm.lng,
         zoom: selection.ozLatLngZm.zoom
       }, //mapCentre
+      bounds: {
+        northEast: {
+            lat: -0,
+            lng: 175
+        },
+        southWest: {
+          lat: -55,
+          lng: 90
+        }
+      },
       layers: {
         baselayers: {
         },
