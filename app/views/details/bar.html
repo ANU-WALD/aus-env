@@ -1,4 +1,4 @@
-<h2 class="details-heading">{{selection.selectedRegionName()}}</h2>
+<h2 class="details-heading" ng-bind-html="locationLabel()"></h2>
 <h3 class="chart-title">
   {{bar.title}}
   <i class="fa fa-info-circle" uib-tooltip="{{bar.description}}" tooltip-append-to-body="true"></i>

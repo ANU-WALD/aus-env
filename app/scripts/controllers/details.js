@@ -30,7 +30,7 @@ angular.module('ausEnvApp')
     });
   }])
 
-  .controller('DetailsCtrl', function ($scope,selection,details,timeseries) {
+  .controller('DetailsCtrl', function ($scope,$interpolate,selection,details,timeseries) {
 
   var firstYear;
   var currentYearIndex = selection.year - firstYear;
@@ -61,28 +61,20 @@ angular.module('ausEnvApp')
 
   $scope.selectedRegionArea = null;
 
-  $scope.bar = {
-    title:null,
-    description:null,
-    units: null,
-    originalUnits: null,
-    download: null
-  };
-
-  $scope.pie = {
-    title:null,
-    description:null,
-    units: null,
-    originalUnits: null,
-    download: null,
-    sum:null
-  };
-
-  $scope.line = {
-    title:null,
-    description:null,
-    units:null
-  };
+  function chartMetaData(){
+    return {
+      title:null,
+      description:null,
+      units: null,
+      originalUnits: null,
+      downloadAll: null,
+      downloadThis: null
+    };
+  }
+  $scope.bar = chartMetaData();
+  $scope.pie = chartMetaData();
+  $scope.pie.sum=null;
+  $scope.line = chartMetaData();
 
   $scope.clearChart = function(chart){
     chart.title = null;
@@ -190,6 +182,7 @@ angular.module('ausEnvApp')
     $scope.clearData = function(){
       $scope.clearBarData();
       $scope.clearPieData();
+      $scope.clearLinedata();
     };
 
     $scope.clearBarData = function(){
@@ -204,6 +197,12 @@ angular.module('ausEnvApp')
       $scope.pieData = [];
       $scope.pieLabels = [];
       $scope.clearChart($scope.pie);
+    };
+
+    $scope.clearLinedata = function(){
+      $scope.lineLabels = [];
+      $scope.lineData = [];
+      $scope.clearChart($scope.line);
     };
 
     $scope.updateRegionArea = function(PlaceId) {
@@ -324,6 +323,13 @@ angular.module('ausEnvApp')
 
     ['selectedRegion','selectedLayer','regionType','selectedPoint'].forEach(function(prop){
       $scope.$watch('selection.'+prop,$scope.createCharts);
+    });
+
+    $scope.$watch('selection.year',function(){
+      if($scope.pointChartMode()&&$scope.canShowChart('timeseries')){
+        $scope.createTimeSeriesPoint();
+      }
+
     });
 //    $scope.$watch('selection.selectedRegion',$scope.createCharts);
 //    $scope.$watch('selection.selectedLayer',$scope.createCharts);
@@ -499,5 +505,12 @@ angular.module('ausEnvApp')
       animateRotate: false,
       animationSteps: 1,
       tooltipTemplate: $scope.tooltipTextFunction($scope.pie)
+    };
+
+    $scope.locationLabel = function(){
+      if($scope.pointChartMode()){
+        return $interpolate('{{lat | number:4}}&deg;,{{lng|number:4}}&deg;')(selection.selectedPoint);
+      }
+      return selection.selectedRegionName();
     };
   });
