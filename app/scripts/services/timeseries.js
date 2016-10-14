@@ -68,7 +68,6 @@ angular.module('ausEnvApp')
 
       // Fill in actual url;
       var url = $interpolate(layer.url)({year:year});
-      console.log(url);
 
       $q.all(['das','ddx'].map(function(m){return service.retrieveMetadata(url,m);}))
         .then(function(allMeta){

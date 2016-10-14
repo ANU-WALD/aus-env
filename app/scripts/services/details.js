@@ -127,7 +127,6 @@ angular.module('ausEnvApp')
       for(var i = 0; i<length; i++) {
         labels.push(pre + (i+1));
       }
-      console.log(labels);
       return labels;
     };
 

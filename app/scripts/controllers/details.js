@@ -303,7 +303,10 @@ angular.module('ausEnvApp')
     $scope.createTimeSeriesPoint = function(){
       // Clear data...
 
-      var layer = $scope.selection.selectedLayer.timeseries;
+      var layer = $scope.selection.selectedLayer;
+      $scope.line.title = layer.title;
+
+      layer = layer.timeseries;
       if(!layer){
         return;
       }
@@ -311,7 +314,6 @@ angular.module('ausEnvApp')
 
       timeseries.retrieveTimeSeriesForPoint(pt,layer,selection.year).then(function(data){
         // +++TODO Is it making multiple Opendap requests???
-        console.log(data);
         $scope.createLineChart(data[layer.variable]);
 //        $scope.barData = [];
 //        $scope.barData.push(data[layer.variable]);
