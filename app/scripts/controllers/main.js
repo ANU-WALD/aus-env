@@ -27,8 +27,12 @@ angular.module('ausEnvApp')
     };
 
     if(!localStorage.preventAbout){
-      $uibModal.open(options);
+      $scope.modalInstance = $uibModal.open(options);
     }
+
+    $scope.closeModal = function(){
+      $scope.modalInstance.dismiss();
+    };
 
     $scope.doNotShowClicked = function(){
       console.log($scope.options);
