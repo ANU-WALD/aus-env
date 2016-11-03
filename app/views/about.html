@@ -1,1 +1,16 @@
-<p>This is the about view.</p>
+<div class="modal-header">
+    <h2 class="modal-title">
+      About the Australia's Environment application
+      <i ng-click="closeModal()" class="text-muted pull-right glyphicon glyphicon-sm glyphicon-remove"></i>
+    </h2>
+</div>
+<div class="modal-body">
+  <p>Lots of really useful information about the site....</p>
+
+  <div class="alert alert-danger" role="alert">Placeholder... </div>
+
+  <label>
+    <input type="checkbox" ng-model="options.doNotShow" ng-click="doNotShowClicked()">
+    &nbspDon't show next time!
+  </label>
+</div>
