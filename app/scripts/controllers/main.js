@@ -11,7 +11,7 @@ angular.module('ausEnvApp')
   .controller('MainCtrl', function ($scope,$uibModal,$rootScope,$route,$routeParams,$location,
                                     selection,themes) {
     $scope.selection = selection;
-    $scope.options = {
+    $scope.appOptions = {
       doNotShow:false
     };
 
@@ -37,8 +37,7 @@ angular.module('ausEnvApp')
     };
 
     $scope.doNotShowClicked = function(){
-      console.log($scope.options);
-      if($scope.options.doNotShow){
+      if($scope.appOptions.doNotShow){
         localStorage.setItem('preventAbout',true);
       } else {
         localStorage.removeItem('preventAbout');
