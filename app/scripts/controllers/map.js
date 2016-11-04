@@ -554,16 +554,7 @@ angular.module('ausEnvApp')
   $scope.configureMapTools();
 
   $scope.setDefaultTheme = function(themesData){
-    selection.theme = themesData[0].name;
-    selection.themeObject = themesData[0];
-    $scope.selectDefaultLayer(selection.themeObject);
-  };
-
-  $scope.selectDefaultLayer = function(themeObject){
-    var defaultLayer = themeObject.layers.filter(function(l){return l.default;})[0];
-
-    $scope.selection.selectedLayer = defaultLayer;
-    $scope.selection.selectedLayerName = defaultLayer.title;
+    selection.selectTheme(themesData[0])
   };
 
   $scope.mapZoom = function(delta) {
@@ -598,7 +589,12 @@ angular.module('ausEnvApp')
            selection.selectedLayer.summary &&
            !selection.selectedLayer.disablePolygons;
   };
-  themes.themes().then($scope.setDefaultTheme); // Move to app startup
+
+  themes.themes().then(function(themeData){
+    if(!$scope.selection.selectedLayer){
+      $scope.setDefaultTheme(themeData); // Move to app startup
+    }
+  });
 
   $scope.selectPoint = function(latlng){
     selection.selectedPoint = latlng;

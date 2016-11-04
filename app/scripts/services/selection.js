@@ -33,7 +33,6 @@ angular.module('ausEnvApp')
     service.dataMode = 'normal'; // vs delta
     service.regionType = null;
     service.regionName = null;
-    service.selectedLayerName = null; // USED????
     service.selectedLayer = null;
     service.detailsVisible = true;
     service.selectedDetailsView = 0;
@@ -56,10 +55,34 @@ angular.module('ausEnvApp')
 
     service.moveYear = function(dir){
       service.year += dir;
+      service.checkYear();
+    };
 
+    service.setYear = function(yr){
+      service.year = +yr;
+      if(isNaN(service.year)){
+        service.year=service.bounds.year.max;
+      };
+      service.checkYear();
+    };
+
+    service.checkYear = function(){
       service.year = Math.max(service.bounds.year.min,service.year);
       service.year = Math.min(service.bounds.year.max,service.year);
     };
+
+    service.selectTheme = function(theme){
+      service.theme = theme.name;
+      service.themeObject = theme;
+      service.selectDefaultLayer(service.themeObject);
+    };
+
+    service.selectDefaultLayer = function(themeObject){
+      var defaultLayer = themeObject.layers.filter(function(l){return l.default;})[0];
+
+      service.selectedLayer = defaultLayer;
+    };
+
     /*
      * @ngdoc function
      * @name makeLayer
@@ -166,6 +189,15 @@ angular.module('ausEnvApp')
 
     service.setMapModeGrid = function() {
       service.mapMode = mapmodes.grid;
+    };
+
+    service.setRegionTypeByName = function(name){
+      spatialFoci.regionTypes().then(function(types){
+        var match = types.filter(function(f){
+          return f.name===name;
+        })[0];
+        service.regionType = match || service.regionType;
+      });
     };
 
     service.isMapModeGrid = function() {

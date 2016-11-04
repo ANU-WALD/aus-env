@@ -24,13 +24,13 @@
                   uib-tooltip="Next year"
                   tooltip-placement="right"
                   tooltip-append-to-body="true"
-                  ng-click="moveYear(1)">+</button>
+                  ng-click="moveYear($event,1)">+</button>
           <br/>
           <button class="btn btn-default btn-xs"
                   uib-tooltip="Previous year"
                   tooltip-placement="right"
                   tooltip-append-to-body="true"
-                  ng-click="moveYear(-1)">-</button>
+                  ng-click="moveYear($event,-1)">-</button>
         </div>
         </a>
       </div>

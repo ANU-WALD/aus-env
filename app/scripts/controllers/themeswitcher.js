@@ -38,7 +38,6 @@ angular.module('ausEnvApp')
 
     $scope.selectThemeAndLayer = function(theme,layer) {
       $scope.selectTheme(theme);
-      $scope.selection.selectedLayerName = layer.title;
       $scope.selection.selectedLayer = layer;
     };
   });
