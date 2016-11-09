@@ -154,7 +154,11 @@ angular.module('ausEnvApp')
     };
 
     $scope.selectFeature = function(feature) {
-      selection.selectRegionByName(feature.properties[selection.regionType.labelField]);
+      if(selection.regionType.hide){
+        return;
+      }
+
+      selection.selectRegionByName(feature.properties[selection.regionType.labelField],selection.regionType.name);
     };
 
     $scope.polygonSelected = function(evt) {
