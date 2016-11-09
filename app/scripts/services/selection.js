@@ -10,7 +10,7 @@
  * Responsible for managing selection choices and the map.
  */
 angular.module('ausEnvApp')
-  .service('selection', function (leafletData,mapmodes,spatialFoci) {
+  .service('selection', function ($q,leafletData,mapmodes,spatialFoci) {
     var service = this;
     service.mapmodes = mapmodes;
 
@@ -43,6 +43,12 @@ angular.module('ausEnvApp')
     service.WMS_SERVER = 'http://hydrograph.flowmatters.com.au';
     service.ozLatLngZm = { lat: -23.07, lng: 135.08, zoom: 5 };
     service.ozLatLngMapBounds = [[-10,110],[-45,150]];
+    service.mapCentre = {
+      lat: service.ozLatLngZm.lat,
+      lng: service.ozLatLngZm.lng,
+      zoom: service.ozLatLngZm.zoom
+    };
+
     service.navbarCollapsed=true;
     service.leafletData = leafletData;
     service.showMapSearchBar = false;
@@ -99,7 +105,6 @@ angular.module('ausEnvApp')
 
     /*
      * @ngdoc function
-     * @name centreAustralia
      * @module ausEnvApp
      * @kind function
      *
@@ -138,6 +143,7 @@ angular.module('ausEnvApp')
     };
 
     service.initialisePolygons = function(newOption) {
+      var result = $q.defer();
       service.availableFeatures = [];
       service.selectedRegion = null;
 
@@ -146,6 +152,9 @@ angular.module('ausEnvApp')
       }
 
       service.loadingPolygons = true;
+      var result = $q.defer();
+      service.loadingPolygonsPromise = result.promise;
+
       newOption.jsonData().then(function(data){
         service.availableFeatures = data.features.map(function(f){
           return {
@@ -155,6 +164,7 @@ angular.module('ausEnvApp')
         });
         service.availableFeatures.sort(function(a,b){return a.name.localeCompare(b.name);});
         service.loadingPolygons = false;
+        result.resolve(true);
       });
     };
 
@@ -192,11 +202,27 @@ angular.module('ausEnvApp')
     };
 
     service.setRegionTypeByName = function(name){
+      var result = $q.defer();
+
       spatialFoci.regionTypes().then(function(types){
         var match = types.filter(function(f){
           return f.name===name;
         })[0];
         service.regionType = match || service.regionType;
+
+        service.initialisePolygons(service.regionType);
+        result.resolve(true);
+      });
+      return result.promise;
+    };
+
+    service.selectRegionByName = function(name,type){
+      service.setRegionTypeByName(type).then(function(){
+        service.loadingPolygonsPromise.then(function(){
+          service.selectedRegion = service.availableFeatures.filter(function(f){
+            return f.name===name;
+          })[0];
+        });
       });
     };
 

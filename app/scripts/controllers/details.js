@@ -151,7 +151,7 @@ angular.module('ausEnvApp')
     $scope.canShowChart = function(style,layer,regionType){
       layer = layer || $scope.selection.selectedLayer;
       regionType = regionType || $scope.selection.regionType;
-      return !(layer['disable-'+style]||regionType['disable-'+style]);
+      return layer&&regionType&&!(layer['disable-'+style]||regionType['disable-'+style]);
     };
 
     $scope.updateViewOptions = function(layer){
@@ -439,7 +439,7 @@ angular.module('ausEnvApp')
 
     //<editor-fold desc="pete linegraph">
     $scope.createLineChart = function(series){
-      $scope.lineLabels = details.makeSimpleLabels(series.length);
+      $scope.lineLabels = details.makeSimpleLabels(series.length); // +++ TODO Don't need 365...
       $scope.lineData = [];
       $scope.lineData.push(series);
       $scope.lineOptions = {

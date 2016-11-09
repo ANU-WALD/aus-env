@@ -31,11 +31,6 @@ angular.module('ausEnvApp')
         minZoom: 2,
       }, //defaults
 
-      mapCentre: {
-        lat: selection.ozLatLngZm.lat,
-        lng: selection.ozLatLngZm.lng,
-        zoom: selection.ozLatLngZm.zoom
-      }, //mapCentre
       bounds: {
         northEast: {
             lat: -0,
@@ -88,11 +83,6 @@ angular.module('ausEnvApp')
       geoJsonLayer: null,
       geojson: null
 
-    });
-
-
-    $scope.$on('leafletDirectiveMap.load', function(/*event, args*/){
-      selection.centreAustralia();
     });
 
     $scope.$on('leafletDirectiveMap.click', function(_, args){
@@ -164,9 +154,7 @@ angular.module('ausEnvApp')
     };
 
     $scope.selectFeature = function(feature) {
-      selection.selectedRegion = selection.availableFeatures.filter(function(f){
-        return f.name===feature.properties[selection.regionType.labelField];
-      })[0];
+      selection.selectRegionByName(feature.properties[selection.regionType.labelField]);
     };
 
     $scope.polygonSelected = function(evt) {

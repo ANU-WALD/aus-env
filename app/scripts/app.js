@@ -83,7 +83,7 @@ angular
   ])
   .config(function ($routeProvider,$logProvider) {
     $routeProvider
-      .when('/:year?/:selectedLayer?/:mapMode?/:dataMode?/:regionType?', {
+      .when('/:year?/:selectedLayer?/:mapMode?/:dataMode?/:regionType?/:selectedDetailsView?/:lat?/:lng?/:zoom?/:selectedRegion?', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
