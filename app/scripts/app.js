@@ -73,17 +73,20 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'leaflet-directive',
     'ui.bootstrap',
     'ngTouch',
     'ng-static-data',
     'chart.js',
     'angularScreenfull',
-    'ui.select'
+    'ui.select',
+    'uiGmapgoogle-maps'
   ])
-  .config(function ($routeProvider,$logProvider) {
+  .config(function ($routeProvider,$logProvider,uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+        libraries: 'geometry,visualization'
+    });
     $routeProvider
-      .when('/:year?/:selectedLayer?/:mapMode?/:dataMode?/:regionType?/:selectedDetailsView?/:lat?/:lng?/:zoom?/:selectedRegion?', {
+      .when('/:year?/:selectedLayer?/:mapMode?/:dataMode?/:regionType?/:selectedDetailsView?/:latitude?/:longitude?/:zoom?/:selectedRegion?', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'

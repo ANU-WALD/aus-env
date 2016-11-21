@@ -41,6 +41,10 @@ module.exports = function(config) {
       'bower_components/dap-query-js/dist/dap-query.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-ui-select/dist/select.js',
+      'bower_components/angular-simple-logger/dist/angular-simple-logger.js',
+      'bower_components/lodash/lodash.js',
+      'bower_components/angular-google-maps/dist/angular-google-maps.js',
+      'bower_components/proj4/dist/proj4.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

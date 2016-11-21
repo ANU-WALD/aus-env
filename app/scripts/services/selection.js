@@ -10,7 +10,7 @@
  * Responsible for managing selection choices and the map.
  */
 angular.module('ausEnvApp')
-  .service('selection', function ($q,leafletData,mapmodes,spatialFoci) {
+  .service('selection', function ($q,uiGmapGoogleMapApi,uiGmapIsReady,mapmodes,spatialFoci) {
     var service = this;
     service.mapmodes = mapmodes;
 
@@ -41,16 +41,29 @@ angular.module('ausEnvApp')
     service.selectedPoint = null;
 //    service.WMS_SERVER = 'http://localhost:8881';
     service.WMS_SERVER = 'http://hydrograph.flowmatters.com.au';
-    service.ozLatLngZm = { lat: -23.07, lng: 135.08, zoom: 5 };
-    service.ozLatLngMapBounds = [[-10,110],[-45,150]];
+    service.ozLatLngZm = {
+      center:{
+        latitude: -23.07,
+        longitude: 135.08
+      },
+      zoom: 5
+    };
+
+    service.ozLatLngMapBounds = {
+      east:150,
+      north:-10,
+      south:-45,
+      west:110
+    }
     service.mapCentre = {
-      lat: service.ozLatLngZm.lat,
-      lng: service.ozLatLngZm.lng,
+      center:{
+        latitude: service.ozLatLngZm.center.latitude,
+        longitude: service.ozLatLngZm.center.longitude
+      },
       zoom: service.ozLatLngZm.zoom
     };
 
     service.navbarCollapsed=true;
-    service.leafletData = leafletData;
     service.showMapSearchBar = false;
     service.loadingPolygons = false;
 
@@ -116,8 +129,8 @@ angular.module('ausEnvApp')
       // +++ CHECK. No longer enfore mapMode = Polygon when displaying polygon layers
       if (!forceAustralia && (service.selectedRegion !== undefined)) {
         var geojson = L.geoJson(service.selectedRegion.feature);
-        leafletData.getMap().then(function (map) {
-          map.fitBounds(geojson.getBounds(), {maxZoom: 13});
+        uiGmapGoogleMapApi.then(function (maps) {
+          maps.fitBounds(geojson.getBounds(), {maxZoom: 13});
         });
       } else {
         service.centreAustralia();
@@ -182,10 +195,12 @@ angular.module('ausEnvApp')
      *
      */
     service.centreAustralia = function() {
-      leafletData.getMap().then(function (map) {
-        //var oz = service.ozLatLngZm;
+      uiGmapGoogleMapApi.then(function (maps) {
+        uiGmapIsReady.promise(1).then(function(instances){
+        var map = instances[0].map;
+        console.log('fit bounds!');
         map.fitBounds(service.ozLatLngMapBounds);
-        //map.setView([oz.lat, oz.lng], oz.zoom);
+      });
       });
     };
 
@@ -270,7 +285,8 @@ angular.module('ausEnvApp')
           transparent: true,
           logscale:false,
           styles:'boxfill/rainbow',
-          tileSize:256,
+          width:256,
+          height:256,
           minZoom: 1,
           maxZoom: 15,
 //              width:512,

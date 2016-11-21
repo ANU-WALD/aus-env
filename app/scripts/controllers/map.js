@@ -9,12 +9,100 @@
  */
 
 angular.module('ausEnvApp')
-  .controller('MapCtrl', function ($scope,$route,$interpolate,$compile,$q,
+  .controller('MapCtrl', function ($scope,$route,$interpolate,$compile,$q,$window,
+                                   $document,
+                                   uiGmapGoogleMapApi,uiGmapIsReady,
                                    selection,themes,mapmodes,details,colourschemes,
                                    timeseries,spatialFoci) {
 
+    var BASE_URL='http://dapds00.nci.org.au/thredds';
+    var TILE_SIZE=256;
+    var TILE_WIDTH=TILE_SIZE;
+    var TILE_HEIGHT=TILE_SIZE;
+    var proj4 = $window.proj4;
+    var webMercator = proj4(proj4.defs('EPSG:3857'));
+
+    var pointToWebMercator = function(pt){
+      return webMercator.forward([pt.lng(),pt.lat()]);
+    };
+
     $scope.selection = selection;
     $scope.mapmodes = mapmodes;
+
+    $scope.map = {
+      showGrid:true,
+      refreshGrid:false,
+      events:{
+        center_changed:function(maybeMap){
+          $scope.checkCentre(maybeMap);
+        }
+      }
+    };
+
+    $scope.computeTileBounds = function(map,coord,zoom){
+      var proj = map.getProjection();
+      var zfactor = Math.pow(2, zoom);
+      var xScale = TILE_WIDTH/zfactor;
+      var yScale = TILE_HEIGHT/zfactor;
+      var scale = zfactor * 128/Math.PI;
+
+      var top = proj.fromPointToLatLng(new google.maps.Point(coord.x * xScale, coord.y * yScale));
+      var bot = proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * xScale, (coord.y + 1) * yScale));
+
+      top = pointToWebMercator(top);
+      bot = pointToWebMercator(bot);
+
+      return [top[0],bot[1],bot[0],top[1]].join(',');
+    };
+
+    uiGmapGoogleMapApi.then(function(maps) {
+      console.log('api loaded');
+      $scope.checkCentre = function(map){
+        var allowedBounds = new google.maps.LatLngBounds(
+             new google.maps.LatLng($scope.bounds.southWest.lat, $scope.bounds.southWest.lng),
+             new google.maps.LatLng($scope.bounds.northEast.lat, $scope.bounds.northEast.lng)
+        );
+
+        if(allowedBounds.contains(map.getCenter())){
+          $scope.lastValidCentre = map.getCenter();
+        } else {
+          if($scope.lastValidCentre){
+            map.panTo($scope.lastValidCentre);
+          } else {
+            var pt = selection.ozLatLngZm.center;
+            map.panTo(pt);
+          }
+        }
+      };
+
+      uiGmapIsReady.promise(1).then(function(instances){
+        console.log('map ready');
+        $scope.theMap = instances[0].map;
+        $scope.map.showGrid=true;
+      });
+      $scope.gridData = {
+        getTileUrl: function(coord,zoom){
+          if(!$scope.theMap){
+            return null;
+          }
+
+          var bbox = $scope.computeTileBounds($scope.theMap,coord,zoom);
+
+          var settings = $scope.layers.overlays.aWMS;
+          //base WMS URL
+          var url = settings.url + '&service=WMS&version=1.1.1&request=GetMap';
+          url += "&BBOX=" + bbox;      // set bounding box
+          url += "&FORMAT=image/png" ; //WMS format
+          for(var key in settings.layerParams){
+            url += '&'+key+'='+settings.layerParams[key];
+          }
+          url += "&SRS=EPSG:3857";     //set Web Mercator
+          return url;
+        },
+        tileSize:new google.maps.Size(256,256),
+        isPng:true
+      };
+    });
 
     $scope.mapControls = {
       custom:[]
@@ -33,12 +121,12 @@ angular.module('ausEnvApp')
 
       bounds: {
         northEast: {
-            lat: -0,
-            lng: 175
+            lat: -10,
+            lng: 150
         },
         southWest: {
-          lat: -55,
-          lng: 90
+          lat: -45,
+          lng: 110
         }
       },
       layers: {
@@ -373,6 +461,8 @@ angular.module('ausEnvApp')
       return;
     }
 
+    $scope.map.refreshGrid = !$scope.map.refreshGrid;
+
     if(!$scope.mapModesAvailable()) {
       selection.mapMode = mapmodes.grid;
     }
@@ -412,7 +502,6 @@ angular.module('ausEnvApp')
     $scope.updateColourScheme(settings.logscale);
 
     var fn = $interpolate(settings.url)(selection);
-    var BASE_URL='http://dapds00.nci.org.au/thredds';
 
     $scope.layers.overlays.aWMS.name = prefix + layer.title;
     $scope.layers.overlays.aWMS.url = BASE_URL+'/wms/'+fn+'?';
@@ -565,8 +654,6 @@ angular.module('ausEnvApp')
       $scope.geojson.style.fillColor='red';
       $scope.geojson.style.fillOpacity=0.65;
       $scope.geojson.style.color='black';
-      //console.log($scope.layers.overlays.selectionLayer.layerOptions);
-      //console.log($scope.layers.overlays.selectionLayer);
     }
   };
 

@@ -49,9 +49,18 @@ angular.module('ausEnvApp')
       return function(urlElement){
         var val = +urlElement;
 
-        console.log(val);
         if(!isNaN(val)){
           selection[MAP_PROPERTY][prop] = val;
+        }
+      };
+    };
+
+    var setCoordinate = function(prop){
+      return function(urlElement){
+        var val = +urlElement;
+
+        if(!isNaN(val)){
+          selection[MAP_PROPERTY].center[prop] = val;
         }
       };
     };
@@ -60,6 +69,13 @@ angular.module('ausEnvApp')
       dp = dp || 0;
       return function(){
         return selection[MAP_PROPERTY][prop].toFixed(dp);
+      };
+    };
+
+    var getCoordinate = function(prop,dp){
+      dp = dp || 0;
+      return function(){
+        return selection[MAP_PROPERTY].center[prop].toFixed(dp);
       };
     };
 
@@ -75,7 +91,6 @@ angular.module('ausEnvApp')
         param:'selectedLayer',
         fromURL:function(urlElement){
           urlElement = urlElement.replace('_',' ');
-          console.log(urlElement);
           themes.themes().then(function(allThemes){
             var found = false;
             allThemes.forEach(function(theme){
@@ -96,8 +111,6 @@ angular.module('ausEnvApp')
               });
             });
           });
-
-//          selection.setLayerByName(urlElement);
         },
         toURL:function(){
           return selection.selectedLayer?selection.selectedLayer.title.replace(' ','_'):'';
@@ -142,20 +155,23 @@ angular.module('ausEnvApp')
       },
       {
         prefix:MAP_PROPERTY,
-        param:'lat',
-        fromURL:setMapProperty('lat'),
-        toURL:getMapProperty('lat',2)
+        custom:true,
+        route:'latitude',
+        fromURL:setCoordinate('latitude'),
+        toURL:getCoordinate('latitude',2)
       },
       {
         prefix:MAP_PROPERTY,
-        param:'lng',
-        fromURL:setMapProperty('lng'),
-        toURL:getMapProperty('lng',2)
+        custom:true,
+        route:'longitude',
+        fromURL:setCoordinate('longitude'),
+        toURL:getCoordinate('longitude',2)
 
       },
       {
         prefix:MAP_PROPERTY,
-        param:'zoom',
+        custom:true,
+        route:'zoom',
         fromURL:setMapProperty('zoom'),
         toURL:getMapProperty('zoom')
       },
@@ -208,7 +224,7 @@ angular.module('ausEnvApp')
 
     $scope.processRouteParams = function(){
       $scope.urlElements.forEach(function(elem){
-        var p = elem.param || elem;
+        var p = elem.param || elem.route || elem;
         if($routeParams[p]!==undefined){
           if(elem.fromURL){
             elem.fromURL($routeParams[p])
@@ -217,13 +233,6 @@ angular.module('ausEnvApp')
           }
         }
       });
-//      if(!isNaN(+$routeParams.year)){
-//        selection.year = +$routeParams.year;
-//      }
-//
-//      if($routeParams.layer){
-//
-//      }
     };
 
     $scope.processRouteParams();
@@ -232,21 +241,15 @@ angular.module('ausEnvApp')
       var lastRoute = $route.current;
 
       var un = $rootScope.$on('$locationChangeSuccess',function(){
-//        console.log('here!');
         $route.current = lastRoute;
         un();
       });
-      //if(!$route.current.pathParams.year){
-      //  throw 'Whoa';
-      //}
 
       var newPath = '/' + $scope.urlElements.map(function(e){
         return e.toURL? e.toURL() : selection[e];
       }).join('/');
 
       $location.path(newPath).replace();
-
-      //$ngSilentLocation.silent('/'+selection.year);
     };
 
     $scope.urlElements.forEach(function(e){
@@ -257,16 +260,16 @@ angular.module('ausEnvApp')
         if(e.altParam){
           $scope.$watch('selection.'+prefix+e.altParam,$scope.updateURL);
         }
-      } else {
+      } else if(!e.custom) {
         $scope.$watch('selection.'+e,$scope.updateURL);
       }
     });
 
+    $scope.$watch('selection.mapCentre',$scope.updateURL,true);
+
     console.log('Building a controller...');
 
-    if(!$routeParams.lat){
-      $scope.$on('leafletDirectiveMap.load', function(/*event, args*/){
-        selection.centreAustralia();
-      });
+    if(!$routeParams.latitude){
+      selection.centreAustralia();
     }
   });
