@@ -82,9 +82,17 @@ angular
     'uiGmapgoogle-maps'
   ])
   .config(function ($routeProvider,$logProvider,uiGmapGoogleMapApiProvider) {
-    uiGmapGoogleMapApiProvider.configure({
+    var key='WENFO_GOOGLE_MAPS_API_KEY';
+    if(key.indexOf('WENFO')===0){
+      uiGmapGoogleMapApiProvider.configure({
         libraries: 'geometry,visualization'
-    });
+      });
+    } else {
+      uiGmapGoogleMapApiProvider.configure({
+        key:key,
+        libraries: 'geometry,visualization'
+      });
+    }
     $routeProvider
       .when('/:year?/:selectedLayer?/:mapMode?/:dataMode?/:regionType?/:selectedDetailsView?/:latitude?/:longitude?/:zoom?/:selectedRegion?', {
         templateUrl: 'views/main.html',

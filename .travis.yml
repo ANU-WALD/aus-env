@@ -12,6 +12,9 @@ script:
   - npm list
   - grunt test
   - grunt build
+  - SCRIPTS_FN=`ls dist/scripts/scripts*.js`
+  - sed "s/WENFO_GOOGLE_MAPS_API_KEY/$GOOGLE_MAPS_API_KEY/g" < $SCRIPTS_FN > tmp
+  - mv tmp $SCRIPTS_FN
 deploy:
   # deploy to "wenfo.org/staging/aus-env" on branch master
   - skip_cleanup: true
