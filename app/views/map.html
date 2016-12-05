@@ -11,7 +11,25 @@
   </div>
 </div>
 <div class="row main-map">
-  <ui-gmap-google-map events="map.events" center='selection.mapCentre.center' zoom='selection.mapCentre.zoom'>
+  <ui-gmap-google-map events="map.events"
+                      center='selection.mapCentre.center'
+                      zoom='selection.mapCentre.zoom'
+                      options='map.options'>
+    <ui-gmap-map-control
+        template="views/maptools/details.html"
+        position="RIGHT_BOTTOM"
+        controller="DetailsCtrl"
+        index="-1"
+    >
+    </ui-gmap-map-control>
+    <ui-gmap-map-control
+        template="views/maptools/maptypebuttons.html"
+        position="RIGHT_TOP"
+        controller="MapdisplayCtrl"
+        index="-1"
+    >
+    </ui-gmap-map-control>
+
     <ui-gmap-map-type options="gridData" show="map.showGrid" refresh="map.refreshGrid"></ui-gmap-map-type>
   </ui-gmap-google-map>
   </div>

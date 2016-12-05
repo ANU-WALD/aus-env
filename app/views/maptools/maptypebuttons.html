@@ -1,37 +1,74 @@
-<div class="btn-group">
-  <button ng-disabled="!mapModesAvailable()"
-          class="btn toggle"
-          ng-class="(selection.mapMode===mapmodes.grid)?'btn-primary':'btn-default'"
-          ng-model="selection.mapMode"
-          uib-btn-radio="mapmodes.grid"
-          tooltip-append-to-body="true"
-          tooltip-placement="bottom"
-          uib-tooltip="Original data">Grid</button>
-  <button ng-disabled="!mapModesAvailable()"
-          class="btn toggle"
-          ng-class="(selection.mapMode===mapmodes.region)?'btn-primary':'btn-default'"
-          ng-model="selection.mapMode"
-          uib-btn-radio="mapmodes.region"
-          tooltip-append-to-body="true"
-          tooltip-placement="bottom"
-          uib-tooltip="Data averaged by region">Region</button>
-</div>
+<div>
+  <div class="map-display-option">
+    <select class="form-control"
+            uib-tooltip="Region View"
+            tooltip-popup-delay="750" tooltip-placement="left"
+            ng-model="selection.regionType"
+            ng-change="regionTypeChanged(selection.regionType)"
+            ng-options="option.name for option in options track by option.name">
+    </select>
+  </div>
+  <div class="map-display-option">
+    <button ng-show="selection.mapType==='Roadmap'"
+            class="btn"
+            ng-model="selection.mapType"
+            tooltip-append-to-body="true"
+            tooltip-placement="bottom"
+            ng-click="selection.mapType='Satellite'"
+            uib-tooltip="Satellite">Satellite</button>
+    <button ng-show="selection.mapType==='Satellite'"
+            class="btn"
+            ng-model="selection.mapType"
+            tooltip-append-to-body="true"
+            tooltip-placement="bottom"
+            ng-click="selection.mapType='Roadmap'"
+            uib-tooltip="Roadmap">Roadmap</button>
+  </div>
+  <div class="map-display-option">
+    <button ng-show="selection.mapMode===mapmodes.region"
+            ng-disabled="!selection.mapModesAvailable()"
+            class="btn toggle"
+            ng-class="(selection.mapMode===mapmodes.grid)?'btn-primary':'btn-default'"
+            ng-model="selection.mapMode"
+            uib-btn-radio="mapmodes.grid"
+            tooltip-append-to-body="true"
+            tooltip-placement="bottom"
+            uib-tooltip="Original data">Grid</button>
+    <button ng-show="selection.mapMode===mapmodes.grid"
+            ng-disabled="!selection.mapModesAvailable()"
+            class="btn toggle"
+            ng-class="(selection.mapMode===mapmodes.region)?'btn-primary':'btn-default'"
+            ng-model="selection.mapMode"
+            uib-btn-radio="mapmodes.region"
+            tooltip-append-to-body="true"
+            tooltip-placement="bottom"
+            uib-tooltip="Data averaged by region">Region</button>
+  </div>
+  <div class="map-display-option">
+    <button ng-show="selection.dataMode==='delta'"
+            ng-disabled="!selection.dataModesAvailable()"
+            class="btn toggle"
+            ng-class="(selection.dataMode==='normal')?'btn-primary':'btn-default'"
+            ng-model="selection.dataMode"
+            uib-btn-radio="'normal'"
+            tooltip-append-to-body="true"
+            tooltip-placement="bottom"
+            uib-tooltip="Value for the year">Actual</button>
+    <button ng-show="selection.dataMode==='normal'"
+            ng-disabled="!selection.dataModesAvailable()"
+            class="btn toggle"
+            ng-class="(selection.dataMode==='delta')?'btn-primary':'btn-default'"
+            ng-model="selection.dataMode"
+            uib-btn-radio="'delta'"
+            tooltip-append-to-body="true"
+            tooltip-placement="bottom"
+            uib-tooltip="Change from previous year">Change</button>
+  </div>
 
-<div class="btn-group">
-  <button ng-disabled="!dataModesAvailable()"
-          class="btn toggle"
-          ng-class="(selection.dataMode==='normal')?'btn-primary':'btn-default'"
-          ng-model="selection.dataMode"
-          uib-btn-radio="'normal'"
-          tooltip-append-to-body="true"
-          tooltip-placement="bottom"
-          uib-tooltip="Value for the year">Actual</button>
-  <button ng-disabled="!dataModesAvailable()"
-          class="btn toggle"
-          ng-class="(selection.dataMode==='delta')?'btn-primary':'btn-default'"
-          ng-model="selection.dataMode"
-          uib-btn-radio="'delta'"
-          tooltip-append-to-body="true"
-          tooltip-placement="bottom"
-          uib-tooltip="Change from previous year">Change</button>
+
+  <div class="btn-group">
+  </div>
+
+  <div class="btn-group">
+  </div>
 </div>

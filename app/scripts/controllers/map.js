@@ -36,6 +36,13 @@ angular.module('ausEnvApp')
         center_changed:function(maybeMap){
           $scope.checkCentre(maybeMap);
         }
+      },
+      options:{
+        mapTypeControl:false,
+        streetViewControl:false,
+        zoomControlOptions:{
+          position:'LB'
+        }
       }
     };
 
@@ -57,6 +64,20 @@ angular.module('ausEnvApp')
 
     uiGmapGoogleMapApi.then(function(maps) {
       console.log('api loaded');
+      $scope.map.options.zoomControlOptions.position=maps.ControlPosition.LEFT_BOTTOM;
+//      $scope.map.options.mapTypeId= maps.MapTypeId.SATELLITE;
+
+      var setMapType = function(newVal){
+        if(!newVal){
+          newVal = 'ROADMAP';
+        }
+
+        newVal = newVal.toUpperCase();
+        $scope.map.options.mapTypeId = maps.MapTypeId[newVal];
+      };
+      $scope.$watch('selection.mapType',setMapType);
+      setMapType(selection.mapType);
+
       $scope.checkCentre = function(map){
         var allowedBounds = new google.maps.LatLngBounds(
              new google.maps.LatLng($scope.bounds.southWest.lat, $scope.bounds.southWest.lng),
@@ -463,7 +484,7 @@ angular.module('ausEnvApp')
 
     $scope.map.refreshGrid = !$scope.map.refreshGrid;
 
-    if(!$scope.mapModesAvailable()) {
+    if(!$scope.selection.mapModesAvailable()) {
       selection.mapMode = mapmodes.grid;
     }
 
@@ -657,18 +678,6 @@ angular.module('ausEnvApp')
     }
   };
 
-  $scope.dataModesAvailable = function() {
-    return $scope.selection.selectedLayer &&
-           $scope.selection.selectedLayer.normal &&
-           $scope.selection.selectedLayer.delta;
-  };
-
-  $scope.mapModesAvailable = function() {
-    return $scope.selection.selectedLayer &&
-           selection.selectedLayer.summary &&
-           !selection.selectedLayer.disablePolygons;
-  };
-
   themes.themes().then(function(themeData){
     if(!$scope.selection.selectedLayer){
       $scope.setDefaultTheme(themeData); // Move to app startup
@@ -677,5 +686,13 @@ angular.module('ausEnvApp')
 
   $scope.selectPoint = function(latlng){
     selection.selectedPoint = latlng;
-  }
+  };
+
+  $scope.shareLinkFacebook = function(event){
+    event.preventDefault();
+
+    console.log('here');
+    $window.open("https://www.facebook.com/sharer/sharer.php?u="+escape($window.location.href)+"&t="+$document.title, '',
+                'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+  };
 });

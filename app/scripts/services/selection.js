@@ -31,6 +31,7 @@ angular.module('ausEnvApp')
 //      point: false
 //    };
     service.dataMode = 'normal'; // vs delta
+    service.mapType='Roadmap';
     service.regionType = null;
     service.regionName = null;
     service.selectedLayer = null;
@@ -214,6 +215,18 @@ angular.module('ausEnvApp')
 
     service.setMapModeGrid = function() {
       service.mapMode = mapmodes.grid;
+    };
+
+    service.mapModesAvailable = function() {
+      return service.selectedLayer &&
+             service.selectedLayer.summary &&
+             !service.selectedLayer.disablePolygons;
+    };
+
+    service.dataModesAvailable = function() {
+      return service.selectedLayer &&
+             service.selectedLayer.normal &&
+             service.selectedLayer.delta;
     };
 
     service.setRegionTypeByName = function(name){
