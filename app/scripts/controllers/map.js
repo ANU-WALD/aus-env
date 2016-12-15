@@ -12,7 +12,7 @@ angular.module('ausEnvApp')
   .controller('MapCtrl', function ($scope,$route,$interpolate,$compile,$q,$window,
                                    $document,
                                    uiGmapGoogleMapApi,uiGmapIsReady,
-                                   selection,themes,mapmodes,details,colourschemes,
+                                   selection,configuration,mapmodes,details,colourschemes,
                                    timeseries,spatialFoci) {
 
     var BASE_URL='http://dapds00.nci.org.au/thredds';
@@ -29,9 +29,14 @@ angular.module('ausEnvApp')
     $scope.selection = selection;
     $scope.mapmodes = mapmodes;
 
+    var mapReady = $q.defer();
+    $scope.mapReady = mapReady.promise;
+
     $scope.map = {
       showGrid:true,
+      showRegions:true,
       refreshGrid:false,
+      refreshRegions:false,
       events:{
         center_changed:function(maybeMap){
           $scope.checkCentre(maybeMap);
@@ -47,11 +52,11 @@ angular.module('ausEnvApp')
     };
 
     $scope.computeTileBounds = function(map,coord,zoom){
+      var google = window.google;
       var proj = map.getProjection();
       var zfactor = Math.pow(2, zoom);
       var xScale = TILE_WIDTH/zfactor;
       var yScale = TILE_HEIGHT/zfactor;
-      var scale = zfactor * 128/Math.PI;
 
       var top = proj.fromPointToLatLng(new google.maps.Point(coord.x * xScale, coord.y * yScale));
       var bot = proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * xScale, (coord.y + 1) * yScale));
@@ -62,10 +67,39 @@ angular.module('ausEnvApp')
       return [top[0],bot[1],bot[0],top[1]].join(',');
     };
 
+    $scope.createImageMapFromWMS = function(layerKey){
+      var google = window.google;
+      return {
+        getTileUrl: function(coord,zoom){
+          if(!$scope.theMap){
+            return null;
+          }
+
+          var settings = $scope.layers.overlays[layerKey];
+
+          if(!settings){
+            return null;
+          }
+
+          var bbox = $scope.computeTileBounds($scope.theMap,coord,zoom);
+
+          //base WMS URL
+          var url = settings.url + '&service=WMS&version=1.1.1&request=GetMap';
+          url += "&BBOX=" + bbox;      // set bounding box
+          url += "&FORMAT=image/png" ; //WMS format
+          for(var key in settings.layerParams){
+            url += '&'+key+'='+settings.layerParams[key];
+          }
+          url += "&SRS=EPSG:3857";     //set Web Mercator
+          return url;
+        },
+        tileSize:new google.maps.Size(256,256),
+        isPng:true
+      };
+    };
+
     uiGmapGoogleMapApi.then(function(maps) {
-      console.log('api loaded');
-      $scope.map.options.zoomControlOptions.position=maps.ControlPosition.LEFT_BOTTOM;
-//      $scope.map.options.mapTypeId= maps.MapTypeId.SATELLITE;
+      $scope.map.options.zoomControlOptions.position=maps.ControlPosition.LEFT_TOP;
 
       var setMapType = function(newVal){
         if(!newVal){
@@ -79,6 +113,7 @@ angular.module('ausEnvApp')
       setMapType(selection.mapType);
 
       $scope.checkCentre = function(map){
+        var google = window.google;
         var allowedBounds = new google.maps.LatLngBounds(
              new google.maps.LatLng($scope.bounds.southWest.lat, $scope.bounds.southWest.lng),
              new google.maps.LatLng($scope.bounds.northEast.lat, $scope.bounds.northEast.lng)
@@ -97,32 +132,18 @@ angular.module('ausEnvApp')
       };
 
       uiGmapIsReady.promise(1).then(function(instances){
-        console.log('map ready');
+//        console.log('map ready');
+//        console.log(selection.mapMode);
+//        console.log($scope.mapmodes);
+//        console.log(selection.mapMode===$scope.mapmodes.grid);
         $scope.theMap = instances[0].map;
         $scope.map.showGrid=true;
+        $scope.theMap.data.setStyle($scope.geoJsonStyling);
+        $scope.theMap.data.addListener('click', $scope.polygonSelected);
+        mapReady.resolve();
       });
-      $scope.gridData = {
-        getTileUrl: function(coord,zoom){
-          if(!$scope.theMap){
-            return null;
-          }
-
-          var bbox = $scope.computeTileBounds($scope.theMap,coord,zoom);
-
-          var settings = $scope.layers.overlays.aWMS;
-          //base WMS URL
-          var url = settings.url + '&service=WMS&version=1.1.1&request=GetMap';
-          url += "&BBOX=" + bbox;      // set bounding box
-          url += "&FORMAT=image/png" ; //WMS format
-          for(var key in settings.layerParams){
-            url += '&'+key+'='+settings.layerParams[key];
-          }
-          url += "&SRS=EPSG:3857";     //set Web Mercator
-          return url;
-        },
-        tileSize:new google.maps.Size(256,256),
-        isPng:true
-      };
+      $scope.gridData = $scope.createImageMapFromWMS('aWMS');
+      $scope.regionImageData = $scope.createImageMapFromWMS('selectionLayer');
     });
 
     $scope.mapControls = {
@@ -208,7 +229,7 @@ angular.module('ausEnvApp')
       if(!$scope.polygonMapping || (selection.mapMode!==$scope.mapmodes.region)) {
         return null;
       }
-      var key = feature.properties[$scope.selection.regionType.keyField];
+      var key = feature.getProperty($scope.selection.regionType.keyField);
       if(!key) {
         return null;
       }
@@ -233,12 +254,12 @@ angular.module('ausEnvApp')
 
     $scope.highlightPolygon = function(feature){
       return selection.selectedRegion &&
-             (feature===selection.selectedRegion.feature);
+             (feature.getProperty(selection.regionType.labelField)===selection.selectedRegion.name);
     };
 
     $scope.geoJsonStyling = function(feature) {
       var style = {
-        weight:0,
+        strokeWeight:0,
         strokeOpacity:0,
         fillColor:$scope.polygonFillColour(feature) || 'unfilled',
         fillOpacity:1,
@@ -246,17 +267,17 @@ angular.module('ausEnvApp')
       };
 
       if(style.fillColor==='unfilled') {
-        style.fillColor = 'black';
+        style.fillColor = '#000';
         style.fillOpacity = 0;
       } else {
-        style.weight = 1;
+        style.strokeWeight = 1;
         style.strokeOpacity = 1;
       }
 
       if($scope.highlightPolygon(feature)){
-        style.weight=6;
-        style.strokeOpacity=0.5;
-        style.color='#FF6';
+        style.strokeWeight=6;
+        style.strokeOpacity=1.0;
+        style.strokeColor='#FF6';
       }
 
       return style;
@@ -267,13 +288,12 @@ angular.module('ausEnvApp')
         return;
       }
 
-      selection.selectRegionByName(feature.properties[selection.regionType.labelField],selection.regionType.name);
+      selection.selectRegionByName(feature.getProperty(selection.regionType.labelField),selection.regionType.name);
     };
 
     $scope.polygonSelected = function(evt) {
-      L.DomEvent.stopPropagation(evt);
-      $scope.selectFeature(evt.target.feature);
-      $scope.selectPoint(evt.latlng);
+      $scope.selectFeature(evt.feature);
+      $scope.selectPoint(evt.latLng);
     };
 
     $scope.fetchPolygonData = function() {
@@ -285,22 +305,22 @@ angular.module('ausEnvApp')
       return result.promise;
     };
 
+    var styleApplicationsPending=0;
     $scope.updateStyling = function(){
       var doUpdateStyles = function(){
-        if($scope.geoJsonLayer){
-          $scope.geoJsonLayer.setStyle($scope.geoJsonStyling);
+        if(!styleApplicationsPending){
+          styleApplicationsPending++;
+          $scope.mapReady.then(function(){
+            styleApplicationsPending--;
+            $scope.theMap.data.setStyle($scope.geoJsonStyling);
+          });
         }
-      };
-
-      var resetPolygonColours = function() {
-        $scope.polygonColours = null;
       };
 
       if($scope.selection.mapMode===$scope.mapmodes.region) {
 
         $scope.fetchPolygonData().then(function(data){
           if($scope.selection.mapMode!==$scope.mapmodes.region) {
-            resetPolygonColours();
             doUpdateStyles();
 
             return;
@@ -326,50 +346,13 @@ angular.module('ausEnvApp')
                 copy[k] = diff;
               });
           }
-          $scope.polygonMapping.dataRange = colourschemes.dataRange($scope.polygonMapping,$scope.selection.year);
-          $scope.colourScaleRange = $scope.polygonMapping.dataRange;
-          $scope.updateColourScheme();
+          $scope.polygonMapping.dataRange = colourschemes.dataRange($scope.polygonMapping.values,$scope.selection.year);
+          //$scope.updateColourScheme();
           doUpdateStyles();
         });
-      } else {
-        resetPolygonColours();
       }
 
       doUpdateStyles();
-    };
-
-    $scope.updateMapTitles = function() {
-      $scope.mapTitle = null;
-      $scope.mapDescription = null;
-      $scope.mapUnits = null;
-      $scope.mapTimePeriod = null;
-      if(!selection.selectedLayer) {
-        return;
-      }
-
-      if(selection.selectedLayer.delta && (selection.dataMode==='delta')){
-        $scope.mapTimePeriod = +(selection.year-1) + ' to ' + selection.year;
-      } else {
-        $scope.mapTimePeriod = +selection.year;
-      }
-
-      $scope.mapTitle = selection.selectedLayerTitle();
-      $scope.mapDescription = selection.selectedLayer.description;
-      $scope.mapUnits = selection.selectedLayer.units;
-
-      if(!selection.selectedLayer.disablePolygons) {
-        $scope.fetchPolygonData().then(function(data){
-          data = data[0];
-          if(!data){
-            return;
-          }
-          if($scope.selection.mapMode===$scope.mapmodes.region) {
-            $scope.mapTitle = selection.selectedLayerTitle(data.Title);
-          }
-          $scope.mapDescription = $scope.mapDescription || data.Description;
-          $scope.mapUnits = $scope.mapUnits || details.unitsText(data.Units);
-        });
-      }
     };
 
     $scope.updateDropPins = function(){
@@ -379,12 +362,8 @@ angular.module('ausEnvApp')
       }
     };
 
-    ['selectedRegion','selectedLayer','regionType','mapMode','dataMode'].forEach(function(prop){
+    ['year','selectedRegion','selectedLayer','regionType','mapMode','dataMode'].forEach(function(prop){
       $scope.$watch('selection.'+prop,$scope.updateStyling);
-    });
-
-    ['selectedLayer','regionType','mapMode','dataMode'].forEach(function(prop){
-      $scope.$watch('selection.'+prop,$scope.updateMapTitles);
     });
 
     ['selectedPoint','regionType'].forEach(function(prop){
@@ -400,10 +379,12 @@ angular.module('ausEnvApp')
   });
 
   $scope.$watch('selection.regionType',function(newVal){
-    if($scope.layers.overlays.selectionLayer){
-      delete $scope.layers.overlays.selectionLayer;
-    }
+//    if($scope.layers.overlays.selectionLayer){
+//      delete $scope.layers.overlays.selectionLayer;
+//    }
     $scope.geojson = {};
+
+    $scope.map.refreshRegions = !$scope.map.refreshRegions;
 
     if(!newVal){
       return;
@@ -411,7 +392,7 @@ angular.module('ausEnvApp')
 
     var wmsLayer = (newVal.sourceWMS||newVal.source);
     if(wmsLayer&&spatialFoci.show(newVal)){
-  //    // +++ Causing stack overflows??? Due to leaflet events perhaps?
+      // Show as image
       $scope.layers.overlays.selectionLayer = {
         name: newVal.name,
         url:selection.WMS_SERVER+'/wald/wms?',
@@ -425,6 +406,8 @@ angular.module('ausEnvApp')
           transparent:true,
           zIndex:50,
           showOnSelector: false,
+          width:TILE_WIDTH,
+          height:TILE_HEIGHT,
           tiled:true
         }
       };
@@ -435,26 +418,32 @@ angular.module('ausEnvApp')
     }
     newVal.jsonData().then(function(resp){
       $scope.geojson = resp;
-      $scope.layers.overlays.selectionHiddenLayer = {
-        name: 'hidden',
-        type:'custom',
-        layer:function(){
-          $scope.geoJsonLayer = L.geoJson($scope.geojson,{
-            style:$scope.geoJsonStyling,
-            onEachFeature:function(feature,layer){
-              layer.on({
-                click: $scope.polygonSelected
-              });
-            }
-          });
-          return $scope.geoJsonLayer;
-        },
-        visible:true,
-        doRefresh:true,
-        layerParams:{
-          showOnSelector: false
-        }
-      };
+
+      $scope.mapReady.then(function(){
+        $scope.theMap.data.forEach(function(f){$scope.theMap.data.remove(f);});
+        $scope.theMap.data.addGeoJson($scope.geojson);
+        $scope.layers.overlays.selectionHiddenLayer = {
+          name: 'hidden',
+          type:'custom',
+          layer:function(){
+            $scope.geoJsonLayer = L.geoJson($scope.geojson,{
+              style:$scope.geoJsonStyling,
+              onEachFeature:function(feature,layer){
+                layer.on({
+                  click: $scope.polygonSelected
+                });
+              }
+            });
+            return $scope.geoJsonLayer;
+          },
+          visible:true,
+          doRefresh:true,
+          layerParams:{
+            showOnSelector: false
+          }
+        };
+      });
+
 //        data:resp,
 //        style:{
 //          weight:1,
@@ -483,6 +472,7 @@ angular.module('ausEnvApp')
     }
 
     $scope.map.refreshGrid = !$scope.map.refreshGrid;
+    $scope.map.refreshRegions = !$scope.map.refreshRegions;
 
     if(!$scope.selection.mapModesAvailable()) {
       selection.mapMode = mapmodes.grid;
@@ -494,12 +484,6 @@ angular.module('ausEnvApp')
       }
       return;
     }
-
-    $scope.colourScaleRange = selection.selectedLayer.colorscalerange;
-    if(selection.selectedLayer[selection.dataMode]) {
-      $scope.colourScaleRange = selection.selectedLayer[selection.dataMode].colorscalerange || $scope.colourScaleRange;
-    }
-    $scope.colourScaleRange = $scope.colourScaleRange.split(',').map(function(e){return +e;});
 
     var prefix = '';
     var keys = ['time','variable','url','colorscalerange',
@@ -520,7 +504,7 @@ angular.module('ausEnvApp')
     }
     $scope.layers.overlays.aWMS = $scope.selection.makeLayer();
 
-    $scope.updateColourScheme(settings.logscale);
+    //$scope.updateColourScheme(settings.logscale);
 
     var fn = $interpolate(settings.url)(selection);
 
@@ -550,113 +534,8 @@ angular.module('ausEnvApp')
     $scope.$watch('selection.'+prop,$scope.showWMS);
   });
 
-  $scope.balanceColourScheme = function(entries) {
-    if(entries.length>10) {
-      var secondaryColumn = entries.splice(entries.length/2);
-      for(var i=0;i<entries.length;i++){
-        entries[i].push(secondaryColumn.shift()[0]);
-      }
-      if(secondaryColumn.length){
-        secondaryColumn[0].unshift({});
-        entries.push(secondaryColumn[0]);
-      }
-    }
-
-    return entries;
-  };
-
-  $scope.updateColourScheme = function(applyLogTransform) {
-    if(selection.selectedLayer.legend) {
-      // +++ NASTY HACK TO GET DLCD CODES
-      details[selection.selectedLayer.legend]().then(function(colourCodes){
-        $scope.colourScheme = [];
-        for(var key in colourCodes) {
-          var e = colourCodes[key];
-          $scope.colourScheme.push([
-          {
-            colour: 'rgb('+e.Red+','+e.Green+','+e.Blue+')',
-            text:e.Class_Name
-          }]);
-        }
-        $scope.colourScheme = $scope.balanceColourScheme($scope.colourScheme);
-      });
-    } else {
-      colourschemes.coloursFor(selection.selectedLayer).then(function(data){
-        var range = $scope.colourScaleRange;
-        var decimalPlaces = Math.max(0,2-(+Math.log10(range[1]-range[0]).toFixed()));
-        if(applyLogTransform) {
-          range = range.map(Math.log);
-        }
-        var binSize = (range[1]-range[0])/data.length;
-
-        var valToText = function(val,dp){
-          dp = dp || decimalPlaces;
-          dp = Math.min(dp,10);
-          if(applyLogTransform){
-            val = Math.exp(val);
-          }
-          return val.toFixed(dp);
-        };
-
-        var distinctText = function(val,lowerText){
-          var valText;
-          var dp = decimalPlaces;
-          do{
-            valText = valToText(val,dp);
-            dp++;
-          }while((+lowerText>=+valText)&&(dp<=10));
-
-          return valText;
-        };
-
-        var lowerText = valToText(range[0]);
-        $scope.colourScheme = data.slice().map(function(e,idx){
-          var upperText = distinctText(range[0]+((idx+1)*binSize),lowerText);
-          var label = lowerText + ' - ' + upperText;
-          lowerText = upperText;
-          return [{
-            colour: e,
-            text: label
-          }];
-        });
-        $scope.colourScheme[data.length-1][0].text = '&ge;'+valToText(range[1]-binSize);
-        $scope.colourScheme.reverse();
-        $scope.colourScheme = $scope.balanceColourScheme($scope.colourScheme);
-      });
-    }
-  };
-
-  var createLeafeletCustomControl = function(pos,template) {
-    var ctrl = new L.Control({position:pos});
-
-    ctrl.onAdd =
-      function() {
-        var div = L.DomUtil.create('div');
-        var container = L.DomUtil.create('div','',div);
-        container.setAttribute('ng-include','\'views/maptools/'+template+'.html\'');
-
-        var newScope = $scope.$new();
-        $compile(div)(newScope);
-        L.DomEvent.disableClickPropagation(div);
-        L.DomEvent.on(div, 'mousewheel', L.DomEvent.stopPropagation);
-        L.DomEvent.on(div, 'click', L.DomEvent.stopPropagation);
-        return div;
-      };
-    return ctrl;
-  };
-
-  $scope.configureMapTools = function() {
-    $scope.mapControls.custom.push(createLeafeletCustomControl('topright','title'));
-    $scope.mapControls.custom.push(createLeafeletCustomControl('bottomleft','links'));
-    $scope.mapControls.custom.push(createLeafeletCustomControl('bottomleft','legend'));
-    $scope.mapControls.custom.push(createLeafeletCustomControl('bottomright','details'));
-    $scope.mapControls.custom.push(createLeafeletCustomControl('topleft','zoom'));
-  };
-
-  $scope.configureMapTools();
-
   $scope.setDefaultTheme = function(themesData){
-    selection.selectTheme(themesData[0])
+    selection.selectTheme(themesData[0]);
   };
 
   $scope.mapZoom = function(delta) {
@@ -678,7 +557,7 @@ angular.module('ausEnvApp')
     }
   };
 
-  themes.themes().then(function(themeData){
+  configuration.themes().then(function(themeData){
     if(!$scope.selection.selectedLayer){
       $scope.setDefaultTheme(themeData); // Move to app startup
     }

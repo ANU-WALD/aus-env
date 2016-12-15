@@ -77,9 +77,18 @@ angular.module('ausEnvApp')
         result.resolve(null);
         return result.promise;
       } else {
-        var url = ANNUAL_TIME_SERIES+service.summaryName()+'.'+service.polygonSource()+'.TimeSeries.mean.csv';
-        return service.retrieveCSV(url);
+        return service.getPolygonAnnualTimeSeries();
       }
+    };
+
+    service.getPolygonAnnualTimeSeries = function(){
+      var result = $q.defer();
+      $q.all([selection.getSelectedLayer(),selection.getRegionType()]).then(function(){
+        var url = ANNUAL_TIME_SERIES+service.summaryName()+'.'+service.polygonSource()+'.TimeSeries.mean.csv';
+        result.resolve(service.retrieveCSV(url));
+      });
+
+      return result.promise;
     };
 
     service.getBarChartData = function(){
@@ -87,7 +96,7 @@ angular.module('ausEnvApp')
     };
 
     service.getPolygonFillData = function() {
-      return service.getAnnualTimeSeries();
+      return service.getPolygonAnnualTimeSeries();
     };
 
     service.getPieChartData = function(){
@@ -95,7 +104,7 @@ angular.module('ausEnvApp')
       if(summaryName.length) {
         summaryName += '.';
       }
-      var url = PIE_CHART_DATA+summaryName+service.polygonSource(true)+'.DLCD.'+selection.year+'.sum.csv';
+      var url = PIE_CHART_DATA+summaryName+service.polygonSource()+'.DLCD.'+selection.year+'.sum.csv';
       var mainData = service.retrieveCSV(url);
       var landCover = service.landCoverCodes();
       var result = $q.defer();
@@ -111,7 +120,7 @@ angular.module('ausEnvApp')
     };
 
     service.getRegionAreas = function() {
-      var url = REGION_AREAS+service.polygonSource(true)+'.csv';
+      var url = REGION_AREAS+service.polygonSource()+'.csv';
       return service.retrieveCSV(url);
     };
 
@@ -155,7 +164,7 @@ angular.module('ausEnvApp')
     unit_dict.percent = "%";
     unit_dict['m2/m2'] = "m^2/m^2";
     unit_dict['gC/m2'] = "gC/m^2";
-    unit_dict['km2'] = "km^2";
+    unit_dict.km2 = "km^2";
 
     service.unitsText = function(units) {
       var text = (units in unit_dict) ? unit_dict[units] : units;

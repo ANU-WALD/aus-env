@@ -30,7 +30,16 @@
     >
     </ui-gmap-map-control>
 
+    <ui-gmap-map-control
+        template="views/maptools/legend.html"
+        position="LEFT_BOTTOM"
+        controller="LegendCtrl"
+        index="-1"
+    >
+    </ui-gmap-map-control>
+
     <ui-gmap-map-type options="gridData" show="map.showGrid" refresh="map.refreshGrid"></ui-gmap-map-type>
+    <ui-gmap-map-type options="regionImageData" show="map.showRegions" refresh="map.refreshRegions"></ui-gmap-map-type>
   </ui-gmap-google-map>
   </div>
 <div class="visible-xs-block">

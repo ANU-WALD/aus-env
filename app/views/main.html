@@ -24,13 +24,13 @@
                   uib-tooltip="Next year"
                   tooltip-placement="right"
                   tooltip-append-to-body="true"
-                  ng-click="moveYear($event,1)">+</button>
+                  ng-click="moveYear($event,1)"><i class="fa fa-angle-up"></i></button>
           <br/>
           <button class="btn btn-default btn-xs"
                   uib-tooltip="Previous year"
                   tooltip-placement="right"
                   tooltip-append-to-body="true"
-                  ng-click="moveYear($event,-1)">-</button>
+                  ng-click="moveYear($event,-1)"><i class="fa fa-angle-down"></i></button>
         </div>
         </a>
       </div>
@@ -48,27 +48,6 @@
       </div>
     </div>
   </nav>
-
-<!--
-  <nav class="row control-row">
-    <div class="container-fluid">
-      <div class="col-xs-12 col-sm-6">
-        <span class="navbar-brand" style="font-family:verdana; font-size: 30px">Australia's Environment in {{selection.year}}</span>
-      </div>
-    </div>
-  </nav>
--->
-<!--
-
-  <div class="row control-row">
-    <div class="col-xs-12 col-sm-6 navigation-panel">
-        <div ng-include="'views/themeswitcher.html'" ng-controller="ThemeswitcherCtrl"></div>
-    </div>
-    <div class="col-xs-12 col-sm-offset-2 col-sm-4 navigation-panel">
-        <div ng-include="'views/search.html'" ng-controller="SearchCtrl"></div>
-    </div>
-  </div>
--->
 
   <div class="row">
     <div class="col-xs-12">

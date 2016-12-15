@@ -1,13 +1,5 @@
 [
   {
-    "name":"Point",
-    "description":"Select individual points or search by lat/lon",
-    "source":"states4326",
-    "hide":true,
-    "icon":"fa-thumb-tack",
-    "disable-pie":true
-  },
-  {
     "name":"States and Territories",
     "description":"TODO",
     "source":"states4326",

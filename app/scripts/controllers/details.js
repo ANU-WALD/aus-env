@@ -39,9 +39,7 @@ angular.module('ausEnvApp')
     // Add thousand's separator. Source: http://stackoverflow.com/a/2901298
     var parts = val.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return parts.join(".");    return +val;
-
-    //return val.toLocaleString();
+    return parts.join(".");
   };
 
   $scope.tooltipSafeUnits = function(chart){
@@ -81,7 +79,7 @@ angular.module('ausEnvApp')
     chart.description = null;
     chart.units = null;
     chart.originalUnits = null;
-    chart.download = null
+    chart.download = null;
   };
 
   $scope.barOptions =  {

@@ -8,8 +8,8 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('ThemeswitcherCtrl', function ($scope,staticData,themes,selection) {
-    staticData.unwrap($scope,'themes',themes.themes);
+  .controller('ThemeswitcherCtrl', function ($scope,staticData,configuration,selection) {
+    staticData.unwrap($scope,'themes',configuration.themes);
 
     $scope.iconMapping = {
       degrading:'fa-arrow-down',

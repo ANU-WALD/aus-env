@@ -60,8 +60,7 @@ angular.module('ausEnvApp')
       return result;
     };
 
-    service.dataRange = function(mappingVals,year) {
-      var vals = mappingVals.values;
+    service.dataRange = function(vals,year) {
       var colIdx = vals.columnNames.indexOf(''+year);
       var polygonValues = Object.keys(vals)
         .filter(function(key){return key.startsWith('PlaceIndex');})

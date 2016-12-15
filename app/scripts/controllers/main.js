@@ -9,7 +9,7 @@
  */
 angular.module('ausEnvApp')
   .controller('MainCtrl', function ($scope,$uibModal,$rootScope,$route,$routeParams,$location,
-                                    selection,themes) {
+                                    selection,themes,configuration) {
     $scope.selection = selection;
     $scope.appOptions = {
       doNotShow:false
@@ -44,7 +44,7 @@ angular.module('ausEnvApp')
       }
     };
 
-    var MAP_PROPERTY='mapCentre'
+    var MAP_PROPERTY='mapCentre';
     var setMapProperty = function(prop){
       return function(urlElement){
         var val = +urlElement;
@@ -91,26 +91,7 @@ angular.module('ausEnvApp')
         param:'selectedLayer',
         fromURL:function(urlElement){
           urlElement = urlElement.replace('_',' ');
-          themes.themes().then(function(allThemes){
-            var found = false;
-            allThemes.forEach(function(theme){
-              if(found){
-                return;
-              }
-
-              theme.layers.forEach(function(layer){
-                if(found){
-                  return;
-                }
-
-                if(layer.title===urlElement){
-                  selection.selectTheme(theme);
-                  selection.selectedLayer = layer;
-                  found=true;
-                }
-              });
-            });
-          });
+          selection.selectThemeByName(urlElement);
         },
         toURL:function(){
           return selection.selectedLayer?selection.selectedLayer.title.replace(' ','_'):'';
@@ -227,7 +208,7 @@ angular.module('ausEnvApp')
         var p = elem.param || elem.route || elem;
         if($routeParams[p]!==undefined){
           if(elem.fromURL){
-            elem.fromURL($routeParams[p])
+            elem.fromURL($routeParams[p]);
           } else {
             selection[p] = $routeParams[p];
           }
@@ -235,7 +216,9 @@ angular.module('ausEnvApp')
       });
     };
 
-    $scope.processRouteParams();
+    configuration.configurationLoaded.then(function(){
+      $scope.processRouteParams();
+    });
 
     $scope.updateURL = function(){
       var lastRoute = $route.current;
@@ -254,7 +237,7 @@ angular.module('ausEnvApp')
 
     $scope.urlElements.forEach(function(e){
       if(e.param){
-        var prefix = e.prefix?(e.prefix+'.'):''
+        var prefix = e.prefix?(e.prefix+'.'):'';
         $scope.$watch('selection.'+prefix+e.param,$scope.updateURL);
 
         if(e.altParam){

@@ -10,7 +10,7 @@
  * Responsible for managing selection choices and the map.
  */
 angular.module('ausEnvApp')
-  .service('selection', function ($q,uiGmapGoogleMapApi,uiGmapIsReady,mapmodes,spatialFoci) {
+  .service('selection', function ($q,uiGmapGoogleMapApi,uiGmapIsReady,mapmodes,configuration,spatialFoci) {
     var service = this;
     service.mapmodes = mapmodes;
 
@@ -55,7 +55,7 @@ angular.module('ausEnvApp')
       north:-10,
       south:-45,
       west:110
-    }
+    };
     service.mapCentre = {
       center:{
         latitude: service.ozLatLngZm.center.latitude,
@@ -68,7 +68,26 @@ angular.module('ausEnvApp')
     service.showMapSearchBar = false;
     service.loadingPolygons = false;
 
-    spatialFoci.regionTypes().then(function(regions){
+    var deferredSetter=function(target,prop,promise,fn){
+      var capitalised = prop[0].toUpperCase()+prop.slice(1);
+      target['get'+capitalised] = function(){
+        var result = $q.defer();
+        target['_getting'+capitalised].then(function(){
+          result.resolve(target[prop]);
+        });
+        return result.promise;
+      };
+
+      var d = $q.defer();
+
+      target['_getting'+capitalised]=d.promise;
+      promise.then(function(result){
+        fn(result);
+        d.resolve();
+      });
+    };
+
+    deferredSetter(service,'regionType',spatialFoci.regionTypes(),function(regions){
       service.regionType = regions[0];
       service.initialisePolygons(regions[0]);
     });
@@ -82,13 +101,36 @@ angular.module('ausEnvApp')
       service.year = +yr;
       if(isNaN(service.year)){
         service.year=service.bounds.year.max;
-      };
+      }
       service.checkYear();
     };
 
     service.checkYear = function(){
       service.year = Math.max(service.bounds.year.min,service.year);
       service.year = Math.min(service.bounds.year.max,service.year);
+    };
+
+    service.selectThemeByName = function(themeName){
+      deferredSetter(service,'selectedLayer',configuration.themes(),function(allThemes){
+        var found = false;
+        allThemes.forEach(function(theme){
+          if(found){
+            return;
+          }
+
+          theme.layers.forEach(function(layer){
+            if(found){
+              return;
+            }
+
+            if(layer.title===themeName){
+              service.selectTheme(theme);
+              service.selectedLayer = layer;
+              found=true;
+            }
+          });
+        });
+      });
     };
 
     service.selectTheme = function(theme){
@@ -166,7 +208,6 @@ angular.module('ausEnvApp')
       }
 
       service.loadingPolygons = true;
-      var result = $q.defer();
       service.loadingPolygonsPromise = result.promise;
 
       newOption.jsonData().then(function(data){
@@ -196,7 +237,7 @@ angular.module('ausEnvApp')
      *
      */
     service.centreAustralia = function() {
-      uiGmapGoogleMapApi.then(function (maps) {
+      uiGmapGoogleMapApi.then(function () {
         uiGmapIsReady.promise(1).then(function(instances){
         var map = instances[0].map;
         console.log('fit bounds!');
@@ -232,7 +273,7 @@ angular.module('ausEnvApp')
     service.setRegionTypeByName = function(name){
       var result = $q.defer();
 
-      spatialFoci.regionTypes().then(function(types){
+      deferredSetter(service,'regionType',spatialFoci.regionTypes(),function(types){
         var match = types.filter(function(f){
           return f.name===name;
         })[0];
