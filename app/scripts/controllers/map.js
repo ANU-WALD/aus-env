@@ -155,14 +155,6 @@ angular.module('ausEnvApp')
     $scope.mapMarkers = [];
 
     angular.extend($scope, {
-      defaults: {
-        crs: L.CRS.EPSG4326,
-        attributionControl: false,
-        zoomControl:false,
-        maxZoom: 12,
-        minZoom: 2,
-      }, //defaults
-
       bounds: {
         northEast: {
             lat: -10,
