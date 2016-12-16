@@ -166,33 +166,41 @@ angular.module('ausEnvApp')
             return;
           }
 
-          if($routeParams.regionType==='Point'){
-            var components = urlElement.split(',');
+          if(urlElement[0]==='('){
+            selection.selectionMode='point';
+            var components = urlElement.match(/\((-?\d+(\.\d+)?),(\d+(\.\d+)?)\)/)
             var pt = {
-              lat: +components[0],
-              lng: +components[1]
+              lat: +components[1],
+              lng: +components[3]
             };
 
+            // +++TODO: Need a proper point object....
             if(!isNaN(pt.lat)&&!isNaN(pt.lng)){
-              selection.selectedPoint = pt;
+              selection.selectedPoint = {
+                lat: function(){return pt.lat;},
+                lng: function(){return pt.lng;}
+              };
             }
           } else {
+            selection.selectionMode='region';
             selection.selectRegionByName(urlElement,$routeParams.regionType);
           }
         },
         toURL:function(){
           var NONE='none';
-          if(!selection.regionType){
-            return NONE;
-          }
-
-          if(selection.regionType.name==='Point'){
+          if(selection.selectionMode==='point'){
             if(!selection.selectedPoint){
               return NONE;
             }
 
-            return selection.selectedPoint.lat.toFixed(4)+','+
-                   selection.selectedPoint.lng.toFixed(4);
+            return '('+
+                   selection.selectedPoint.lat().toFixed(4)+','+
+                   selection.selectedPoint.lng().toFixed(4) +
+                   ')';
+          }
+
+          if(!selection.regionType){
+            return NONE;
           }
 
           if(selection.selectedRegion){
@@ -249,6 +257,7 @@ angular.module('ausEnvApp')
     });
 
     $scope.$watch('selection.mapCentre',$scope.updateURL,true);
+    $scope.$watch('selection.selectionMode',$scope.updateURL,true);
 
     console.log('Building a controller...');
 

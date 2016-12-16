@@ -77,10 +77,10 @@ angular.module('ausEnvApp')
           })).then(function(dimensions){
             var t = dimensions[0].time;
             var lng = dimensions[1].longitude;
-            var lngIndex = service.indexInDimension(pt.lng,lng);
+            var lngIndex = service.indexInDimension(pt.lng(),lng);
 
             var lat = dimensions[2].latitude;
-            var latIndex = service.indexInDimension(pt.lat,lat,true);
+            var latIndex = service.indexInDimension(pt.lat(),lat,true);
 
             // http://dapds00.nci.org.au/thredds/dodsC/ub8/au/treecover/250m/ANUWALD.TreeCover.AllYears.250m.nc.ascii?AllYears[0:1:22][1746:1:1746][9042:1:9042]
             var query = BASE_URL+url+'.ascii?';
