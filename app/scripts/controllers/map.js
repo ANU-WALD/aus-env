@@ -40,14 +40,21 @@ angular.module('ausEnvApp')
       events:{
         center_changed:function(maybeMap){
           $scope.checkCentre(maybeMap);
+        },
+        click:function(p1,p2,p3,p4){
+          // +++TODO Clear selection. (or select point?)
+          selection.clearRegionSelection();
+          $scope.$apply();
+          console.log('p1',p1);
+          console.log('p2',p2);
+          console.log('p3',p3);
+          console.log('p4',p4);
         }
       },
       options:{
         mapTypeControl:false,
         streetViewControl:false,
-        zoomControlOptions:{
-          position:'LB'
-        }
+        zoomControl:false
       }
     };
 
@@ -99,7 +106,6 @@ angular.module('ausEnvApp')
     };
 
     uiGmapGoogleMapApi.then(function(maps) {
-      $scope.map.options.zoomControlOptions.position=maps.ControlPosition.LEFT_TOP;
 
       var setMapType = function(newVal){
         if(!newVal){
@@ -132,10 +138,6 @@ angular.module('ausEnvApp')
       };
 
       uiGmapIsReady.promise(1).then(function(instances){
-//        console.log('map ready');
-//        console.log(selection.mapMode);
-//        console.log($scope.mapmodes);
-//        console.log(selection.mapMode===$scope.mapmodes.grid);
         $scope.theMap = instances[0].map;
         $scope.map.showGrid=true;
         $scope.theMap.data.setStyle($scope.geoJsonStyling);
@@ -213,16 +215,6 @@ angular.module('ausEnvApp')
       geoJsonLayer: null,
       geojson: null
 
-    });
-
-    $scope.$on('leafletDirectiveMap.click', function(_, args){
-      selection.clearRegionSelection();
-      $scope.selectPoint(null);//args.leafletEvent.latlng);
-    });
-
-    $scope.$on('leafletDirectiveGeoJson.click',function(event,args){
-      $scope.selectPoint(args.leafletEvent.latlng);
-      $scope.selectFeature(args.leafletEvent.target.feature);
     });
 
     $scope.polygonFillColour = function(feature) {
@@ -347,7 +339,6 @@ angular.module('ausEnvApp')
               });
           }
           $scope.polygonMapping.dataRange = colourschemes.dataRange($scope.polygonMapping.values,$scope.selection.year);
-          //$scope.updateColourScheme();
           doUpdateStyles();
         });
       }
@@ -379,9 +370,6 @@ angular.module('ausEnvApp')
   });
 
   $scope.$watch('selection.regionType',function(newVal){
-//    if($scope.layers.overlays.selectionLayer){
-//      delete $scope.layers.overlays.selectionLayer;
-//    }
     $scope.geojson = {};
 
     $scope.map.refreshRegions = !$scope.map.refreshRegions;
@@ -504,8 +492,6 @@ angular.module('ausEnvApp')
     }
     $scope.layers.overlays.aWMS = $scope.selection.makeLayer();
 
-    //$scope.updateColourScheme(settings.logscale);
-
     var fn = $interpolate(settings.url)(selection);
 
     $scope.layers.overlays.aWMS.name = prefix + layer.title;
@@ -536,16 +522,6 @@ angular.module('ausEnvApp')
 
   $scope.setDefaultTheme = function(themesData){
     selection.selectTheme(themesData[0]);
-  };
-
-  $scope.mapZoom = function(delta) {
-    selection.leafletData.getMap().then(function(map) {
-      if (delta > 0) {
-        map.zoomIn(delta);
-      } else {
-        map.zoomOut(Math.abs(delta));
-      }
-    });
   };
 
   $scope.showFeatureOverlays = function() {

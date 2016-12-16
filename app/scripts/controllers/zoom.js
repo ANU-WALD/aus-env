@@ -12,4 +12,7 @@ angular.module('ausEnvApp')
     $scope.showSearch=false;
     $scope.selection = selection;
 
+    $scope.mapZoom = function(delta) {
+      selection.mapCentre.zoom += delta;
+    };
   });
