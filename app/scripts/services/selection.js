@@ -227,6 +227,11 @@ angular.module('ausEnvApp')
       service.loadingPolygonsPromise = result.promise;
 
       newOption.jsonData().then(function(data){
+        if(service.regionType!==newOption){
+          result.resolve(true);
+          return;
+        }
+
         service.availableFeatures = data.features.map(function(f){
           return {
             name:f.properties[newOption.labelField],
