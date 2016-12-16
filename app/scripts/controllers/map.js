@@ -166,32 +166,9 @@ angular.module('ausEnvApp')
         }
       },
       layers: {
-        baselayers: {
-        },
         overlays: {
-          mask: {
-            name: 'Ocean Mask',
-            url: selection.WMS_SERVER + '/public/wms?',
-            type: 'wms',
-            visible: true,
-            layerParams: {
-              version: '1.1.1',
-              format: 'image/png',
-              layers: 'public:water_polygons_simple25',
-              transparent: true,
-              showOnSelector: false,
-              zIndex:100,
-              tiled:true
-            }
-          },  //overlays.mask
-        } //layers.overlays
-      }, //layers
-
-      dateComponents: {
-        selected_day: 'DD',
-        selected_month: 'MM',
-        selected_year: 'YYYY'
-      },  //dateComponents
+        }
+      },
 
       events: {
         map: {

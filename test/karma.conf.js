@@ -27,8 +27,6 @@ module.exports = function(config) {
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-aria/angular-aria.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-      'bower_components/leaflet/dist/leaflet-src.js',
-      'bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js',
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-touch/angular-touch.js',

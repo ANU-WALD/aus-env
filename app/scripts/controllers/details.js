@@ -52,27 +52,11 @@ angular.module('ausEnvApp')
 
   $scope.tooltipTextFunction = function(chart){
     return function(label){
-//      console.log('Here with ',label);
       return label.label + ':' + $scope.formatValue(label.value) + ' ' + $scope.tooltipSafeUnits(chart);
     };
   };
 
   $scope.selectedRegionArea = null;
-
-  function chartMetaData(){
-    return {
-      title:null,
-      description:null,
-      units: null,
-      originalUnits: null,
-      downloadAll: null,
-      downloadThis: null
-    };
-  }
-  $scope.bar = chartMetaData();
-  $scope.pie = chartMetaData();
-  $scope.pie.sum=null;
-  $scope.line = chartMetaData();
 
   $scope.clearChart = function(chart){
     chart.title = null;
@@ -80,7 +64,19 @@ angular.module('ausEnvApp')
     chart.units = null;
     chart.originalUnits = null;
     chart.download = null;
+    chart.downloadThis = null;
+
+    return chart;
   };
+
+  function chartMetaData(){
+    return $scope.clearChart({});
+  }
+
+  $scope.bar = chartMetaData();
+  $scope.pie = chartMetaData();
+  $scope.pie.sum=null;
+  $scope.line = chartMetaData();
 
   $scope.barOptions =  {
       // Sets the chart to be responsive
@@ -114,17 +110,6 @@ angular.module('ausEnvApp')
       scaleLabel: "      <%=value%>"
     };
 
-    /*
-    $scope.barColors = [{
-      fillColor: 'rgba(247,70,74,0.2)',
-      strokeColor: 'rgba(247,70,74,1)',
-      pointColor: 'rgba(247,70,74,1)',
-      pointStrokeColor: '#fff',
-      pointHighlightFill: '#fff',
-      pointHighlightStroke: 'rgba(247,70,74,0.8)'
-    }];
-    */
-
     $scope.selection = selection;
     $scope.origViewOptions = [
       {
@@ -157,11 +142,6 @@ angular.module('ausEnvApp')
          ($scope.selection.selectedDetailsView===undefined)){
         return;
       }
-//      $scope.viewOptions = $scope.origViewOptions.filter(function(option){
-//        return !layer['disable-'+option.style];
-//      });
-//      $scope.selection.selectedDetailsView =
-//        Math.min($scope.selection.selectedDetailsView,$scope.viewOptions.length-1);
       var selected = $scope.viewOptions[$scope.selection.selectedDetailsView];
       if(!$scope.canShowChart(selected.style,layer)) {
         $scope.selection.selectedDetailsView =
