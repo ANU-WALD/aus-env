@@ -37,18 +37,17 @@ angular.module('ausEnvApp')
       showRegions:true,
       refreshGrid:false,
       refreshRegions:false,
+      markerCount:0,
+      marker:null,
       events:{
         center_changed:function(maybeMap){
           $scope.checkCentre(maybeMap);
         },
-        click:function(p1,p2,p3,p4){
-          // +++TODO Clear selection. (or select point?)
+        click:function(map,eventType,event){
+          event = event[0];
           selection.clearRegionSelection();
+          $scope.selectPoint(event.latLng);
           $scope.$apply();
-          console.log('p1',p1);
-          console.log('p2',p2);
-          console.log('p3',p3);
-          console.log('p4',p4);
         }
       },
       options:{
@@ -152,8 +151,6 @@ angular.module('ausEnvApp')
       custom:[]
     };
 
-    $scope.mapMarkers = [];
-
     angular.extend($scope, {
       bounds: {
         northEast: {
@@ -214,7 +211,8 @@ angular.module('ausEnvApp')
     };
 
     $scope.highlightPolygon = function(feature){
-      return selection.selectedRegion &&
+      return (selection.selectionMode==='region')&&
+             selection.selectedRegion &&
              (feature.getProperty(selection.regionType.labelField)===selection.selectedRegion.name);
     };
 
@@ -303,17 +301,25 @@ angular.module('ausEnvApp')
     };
 
     $scope.updateDropPins = function(){
-      $scope.mapMarkers = [];
+      $scope.map.marker = null;
+      $scope.map.markerCount++;
       if(selection.useSelectedPoint()){
-        $scope.mapMarkers.push(selection.selectedPoint);
+
+        $scope.map.marker = {
+          id:$scope.map.markerCount,
+          coords:{
+            latitude:selection.selectedPoint.lat(),
+            longitude:selection.selectedPoint.lng(),
+          }
+        };
       }
     };
 
-    ['year','selectedRegion','selectedLayer','regionType','mapMode','dataMode'].forEach(function(prop){
+    ['year','selectedRegion','selectionMode','selectedLayer','regionType','mapMode','dataMode'].forEach(function(prop){
       $scope.$watch('selection.'+prop,$scope.updateStyling);
     });
 
-    ['selectedPoint','regionType'].forEach(function(prop){
+    ['selectedPoint','selectionMode'].forEach(function(prop){
       $scope.$watch('selection.'+prop,$scope.updateDropPins);
     });
 

@@ -15,10 +15,17 @@
                       center='selection.mapCentre.center'
                       zoom='selection.mapCentre.zoom'
                       options='map.options'>
+
+    <ui-gmap-marker
+            ng-if="map.marker"
+            idKey='map.marker.id'
+            coords='map.marker.coords'
+            >
+    </ui-gmap-marker>
     <ui-gmap-map-control
         template="views/maptools/details.html"
         position="RIGHT_BOTTOM"
-        controller="DetailsCtrl"
+        controller="LocationselectionCtrl"
         index="-1"
     >
     </ui-gmap-map-control>

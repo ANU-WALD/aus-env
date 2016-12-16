@@ -30,7 +30,9 @@ angular.module('ausEnvApp')
     });
   }])
 
-  .controller('DetailsCtrl', function ($scope,$interpolate,selection,details,timeseries) {
+  .controller('RegionChartsCtrl', function ($scope,selection,details) {
+    $scope.selection = selection;
+
 
   var firstYear;
   var currentYearIndex = selection.year - firstYear;
@@ -58,25 +60,10 @@ angular.module('ausEnvApp')
 
   $scope.selectedRegionArea = null;
 
-  $scope.clearChart = function(chart){
-    chart.title = null;
-    chart.description = null;
-    chart.units = null;
-    chart.originalUnits = null;
-    chart.download = null;
-    chart.downloadThis = null;
-
-    return chart;
-  };
-
-  function chartMetaData(){
-    return $scope.clearChart({});
-  }
-
-  $scope.bar = chartMetaData();
-  $scope.pie = chartMetaData();
+  $scope.bar = details.chartMetaData();
+  $scope.pie = details.chartMetaData();
   $scope.pie.sum=null;
-  $scope.line = chartMetaData();
+  $scope.line = details.chartMetaData();
 
   $scope.barOptions =  {
       // Sets the chart to be responsive
@@ -110,7 +97,6 @@ angular.module('ausEnvApp')
       scaleLabel: "      <%=value%>"
     };
 
-    $scope.selection = selection;
     $scope.origViewOptions = [
       {
         style:'bar',
@@ -121,11 +107,6 @@ angular.module('ausEnvApp')
         style:'pie',
         icon:'fa-pie-chart',
         tooltip:'Proportion by land cover type'
-      },
-      {
-        style:'timeseries',
-        icon:'fa-line-chart',
-        tooltip:'Detailed time series'
       }
     ];
 
@@ -168,19 +149,19 @@ angular.module('ausEnvApp')
       $scope.barLabels = [];
       $scope.barSeries = [];
       $scope.barData = [];
-      $scope.clearChart($scope.bar);
+      details.clearChart($scope.bar);
     };
 
     $scope.clearPieData = function(){
       $scope.pieData = [];
       $scope.pieLabels = [];
-      $scope.clearChart($scope.pie);
+      details.clearChart($scope.pie);
     };
 
     $scope.clearLinedata = function(){
       $scope.lineLabels = [];
       $scope.lineData = [];
-      $scope.clearChart($scope.line);
+      details.clearChart($scope.line);
     };
 
     $scope.updateRegionArea = function(PlaceId) {
@@ -212,22 +193,8 @@ angular.module('ausEnvApp')
         return;
       }
 
-      if($scope.pointChartMode()){
-        $scope.createPointCharts();
-      } else {
+      if(!$scope.pointChartMode()){
         $scope.createRegionCharts();
-      }
-    };
-
-    $scope.createPointCharts = function(){
-      // Annual time series...
-      if($scope.canShowChart('bar')){
-        $scope.createAnnualTimeSeriesPoint();
-      }
-
-      // High frequency time series...
-      if($scope.canShowChart('timeseries')){
-        $scope.createTimeSeriesPoint();
       }
     };
 
@@ -259,61 +226,11 @@ angular.module('ausEnvApp')
         $scope.createPieChart(PlaceId);
       }
       $scope.updateRegionArea(PlaceId);
-//      $scope.createLineChart(PlaceId,label);
     };
 
-    $scope.createAnnualTimeSeriesPoint = function(){
-      var layer = $scope.selection.selectedLayer;
-      layer = layer.normal || layer;
-      var pt = $scope.selection.selectedPoint;
-
-      timeseries.retrieveAnnualForPoint(pt,layer).then(function(data){
-        // +++TODO Is it making multiple Opendap requests???
-        //console.log(data);
-        $scope.barData = [];
-        $scope.barData.push(data[layer.variable]);
-        $scope.barLabels = data.time.map(function(dt){return dt.getFullYear();});
-        $scope.barSeries = ['TS'];
-        $scope.assignBarChartColours();
-      });
-    };
-
-    $scope.createTimeSeriesPoint = function(){
-      // Clear data...
-
-      var layer = $scope.selection.selectedLayer;
-      $scope.line.title = layer.title;
-
-      layer = layer.timeseries;
-      if(!layer){
-        return;
-      }
-      var pt = $scope.selection.selectedPoint;
-
-      timeseries.retrieveTimeSeriesForPoint(pt,layer,selection.year).then(function(data){
-        // +++TODO Is it making multiple Opendap requests???
-        $scope.createLineChart(data[layer.variable]);
-//        $scope.barData = [];
-//        $scope.barData.push(data[layer.variable]);
-//        $scope.barLabels = data.time.map(function(dt){return dt.getFullYear();});
-//        $scope.barSeries = ['TS'];
-//        $scope.assignBarChartColours();
-      });
-    };
-
-    ['selectedRegion','selectedLayer','regionType','selectedPoint'].forEach(function(prop){
+    ['selectionMode','selectedRegion','selectedLayer','regionType'].forEach(function(prop){
       $scope.$watch('selection.'+prop,$scope.createCharts);
     });
-
-    $scope.$watch('selection.year',function(){
-      if($scope.pointChartMode()&&$scope.canShowChart('timeseries')){
-        $scope.createTimeSeriesPoint();
-      }
-
-    });
-//    $scope.$watch('selection.selectedRegion',$scope.createCharts);
-//    $scope.$watch('selection.selectedLayer',$scope.createCharts);
-//    $scope.$watch('selection.regionType',$scope.createCharts);
 
     $scope.populateLabels = function(chart,data){
         chart.title = data.Title;
@@ -471,16 +388,6 @@ angular.module('ausEnvApp')
 
     };
 
-//    $scope.onLineClick = function (points, evt) {
-//
-//    };
-//
-//    $scope.$on('create', function (event, chart) {  //how to limit to just line graph?
-//    });
-//
-//    $scope.$on('update', function (event, chart) {  //how to limit to just line graph?
-//    });
-
     $scope.pieChartOptions = {
       animateRotate: false,
       animationSteps: 1,
@@ -488,9 +395,6 @@ angular.module('ausEnvApp')
     };
 
     $scope.locationLabel = function(){
-      if($scope.pointChartMode()){
-        return $interpolate('{{lat | number:4}}&deg;,{{lng|number:4}}&deg;')(selection.selectedPoint);
-      }
       return selection.selectedRegionName();
     };
   });

@@ -37,6 +37,8 @@ angular.module('ausEnvApp')
     service.selectedLayer = null;
     service.detailsVisible = true;
     service.selectedDetailsView = 0;
+
+    service.selectionMode='region';
     service.selectedRegion = null;
     service.availableFeatures = [];
     service.selectedPoint = null;
@@ -173,6 +175,8 @@ angular.module('ausEnvApp')
     service.zoomToFeature = function(forceAustralia) {
       // +++ CHECK. No longer enfore mapMode = Polygon when displaying polygon layers
       if (!forceAustralia && (service.selectedRegion !== undefined)) {
+        service.selectionMode='region';
+
         uiGmapGoogleMapApi.then(function () {
           uiGmapIsReady.promise(1).then(function(instances){
 //            var geojson = L.geoJson(service.selectedRegion.feature);
@@ -373,6 +377,6 @@ angular.module('ausEnvApp')
     } //service.makeLayer
 
     service.useSelectedPoint = function(){
-      return service.selectedPoint&&!spatialFoci.show(service.regionType);
+      return service.selectedPoint&&(service.selectionMode==='point');
     };
   });

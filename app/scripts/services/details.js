@@ -171,4 +171,19 @@ angular.module('ausEnvApp')
       text = text.replace(/\^2/g,'<sup>2</sup>');
       return text;
     };
+
+    service.clearChart = function(chart){
+      chart.title = null;
+      chart.description = null;
+      chart.units = null;
+      chart.originalUnits = null;
+      chart.download = null;
+      chart.downloadThis = null;
+
+      return chart;
+    };
+
+    service.chartMetaData = function(){
+      return service.clearChart({});
+    };
   });
