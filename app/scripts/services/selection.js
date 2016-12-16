@@ -23,7 +23,7 @@ angular.module('ausEnvApp')
     };
 
     service.year = service.bounds.year.max;
-    service.theme = 'Tree Cover';
+    service.theme = null;
     service.themeObject = null;
     service.mapMode = mapmodes.grid;
 //    service.highlight = {
@@ -132,6 +132,8 @@ angular.module('ausEnvApp')
         });
       });
     };
+
+    service.selectThemeByName('Tree Cover');
 
     service.selectTheme = function(theme){
       service.theme = theme.name;
