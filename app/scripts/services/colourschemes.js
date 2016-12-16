@@ -79,5 +79,20 @@ angular.module('ausEnvApp')
       return actualRange;
     };
 
-
+    service.annualDelta = function(values){
+      var copy = JSON.parse(JSON.stringify(values));
+      copy.columnNames.shift();
+      Object.keys(copy)
+        .filter(function(k){return k.startsWith('PlaceIndex');})
+        .forEach(function(k){
+          var prev = copy[k].slice(); prev.pop();
+          var curr = copy[k].slice(); curr.shift();
+          var diff = [];
+          for(var i=0; i<prev.length;i++){
+            diff.push(curr[i]-prev[i]);
+          }
+          copy[k] = diff;
+        });
+      return copy;
+    };
   });

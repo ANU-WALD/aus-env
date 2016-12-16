@@ -292,20 +292,7 @@ angular.module('ausEnvApp')
             values: data[0]
           };
           if((selection.dataMode==='delta')&&selection.selectedLayer.delta) {
-            $scope.polygonMapping.values = JSON.parse(JSON.stringify($scope.polygonMapping.values));
-            var copy = $scope.polygonMapping.values;
-            copy.columnNames.shift();
-            Object.keys(copy)
-              .filter(function(k){return k.startsWith('PlaceIndex');})
-              .forEach(function(k){
-                var prev = copy[k].slice(); prev.pop();
-                var curr = copy[k].slice(); curr.shift();
-                var diff = [];
-                for(var i=0; i<prev.length;i++){
-                  diff.push(curr[i]-prev[i]);
-                }
-                copy[k] = diff;
-              });
+            $scope.polygonMapping.values = colourschemes.annualDelta($scope.polygonMapping.values);
           }
           $scope.polygonMapping.dataRange = colourschemes.dataRange($scope.polygonMapping.values,$scope.selection.year);
           doUpdateStyles();

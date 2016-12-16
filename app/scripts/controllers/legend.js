@@ -42,7 +42,12 @@ angular.module('ausEnvApp')
           }
           $scope.mapDescription = $scope.mapDescription || data.Description;
           $scope.mapUnits = $scope.mapUnits || details.unitsText(data.Units);
+
+          if((selection.dataMode==='delta')&&selection.selectedLayer.delta) {
+            data = colourschemes.annualDelta(data);
+          }
           $scope.polygonDataRange = colourschemes.dataRange(data,$scope.selection.year);
+
           result.resolve(true);
         });
       }
