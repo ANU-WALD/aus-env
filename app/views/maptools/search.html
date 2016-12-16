@@ -1,0 +1,90 @@
+<uib-tabset>
+  <uib-tab heading="{{selection.regionType.name}}">
+    <form class="form-inline">
+      <div class="form-group">
+         <label>Location</label>
+         <div class="btn-group">
+           <input type="text"
+                  class="form-control"
+                  placeholder="Search or select"
+                  ng-model="selection.selectedRegion"
+                  ng-model-options="{debounce:{'default':500,'blur':0}}"
+                  uib-typeahead="feature as feature.name for feature in selection.availableFeatures | filter:$viewValue"
+                  typeahead-editable="false"
+                  typeahead-select-on-exact="true"
+                  typeahead-min-length="0">
+          <span class="fa fa-times-circle searchClear"
+                ng-click="selection.selectedRegion=null"
+                ng-show="selection.selectedRegion">
+          </span>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" ng-click="selection.zoomToFeature()"
+               uib-tooltip="Zoom to selected region" tooltip-append-to-body="true"
+               tooltip-placement="bottom">Zoom To
+      </button>
+    </form>
+  </uib-tab>
+
+  <uib-tab heading="Lat/Lon">
+    <form class="form-inline">
+      <div class="form-group">
+        <label>Latitude</label>
+        <input type="text"
+               class="form-control"
+               placeholder="Search or select"
+               ng-model="location.latitude"
+               ng-model-options="{debounce:{'default':500,'blur':0}}"
+               uib-tooltip="Latitude in decimal degrees, eg -17.5, or 17.5S"
+               tooltip-append-to-body="true">
+        <label>Longitude</label>
+        <input type="text"
+               class="form-control"
+               placeholder="Search or select"
+               ng-model="location.longitude"
+               ng-model-options="{debounce:{'default':500,'blur':0}}"
+               uib-tooltip="Longitude in decimal degrees, eg 123.4, or 123.4E"
+               tooltip-append-to-body="true">
+       </div>
+      <button type="button" class="btn btn-primary" ng-click="selection.zoomToFeature()"
+               uib-tooltip="Zoom to selected region" tooltip-append-to-body="true"
+               tooltip-placement="bottom">Zoom To
+      </button>
+    </form>
+  </uib-tab>
+
+  <uib-tab heading="Address">
+    <form class="form-inline">
+      <div class="form-group">
+        <label>Address</label>
+        <div class="btn-group">
+          <input type="text"
+                 class="form-control"
+                 placeholder="Search or select"
+                 ng-model="selection.selectedAddress"
+                 ng-model-options="{debounce:{'default':500,'blur':0}}"
+          >
+          <span class="fa fa-times-circle searchClear"
+                ng-click="selection.selectedAddress=null"
+                ng-show="selection.selectedAddress">
+          </span>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" ng-click="selection.zoomToFeature()"
+               uib-tooltip="Zoom to selected region" tooltip-append-to-body="true"
+               tooltip-placement="bottom">Zoom To
+      </button>
+    </form>
+  </uib-tab>
+</uib-tabset>
+
+
+<!--
+                uib-typeahead="feature as feature.name for feature in selection.availableFeatures | filter:$viewValue"
+                typeahead-editable="false"
+                typeahead-select-on-exact="true"
+                typeahead-min-length="0"
+
+
+                ng-show="selection.selectedRegion"
+-->

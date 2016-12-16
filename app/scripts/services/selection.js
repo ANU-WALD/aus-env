@@ -171,9 +171,23 @@ angular.module('ausEnvApp')
     service.zoomToFeature = function(forceAustralia) {
       // +++ CHECK. No longer enfore mapMode = Polygon when displaying polygon layers
       if (!forceAustralia && (service.selectedRegion !== undefined)) {
-        var geojson = L.geoJson(service.selectedRegion.feature);
-        uiGmapGoogleMapApi.then(function (maps) {
-          maps.fitBounds(geojson.getBounds(), {maxZoom: 13});
+        uiGmapGoogleMapApi.then(function () {
+          uiGmapIsReady.promise(1).then(function(instances){
+//            var geojson = L.geoJson(service.selectedRegion.feature);
+            var map = instances[0].map;
+//            var bounds = geojson.getBounds();
+            var bounds  = new  google.maps.LatLngBounds();
+            var key = service.selectedRegion.feature.properties[service.regionType.keyField];
+            map.data.forEach(function(feature){
+              var fKey = feature.getProperty(service.regionType.keyField);
+              if(fKey===key){
+                feature.getGeometry().forEachLatLng(function(ll){
+                  bounds.extend(ll);
+                });
+              }
+            });
+            map.fitBounds(bounds, {maxZoom: 13});
+          });
         });
       } else {
         service.centreAustralia();
@@ -183,7 +197,7 @@ angular.module('ausEnvApp')
 
     service.clearRegionSelection = function() {
       service.selectedRegion = null;
-      service.selectedRegionName();
+      //service.selectedRegionName(); // +++TODO Huh?
     };
 
     service.selectedRegionName = function() {
@@ -240,7 +254,6 @@ angular.module('ausEnvApp')
       uiGmapGoogleMapApi.then(function () {
         uiGmapIsReady.promise(1).then(function(instances){
         var map = instances[0].map;
-        console.log('fit bounds!');
         map.fitBounds(service.ozLatLngMapBounds);
       });
       });

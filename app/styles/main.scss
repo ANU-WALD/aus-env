@@ -289,9 +289,9 @@ li.theme-item{
   width:70%;
 }
 
-#searchClear {
-  position: absolute;
-  right: 5px;
+.searchClear {
+  position: relative;
+  right: 20px;
   top: 0;
   bottom: 0;
   height: 14px;
@@ -594,4 +594,9 @@ canvas {
 
 .legend{
   margin-bottom:4px;
+}
+
+
+.search-popover{
+  max-width:800px;
 }
