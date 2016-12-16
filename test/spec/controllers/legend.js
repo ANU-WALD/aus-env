@@ -17,7 +17,4 @@ describe('Controller: LegendCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(LegendCtrl.awesomeThings.length).toBe(3);
-  });
 });
