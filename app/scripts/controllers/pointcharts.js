@@ -85,13 +85,12 @@ angular.module('ausEnvApp')
     };
 
     ['selectionMode','selectedLayer','selectedPoint'].forEach(function(prop){
-      $scope.$watch('selection.'+prop,$scope.createCharts);
+      $scope.$watch('selection.'+prop,$scope.createPointCharts);
     });
 
     $scope.$watch('selection.year',function(){
       if($scope.pointChartMode()&&$scope.canShowChart('timeseries')){
         $scope.createTimeSeriesPoint();
       }
-
     });
   });
