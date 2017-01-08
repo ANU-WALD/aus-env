@@ -30,6 +30,7 @@ angular.module('ausEnvApp')
 //      region: true,
 //      point: false
 //    };
+    service.imageMode = 'opaque';
     service.dataMode = 'normal'; // vs delta
     service.mapType='Roadmap';
     service.regionType = null;
@@ -371,7 +372,8 @@ angular.module('ausEnvApp')
 //              height:512,
           numcolorbands:50,
           colorscalerange:'0,1',
-          belowmincolor:'transparent',abovemaxcolor:'extend'
+          belowmincolor:'transparent',
+          abovemaxcolor:'extend'
         }
       }; //return
     } //service.makeLayer

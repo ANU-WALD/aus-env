@@ -15,6 +15,7 @@ angular.module('ausEnvApp')
                                    selection,configuration,mapmodes,details,colourschemes,
                                    timeseries,spatialFoci) {
 
+    var TRANSPARENT_OPACITY=0.6;
     var BASE_URL='http://dapds00.nci.org.au/thredds';
     var TILE_SIZE=256;
     var TILE_WIDTH=TILE_SIZE;
@@ -100,7 +101,8 @@ angular.module('ausEnvApp')
           return url;
         },
         tileSize:new google.maps.Size(256,256),
-        isPng:true
+        isPng:true,
+        opacity:(selection.imageMode==='opaque')?1.0:TRANSPARENT_OPACITY
       };
     };
 
@@ -480,6 +482,11 @@ angular.module('ausEnvApp')
 
   ['year','selectedLayer','dataMode','mapMode'].forEach(function(prop){
     $scope.$watch('selection.'+prop,$scope.showWMS);
+  });
+
+  $scope.$watch('selection.imageMode',function(){
+    $scope.gridData.opacity=(selection.imageMode==='opaque')?1.0:TRANSPARENT_OPACITY;
+    $scope.map.refreshGrid = !$scope.map.refreshGrid;
   });
 
   $scope.setDefaultTheme = function(themesData){

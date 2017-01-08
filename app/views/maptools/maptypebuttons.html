@@ -64,6 +64,22 @@
             tooltip-placement="bottom"
             uib-tooltip="Change from previous year">Change</button>
   </div>
+  <div class="map-display-option">
+    <button ng-show="selection.imageMode==='transparent'"
+            class="btn toggle"
+            ng-model="selection.imageMode"
+            uib-btn-radio="'opaque'"
+            tooltip-append-to-body="true"
+            tooltip-placement="bottom"
+            uib-tooltip="Toggle transparency">Opaque</button>
+    <button ng-show="selection.imageMode==='opaque'"
+            class="btn toggle"
+            ng-model="selection.imageMode"
+            uib-btn-radio="'transparent'"
+            tooltip-append-to-body="true"
+            tooltip-placement="bottom"
+            uib-tooltip="Toggle transparency">Transparent</button>
+  </div>
 
 
   <div class="btn-group">
