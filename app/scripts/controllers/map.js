@@ -52,9 +52,11 @@ angular.module('ausEnvApp')
         }
       },
       options:{
-        mapTypeControl:false,
-        streetViewControl:false,
-        zoomControl:false
+        mapTypeControl:true,
+        streetViewControl:true,
+        zoomControl:true,
+        scaleControl:true,
+        rotateControl:true
       }
     };
 
