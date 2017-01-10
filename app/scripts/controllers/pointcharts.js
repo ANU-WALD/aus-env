@@ -50,6 +50,10 @@ angular.module('ausEnvApp')
       layer = layer.normal || layer;
       var pt = $scope.selection.selectedPoint;
 
+      if(!pt){
+        return;
+      }
+
       timeseries.retrieveAnnualForPoint(pt,layer).then(function(data){
         // +++TODO Is it making multiple Opendap requests???
         //console.log(data);
@@ -72,6 +76,9 @@ angular.module('ausEnvApp')
         return;
       }
       var pt = $scope.selection.selectedPoint;
+      if(!pt){
+        return;
+      }
 
       timeseries.retrieveTimeSeriesForPoint(pt,layer,selection.year).then(function(data){
         // +++TODO Is it making multiple Opendap requests???

@@ -76,6 +76,35 @@ angular.module('ausEnvApp')
       return [top[0],bot[1],bot[0],top[1]].join(',');
     };
 
+    $scope.layerUrlForZoom = function(settings,zoom){
+      for(var i=zoom;i>=1;i--){
+        if(settings['urlFor'+i]){
+          return settings['urlFor'+i];
+        }
+      }
+      return settings.url;
+    };
+
+    $scope.settingsForZoom = function(orig,zoom){
+      var result = {};
+      var key;
+      for(key in orig.layerParams){
+        result[key] = orig.layerParams[key];
+      }
+
+      for(var i=zoom;i>=1;i--){
+        if(orig.zoomSettings && orig.zoomSettings[+i]){
+          var overrides = orig.zoomSettings[+i];
+          for(key in overrides.layerParams){
+            result[key] = overrides.layerParams[key];
+          }
+          break;
+        }
+      }
+
+      return result;
+    };
+
     $scope.createImageMapFromWMS = function(layerKey){
       var google = window.google;
       return {
@@ -85,19 +114,17 @@ angular.module('ausEnvApp')
           }
 
           var settings = $scope.layers.overlays[layerKey];
-
           if(!settings){
             return null;
           }
-
           var bbox = $scope.computeTileBounds($scope.theMap,coord,zoom);
 
-          //base WMS URL
-          var url = settings.url + '&service=WMS&version=1.1.1&request=GetMap';
+          var url = $scope.layerUrlForZoom(settings,zoom) + '&service=WMS&version=1.1.1&request=GetMap';
           url += "&BBOX=" + bbox;      // set bounding box
           url += "&FORMAT=image/png" ; //WMS format
-          for(var key in settings.layerParams){
-            url += '&'+key+'='+settings.layerParams[key];
+          var layerParams = $scope.settingsForZoom(settings,zoom);
+          for(var key in layerParams){
+            url += '&'+key+'='+layerParams[key];
           }
           url += "&SRS=EPSG:3857";     //set Web Mercator
           return url;
@@ -413,10 +440,6 @@ angular.module('ausEnvApp')
     if($scope.layers.overlays.aWMS) {
       delete $scope.layers.overlays.aWMS;
     }
-
-//    if($scope.layers.overlays.json) {
-//      delete $scope.layers.overlays.json;
-//    }
   };
 
   $scope.showWMS = function(){
@@ -442,7 +465,7 @@ angular.module('ausEnvApp')
     var prefix = '';
     var keys = ['time','variable','url','colorscalerange',
                 'belowmincolor','abovemaxcolor','palette','logscale',
-                'transparent','bgcolor'];
+                'transparent','bgcolor','zooms'];
 
     var settings = {};
     keys.forEach(function(k){settings[k] = layer[k];});
@@ -460,8 +483,33 @@ angular.module('ausEnvApp')
 
     var fn = $interpolate(settings.url)(selection);
 
+    var makeWMSUrl = function(u){
+      return BASE_URL + '/wms/' + u +'?';
+    }
+
     $scope.layers.overlays.aWMS.name = prefix + layer.title;
-    $scope.layers.overlays.aWMS.url = BASE_URL+'/wms/'+fn+'?';
+    $scope.layers.overlays.aWMS.url = makeWMSUrl(fn);
+
+    if(settings.zooms){
+      for(var zm in settings.zooms){
+        var u = $interpolate(settings.zooms[zm].url)(selection);
+        $scope.layers.overlays.aWMS.zoomSettings = $scope.layers.overlays.aWMS.zoomSettings || {};
+        var overrides = {
+          layerParams:{}
+        };
+
+        $scope.layers.overlays.aWMS['urlFor'+zm] = makeWMSUrl(u);
+        for(var key in settings.zooms[zm]){
+          if(key==='url'){
+            continue;
+          }
+          overrides.layerParams[key] = settings.zooms[zm][key];
+        }
+
+        $scope.layers.overlays.aWMS.zoomSettings[+zm] = overrides;
+      }
+    }
+
     $scope.layers.overlays.aWMS.layerParams.time = $interpolate(settings.time)(selection);
     $scope.layers.overlays.aWMS.layerParams.layers = settings.variable;
     $scope.layers.overlays.aWMS.layerParams.colorscalerange = settings.colorscalerange;
@@ -487,6 +535,9 @@ angular.module('ausEnvApp')
   });
 
   $scope.$watch('selection.imageMode',function(){
+    if(!$scope.gridData){
+      return;
+    }
     $scope.gridData.opacity=(selection.imageMode==='opaque')?1.0:TRANSPARENT_OPACITY;
     $scope.map.refreshGrid = !$scope.map.refreshGrid;
   });
