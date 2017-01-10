@@ -27,6 +27,13 @@
         },
         "delta":{
           "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.ChangeAllYears.250m.nc",
+          "zooms":{
+            "9":{
+              "url":"ub8/au/treecover/ANUWALD.change.{{year}}.nc",
+              "layers":"ChangeMap",
+              "colorscalerange":"0,3"
+            }
+          },
           "colorscalerange":"-30,30",
           "variable":"ChangeAllYears",
           "time":"{{year}}-12-31",
