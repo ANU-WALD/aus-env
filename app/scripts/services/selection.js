@@ -13,7 +13,7 @@ angular.module('ausEnvApp')
   .service('selection', function ($q,uiGmapGoogleMapApi,uiGmapIsReady,mapmodes,configuration,spatialFoci) {
     var service = this;
     service.mapmodes = mapmodes;
-
+    var MAX_ZOOM_LOCATE = 13;
     service.bounds = {
       year:{
         min:2004,
@@ -164,6 +164,15 @@ angular.module('ausEnvApp')
      */
     service.makeLayer = _makeLayer;
 
+    var doWithMap = function(fn){
+      uiGmapGoogleMapApi.then(function () {
+        uiGmapIsReady.promise(1).then(function(instances){
+//            var geojson = L.geoJson(service.selectedRegion.feature);
+          var map = instances[0].map;
+          fn(map);
+        });
+      });
+    };
     /*
      * @ngdoc function
      * @module ausEnvApp
@@ -175,32 +184,42 @@ angular.module('ausEnvApp')
      */
     service.zoomToFeature = function(forceAustralia) {
       // +++ CHECK. No longer enfore mapMode = Polygon when displaying polygon layers
-      if (!forceAustralia && (service.selectedRegion !== undefined)) {
+      if(forceAustralia || (service.selectedRegion === undefined)) {
+        service.centreAustralia();
+      } else {
         service.selectionMode='region';
 
-        uiGmapGoogleMapApi.then(function () {
-          uiGmapIsReady.promise(1).then(function(instances){
-//            var geojson = L.geoJson(service.selectedRegion.feature);
-            var map = instances[0].map;
-//            var bounds = geojson.getBounds();
-            var bounds  = new  google.maps.LatLngBounds();
-            var key = service.selectedRegion.feature.properties[service.regionType.keyField];
-            map.data.forEach(function(feature){
-              var fKey = feature.getProperty(service.regionType.keyField);
-              if(fKey===key){
-                feature.getGeometry().forEachLatLng(function(ll){
-                  bounds.extend(ll);
-                });
-              }
-            });
-            map.fitBounds(bounds, {maxZoom: 13});
+        doWithMap(function(map){
+          var bounds  = new  google.maps.LatLngBounds();
+          var key = service.selectedRegion.feature.properties[service.regionType.keyField];
+          map.data.forEach(function(feature){
+            var fKey = feature.getProperty(service.regionType.keyField);
+            if(fKey===key){
+              feature.getGeometry().forEachLatLng(function(ll){
+                bounds.extend(ll);
+              });
+            }
           });
+          map.fitBounds(bounds);
+          map.setZoom(Math.min(map.getZoom(),MAX_ZOOM_LOCATE));
         });
-      } else {
-        service.centreAustralia();
       }
-      service.navbarCollapsed = true;
+      service.navbarCollapsed = true; // USED?
     }; //zoomToFeature
+
+    service.zoomToSelectedPoint = function(){
+      if(!service.selectedPoint){
+        return;
+      }
+
+      var bounds  = new  google.maps.LatLngBounds();
+      var pt = new google.maps.LatLng(service.selectedPoint.lat(),service.selectedPoint.lng());
+      doWithMap(function(map){
+        bounds.extend(pt);
+        map.fitBounds(bounds);
+        map.setZoom(Math.min(map.getZoom(),MAX_ZOOM_LOCATE));
+      });
+    };
 
     service.clearRegionSelection = function() {
       service.selectedRegion = null;
