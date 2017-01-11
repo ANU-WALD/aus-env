@@ -83,14 +83,15 @@ angular
   ])
   .config(function ($routeProvider,$logProvider,uiGmapGoogleMapApiProvider) {
     var key='WENFO_GOOGLE_MAPS_API_KEY';
+    var libs = 'geometry,visualization';
     if(key.indexOf('WENFO')===0){
       uiGmapGoogleMapApiProvider.configure({
-        libraries: 'geometry,visualization'
+        libraries: libs
       });
     } else {
       uiGmapGoogleMapApiProvider.configure({
         key:key,
-        libraries: 'geometry,visualization'
+        libraries: libs
       });
     }
     $routeProvider

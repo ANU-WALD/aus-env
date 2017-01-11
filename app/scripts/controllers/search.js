@@ -8,12 +8,16 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('SearchCtrl', function ($scope,$filter,staticData,selection,spatialFoci,mapmodes) {
+  .controller('SearchCtrl', function ($q,$scope,$filter,staticData,selection,spatialFoci,mapmodes) {
     $scope.selection = selection;
     $scope.mapmodes = mapmodes;
     $scope.coords={
       lat:NaN,
       lng:NaN
+    };
+
+    $scope.address={
+      selected:null
     };
 
     $scope.coordChanged = function(){
@@ -61,4 +65,57 @@ angular.module('ausEnvApp')
     $scope.canUseSearchText = function() {
       return selection.regionType !== null;
     };  //canUseSearchText
+
+  $scope.getLocation = function(val) {
+    var bnds = selection.ozLatLngMapBounds;
+    var sw = new google.maps.LatLng(bnds.south,bnds.west);
+    var ne = new google.maps.LatLng(bnds.north,bnds.east);
+    bnds = new google.maps.LatLngBounds(sw,ne);
+
+    var result = $q.defer();
+    selection.doWithMap(function(map){
+      var service = new google.maps.Geocoder();
+      console.log(bnds);
+      service.geocode({
+        address:val,
+        componentRestrictions: {
+          country: 'AU'
+        },
+        region:'AU'
+      },function(results,status){
+        console.log(status);
+        if(status!=='OK'){
+          result.reject();
+          return;
+        }
+
+        console.log(results);
+        result.resolve(results.filter(function(r){
+          return r.formatted_address!=='Australia';
+        }));
+      });
+    });
+
+    return result.promise;
+    };
+
+    var maybe = function(accessor){
+      var source = $scope;
+      accessor.split('.').forEach(function(a){
+        if(source){
+          source = source[a];
+        }
+      });
+      return source;
+    };
+    $scope.zoomToAddress = function(){
+      console.log($scope.address);
+      var pt = maybe('address.selected.geometry.location');
+      console.log(pt);
+      if(pt){
+        selection.selectionMode='point';
+        selection.selectedPoint=pt;
+        selection.zoomToSelectedPoint();
+      }
+    };
   });

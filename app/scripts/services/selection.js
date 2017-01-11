@@ -164,8 +164,8 @@ angular.module('ausEnvApp')
      */
     service.makeLayer = _makeLayer;
 
-    var doWithMap = function(fn){
-      uiGmapGoogleMapApi.then(function () {
+    service.doWithMap = function(fn){
+      return uiGmapGoogleMapApi.then(function () {
         uiGmapIsReady.promise(1).then(function(instances){
 //            var geojson = L.geoJson(service.selectedRegion.feature);
           var map = instances[0].map;
@@ -189,7 +189,7 @@ angular.module('ausEnvApp')
       } else {
         service.selectionMode='region';
 
-        doWithMap(function(map){
+        service.doWithMap(function(map){
           var bounds  = new  google.maps.LatLngBounds();
           var key = service.selectedRegion.feature.properties[service.regionType.keyField];
           map.data.forEach(function(feature){
@@ -214,7 +214,7 @@ angular.module('ausEnvApp')
 
       var bounds  = new  google.maps.LatLngBounds();
       var pt = new google.maps.LatLng(service.selectedPoint.lat(),service.selectedPoint.lng());
-      doWithMap(function(map){
+      service.doWithMap(function(map){
         bounds.extend(pt);
         map.fitBounds(bounds);
         map.setZoom(Math.min(map.getZoom(),MAX_ZOOM_LOCATE));
@@ -282,11 +282,8 @@ angular.module('ausEnvApp')
      *
      */
     service.centreAustralia = function() {
-      uiGmapGoogleMapApi.then(function () {
-        uiGmapIsReady.promise(1).then(function(instances){
-        var map = instances[0].map;
+      service.doWithMap(function(map){
         map.fitBounds(service.ozLatLngMapBounds);
-      });
       });
     };
 

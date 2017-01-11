@@ -51,9 +51,11 @@
                  uib-tooltip="Longitude in decimal degrees, eg 123.4, or 123.4E"
                  tooltip-append-to-body="true">
          </div>
-        <button type="button" class="btn btn-primary" ng-click="selection.zoomToSelectedPoint()"
-                 uib-tooltip="Pan/Zoom to selected point" tooltip-append-to-body="true"
-                 tooltip-placement="bottom">Locate
+        <button type="button"
+                ng-disabled="!selection.selectedPoint"
+                class="btn btn-primary" ng-click="selection.zoomToSelectedPoint()"
+                uib-tooltip="Pan/Zoom to selected point" tooltip-append-to-body="true"
+                tooltip-placement="bottom">Locate
         </button>
       </form>
     </uib-tab>
@@ -63,6 +65,18 @@
         <div class="form-group">
           <label>Address</label>
           <div class="btn-group">
+
+           <input type="text"
+                  ng-model="address.selected"
+                  placeholder="Address or locality"
+                  uib-typeahead="address as address.formatted_address for address in getLocation($viewValue)"
+                  typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
+    <i ng-show="loadingLocations" class="fa fa-pulse fa-spinner"></i>
+<!--
+    <div ng-show="noResults">No Results Found</div>
+-->
+
+<!--
             <input type="text"
                    class="form-control"
                    placeholder="Search or select"
@@ -73,12 +87,17 @@
                   ng-click="selection.selectedAddress=null"
                   ng-show="selection.selectedAddress">
             </span>
+-->
+
           </div>
         </div>
-        <button type="button" class="btn btn-primary" ng-click="selection.zoomToFeature()"
-                 uib-tooltip="Zoom to selected region" tooltip-append-to-body="true"
-                 tooltip-placement="bottom">Locate
-        </button>
+        <button type="button"
+                ng-disabled="!address.selected"
+                class="btn btn-primary"
+                ng-click="zoomToAddress()"
+                uib-tooltip="Zoom to selected region"
+                tooltip-append-to-body="true"
+                tooltip-placement="bottom">Locate</button>
       </form>
     </uib-tab>
   </uib-tabset>
