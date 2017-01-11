@@ -17,7 +17,4 @@ describe('Controller: SharingCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(SharingCtrl.awesomeThings.length).toBe(3);
-  });
 });
