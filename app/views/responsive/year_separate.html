@@ -1,0 +1,13 @@
+<div class="hidden-xs" ng-controller="YearCtrl">
+  <button class="btn btn-default btn-xs"
+          uib-tooltip="Next year"
+          tooltip-placement="right"
+          tooltip-append-to-body="true"
+          ng-click="moveYear($event,1)"><i class="fa fa-angle-up"></i></button>
+  <br/>
+  <button class="btn btn-default btn-xs"
+          uib-tooltip="Previous year"
+          tooltip-placement="right"
+          tooltip-append-to-body="true"
+          ng-click="moveYear($event,-1)"><i class="fa fa-angle-down"></i></button>
+</div>

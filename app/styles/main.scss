@@ -491,12 +491,18 @@ h4.chart-subtitle{
   color:#000;
 }
 
+.map-year-control{
+  margin-bottom:10px;
+}
+
 /**** Legend styles */
 .legend {
+  margin-bottom:5px;
   border: 1px black solid;
   margin-left:5px;
   padding: 4px;
 }
+
 
 .legend-entry {
   float: left;
@@ -598,11 +604,6 @@ canvas {
   background:white;
   min-height:25px;
   border:1px solid black;
-}
-
-
-.legend{
-  margin-bottom:4px;
 }
 
 

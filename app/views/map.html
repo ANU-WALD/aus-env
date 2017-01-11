@@ -3,13 +3,7 @@
 <br/>
 <p>second </p>{{selection.selectedLayer}}
 -->
-<div class="visible-xs-block">
-  <ng-include src="'views/maptools/titlecontent.html'"></ng-include>
-  <div class="btn-group btn-group-inline btn-group-justified btn-group-lg">
-    <ng-include src="'views/maptools/zoom-buttons.html'"/>
-    <ng-include src="'views/maptools/zoom-buttons-other.html'"/>
-  </div>
-</div>
+<ng-include src="'views/responsive/zoom_separate.html'"></ng-include>
 <div class="row main-map">
   <ui-gmap-google-map events="map.events"
                       center='selection.mapCentre.center'
@@ -23,14 +17,14 @@
             >
     </ui-gmap-marker>
     <ui-gmap-map-control
-        template="views/maptools/details.html"
+        template="views/responsive/details_map.html"
         position="RIGHT_BOTTOM"
         controller="LocationselectionCtrl"
         index="-1"
     >
     </ui-gmap-map-control>
     <ui-gmap-map-control
-        template="views/maptools/maptypebuttons.html"
+        template="views/responsive/maptype_map.html"
         position="RIGHT_TOP"
         controller="MapdisplayCtrl"
         index="-1"
@@ -38,7 +32,7 @@
     </ui-gmap-map-control>
 
     <ui-gmap-map-control
-        template="views/maptools/legend.html"
+        template="views/responsive/legend_map.html"
         position="LEFT_BOTTOM"
         controller="LegendCtrl"
         index="-1"
@@ -46,9 +40,16 @@
     </ui-gmap-map-control>
 
     <ui-gmap-map-control
-        template="views/maptools/zoom.html"
+        template="views/responsive/zoom_map.html"
         controller="ZoomCtrl"
         position="LEFT_TOP"
+    >
+    </ui-gmap-map-control>
+
+    <ui-gmap-map-control
+        template="views/responsive/year_map.html"
+        controller="YearCtrl"
+        position="BOTTOM_CENTER"
     >
     </ui-gmap-map-control>
 
@@ -56,7 +57,5 @@
     <ui-gmap-map-type options="regionImageData" show="map.showRegions" refresh="map.refreshRegions"></ui-gmap-map-type>
   </ui-gmap-google-map>
   </div>
-<div class="visible-xs-block">
-  <ng-include src="'views/maptools/legendcontent.html'"></ng-include>
-</div>
+  <ng-include src="'views/responsive/legend_separate.html'"></ng-include>
 

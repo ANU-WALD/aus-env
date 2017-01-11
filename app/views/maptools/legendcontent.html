@@ -1,10 +1,10 @@
-  <div ng-repeat="line in colourScheme[0]">
-    <div ng-show="entry[$parent.$index].text" class="col-xs-3" ng-repeat="entry in colourScheme">
-      <div class="legend-colour">
-        <i class="legend-entry" ng-style="{background:entry[$parent.$index].colour}"></i>
-      </div>
-      <div class="legend-label">
-        <span ng-bind-html="entry[$parent.$index].text"></span>
-      </div>
+<div ng-repeat="line in colourScheme[0]">
+  <div ng-show="entry[$parent.$index].text" class="col-xs-3" ng-repeat="entry in colourScheme">
+    <div class="legend-colour">
+      <i class="legend-entry" ng-style="{background:entry[$parent.$index].colour}"></i>
+    </div>
+    <div class="legend-label">
+      <span ng-bind-html="entry[$parent.$index].text"></span>
     </div>
   </div>
+</div>

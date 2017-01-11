@@ -15,11 +15,6 @@ angular.module('ausEnvApp')
       doNotShow:false
     };
 
-    $scope.moveYear = function(evt,dir){
-      evt.preventDefault();
-      $scope.selection.moveYear(dir);
-    };
-
     /* http://stackoverflow.com/a/326076*/
     function inIframe () {
       try {
@@ -39,7 +34,7 @@ angular.module('ausEnvApp')
       scope: $scope
     };
 
-    if(!localStorage.preventAbout){
+    if(!localStorage.preventAbout&&!$scope.embedded){
       $scope.modalInstance = $uibModal.open(options);
     }
 

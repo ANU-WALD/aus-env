@@ -1,0 +1,16 @@
+<div class="visible-xs map-year-control">
+  <span>
+          <button class="btn btn-default btn-xs"
+                  uib-tooltip="Previous year"
+                  tooltip-placement="top"
+                  tooltip-append-to-body="true"
+                  ng-click="moveYear($event,-1)"><i class="fa fa-angle-left"></i></button>
+          {{selection.year}}
+          <button class="btn btn-default btn-xs"
+                  uib-tooltip="Next year"
+                  tooltip-placement="top"
+                  tooltip-append-to-body="true"
+                  ng-click="moveYear($event,1)"><i class="fa fa-angle-right"></i></button>
+        </div>
+  </span>
+</div>
