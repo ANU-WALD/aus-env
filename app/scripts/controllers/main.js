@@ -20,6 +20,17 @@ angular.module('ausEnvApp')
       $scope.selection.moveYear(dir);
     };
 
+    /* http://stackoverflow.com/a/326076*/
+    function inIframe () {
+      try {
+        return window.self !== window.top;
+      } catch (e) {
+        return true;
+      }
+    };
+
+    $scope.embedded = inIframe();
+
     $scope.runningLocally = (window.location.hostname==='localhost');
 
     var options = {

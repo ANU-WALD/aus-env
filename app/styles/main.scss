@@ -607,3 +607,25 @@ canvas {
 .search-popover{
   max-width:800px;
 }
+
+
+
+.modal {
+  text-align: center;
+}
+
+/* Vertically centre the modals http://stackoverflow.com/a/25160044*/
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
