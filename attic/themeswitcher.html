@@ -1,8 +1,0 @@
-
-<div class="pull-left" ng-repeat="theme in themes" uib-tooltip="{{theme.longName||theme.name}}">
-  <a ng-click="selectTheme(theme)" class="thumbnail theme-button selection-button" ng-class="themeClasses(theme)">
-    <i class="fa fa-2x pull-right theme-direction-icon" ng-class="themeDirection(theme   )"></i>
-    <img ng-if="theme.icon" ng-src="static/images/{{theme.icon}}" alt="{{theme.description}}">
-    <span ng-if="!theme.icon">{{theme.name}}</span>
-  </a>
-</div>
