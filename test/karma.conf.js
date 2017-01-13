@@ -43,7 +43,7 @@ module.exports = function(config) {
       'bower_components/lodash/lodash.js',
       'bower_components/angular-google-maps/dist/angular-google-maps.js',
       'bower_components/proj4/dist/proj4.js',
-      'bower_components/plotly.js/dist/plotly.min.js',
+      'bower_components/plotlyjs/plotly.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

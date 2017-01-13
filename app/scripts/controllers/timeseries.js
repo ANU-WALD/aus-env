@@ -8,8 +8,9 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('TimeseriesCtrl', function ($scope,$log,details) {
+  .controller('TimeseriesCtrl', function ($scope,$log,$element,details) {
     var Plotly = window.Plotly;
+    var $ = window.$;
     $scope.line = details.chartMetaData();
 
     $scope.lineOptions = {
@@ -84,9 +85,10 @@ angular.module('ausEnvApp')
         $scope.lineSeries = ['TS'];
         details.populateLabels($scope.line,metadata);
 
-        var TESTER = document.getElementById('tester');
+        var target = $element[0];
+        target = $('.timeseries-chart',target)[0];
 
-        Plotly.newPlot( TESTER, [{
+        Plotly.newPlot( target, [{
           x: labels,
           y: series
          }], {
