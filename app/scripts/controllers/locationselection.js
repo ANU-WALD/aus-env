@@ -8,8 +8,9 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('LocationselectionCtrl', function ($scope,selection) {
+  .controller('LocationselectionCtrl', function ($scope,$log,selection) {
     $scope.selection = selection;
 
+    $log.log('Redundant controller, LocationselectionCtrl');
     // Redundant?
   });

@@ -12,6 +12,10 @@ angular.module('ausEnvApp')
     $scope.showSearch=false;
     $scope.selection = selection;
 
+    $scope.$watch('selection.selectedLayer',function(){
+      $scope.mapDescription = selection.selectedLayer.description;
+    });
+
     $scope.mapZoom = function(delta) {
       selection.mapCentre.zoom += delta;
     };

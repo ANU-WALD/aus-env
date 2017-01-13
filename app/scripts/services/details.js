@@ -7,9 +7,6 @@
  * # details
  * Service in the ausEnvApp.
  */
-
-//selection.regionType
-//selection.selectedLayer
 angular.module('ausEnvApp')
   .service('details', function ($q,$http,$window,staticData,selection,csv) {
     var service = this;
@@ -61,38 +58,19 @@ angular.module('ausEnvApp')
       return summaryName;
     };
 
-    service.polygonSource = function(/*needRegion*/) {
-//      if(!needRegion||selection.haveRegion()) {
-      // +++TODO Getting called before region type is available and hence failling...
-      return selection.regionType.summaryName || selection.regionType.source;
-//      } else {
-//        return "SA3_2011_AUST";
-//      }
+    service.polygonSource = function(regionType) {
+      regionType = regionType || selection.regionType;
+      return regionType.summaryName || regionType.source;
     };
 
-    service.getAnnualTimeSeries = function(){
-      if(selection.regionType.name==='Point'){
-        // +++TODO
-        var result = $q.defer();
-        result.resolve(null);
-        return result.promise;
-      } else {
-        return service.getPolygonAnnualTimeSeries();
-      }
-    };
-
-    service.getPolygonAnnualTimeSeries = function(){
+    service.getPolygonAnnualTimeSeries = function(regionType){
       var result = $q.defer();
       $q.all([selection.getSelectedLayer(),selection.getRegionType()]).then(function(){
-        var url = ANNUAL_TIME_SERIES+service.summaryName()+'.'+service.polygonSource()+'.TimeSeries.mean.csv';
+        var url = ANNUAL_TIME_SERIES+service.summaryName()+'.'+service.polygonSource(regionType)+'.TimeSeries.mean.csv';
         result.resolve(service.retrieveCSV(url));
       });
 
       return result.promise;
-    };
-
-    service.getBarChartData = function(){
-      return service.getAnnualTimeSeries();
     };
 
     service.getPolygonFillData = function() {
@@ -127,17 +105,6 @@ angular.module('ausEnvApp')
     service.landCoverCodes = staticData.deferredGet(service,'static/config/DLCD_codes.csv','_landcoverText',function(text){
       return csv.parseRegularCSV(text,'',true);
     });
-
-    //<editor-fold desc="pete linegraph">
-    service.makeSimpleLabels = function(length,prefix)
-    {
-      var pre = prefix || "";
-      var labels = [];
-      for(var i = 0; i<length; i++) {
-        labels.push(pre + (i+1));
-      }
-      return labels;
-    };
 
     service.randomDataArray = function(length)
     {
@@ -185,5 +152,62 @@ angular.module('ausEnvApp')
 
     service.chartMetaData = function(){
       return service.clearChart({});
+    };
+
+    service.assignBarChartColours = function(barLabels){
+      var firstYear = barLabels[0];
+      var currentYearIndex = selection.year - firstYear;
+      // +++TODO: Extract to respond to changed year...
+      // +++TODO: Tidy up!
+      for (var i=0; i<barLabels.length; i++) {
+        if (selection.year === parseInt(barLabels[i])) {
+          currentYearIndex = i;
+          break;
+        }
+      }
+
+      var barColors = [{fillColor:["#66987F"]}];
+      barColors[0].fillColor[currentYearIndex] = "#2B5F45";
+
+      if (currentYearIndex < barLabels.length-1) {
+        barColors[0].fillColor[currentYearIndex+1] = "#66987F";
+      }
+
+      return barColors;
+    };
+
+  service.formatValue = function(val){
+    // Add thousand's separator. Source: http://stackoverflow.com/a/2901298
+    var parts = val.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  };
+
+    service.tooltipSafeUnits = function(chart){
+      if(chart.units.indexOf('<su')>=0) {
+        return chart.originalUnits;
+      } else {
+        return chart.units;
+      }
+    };
+
+    service.populateLabels = function(chart,data){
+        chart.title = data.Title;
+        chart.description = data.Description;
+        chart.units = service.unitsText(data.Units);
+        chart.originalUnits = data.Units;
+        /*
+        if(chart === $scope.bar) {
+          $scope.viewOptions[0].description = chart.description;
+        } else if(chart === $scope.pie) {
+          $scope.viewOptions[1].description = chart.description;
+        }
+        */
+    };
+
+    service.tooltipTextFunction = function(chart){
+      return function(label){
+        return label.label + ':' + service.formatValue(label.value) + ' ' + service.tooltipSafeUnits(chart);
+      };
     };
   });

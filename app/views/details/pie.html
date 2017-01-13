@@ -1,13 +1,15 @@
-<h2 class="details-heading" ng-bind-html="locationLabel()"></h2>
-<h3 class="chart-title">
-  {{selection.year}} {{pie.title}} (<span ng-bind-html="pie.units"></span>)
-  <i class="fa fa-info-circle" uib-tooltip="{{pie.description}}" tooltip-append-to-body="true"></i>
-</h3>
-<h4 class="chart-subtitle">Total by land cover type</h4>
+<div ng-controller="PieCtrl">
+  <h2 class="details-heading" ng-bind-html="locationLabel()"></h2>
+  <h3 class="chart-title">
+    {{selection.year}} {{pie.title}} (<span ng-bind-html="pie.units"></span>)
+    <i class="fa fa-info-circle" uib-tooltip="{{pie.description}}" tooltip-append-to-body="true"></i>
+  </h3>
+  <h4 class="chart-subtitle">Total by land cover type</h4>
 
-<canvas id="pie" class="chart chart-pie"
-	 chart-data="pieData" chart-labels="pieLabels" chart-options="pieChartOptions" chart-colours="pieColours">
-</canvas>
+  <canvas id="pie" class="chart chart-pie"
+  	 chart-data="pieData" chart-labels="pieLabels" chart-options="pieChartOptions" chart-colours="pieColours">
+  </canvas>
 
-<a class="download-link" ng-show="pie.download" ng-href="{{pie.download}}"><i class="fa fa-download"></i>Get the data</a>
-<span class="pull-right" ng-show="pie.sum">Total: {{pie.sum | number}}&nbsp<span ng-bind-html="pie.units"/>&nbsp</span>
+  <a class="download-link" ng-show="pie.download" ng-href="{{pie.download}}"><i class="fa fa-download"></i>Get the data</a>
+  <span class="pull-right" ng-show="pie.sum">Total: {{pie.sum | number}}&nbsp<span ng-bind-html="pie.units"/>&nbsp</span>
+</div>
