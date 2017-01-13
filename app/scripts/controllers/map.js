@@ -52,11 +52,13 @@ angular.module('ausEnvApp')
         }
       },
       options:{
-        mapTypeControl:true,
+        mapTypeControl:false,
         streetViewControl:true,
-        zoomControl:true,
+        zoomControl:false,
         scaleControl:true,
-        rotateControl:true
+        streetViewControlOptions:{
+          position:5
+        }
       }
     };
 
@@ -572,4 +574,5 @@ angular.module('ausEnvApp')
     $window.open("https://www.facebook.com/sharer/sharer.php?u="+escape($window.location.href)+"&t="+$document.title, '',
                 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
   };
+
 });

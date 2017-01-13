@@ -1,13 +1,28 @@
 <div class="nudge-left panel panel-group hidden-xs">
-  <div class="panel btn-group btn-group-vertical btn-group-xs">
-    <ng-include src="'views/maptools/zoom-buttons.html'"/>
+  <div ng-include="'views/maptools/zoom-buttons.html'">
   </div>
-  <br/>
-  <div class="panel btn-group btn-group-vertical btn-group-xs">
-    <ng-include src="'views/maptools/zoom-buttons-other.html'"/>
+  <div ng-include="'views/maptools/zoom-buttons-other.html'">
   </div>
-
-  <div class="panel btn-group btn-group-vertical btn-group-xs">
-    <button type="button" class="btn btn-default map-button" uib-tooltip="Share or embed current view" tooltip-popup-delay="750" tooltip-placement="right" ng-click="openShareModal()"><span class="fa fa-lg fa-share-alt"/></button>
+  <div>
+    <div class="zoom-button">
+      <button
+              type="button"
+              class="btn btn-default map-button"
+              uib-tooltip="Share or embed current view"
+              tooltip-popup-delay="750"
+              tooltip-placement="right"
+              ng-click="openShareModal()"><span class="fa fa-lg fa-share-alt"/></button>
+    </div>
+    <div class="zoom-button" id="streetViewHost" style="position:relative;top:0;left:0;">
+    </div>
   </div>
 </div>
+
+<!--
+* Top left - zoom/search controls,
+           -
+           - street view,
+           - go to current location
+
+           Switch search to a modal?
+-->
