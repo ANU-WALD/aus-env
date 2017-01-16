@@ -234,10 +234,6 @@ angular.module('ausEnvApp')
       return service.selectedRegion.feature.properties[service.regionType.labelField];
     };
 
-    service.haveRegion = function() {
-      return service.selectedRegion && (service.selectedRegion!=="");
-    };
-
     service.initialisePolygons = function(newOption) {
       var result = $q.defer();
       service.availableFeatures = [];

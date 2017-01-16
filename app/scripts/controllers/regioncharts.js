@@ -88,26 +88,28 @@ angular.module('ausEnvApp')
     };
 
     $scope.locate = function(){
-      var PlaceId = null;
-      var label = null;
-      if(selection.selectedRegion && selection.selectedRegion.name) {
-        var keyField = selection.regionType.keyField;
-        PlaceId = selection.selectedRegion.feature.properties[keyField];
-        if(PlaceId) {
-          label = selection.selectedRegion.name;
+      var result = {
+        id:null,
+        label:null
+      };
+
+      if(selection.regionType){
+        if(selection.selectedRegion) {
+          var keyField = selection.regionType.keyField;
+          result.id = selection.selectedRegion.feature.properties[keyField];
+          if(result.id) {
+            result.label = selection.selectedRegion.name;
+          } else {
+            result.id = 9999;
+            result.label = selection.regionType.globalLabel || 'National';
+          }
         } else {
-          PlaceId = 9999;
-          label = selection.regionType.globalLabel || 'National';
+          result.id = 9999;
+          result.label = selection.regionType.globalLabel || 'National';
         }
-      } else if(!selection.haveRegion()){
-        PlaceId = 9999;
-        label = selection.regionType.globalLabel || 'National';
       }
 
-      return {
-        id:PlaceId,
-        label:label
-      };
+      return result;
     };
 
     $scope.getBarData = function(){
