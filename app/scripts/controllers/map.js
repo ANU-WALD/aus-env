@@ -56,9 +56,6 @@ angular.module('ausEnvApp')
         streetViewControl:true,
         zoomControl:false,
         scaleControl:true,
-        streetViewControlOptions:{
-          position:5
-        }
       }
     };
 
