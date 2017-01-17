@@ -8,7 +8,7 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('BarCtrl', function ($scope,$log,selection,details) {
+  .controller('BarCtrl', function ($scope,$log,selection,details,downloads) {
     $scope.selection = selection;
     $scope.bar = details.chartMetaData();
     $scope.barColors = [];
@@ -65,6 +65,9 @@ angular.module('ausEnvApp')
         $scope.barSeries = [metadata.label];
         $scope.adjustColours();
         details.populateLabels($scope.bar,metadata);
+
+        $scope.bar.download = downloads.downloadableTable(barData.map(function(line){return [line.label,line.value];}),['Year','Value']);
+        $scope.bar.download_fn = downloads.makeDownloadFilename($scope.locationLabel(),$scope.bar.title);
       });
     };
 

@@ -8,7 +8,7 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('PieCtrl', function ($scope,details) {
+  .controller('PieCtrl', function ($scope,details,downloads) {
     $scope.pie = details.chartMetaData();
     $scope.pie.sum=null;
     $scope.pieData = [];
@@ -22,6 +22,7 @@ angular.module('ausEnvApp')
 
     $scope.createChart = function(){
       $scope.getPieData().then(function(data){
+        var _ = window._;
         var series = data[0];
         var labels = data[1];
         var colours = data[2];
@@ -33,7 +34,9 @@ angular.module('ausEnvApp')
 
         details.populateLabels($scope.pie,metadata);
         $scope.pie.sum = $scope.pieData.reduce(function(x,y){return x+y;}).toFixed();
-      })
+        $scope.pie.download = downloads.downloadableTable(_.zip(labels,series),['Land Cover','Value']);
+        $scope.pie.download_fn = downloads.makeDownloadFilename($scope.locationLabel(),$scope.pie.title);
+      });
     };
 
     $scope.watchList.forEach(function(prop){

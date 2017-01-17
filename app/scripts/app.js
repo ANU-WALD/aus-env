@@ -81,7 +81,9 @@ angular
     'ui.select',
     'uiGmapgoogle-maps'
   ])
-  .config(function ($routeProvider,$logProvider,uiGmapGoogleMapApiProvider) {
+  .config(function ($routeProvider,$logProvider,uiGmapGoogleMapApiProvider,$compileProvider){
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|data):/);
+
     var key='WENFO_GOOGLE_MAPS_API_KEY';
     var libs = 'geometry,visualization';
     if(key.indexOf('WENFO')===0){
