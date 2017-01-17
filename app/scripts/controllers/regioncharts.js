@@ -30,7 +30,7 @@ angular.module('ausEnvApp')
     });
   }])
 
-  .controller('RegionChartsCtrl', function ($scope,$q,selection,details) {
+  .controller('RegionChartsCtrl', function ($scope,$q,selection,details,timeseries,spatialFoci) {
     $scope.selection = selection;
     $scope.watchList = ['selectionMode','selectedRegion','selectedLayer','regionType'];
     $scope.selectedRegionArea = null;
@@ -45,6 +45,11 @@ angular.module('ausEnvApp')
         style:'pie',
         icon:'fa-pie-chart',
         tooltip:'Proportion by land cover type'
+      },
+      {
+        style:'timeseries',
+        icon:'fa-line-chart',
+        tooltip:'Detailed time series'
       }
     ];
 
@@ -161,6 +166,27 @@ angular.module('ausEnvApp')
         var series = data[indexName];
         result.resolve([series,labels,colours,data]);
       });
+      return result.promise;
+    };
+
+    $scope.getLineChartData = function(){
+      var result = $q.defer();
+      var locators = $scope.locate();
+
+      var layer = $scope.selection.selectedLayer;
+      layer = layer.regionTimeSeries;
+      if(!layer||!locators.id){
+        result.reject();return result.promise;
+      }
+
+      spatialFoci.regionTypes().then(function(rt){
+        $q.all([timeseries.retrieveTimeSeriesForPolygon(locators.id,layer,selection.year),details.getPolygonAnnualTimeSeries(rt[0])]).then(function(resp){
+          var data = resp[0];
+          var metadata = resp[1];
+          result.resolve([data[layer.variable],data.time,metadata]);
+        });
+      });
+
       return result.promise;
     };
 

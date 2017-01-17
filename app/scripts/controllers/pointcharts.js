@@ -78,19 +78,6 @@ angular.module('ausEnvApp')
           var data = $scope.buildEvents(dapData,layer.variable);
           result.resolve([data,metadata]);
         });
-
-//        .then(function(pointAndPolyTS){
-//          var data = pointAndPolyTS[0];
-//          var csvData = pointAndPolyTS[1];
-//          // +++TODO Is it making multiple Opendap requests???
-//          //console.log(data);
-//          $scope.barData = [];
-//          $scope.barData.push(data[layer.variable]);
-//          $scope.barLabels = data.time.map(function(dt){return dt.getFullYear();});
-//          $scope.barSeries = ['TS'];
-//          $scope.barColors = details.assignBarChartColours($scope.barLabels);
-//          details.populateLabels($scope.bar,csvData);
-//        });
       });
 
       return result.promise;
@@ -120,28 +107,4 @@ angular.module('ausEnvApp')
       return result.promise;
     };
 
-    $scope.createTimeSeriesPoint = function(){
-      // Clear data...
-
-        // +++TODO Is it making multiple Opendap requests???
-//        $scope.createLineChart(data[layer.variable]);
-//        $scope.barData = [];
-//        $scope.barData.push(data[layer.variable]);
-//        $scope.barLabels = data.time.map(function(dt){return dt.getFullYear();});
-//        $scope.barSeries = ['TS'];
-//        $scope.assignBarChartColours();
-//      });
-    };
-
-//    $scope.watchList.forEach(function(prop){
-//      $scope.$watch('selection.'+prop,$scope.createPointCharts);
-//    });
-
-//    $scope.$watch('selection.year',function(){
-//      if(selection.useSelectedPoint()&&$scope.canShowChart('timeseries')){
-//        $scope.createTimeSeriesPoint();
-//
-//        // TODO: Update highlighted year in bar chart
-//      }
-//    });
   });

@@ -8,7 +8,7 @@
  * Service in the ausEnvApp.
  */
 angular.module('ausEnvApp')
-  .service('timeseries', function ($window,$q,$http,$interpolate/*,selection*/) {
+  .service('timeseries', function ($window,$q,$http,$interpolate,details/*,selection*/) {
     var service = this;
     var dap = $window.dap;
     var BASE_URL='http://dapds00.nci.org.au/thredds/dodsC/';
@@ -35,7 +35,8 @@ angular.module('ausEnvApp')
     service.dimensions = {
       time:{},
       latitude:{},
-      longitude:{}
+      longitude:{},
+      ID:{}
     };
 
     service.retrieveDimension = function(fn,dim){
@@ -61,12 +62,6 @@ angular.module('ausEnvApp')
 
     service.retrieveTimeSeriesForPoint = function(pt,layer,year){
       var result = $q.defer();
-
-//      console.log('Annual time series for point... Layer');
-//      console.log(layer);
-//      console.log(pt);
-
-      // Fill in actual url;
       var url = $interpolate(layer.url)({year:year});
 
       $q.all(['das','ddx'].map(function(m){return service.retrieveMetadata(url,m);}))
@@ -98,6 +93,51 @@ angular.module('ausEnvApp')
       return result.promise;
     };
 
+    service.retrieveTimeSeriesForPolygon =function(id,layer,year){
+      var result = $q.defer();
+      id = +id;
+
+//      console.log('Annual time series for point... Layer');
+//      console.log(layer);
+//      console.log(pt);
+
+      // Fill in actual url;
+      var url = $interpolate(layer.url)({year:year,source:details.polygonSource()});
+
+      console.log(url);
+
+      $q.all(['das','ddx'].map(function(m){return service.retrieveMetadata(url,m);}))
+        .then(function(allMeta){
+          var ddx = allMeta[1];
+          $q.all(['time','ID'].map(function(dim){
+            return service.retrieveDimension(url,dim);
+          })).then(function(dimensions){
+            var t = dimensions[0].time;
+            var idDimension = dimensions[1].ID;
+            var idIndex;
+
+            if(id===9999){
+              idIndex = idDimension.length-1;
+            }else{
+              idIndex = service.indexInDimension(id,idDimension,false,1);
+            }
+            console.log(idDimension,id,idIndex);
+            // http://dapds00.nci.org.au/thredds/dodsC/ub8/au/treecover/250m/ANUWALD.TreeCover.AllYears.250m.nc.ascii?AllYears[0:1:22][1746:1:1746][9042:1:9042]
+            var query = BASE_URL+url+'.ascii?';
+            query += layer.variable;
+            query += service.dapRangeQuery(0,t.length-1);
+            query += service.dapRangeQuery(idIndex);
+            $http.get(query).then(function(resp){
+              var data = dap.simplify(dap.parseData(resp.data,ddx));
+              result.resolve(data);
+            });
+          });
+      });
+
+      return result.promise;
+
+    };
+
     service.dapRangeQuery = function(from,to,step){
       step = step || 1;
       if(to===undefined){
@@ -110,9 +150,13 @@ angular.module('ausEnvApp')
 
     };
 
-    service.indexInDimension = function(c,dim,rev){
+    service.indexInDimension = function(c,dim,rev,trim){
       var minIndex = 0;
       var maxIndex = dim.length-1;
+
+      if(trim){
+        maxIndex-=trim;
+      }
 
       if(rev){
         minIndex = maxIndex;

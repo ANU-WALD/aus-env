@@ -332,6 +332,10 @@
         "timeseries":{
           "url":"ub8/au/OzWALD/daily/OzWALD.daily.GPP.{{year}}.nc",
           "variable":"GPP"
+        },
+        "regionTimeSeries":{
+          "url":"ub8/au/RegionTimeSeries/OzWALD.daily.GPP.{{year}}.{{source}}.RegionTimeSeries.nc",
+          "variable":"RegionMean"
         }
       },
       {
