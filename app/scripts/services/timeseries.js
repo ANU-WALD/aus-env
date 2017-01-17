@@ -121,7 +121,6 @@ angular.module('ausEnvApp')
             }else{
               idIndex = service.indexInDimension(id,idDimension,false,1);
             }
-            console.log(idDimension,id,idIndex);
             // http://dapds00.nci.org.au/thredds/dodsC/ub8/au/treecover/250m/ANUWALD.TreeCover.AllYears.250m.nc.ascii?AllYears[0:1:22][1746:1:1746][9042:1:9042]
             var query = BASE_URL+url+'.ascii?';
             query += layer.variable;
