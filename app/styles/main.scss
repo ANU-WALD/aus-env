@@ -5,6 +5,7 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 $brand-primary:$color-primary-0;
 $selected-item-background:lighten($color-secondary-2-0,5%);
 $navbar-default-bg:$selected-item-background;
+$navbar-year-background:darken($color-secondary-2-0,10%);
 $navbar-inverse-link-active-bg:$navbar-default-bg;
 $navbar-default-link-color:#ccc;
 /*$navbar-default-brand-color:#fff;*/
@@ -41,11 +42,35 @@ html, body{
 .navbar{
   border:none;
   border-radius: 0;
+
 }
 
 .navbar-icon{
   margin-top:6px;
   height: $navbar-height * 0.7;
+}
+
+.years-nav{
+  display:inline;
+}
+
+.year-select{
+  background:$navbar-year-background;
+  border:2px solid $selected-item-background;
+  border-radius:3px;
+  margin-right:15px;
+
+  a.years{
+    display:initial;
+    padding:0;
+    padding-right:4px;
+  }
+}
+
+.navbar-year{
+  margin-left:0px !important;
+  padding-left:0px;
+  padding-right:0px;
 }
 
 .main-logo{
@@ -153,6 +178,10 @@ span.form-control.ui-select-toggle{
 
 @media screen and (min-width:$container-md){
   ul.nav li.dropdown.theme-item:hover > ul.dropdown-menu{
+    display:block;
+  }
+
+  ul.nav li.dropdown.year-select:hover > ul.dropdown-menu{
     display:block;
   }
 }
@@ -498,6 +527,9 @@ h4.chart-subtitle{
 
 .map-year-control{
   margin-bottom:10px;
+  background:white;
+  border:1px solid black;
+  border-radius:3px;
 }
 
 /**** Legend styles */

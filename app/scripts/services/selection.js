@@ -22,6 +22,7 @@ angular.module('ausEnvApp')
       // +++TODO Limit pan and zoom
     };
 
+    service.availableYears = window._.range(service.bounds.year.min,service.bounds.year.max+1);
     service.year = service.bounds.year.max;
     service.theme = null;
     service.themeObject = null;

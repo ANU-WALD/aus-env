@@ -10,17 +10,13 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#/">
-<!--        <img class="hidden-lg hidden-xs hidden-sm main-logo navbar-icon pull-left" src="images/australian-continent.svg">-->
         <img class="visible-lg main-logo navbar-icon pull-left" src="images/2x_anu_logo_small.png">
         <img class="hidden-lg main-logo navbar-icon pull-left" src="images/2x_anu_logo_only.png">
 
-        <span>&nbspAustralia's Environment in</span>
-
-        <span class="current-year">
-           &nbsp{{selection.year}}&nbsp
-        </span>
-        <div class="pull-right year-selectors" ng-include="'views/responsive/year_separate.html'"></div>
+        <span>&nbspAustralia's Environment in<span class="visible-sm-inline visible-xs-inline">&nbsp{{selection.year}}</span>
         </a>
+        <div class="years-nav" ng-include="'views/responsive/year_separate.html'"></div>
+
       </div>
       <div ng-if="!embedded" id="navbar" class="navbar-collapse collapse" ng-class="{'in':!selection.navbarCollapsed}">
           <form class="fullscreen-form navbar-form navbar-right">
@@ -30,7 +26,6 @@
               <i show-if-fullscreen=true class="fa fa-compress"></i>
             </button>
           </form>
-<!--          <div ng-include="'views/navbar/search.html'" ng-controller="SearchCtrl"></div>-->
 
           <div ng-include="'views/navbar/themes.html'" ng-controller="ThemeswitcherCtrl"></div>
 
