@@ -108,6 +108,13 @@ angular.module('ausEnvApp')
       });
       return source;
     };
+
+    $scope.zoomToPoint = function(){
+      selection.selectionMode='point';
+      selection.selectedPoint = new g.maps.LatLng(+$scope.coords.lat,+$scope.coords.lng);
+      selection.zoomToSelectedPoint();
+    };
+
     $scope.zoomToAddress = function(){
       console.log($scope.address);
       var pt = maybe('address.selected.geometry.location');

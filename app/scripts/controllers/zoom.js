@@ -20,14 +20,34 @@ angular.module('ausEnvApp')
       selection.mapCentre.zoom += delta;
     };
 
-    $scope.openShareModal = function(){
+    $scope.showModal = function(view,ctrl){
+      $scope.closeModal();
       var options = {
         animation:true,
-        templateUrl: 'views/sharing.html',
-        controller:'SharingCtrl',
+        templateUrl: 'views/'+view+'.html',
         scope: $scope
       };
 
+      if(ctrl){
+        $scope.controller=ctrl;
+      }
+
       $scope.modalInstance = $uibModal.open(options);
+    };
+
+    $scope.openShareModal = function(){
+      $scope.showModal('sharing','SharingCtrl');
+    };
+
+    $scope.openSearchModal = function(){
+      $scope.showModal('maptools/search');
+    };
+
+    $scope.closeModal = function(){
+      if($scope.modalInstance){
+        $scope.modalInstance.dismiss();
+      }
+
+      $scope.modalInstance=null;
     };
   });

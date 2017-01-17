@@ -184,12 +184,12 @@ angular.module('ausEnvApp')
     angular.extend($scope, {
       bounds: {
         northEast: {
-            lat: -10,
-            lng: 150
+            lat: selection.ozLatLngMapBounds.north,
+            lng: selection.ozLatLngMapBounds.east,
         },
         southWest: {
-          lat: -45,
-          lng: 110
+          lat: selection.ozLatLngMapBounds.south,
+          lng: selection.ozLatLngMapBounds.west
         }
       },
       layers: {

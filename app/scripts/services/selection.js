@@ -54,7 +54,7 @@ angular.module('ausEnvApp')
     };
 
     service.ozLatLngMapBounds = {
-      east:150,
+      east:160,
       north:-10,
       south:-45,
       west:110
@@ -279,7 +279,11 @@ angular.module('ausEnvApp')
      */
     service.centreAustralia = function() {
       service.doWithMap(function(map){
-        map.fitBounds(service.ozLatLngMapBounds);
+        var bnds = service.ozLatLngMapBounds;
+        var sw = new google.maps.LatLng(bnds.south,bnds.west);
+        var ne = new google.maps.LatLng(bnds.north,bnds.east);
+        bnds = new google.maps.LatLngBounds(sw,ne);
+        map.fitBounds(bnds);
       });
     };
 
