@@ -37,6 +37,10 @@ angular.module('ausEnvApp')
     };
 
     $scope.selectThemeAndLayer = function(theme,layer) {
+      if(layer.menuOnly){
+        return;
+      }
+
       $scope.selectTheme(theme);
       $scope.selection.selectedLayer = layer;
     };

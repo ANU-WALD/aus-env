@@ -4,6 +4,7 @@
     "name":"Land cover change",
     "longName":"Land cover change",
     "icon":"landuse.png",
+
     "layers":[
       {
         "default":true,
@@ -46,7 +47,7 @@
         }
       },
       {
-        "title":"Land cover",
+        "title":"All",
         "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
         "units":"classification",
         "url":"ub8/au/LandCover/DLCD_v2_MODIS_EVI_2012-2013.nc",
@@ -58,6 +59,190 @@
         "palette":"anu_wald_dlcd",
         "legend":"landCoverCodes",
         "disable-bar":true
+      },
+      {
+        "title":"Artificial",
+        "menuOnly":true,
+        "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
+        "units":"classification",
+        "url":"ub8/au/LandCover/DLCD_v2_MODIS_EVI_2012-2013.nc",
+        "variable":"DLCD",
+        "time":"2012-12-31",
+        "summary":"",
+        "palette":"anu_wald_dlcd",
+        "legend":"landCoverCodes",
+        "belowmincolor":"0xFFFFFF",
+        "abovemaxcolor":"0xFFFFFF",
+        "sublayers":[
+          {
+            "title":"Extraction Sites",
+            "colorscalerange":"0.5,1.5"
+          },
+          {
+            "title":"Urban Areas",
+            "colorscalerange":"34.5,35.5"
+          }
+        ]
+      },
+      {
+        "title":"Wetlands",
+        "menuOnly":true,
+        "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
+        "units":"classification",
+        "url":"ub8/au/LandCover/DLCD_v2_MODIS_EVI_2012-2013.nc",
+        "variable":"DLCD",
+        "time":"2012-12-31",
+        "summary":"",
+        "palette":"anu_wald_dlcd",
+        "legend":"landCoverCodes",
+        "belowmincolor":"0xFFFFFF",
+        "abovemaxcolor":"0xFFFFFF",
+        "sublayers":[
+          {
+            "title":"Inland Waterbodies",
+            "colorscalerange":"2.5,3.5"
+          },
+          {
+            "title":"Salt Lakes",
+            "colorscalerange":"3.5,4.5"
+          },
+          {
+            "title":"Wetlands",
+            "colorscalerange":"10.5,11.5"
+          }
+        ]
+      },
+      {
+        "title":"Cropping",
+        "menuOnly":true,
+        "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
+        "units":"classification",
+        "url":"ub8/au/LandCover/DLCD_v2_MODIS_EVI_2012-2013.nc",
+        "variable":"DLCD",
+        "time":"2012-12-31",
+        "summary":"",
+        "palette":"anu_wald_dlcd",
+        "legend":"landCoverCodes",
+        "belowmincolor":"0xFFFFFF",
+        "abovemaxcolor":"0xFFFFFF",
+        "sublayers":[
+          {
+            "title":"Irrigated Cropping",
+            "colorscalerange":"4.5,5.5"
+          },
+          {
+            "title":"Irrigated Sugar",
+            "colorscalerange":"6.5,7.5"
+          },
+          {
+            "title":"Rainfed Cropping",
+            "colorscalerange":"7.5,8.5"
+          },
+          {
+            "title":"Rainfed Sugar",
+            "colorscalerange":"9.5,10.5"
+          }
+        ]
+      },
+      {
+        "title":"Grasses",
+        "menuOnly":true,
+        "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
+        "units":"classification",
+        "url":"ub8/au/LandCover/DLCD_v2_MODIS_EVI_2012-2013.nc",
+        "variable":"DLCD",
+        "time":"2012-12-31",
+        "summary":"",
+        "palette":"anu_wald_dlcd",
+        "legend":"landCoverCodes",
+        "belowmincolor":"0xFFFFFF",
+        "abovemaxcolor":"0xFFFFFF",
+        "sublayers":[
+          {
+            "title":"Irrigated Pasture",
+            "colorscalerange":"5.5,6.5"
+          },
+          {
+            "title":"Rainfed Pasture",
+            "colorscalerange":"8.5,9.5"
+          },
+          {
+            "title":"Tussock Grasses - Closed",
+            "colorscalerange":"13.5,14.5"
+          },
+          {
+            "title":"Alpine Grasses - Open",
+            "colorscalerange":"14.5,15.5"
+          },
+          {
+            "title":"Hummock Grasses - Open",
+            "colorscalerange":"15.5,16.5"
+          },
+          {
+            "title":"Tussock Grasses - Open",
+            "colorscalerange":"17.5,18.5"
+          }
+        ]
+      },
+      {
+        "title":"Shrubs",
+        "menuOnly":true,
+        "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
+        "units":"classification",
+        "url":"ub8/au/LandCover/DLCD_v2_MODIS_EVI_2012-2013.nc",
+        "variable":"DLCD",
+        "time":"2012-12-31",
+        "summary":"",
+        "palette":"anu_wald_dlcd",
+        "legend":"landCoverCodes",
+        "belowmincolor":"0xFFFFFF",
+        "abovemaxcolor":"0xFFFFFF",
+        "sublayers":[
+          {
+            "title":"Shrubs and Grasses - Sparse-Scattered",
+            "colorscalerange":"18.5,19.5"
+          },
+          {
+            "title":"Shrubs - Closed",
+            "colorscalerange":"23.5,24.5"
+          },
+          {
+            "title":"Shrubs - Open",
+            "colorscalerange":"24.5,25.5"
+          }
+        ]
+      },
+      {
+        "title":"Trees",
+        "menuOnly":true,
+        "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
+        "units":"classification",
+        "url":"ub8/au/LandCover/DLCD_v2_MODIS_EVI_2012-2013.nc",
+        "variable":"DLCD",
+        "time":"2012-12-31",
+        "summary":"",
+        "palette":"anu_wald_dlcd",
+        "legend":"landCoverCodes",
+        "belowmincolor":"0xFFFFFF",
+        "abovemaxcolor":"0xFFFFFF",
+        "sublayers":[
+          {
+            "title":"Trees - Closed",
+            "colorscalerange":"30.5,31.5"
+          },
+          {
+            "title":"Trees - Open",
+            "colorscalerange":"31.5,32.5"
+          },
+          {
+            "title":"Trees - Scattered",
+            "colorscalerange":"32.5,33.5"
+          },
+          {
+            "title":"Trees - Sparse",
+            "colorscalerange":"33.5,34.5"
+          }
+        ]
       }
     ]
   },

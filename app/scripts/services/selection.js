@@ -131,6 +131,19 @@ angular.module('ausEnvApp')
               service.selectTheme(theme);
               service.selectedLayer = layer;
               found=true;
+              return;
+            }
+
+            if(layer.sublayers){
+              for(var i in layer.sublayers){
+                var sl = layer.sublayers[i];
+                if(sl.title===themeName){
+                  service.selectTheme(theme);
+                  service.selectedLayer = sl;
+                  found = true;
+                  return;
+                }
+              }
             }
           });
         });
