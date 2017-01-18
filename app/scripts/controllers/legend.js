@@ -32,9 +32,12 @@ angular.module('ausEnvApp')
       $scope.mapDescription = selection.selectedLayer.description;
       $scope.mapUnits = selection.selectedLayer.units;
 
-      if(!selection.selectedLayer.disablePolygons) {
+      if(selection.selectedLayer.disablePolygons) {
+        result.resolve(true);
+      } else {
         details.getPolygonFillData().then(function(data){
           if(!data){
+            result.resolve(false);
             return;
           }
           if($scope.selection.mapMode===mapmodes.region) {
@@ -74,6 +77,7 @@ angular.module('ausEnvApp')
     $scope.updateColourScheme = function() {
       // +++TODO need to compute applyLogTransform
       var applyLogTransform=false;
+      $scope.colourScheme = [];
 
       if(selection.mapMode===mapmodes.grid){
         $scope.colourScaleRange = selection.selectedLayer.colorscalerange;

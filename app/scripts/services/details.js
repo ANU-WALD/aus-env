@@ -35,6 +35,8 @@ angular.module('ausEnvApp')
         var data = csv.parseCSVWithHeader(resp.data);
         data.URL = url;
         result.resolve(data);
+      },function(){
+          result.reject();
       });
 
       service.cache.push({

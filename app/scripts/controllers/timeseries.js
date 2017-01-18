@@ -24,12 +24,10 @@ angular.module('ausEnvApp')
     };
 
     $scope.createTimeSeriesChart = function(){
-      $log.log('build time series chart');
       $scope.getLineChartData().then(function(data){
         var series = data[0];
         var labels = data[1];
         var metadata = data[2];
-        $log.log('got time series data');
         $scope.lineLabels = $scope.makeSimpleLabels(series.length); // +++ TODO Don't need 365...
         $scope.lineData = [];
         $scope.lineData.push(series);
@@ -58,6 +56,15 @@ angular.module('ausEnvApp')
           modeBarButtonsToRemove: ['hoverCompareCartesian','hoverClosestCartesian','lasso2d','select2d'],
           displaylogo: false
         });
+      },function(){
+        $scope.line = details.chartMetaData();
+        $scope.lineLabels=[];
+        $scope.lineData=[];
+        $scope.lineSeries=[];
+        var target = $element[0];
+        target = $('.timeseries-chart',target)[0];
+
+        Plotly.purge(target);
       });
     };
 

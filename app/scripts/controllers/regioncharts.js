@@ -139,6 +139,9 @@ angular.module('ausEnvApp')
           }
         });
         result.resolve([data,csvData]);
+      },function(){
+        console.log('no annual time series for polygon');
+        result.reject();
       });
       return result.promise;
     };
@@ -165,6 +168,8 @@ angular.module('ausEnvApp')
         var indexName = "PlaceIndex" + locators.id;
         var series = data[indexName];
         result.resolve([series,labels,colours,data]);
+      },function(){
+        result.reject();
       });
       return result.promise;
     };
@@ -184,6 +189,8 @@ angular.module('ausEnvApp')
           var data = resp[0];
           var metadata = resp[1];
           result.resolve([data[layer.variable],data.time,metadata]);
+        },function(){
+          result.reject();
         });
       });
 

@@ -77,6 +77,8 @@ angular.module('ausEnvApp')
 
           var data = $scope.buildEvents(dapData,layer.variable);
           result.resolve([data,metadata]);
+        },function(){
+          result.reject();
         });
       });
 
@@ -101,6 +103,8 @@ angular.module('ausEnvApp')
           var data = resp[0];
           var metadata = resp[1];
           result.resolve([data[layer.variable],data.time,metadata]);
+        },function(){
+          result.reject();
         });
       });
 

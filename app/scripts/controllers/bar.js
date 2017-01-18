@@ -68,6 +68,11 @@ angular.module('ausEnvApp')
 
         $scope.bar.download = downloads.downloadableTable(barData.map(function(line){return [line.label,line.value];}),['Year','Value']);
         $scope.bar.download_fn = downloads.makeDownloadFilename($scope.locationLabel(),$scope.bar.title);
+      },function(){
+        $scope.barData = [];
+        $scope.barLabels = [];
+        $scope.barSeries = [];
+        $scope.bar = details.chartMetaData();
       });
     };
 

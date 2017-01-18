@@ -86,8 +86,14 @@ angular.module('ausEnvApp')
             $http.get(query).then(function(resp){
               var data = dap.simplify(dap.parseData(resp.data,ddx));
               result.resolve(data);
+            },function(){
+              result.reject();
             });
+          },function(){
+            result.reject();
           });
+      },function(){
+        result.reject();
       });
 
       return result.promise;
