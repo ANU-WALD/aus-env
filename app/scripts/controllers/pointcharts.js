@@ -89,11 +89,11 @@ angular.module('ausEnvApp')
       var layer = $scope.selection.selectedLayer;
       layer = layer.timeseries;
       if(!layer){
-        result.rejct();return result.promise;
+        result.reject();return result.promise;
       }
       var pt = $scope.selection.selectedPoint;
       if(!pt){
-        result.rejct();return result.promise;
+        result.reject();return result.promise;
       }
 
       spatialFoci.regionTypes().then(function(rt){

@@ -150,20 +150,13 @@ angular.module('ausEnvApp')
       $scope.updateMapTitles().then(function(success){
         if(success){
           $scope.updateColourScheme();
+        } else {
+          $scope.colourScheme=[];
         }
       });
     };
 
-//    ['selectedLayer','regionType','mapMode','dataMode'].forEach(function(prop){
-//      $scope.$watch('selection.'+prop,$scope.updateMapTitles);
-//    });
-
     ['year','selectedLayer','regionType','dataMode','mapMode'].forEach(function(prop){
       $scope.$watch('selection.'+prop,$scope.update);
     });
-
-//    ['selectedRegion','selectedLayer',,'mapMode','dataMode'].forEach(function(prop){
-//      $scope.$watch('selection.'+prop,$scope.updateStyling);
-//    });
-
   });
