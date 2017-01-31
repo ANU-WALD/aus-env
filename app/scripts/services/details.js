@@ -19,6 +19,11 @@ angular.module('ausEnvApp')
     service.MAX_CACHE_LENGTH=20;
     service.cache = [];
 
+    service.themeColours = {
+      lightGreen:'#66987F',
+      darkGreen:'#2B5F45'
+    };
+
     service.retrieveCSV = function(url){
       var existing = service.cache.filter(function(entry){
         return entry.url===url;
@@ -154,28 +159,6 @@ angular.module('ausEnvApp')
 
     service.chartMetaData = function(){
       return service.clearChart({});
-    };
-
-    service.assignBarChartColours = function(barLabels){
-      var firstYear = barLabels[0];
-      var currentYearIndex = selection.year - firstYear;
-      // +++TODO: Extract to respond to changed year...
-      // +++TODO: Tidy up!
-      for (var i=0; i<barLabels.length; i++) {
-        if (selection.year === parseInt(barLabels[i])) {
-          currentYearIndex = i;
-          break;
-        }
-      }
-
-      var barColors = [{fillColor:["#66987F"]}];
-      barColors[0].fillColor[currentYearIndex] = "#2B5F45";
-
-      if (currentYearIndex < barLabels.length-1) {
-        barColors[0].fillColor[currentYearIndex+1] = "#66987F";
-      }
-
-      return barColors;
     };
 
   service.formatValue = function(val){

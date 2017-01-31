@@ -13,22 +13,11 @@ angular.module('ausEnvApp')
     var $ = window.$;
     $scope.line = details.chartMetaData();
 
-    $scope.makeSimpleLabels = function(length,prefix)
-    {
-      var pre = prefix || "";
-      var labels = [];
-      for(var i = 0; i<length; i++) {
-        labels.push(pre + (i+1));
-      }
-      return labels;
-    };
-
     $scope.createTimeSeriesChart = function(){
       $scope.getLineChartData().then(function(data){
         var series = data[0];
         var labels = data[1];
         var metadata = data[2];
-        $scope.lineLabels = $scope.makeSimpleLabels(series.length); // +++ TODO Don't need 365...
         $scope.lineData = [];
         $scope.lineData.push(series);
         $scope.lineSeries = ['TS'];
@@ -42,7 +31,10 @@ angular.module('ausEnvApp')
 
         Plotly.newPlot( target, [{
           x: labels,
-          y: series
+          y: series,
+          line:{
+            color:details.themeColours.darkGreen
+          }
          }], {
           margin: {
             l:40,
@@ -58,7 +50,6 @@ angular.module('ausEnvApp')
         });
       },function(){
         $scope.line = details.chartMetaData();
-        $scope.lineLabels=[];
         $scope.lineData=[];
         $scope.lineSeries=[];
         var target = $element[0];
@@ -71,4 +62,6 @@ angular.module('ausEnvApp')
     $scope.watchList.forEach(function(prop){
       $scope.$watch('selection.'+prop,$scope.createTimeSeriesChart);
     });
+
+    $scope.$watch('selection.year',$scope.createTimeSeriesChart);
   });

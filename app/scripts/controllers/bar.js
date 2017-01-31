@@ -48,9 +48,31 @@ angular.module('ausEnvApp')
 
     $scope.barOptions.tooltipTemplate = details.tooltipTextFunction($scope.bar);
 
+    $scope.assignBarChartColours = function(barLabels){
+      var firstYear = barLabels[0];
+      var currentYearIndex = selection.year - firstYear;
+      // +++TODO: Extract to respond to changed year...
+      // +++TODO: Tidy up!
+      for (var i=0; i<barLabels.length; i++) {
+        if (selection.year === parseInt(barLabels[i])) {
+          currentYearIndex = i;
+          break;
+        }
+      }
+
+      var barColors = [{fillColor:[details.themeColours.lightGreen]}];
+      barColors[0].fillColor[currentYearIndex] = details.themeColours.darkGreen;
+
+      if (currentYearIndex < barLabels.length-1) {
+        barColors[0].fillColor[currentYearIndex+1] = details.themeColours.lightGreen;
+      }
+
+      return barColors;
+    };
+
     $scope.adjustColours = function(){
       $scope.barOptions.animation = false;
-      $scope.barColors = details.assignBarChartColours($scope.barLabels);
+      $scope.barColors = $scope.assignBarChartColours($scope.barLabels);
     };
 
     $scope.createBarChart = function(){

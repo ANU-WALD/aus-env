@@ -37,18 +37,6 @@ angular.module('ausEnvApp')
       return layer&&regionType&&!(layer['disable-'+style]||regionType['disable-'+style]);
     };
 
-    $scope.createPointCharts = function(){
-      // Annual time series...
-      if($scope.canShowChart('bar')){
-        $scope.createAnnualTimeSeries();
-      }
-
-      // High frequency time series...
-      if($scope.canShowChart('timeseries')){
-        $scope.createTimeSeriesPoint();
-      }
-    };
-
     $scope.buildEvents = function(dapData,variable){
       return dapData[variable].map(function(v,i){
         return {
@@ -110,5 +98,4 @@ angular.module('ausEnvApp')
 
       return result.promise;
     };
-
   });
