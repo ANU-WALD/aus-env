@@ -7,9 +7,9 @@ install:
   - npm install
   - bower install
   - gem install compass
-script:
   - bower list
   - npm list
+script:
   - grunt test
   - grunt build
   - SCRIPTS_FN=`ls dist/scripts/scripts*.js`
