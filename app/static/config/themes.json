@@ -22,7 +22,7 @@
               "colorscalerange":"0,1"
             }
           },
-          "colorscalerange":"0,100",
+          "colorscalerange":"0.0001,100",
           "variable":"AllYears",
           "time":"{{year}}-12-31",
           "palette":"anu_wald_darkgreen"
@@ -462,6 +462,7 @@
           "time":"{{year}}-12-31",
           "colorscalerange":"0,100",
           "belowmincolor":"extend",
+          "abovemaxcolor":"transparent",
           "palette":"anu_wald_gisheat_inv"
         },
         "delta":{
