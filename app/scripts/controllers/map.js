@@ -455,7 +455,7 @@ angular.module('ausEnvApp')
     }
 
     if(layer.missingYears && (layer.missingYears.indexOf(selection.year)>=0)){
-      $scope.noDataMessage = layer.title + ' not available for ' + selection.year;
+      $scope.noDataMessage = (layer.source||layer.title) + ' not available for ' + selection.year;
     } else {
       $scope.noDataMessage = null;
     }
