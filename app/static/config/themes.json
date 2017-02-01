@@ -12,6 +12,7 @@
         "summary":"ANUWALD.TreeCover.AllYears.250m",
         "palette":"anu_wald_darkgreen",
         "time":"{{year}}-12-31",
+        "missingYears":[2001,2003],
         "normal":{
           "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.AllYears.250m.nc",
           "zooms":{

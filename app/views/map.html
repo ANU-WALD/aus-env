@@ -57,6 +57,10 @@
     <ui-gmap-map-type options="gridData" show="map.showGrid" refresh="map.refreshGrid"></ui-gmap-map-type>
     <ui-gmap-map-type options="regionImageData" show="map.showRegions" refresh="map.refreshRegions"></ui-gmap-map-type>
   </ui-gmap-google-map>
+
+  <div class="no-data-message" ng-show="noDataMessage">
+    <h1>{{noDataMessage}}</h1>
   </div>
-  <ng-include src="'views/responsive/legend_separate.html'"></ng-include>
+</div>
+<ng-include src="'views/responsive/legend_separate.html'"></ng-include>
 

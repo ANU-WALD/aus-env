@@ -454,6 +454,12 @@ angular.module('ausEnvApp')
       selection.mapMode = mapmodes.grid;
     }
 
+    if(layer.missingYears && (layer.missingYears.indexOf(selection.year)>=0)){
+      $scope.noDataMessage = layer.title + ' not available for ' + selection.year;
+    } else {
+      $scope.noDataMessage = null;
+    }
+
     if(selection.mapMode!==mapmodes.grid) {
       if($scope.layers.overlays.aWMS) {
         delete $scope.layers.overlays.aWMS;
@@ -478,6 +484,7 @@ angular.module('ausEnvApp')
         }
       });
     }
+
     $scope.layers.overlays.aWMS = $scope.selection.makeLayer();
 
     var fn = $interpolate(settings.url)(selection);
