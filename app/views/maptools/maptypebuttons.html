@@ -1,70 +1,108 @@
 <div>
   <div class="map-display-option">
-    <select class="form-control"
+    <div class="btn-group"
+         ng-mouseenter="enterDropDown('regionType')"
+         ng-mouseleave="exitDropDown('regionType')"
+         uib-dropdown
+         is-open="dropdownsOpen.regionType">
+      <button id="single-button" type="button" class="btn btn-primary"  ng-disabled="disabled">
+        {{selection.regionType.name}} <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu"
+          uib-dropdown-menu
+          role="menu"
+          aria-labelledby="single-button"
+          ng-mouseenter="enterDropDown('regionType')"
+          ng-mouseleave="exitDropDown('regionType')">
+        <li ng-repeat="rt in options" role="menuitem"><a ng-click="selection.regionType=rt">{{rt.name}}</a></li>
+      </ul>
+    </div>
+
+<!--<select class="form-control"
             uib-tooltip="Region View"
             tooltip-popup-delay="750" tooltip-placement="left"
             ng-model="selection.regionType"
             ng-change="regionTypeChanged(selection.regionType)"
             ng-options="option.name for option in options track by option.name">
     </select>
+  -->
   </div>
   <div class="map-display-option">
-    <button ng-show="selection.mapType==='Roadmap'"
-            class="btn"
-            ng-model="selection.mapType"
-            tooltip-append-to-body="true"
-            tooltip-placement="bottom"
-            ng-click="selection.mapType='Satellite'"
-            uib-tooltip="Satellite">Satellite</button>
-    <button ng-show="selection.mapType==='Satellite'"
-            class="btn"
-            ng-model="selection.mapType"
-            tooltip-append-to-body="true"
-            tooltip-placement="bottom"
-            ng-click="selection.mapType='Roadmap'"
-            uib-tooltip="Roadmap">Roadmap</button>
+    <div class="btn-group"
+         ng-mouseenter="enterDropDown('mapType')"
+         ng-mouseleave="exitDropDown('mapType')"
+         uib-dropdown
+         is-open="dropdownsOpen.mapType">
+      <button id="single-button" type="button" class="btn btn-primary"  ng-disabled="disabled">
+        {{selection.mapType}} <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu"
+          uib-dropdown-menu
+          role="menu"
+          aria-labelledby="single-button"
+          ng-mouseenter="enterDropDown('mapType')"
+          ng-mouseleave="exitDropDown('mapType')">
+        <li ng-repeat="mt in ['Satellite','Roadmap']" role="menuitem"><a ng-click="selection.mapType=mt">{{mt}}</a></li>
+      </ul>
+    </div>
   </div>
   <div class="map-display-option">
-    <button ng-show="selection.mapMode===mapmodes.region"
-            ng-disabled="!selection.mapModesAvailable()"
-            class="btn toggle"
-            ng-class="(selection.mapMode===mapmodes.grid)?'btn-primary':'btn-default'"
-            ng-model="selection.mapMode"
-            uib-btn-radio="mapmodes.grid"
-            tooltip-append-to-body="true"
-            tooltip-placement="bottom"
-            uib-tooltip="Original data">Grid</button>
-    <button ng-show="selection.mapMode===mapmodes.grid"
-            ng-disabled="!selection.mapModesAvailable()"
-            class="btn toggle"
-            ng-class="(selection.mapMode===mapmodes.region)?'btn-primary':'btn-default'"
-            ng-model="selection.mapMode"
-            uib-btn-radio="mapmodes.region"
-            tooltip-append-to-body="true"
-            tooltip-placement="bottom"
-            uib-tooltip="Data averaged by region">Region</button>
+    <div class="btn-group"
+         ng-mouseenter="enterDropDown('mapMode')"
+         ng-mouseleave="exitDropDown('mapMode')"
+         uib-dropdown
+         is-open="dropdownsOpen.mapMode">
+      <button id="single-button" type="button" class="btn btn-primary"  ng-disabled="disabled">
+        {{selection.mapMode}} <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu"
+          uib-dropdown-menu
+          role="menu"
+          aria-labelledby="single-button"
+          ng-mouseenter="enterDropDown('mapMode')"
+          ng-mouseleave="exitDropDown('mapMode')">
+        <li ng-repeat="mt in ['Grid','Region']" role="menuitem"><a ng-click="selection.mapMode=mt">{{mt}}</a></li>
+      </ul>
+    </div>
   </div>
   <div class="map-display-option">
-    <button ng-show="selection.dataMode==='delta'"
-            ng-disabled="!selection.dataModesAvailable()"
-            class="btn toggle"
-            ng-class="(selection.dataMode==='normal')?'btn-primary':'btn-default'"
-            ng-model="selection.dataMode"
-            uib-btn-radio="'normal'"
-            tooltip-append-to-body="true"
-            tooltip-placement="bottom"
-            uib-tooltip="Value for the year">Actual</button>
-    <button ng-show="selection.dataMode==='normal'"
-            ng-disabled="!selection.dataModesAvailable()"
-            class="btn toggle"
-            ng-class="(selection.dataMode==='delta')?'btn-primary':'btn-default'"
-            ng-model="selection.dataMode"
-            uib-btn-radio="'delta'"
-            tooltip-append-to-body="true"
-            tooltip-placement="bottom"
-            uib-tooltip="Change from previous year">Change</button>
+    <div class="btn-group"
+         ng-mouseenter="enterDropDown('dataMode')"
+         ng-mouseleave="exitDropDown('dataMode')"
+         uib-dropdown
+         is-open="dropdownsOpen.dataMode">
+      <button id="single-button" type="button" class="btn btn-primary"  ng-disabled="disabled">
+        {{selection.dataMode}} <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu"
+          uib-dropdown-menu
+          role="menu"
+          aria-labelledby="single-button"
+          ng-mouseenter="enterDropDown('dataMode')"
+          ng-mouseleave="exitDropDown('dataMode')">
+        <li ng-repeat="dm in ['Actual','Change']" role="menuitem"><a ng-click="selection.dataMode=dm">{{dm}}</a></li>
+      </ul>
+    </div>
   </div>
   <div class="map-display-option">
+    <div class="btn-group"
+         ng-mouseenter="enterDropDown('imageMode')"
+         ng-mouseleave="exitDropDown('imageMode')"
+         uib-dropdown
+         is-open="dropdownsOpen.imageMode">
+      <button id="single-button" type="button" class="btn btn-primary"  ng-disabled="disabled">
+        {{selection.imageMode}} <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu"
+          uib-dropdown-menu
+          role="menu"
+          aria-labelledby="single-button"
+          ng-mouseenter="enterDropDown('imageMode')"
+          ng-mouseleave="exitDropDown('imageMode')">
+        <li ng-repeat="im in ['Transparent','Opaque']" role="menuitem"><a ng-click="selection.imageMode=im">{{im}}</a></li>
+      </ul>
+    </div>
+
     <button ng-show="selection.imageMode==='transparent'"
             class="btn toggle"
             ng-model="selection.imageMode"

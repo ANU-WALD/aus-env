@@ -58,8 +58,8 @@ angular.module('ausEnvApp')
 
     service.summaryName = function() {
       var summaryName = null;
-      if(selection.selectedLayer[selection.dataMode]){
-        summaryName = selection.selectedLayer[selection.dataMode].summary;
+      if(selection.selectedLayer[selection.dataModeConfig()]){
+        summaryName = selection.selectedLayer[selection.dataModeConfig()].summary;
       }
       summaryName = summaryName || selection.selectedLayer.summary;
       return summaryName;

@@ -13,7 +13,7 @@ angular.module('ausEnvApp')
                                    $document,
                                    uiGmapGoogleMapApi,uiGmapIsReady,
                                    selection,configuration,mapmodes,details,colourschemes,
-                                   timeseries,spatialFoci) {
+                                   timeseries,spatialFoci,datamodes,imagemodes) {
 
     var TRANSPARENT_OPACITY=0.6;
     var BASE_URL='http://dapds00.nci.org.au/thredds';
@@ -130,7 +130,7 @@ angular.module('ausEnvApp')
         },
         tileSize:new google.maps.Size(256,256),
         isPng:true,
-        opacity:(selection.imageMode==='opaque')?1.0:TRANSPARENT_OPACITY
+        opacity:(selection.imageMode===imagemodes.opaque)?1.0:TRANSPARENT_OPACITY
       };
     };
 
@@ -319,7 +319,7 @@ angular.module('ausEnvApp')
             colours: data[1],
             values: data[0]
           };
-          if((selection.dataMode==='delta')&&selection.selectedLayer.delta) {
+          if((selection.dataMode===datamodes.delta)&&selection.selectedLayer.delta) {
             $scope.polygonMapping.values = colourschemes.annualDelta($scope.polygonMapping.values);
           }
           $scope.polygonMapping.dataRange = colourschemes.dataRange($scope.polygonMapping.values,$scope.selection.year);
@@ -474,13 +474,13 @@ angular.module('ausEnvApp')
 
     var settings = {};
     keys.forEach(function(k){settings[k] = layer[k];});
-    if(layer[selection.dataMode]) {
-      if(selection.dataMode==='delta') {
+    if(layer[selection.dataModeConfig()]) {
+      if(selection.dataMode===datamodes.delta) {
         prefix = 'Change in ';
       }
       keys.forEach(function(k){
-        if(layer[selection.dataMode][k]!==undefined) {
-          settings[k] = layer[selection.dataMode][k];
+        if(layer[selection.dataModeConfig()][k]!==undefined) {
+          settings[k] = layer[selection.dataModeConfig()][k];
         }
       });
     }
@@ -544,7 +544,7 @@ angular.module('ausEnvApp')
     if(!$scope.gridData){
       return;
     }
-    $scope.gridData.opacity=(selection.imageMode==='opaque')?1.0:TRANSPARENT_OPACITY;
+    $scope.gridData.opacity=(selection.imageMode===imagemodes.opaque)?1.0:TRANSPARENT_OPACITY;
     $scope.map.refreshGrid = !$scope.map.refreshGrid;
   });
 

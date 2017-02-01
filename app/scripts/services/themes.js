@@ -12,8 +12,8 @@ angular.module('ausEnvApp')
     var service = this;
 
     service.colourRange = function(layer) {
-      if(layer[selection.dataMode]) {
-        return layer[selection.dataMode].colorscalerange || layer.colorscalerange;
+      if(layer[selection.dataModeConfig()]) {
+        return layer[selection.dataModeConfig()].colorscalerange || layer.colorscalerange;
       } else {
         return layer.colorscalerange;
       }

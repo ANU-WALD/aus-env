@@ -16,8 +16,8 @@ angular.module('ausEnvApp')
     service.colourSchemeNameForLayer = function(layer) {
       var sources = [layer];
       var properties = ['palette'];
-      if(layer[selection.dataMode]) {
-        sources.unshift(layer[selection.dataMode]);
+      if(layer[selection.dataModeConfig()]) {
+        sources.unshift(layer[selection.dataModeConfig()]);
       }
       if(selection.mapMode===mapmodes.region) {
         properties.unshift('summary_palette');

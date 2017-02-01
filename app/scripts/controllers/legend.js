@@ -8,7 +8,7 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('LegendCtrl', function ($scope,$q,selection,details,mapmodes,colourschemes) {
+  .controller('LegendCtrl', function ($scope,$q,selection,details,mapmodes,datamodes,colourschemes) {
     $scope.updateMapTitles = function() {
       var result = $q.defer();
       $scope.selection = selection;
@@ -22,7 +22,7 @@ angular.module('ausEnvApp')
         return result.promise;
       }
 
-      if(selection.selectedLayer.delta && (selection.dataMode==='delta')){
+      if(selection.selectedLayer.delta && (selection.dataMode===datamodes.delta)){
         $scope.mapTimePeriod = +(selection.year-1) + ' to ' + selection.year;
       } else {
         $scope.mapTimePeriod = +selection.year;
@@ -46,7 +46,7 @@ angular.module('ausEnvApp')
           $scope.mapDescription = $scope.mapDescription || data.Description;
           $scope.mapUnits = $scope.mapUnits || details.unitsText(data.Units);
 
-          if((selection.dataMode==='delta')&&selection.selectedLayer.delta) {
+          if((selection.dataMode===datamodes.delta)&&selection.selectedLayer.delta) {
             data = colourschemes.annualDelta(data);
           }
           $scope.polygonDataRange = colourschemes.dataRange(data,$scope.selection.year);
@@ -81,8 +81,8 @@ angular.module('ausEnvApp')
 
       if(selection.mapMode===mapmodes.grid){
         $scope.colourScaleRange = selection.selectedLayer.colorscalerange;
-        if(selection.selectedLayer[selection.dataMode]) {
-          $scope.colourScaleRange = selection.selectedLayer[selection.dataMode].colorscalerange || $scope.colourScaleRange;
+        if(selection.selectedLayer[selection.dataModeConfig()]) {
+          $scope.colourScaleRange = selection.selectedLayer[selection.dataModeConfig()].colorscalerange || $scope.colourScaleRange;
         }
         $scope.colourScaleRange = $scope.colourScaleRange.split(',').map(function(e){return +e;});
         $scope.applyLogTransform = false;

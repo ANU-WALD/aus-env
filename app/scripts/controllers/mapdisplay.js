@@ -8,10 +8,29 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('MapdisplayCtrl', function ($scope,staticData,mapmodes,selection,spatialFoci) {
+  .controller('MapdisplayCtrl', function ($scope,$timeout,staticData,mapmodes,selection,spatialFoci) {
     $scope.mapmodes = mapmodes;
     $scope.selection = selection;
     staticData.unwrap($scope,'options',spatialFoci.regionTypes);
+
+    $scope.dropdownsOpen={
+      regionType:false,
+      mapType:false,
+      mapMode:false
+    };
+
+    $scope.enterDropDown=function(name){
+      $scope.dropdownsOpen[name]=true;
+    };
+
+    $scope.exitDropDown=function(name){
+      $scope.dropdownsOpen[name]='closing';
+      $timeout(function(){
+        if($scope.dropdownsOpen[name]==='closing'){
+          $scope.dropdownsOpen[name]=false;
+        }
+      },250);
+    };
 
     $scope.regionTypeChanged = function(newOption) {
       if(!spatialFoci.show(newOption)){

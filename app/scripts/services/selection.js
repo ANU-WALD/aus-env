@@ -10,7 +10,7 @@
  * Responsible for managing selection choices and the map.
  */
 angular.module('ausEnvApp')
-  .service('selection', function ($q,uiGmapGoogleMapApi,uiGmapIsReady,mapmodes,configuration,spatialFoci) {
+  .service('selection', function ($q,uiGmapGoogleMapApi,uiGmapIsReady,mapmodes,datamodes,imagemodes,configuration,spatialFoci) {
     var service = this;
     service.mapmodes = mapmodes;
     var MAX_ZOOM_LOCATE = 13;
@@ -31,8 +31,8 @@ angular.module('ausEnvApp')
 //      region: true,
 //      point: false
 //    };
-    service.imageMode = 'opaque';
-    service.dataMode = 'normal'; // vs delta
+    service.imageMode = imagemodes.opaque;
+    service.dataMode = datamodes.actual;
     service.mapType='Roadmap';
     service.regionType = null;
     service.regionName = null;
@@ -325,6 +325,10 @@ angular.module('ausEnvApp')
              service.selectedLayer.delta;
     };
 
+    service.dataModeConfig = function(){
+      return service.dataMode===datamodes.delta?'delta':'normal';
+    };
+
     service.setRegionTypeByName = function(name){
       var result = $q.defer();
 
@@ -371,7 +375,7 @@ angular.module('ausEnvApp')
         return '';
       }
 
-      if(service.selectedLayer.delta && (service.dataMode==='delta')){
+      if(service.selectedLayer.delta && (service.dataMode===datamodes.delta)){
         return 'Change in ' + (text||service.selectedLayer.title);
       }
       return text||service.selectedLayer.title;
