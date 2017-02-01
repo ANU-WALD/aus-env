@@ -31,8 +31,8 @@
           "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.ChangeAllYears.250m.nc",
           "zooms":{
             "9":{
-              "url":"ub8/au/treecover/ANUWALD.change.{{year}}.nc",
-              "layers":"ChangeMap",
+              "url":"ub8/au/treecover/ANUWALD.TreeCoverChange.25m.{{year}}.nc",
+              "layers":"TreeCoverChange",
               "colorscalerange":"0,3"
             }
           },
