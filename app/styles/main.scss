@@ -379,11 +379,19 @@ li.theme-item{
   top:0px;
   height:100%;
   width:100%;
+  pointer-events: none;
   h1 {
+    pointer-events: all;
     position:relative;
     top:50%;
     transform:translateY(-50%);
     text-align: center;
+    margin-left:15%;
+    margin-right:15%;
+    color:lightgrey;
+    background:$selected-item-background;
+    border:5px solid lightgrey;
+    border-radius:8px;
   }
 }
 
