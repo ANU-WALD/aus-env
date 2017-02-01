@@ -89,7 +89,7 @@ angular.module('ausEnvApp')
         details.populateLabels($scope.bar,metadata);
 
         $scope.bar.download = downloads.downloadableTable(barData.map(function(line){return [line.label,line.value];}),['Year','Value']);
-        $scope.bar.download_fn = downloads.makeDownloadFilename($scope.locationLabel(),$scope.bar.title);
+        $scope.bar.download_fn = downloads.makeDownloadFilename($scope.locationLabel(),$scope.bar.title,'annual');
       },function(){
         $scope.barData = [];
         $scope.barLabels = [];

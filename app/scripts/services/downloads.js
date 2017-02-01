@@ -36,8 +36,8 @@ angular.module('ausEnvApp')
       return service.downloadableText(service.tableToCSV(data,labels));
     };
 
-    service.makeDownloadFilename = function(loc,title){
-      var result = loc + '_' + title + '.csv';
+    service.makeDownloadFilename = function(loc,title,type){
+      var result = loc + '_' + title + (type?('_'+type):'')+'.csv';
       result = result.replace(/&deg;/g,'');
       result = result.replace(/,/g,'-');
       return result;

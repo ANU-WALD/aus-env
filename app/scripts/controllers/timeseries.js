@@ -8,7 +8,7 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('TimeseriesCtrl', function ($scope,$log,$element,details,downloads) {
+  .controller('TimeseriesCtrl', function ($scope,$log,$element,details,downloads,selection) {
     var Plotly = window.Plotly;
     var $ = window.$;
     $scope.line = details.chartMetaData();
@@ -25,7 +25,7 @@ angular.module('ausEnvApp')
 
         var _ = window._;
         $scope.line.download = downloads.downloadableTable(_.zip(labels.map(function(d){return d.toLocaleDateString('en-GB');}),series),['Date','Value']);
-        $scope.line.download_fn = downloads.makeDownloadFilename($scope.locationLabel(),$scope.line.title);
+        $scope.line.download_fn = downloads.makeDownloadFilename($scope.locationLabel(),$scope.line.title,selection.year);
         var target = $element[0];
         target = $('.timeseries-chart',target)[0];
 
