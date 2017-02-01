@@ -16,8 +16,8 @@ angular.module('ausEnvApp')
     var MAX_ZOOM_LOCATE = 13;
     service.bounds = {
       year:{
-        min:2004,
-        max:2015
+        min:2000,
+        max:2016
       }
       // +++TODO Limit pan and zoom
     };
