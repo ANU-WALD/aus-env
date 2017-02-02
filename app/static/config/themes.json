@@ -273,6 +273,7 @@
         "description":"Annual maximum fire intensity derived from satellite observations by Geoscience Australia's Sentinel Hotspots system",
         "units":"&deg;C",
         "summary":"Sentinel.Nhotspots.AnnualSums",
+        "missingYears":[2000,2001],
         "disablePolygons":true,
         "url":"ub8/au/fire/Sentinel.MaxTemp.AnnualMaxima.nc",
         "variable":"MaxTemp",
@@ -288,6 +289,7 @@
         "default":false,
         "title":"Fire occurrence",
         "summary":"Sentinel.Nhotspots.AnnualSums",
+        "missingYears":[2000,2001],
         "url":"ub8/au/fire/Sentinel.Nhotspots.AnnualSums.nc",
         "variable":"Nhotspots",
         "time":"{{year}}-12-31",
@@ -542,6 +544,7 @@
       {
         "title":"Fire carbon emission",
         "summary":"GFASv12.BurntCarbon.AnnualSums",
+        "missingYears":[2000,2001],
         "palette":"anu_wald_gisheat_inv",
         "normal":{
           "url":"ub8/au/FireEmissions/GFASv12.BurntCarbon.AnnualSums.nc",
