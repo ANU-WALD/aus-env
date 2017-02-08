@@ -13,6 +13,9 @@ angular.module('ausEnvApp')
     $scope.selection = selection;
 
     $scope.$watch('selection.selectedLayer',function(){
+      if(!selection.selectedLayer){
+        return;
+      }
       $scope.mapDescription = selection.selectedLayer.description;
     });
 

@@ -162,6 +162,12 @@ angular.module('ausEnvApp')
     };
 
   service.formatValue = function(val){
+    if(!val){
+      if(val===0){
+        return '0';
+      }
+      return '-';
+    }
     // Add thousand's separator. Source: http://stackoverflow.com/a/2901298
     var parts = val.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
