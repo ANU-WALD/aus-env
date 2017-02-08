@@ -133,6 +133,9 @@ angular.module('ausEnvApp')
         var indexName = "PlaceIndex" + locators.id;
 
         var data = csvData.columnNames.map(function(col,i){
+          if(!csvData[indexName]){
+            console.log(csvData);
+          }
           return {
             value:csvData[indexName][i],
             label:col
