@@ -385,7 +385,8 @@
           "variable":"ChangesAnnualMax",
           "time":"{{year}}-12-31",
           "colorscalerange":"-100,100",
-          "palette":"anu_wald_gistemp_inv"
+          "palette":"anu_wald_gistemp_inv",
+          "abovemaxcolor":"transparent"
         },
         "timeseries":{
           "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.{{year}}.nc",
