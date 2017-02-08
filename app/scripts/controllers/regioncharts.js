@@ -121,6 +121,10 @@ angular.module('ausEnvApp')
       var result = $q.defer();
       var locators = $scope.locate();
 
+      if(!locators.id){
+        return;
+      }
+
       details.getPolygonAnnualTimeSeries().then(function(csvData){
         if(!csvData){
           result.reject();
@@ -133,9 +137,6 @@ angular.module('ausEnvApp')
         var indexName = "PlaceIndex" + locators.id;
 
         var data = csvData.columnNames.map(function(col,i){
-          if(!csvData[indexName]){
-            console.log(csvData);
-          }
           return {
             value:csvData[indexName][i],
             label:col
@@ -152,6 +153,10 @@ angular.module('ausEnvApp')
     $scope.getPieData = function(){
       var result = $q.defer();
       var locators = $scope.locate();
+
+      if(!locators.id){
+        return;
+      }
 
       details.getPieChartData().then(function(data){
 //        $scope.pieChartData = data;
