@@ -32,8 +32,9 @@ angular.module('ausEnvApp')
       };
 
       if(ctrl){
-        $scope.controller=ctrl;
+        options.controller=ctrl;
       }
+
 
       $scope.modalInstance = $uibModal.open(options);
     };

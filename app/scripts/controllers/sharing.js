@@ -21,21 +21,4 @@ angular.module('ausEnvApp')
     $scope.currentViewEmbed = $scope.embedPath($scope.currentViewURL);
     $scope.topLevelEmbed = $scope.embedPath($scope.topLevelURL);
 
-    $scope.onTextClick = function ($event) {
-        $event.target.select();
-    };
-
-    // http://stackoverflow.com/a/30810322
-    $scope.copyTextFrom = function(selector){
-      var copyTextarea = document.querySelector(selector);
-      copyTextarea.select();
-
-      try {
-        var successful = document.execCommand('copy');
-        var msg = successful ? 'successful' : 'unsuccessful';
-        console.log('Copying text command was ' + msg);
-      } catch (err) {
-        console.log('Oops, unable to copy');
-      }
-    }
   });

@@ -1,83 +1,17 @@
-<uib-tabset>
-  <uib-tab heading="Share">
-    <form class="form-inline">
-      <div class="form-group">
-         <label>Current View</label>
-         <div class="btn-group">
-           <input id="currentViewURL"
-                  type="text"
-                  readonly
-                  class="form-control"
-                  ng-model="currentViewURL"
-                  ng-click="onTextClick($event)">
-        </div>
-      </div>
-      <button type="button"
-              class="btn btn-primary pull-right" ng-click="copyTextFrom('#currentViewURL')"
-              uib-tooltip="Zoom to selected region" tooltip-append-to-body="true"
-              tooltip-placement="bottom">Copy
-      </button>
-    </form>
+<div class="container-fluid">
+  <uib-tabset>
+    <uib-tab heading="Share">
+      <share url="topLevelURL" label="'Top Level Site'"></share>
+      <hr class="visible-xs"/>
+      <share url="currentViewURL" label="'Current View'"></share>
+      <p>TODO: Content about why you'd choose one over the other etc</p>
+    </uib-tab>
 
-    <form class="form-inline">
-      <div class="form-group">
-         <label>Top Level Site</label>
-         <div class="btn-group">
-           <input id="topLevelURL"
-                  type="text"
-                  readonly
-                  class="form-control"
-                  ng-model="topLevelURL"
-                  ng-click="onTextClick($event)">
-        </div>
-      </div>
-      <button type="button"
-              class="btn btn-primary pull-right" ng-click="copyTextFrom('#topLevelURL')"
-              uib-tooltip="Zoom to selected region" tooltip-append-to-body="true"
-              tooltip-placement="bottom">Copy
-      </button>
-    </form>
-    <p>TODO: Content about why you'd choose one over the other etc</p>
-  </uib-tab>
-
-  <uib-tab heading="Embed">
-    <form class="form-inline">
-      <div class="form-group">
-         <label>Current View</label>
-         <div class="btn-group">
-           <input id="currentViewEmbed"
-                  type="text"
-                  readonly
-                  class="form-control"
-                  ng-model="currentViewEmbed"
-                  ng-click="onTextClick($event)">
-        </div>
-      </div>
-      <button type="button"
-              class="btn btn-primary pull-right" ng-click="copyTextFrom('#currentViewEmbed')"
-              uib-tooltip="Zoom to selected region" tooltip-append-to-body="true"
-              tooltip-placement="bottom">Copy
-      </button>
-    </form>
-
-    <form class="form-inline">
-      <div class="form-group">
-         <label>Top Level Site</label>
-         <div class="btn-group">
-           <input id="topLevelEmbed"
-                  type="text"
-                  readonly
-                  class="form-control"
-                  ng-model="topLevelEmbed"
-                  ng-click="onTextClick($event)">
-        </div>
-      </div>
-      <button type="button"
-              class="btn btn-primary pull-right" ng-click="copyTextFrom('#topLevelEmbed')"
-              uib-tooltip="Zoom to selected region" tooltip-append-to-body="true"
-              tooltip-placement="bottom">Copy
-      </button>
-    </form>
-    <p>TODO: Content about what you do with the text etc</p>
-  </uib-tab>
-</uib-tabset>
+    <uib-tab heading="Embed">
+      <share url="topLevelEmbed" label="'Top Level Site'"></share>
+      <hr class="visible-xs"/>
+      <share url="currentViewEmbed" label="'Current View'"></share>
+      <p>TODO: Content about what you do with the text etc</p>
+    </uib-tab>
+  </uib-tabset>
+</div>
