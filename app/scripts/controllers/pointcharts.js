@@ -90,7 +90,7 @@ angular.module('ausEnvApp')
         $q.all([timeseries.retrieveTimeSeriesForPoint(pt,layer,selection.year),details.getPolygonAnnualTimeSeries(rt[0])]).then(function(resp){
           var data = resp[0];
           var metadata = resp[1];
-          result.resolve([data[layer.variable],data.time,metadata]);
+          result.resolve([data[layer.variable],data.time,metadata,layer.units]);
         },function(){
           result.reject();
         });

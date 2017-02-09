@@ -18,10 +18,14 @@ angular.module('ausEnvApp')
         var series = data[0];
         var labels = data[1];
         var metadata = data[2];
+        var altUnits = data[3];
         $scope.lineData = [];
         $scope.lineData.push(series);
         $scope.lineSeries = ['TS'];
         details.populateLabels($scope.line,metadata);
+        if(altUnits){
+          $scope.line.units = details.unitsText(altUnits);
+        }
 
         var _ = window._;
         $scope.line.download = downloads.downloadableTable(_.zip(labels.map(function(d){return d.toLocaleDateString('en-GB');}),series),['Date','Value']);
@@ -41,7 +45,10 @@ angular.module('ausEnvApp')
             r:10,
             b:30,
             t:10
-          } ,
+          },
+          yaxis:{
+            title:$scope.line.units
+          },
           showlegend:false
 
         },{

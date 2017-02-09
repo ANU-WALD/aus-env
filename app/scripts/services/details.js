@@ -142,7 +142,7 @@ angular.module('ausEnvApp')
 
     service.unitsText = function(units) {
       var text = (units in unit_dict) ? unit_dict[units] : units;
-      text = text.replace(/\^2/g,'<sup>2</sup>');
+      text = text.replace(/\^(-?[1-9])/g,'<sup>$1</sup>');
       return text;
     };
 
