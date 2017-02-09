@@ -4,12 +4,21 @@
 <div class="zoom-button">
 <button type="button"
         class="btn btn-default map-button"
-        uib-tooltip="Search"
         tooltip-placement="right"
-        ng-click="openSearchModal()"
+        uib-popover-template="'views/searchbuttons.html'"
+        popover-is-open="showPopovers.search"
+        popover-placement="right"
+        ng-mouseenter="showPopovers.search=true"
+        ng-click="showPopovers.search=!showPopovers.search"
+        ng-mouseleave="hideSearch()"
+        popover-trigger="none"
         >
   <span class="fa fa-lg fa-search"/>
 </button>
+
+<!--
+        ng-click="openSearchModal()"
+-->
 
 <!--
 <button type="button"

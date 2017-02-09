@@ -8,8 +8,10 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('ZoomCtrl', function ($scope,$uibModal,selection) {
-    $scope.showSearch=false;
+  .controller('ZoomCtrl', function ($scope,$uibModal,$timeout,selection) {
+    $scope.showPopovers={
+      search:false
+    };
     $scope.selection = selection;
 
     $scope.$watch('selection.selectedLayer',function(){
@@ -44,6 +46,7 @@ angular.module('ausEnvApp')
     };
 
     $scope.openSearchModal = function(){
+      $scope.showPopovers.search=false;
       $scope.showModal('maptools/search');
     };
 
@@ -53,5 +56,30 @@ angular.module('ausEnvApp')
       }
 
       $scope.modalInstance=null;
+    };
+
+    $scope.hideSearch = function(){
+      console.log('here');
+      $scope.showPopovers.search='closing';
+      $timeout(function(){
+        if($scope.showPopovers.search==='closing'){
+          $scope.showPopovers.search=false;
+        }
+      },500);
+    };
+
+    $scope.searchByRegion = function(){
+      $scope.searchMode=0;
+      $scope.openSearchModal();
+    };
+
+    $scope.searchByLatLon = function(){
+      $scope.searchMode=1;
+      $scope.openSearchModal();
+    };
+
+    $scope.searchByLocation = function(){
+      $scope.searchMode=2;
+      $scope.openSearchModal();
     };
   });
