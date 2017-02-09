@@ -113,17 +113,6 @@ angular.module('ausEnvApp')
       return csv.parseRegularCSV(text,'',true);
     });
 
-    service.randomDataArray = function(length)
-    {
-      var data = [];
-      for(var i = 0; i<length; i++) {
-        data.push(Math.random());
-      }
-      console.log(data);
-      return data;
-    };
-    //</editor-fold>
-
     /*
   var unit_dict = [];
   unit_dict['frequency'] = "occurrences/year";
