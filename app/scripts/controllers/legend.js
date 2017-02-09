@@ -119,7 +119,8 @@ angular.module('ausEnvApp')
             if(applyLogTransform){
               val = Math.exp(val);
             }
-            return val.toFixed(dp);
+
+            return details.formatValue(val,dp);
           };
 
           var distinctText = function(val,lowerText){

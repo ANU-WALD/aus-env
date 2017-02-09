@@ -161,7 +161,7 @@ angular.module('ausEnvApp')
       return service.clearChart({});
     };
 
-  service.formatValue = function(val){
+  service.formatValue = function(val,decimalPlaces){
     if(!val){
       if(val===0){
         return '0';
@@ -171,6 +171,14 @@ angular.module('ausEnvApp')
     // Add thousand's separator. Source: http://stackoverflow.com/a/2901298
     var parts = val.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    if(decimalPlaces===0){
+      return parts[0];
+    }
+
+    if((decimalPlaces!==null) &&(decimalPlaces!==undefined) && (parts.length===2)){
+      parts[1] = parts[1].substr(0,decimalPlaces);
+    }
     return parts.join(".");
   };
 
