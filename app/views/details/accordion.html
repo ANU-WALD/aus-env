@@ -1,0 +1,12 @@
+<uib-accordion close-others="false">
+  <uib-accordion-group ng-repeat="view in viewOptions" is-open="view.isOpen">
+    <uib-accordion-heading>
+      <i class="fa" ng-class="view.icon"></i>
+      &nbsp{{view.tooltip}}
+      <span class="pull-right">
+        <i class="fa" ng-class="view.isOpen?'fa-chevron-down':'fa-chevron-up'"></i>
+      </span>
+    </uib-accordion-heading>
+    <div ng-if="view.isOpen" ng-include="'views/details/'+view.style+'.html'"></div>
+  </uib-accordion-group>
+</uib-accordion>

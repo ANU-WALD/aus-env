@@ -39,12 +39,13 @@ angular.module('ausEnvApp')
       {
         style:'bar',
         icon:'fa-bar-chart',
-        tooltip:'Annual time series'
+        tooltip:'Annual time series',
+        isOpen:true
       },
       {
         style:'pie',
         icon:'fa-pie-chart',
-        tooltip:'Proportion by land cover type'
+        tooltip:'Totals by land cover type'
       },
       {
         style:'timeseries',

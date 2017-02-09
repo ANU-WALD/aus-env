@@ -1,31 +1,11 @@
 <div ng-if="selection.selectionMode==='region'" ng-controller="RegionChartsCtrl">
-  <uib-tabset active="selection.selectedDetailsView" type="pills" justified="true">
-    <uib-tab index="$index" ng-repeat="view in viewOptions">
-      <uib-tab-heading
-        uib-tooltip="{{view.tooltip}}"
-        tooltip-placement="bottom-left"
-        tooltip-append-to-body="true">
-        <i class="fa fa-lg" ng-class="view.icon"></i>
-        <span class="sr-only">{{view.style}}</span>
-      </uib-tab-heading>
-      <div ng-if="selection.selectedDetailsView===$index" ng-include="'views/details/'+view.style+'.html'"></div>
-    </uib-tab>
-  </uib-tabset>
+<!--  <div ng-include="'views/details/tabs.html'"></div> -->
+  <div ng-include="'views/details/accordion.html'"></div>
+
   <a ng-click="selection.selectionMode='point'"><i class="fa fa-map-marker"></i><i>&nbsp<i>Switch to point selection</i></a>
 </div>
 
 <div ng-if="selection.selectionMode!=='region'" ng-controller="PointchartsCtrl">
-  <uib-tabset active="selection.selectedDetailsView" type="pills" justified="true">
-    <uib-tab index="$index" ng-repeat="view in viewOptions">
-      <uib-tab-heading
-        uib-tooltip="{{view.tooltip}}"
-        tooltip-placement="bottom-left"
-        tooltip-append-to-body="true">
-        <i class="fa fa-lg" ng-class="view.icon"></i>
-        <span class="sr-only">{{view.style}}</span>
-      </uib-tab-heading>
-      <div ng-if="selection.selectedDetailsView===$index" ng-include="'views/details/'+view.style+'.html'"></div>
-    </uib-tab>
-  </uib-tabset>
+  <div ng-include="'views/details/tabs.html'"></div>
   <a ng-click="selection.selectionMode='region'"><i class="fa fa-hand-pointer-o"></i><i>&nbspSwitch to area selection</i></a>
 </div>
