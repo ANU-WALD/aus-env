@@ -1,5 +1,5 @@
 <uib-accordion close-others="false">
-  <uib-accordion-group ng-repeat="view in viewOptions" is-open="view.isOpen">
+  <uib-accordion-group ng-repeat="view in viewOptions" is-open="selection.graphVisible[view.style]">
     <uib-accordion-heading>
       <i class="fa" ng-class="view.icon"></i>
       &nbsp{{view.tooltip}}
@@ -7,6 +7,25 @@
         <i class="fa" ng-class="view.isOpen?'fa-chevron-down':'fa-chevron-up'"></i>
       </span>
     </uib-accordion-heading>
-    <div ng-if="view.isOpen" ng-include="'views/details/'+view.style+'.html'"></div>
+    <div ng-if="selection.graphVisible[view.style]" ng-include="'views/details/'+view.style+'.html'"></div>
+  </uib-accordion-group>
+
+  <uib-accordion-group is-open="selection.graphVisible.options">
+    <uib-accordion-heading>
+      <i class="fa fa-cogs"></i>
+      &nbsp Options
+      <span class="pull-right">
+        <i class="fa" ng-class="view.isOpen?'fa-chevron-down':'fa-chevron-up'"></i>
+      </span>
+    </uib-accordion-heading>
+
+    <label class="radio-inline">
+      <input type="radio" ng-model="selection.selectionMode" ng-value="'point'">
+      <i class="fa fa-crosshairs"></i>&nbsp Point
+    </label>
+    <label class="radio-inline">
+      <input type="radio" ng-model="selection.selectionMode" ng-value="'region'">
+      <i class="fa fa-hand-pointer-o"></i>&nbsp Region
+    </label>
   </uib-accordion-group>
 </uib-accordion>

@@ -436,6 +436,11 @@ li.theme-item{
   border-radius:3px;
 }
 
+.details-map-container{
+  max-height:90%;
+  overflow-y:auto;
+}
+
 .map-button {
   padding-top:3px;
   padding-bottom:3px;

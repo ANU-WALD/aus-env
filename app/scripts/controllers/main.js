@@ -118,26 +118,19 @@ angular.module('ausEnvApp')
       {
         param:'selectedDetailsView',
         fromURL:function(urlElement){
-          urlElement = urlElement.toLowerCase();
-          var mode=0;
-
-          switch(urlElement){
-            case 'pie':
-              mode=1;
-              break;
-            case 'line':
-              mode=2;
-              break;
+          var options = urlElement.toLowerCase().split(',');
+          for(var option in selection.graphVisible){
+            selection.graphVisible[option] = options.indexOf(option)>=0;
           }
-
-          selection.selectedDetailsView=mode;
         },
         toURL:function(){
-          switch(selection.selectedDetailsView){
-            case 1: return 'pie';
-            case 2: return 'line';
-            default: return 'annual';
+          var enabled = [];
+          for(var option in selection.graphVisible){
+            if(selection.graphVisible[option]){
+              enabled.push(option);
+            }
           }
+          return enabled.join(',');
         }
       },
       {
@@ -264,6 +257,7 @@ angular.module('ausEnvApp')
 
     $scope.$watch('selection.mapCentre',$scope.updateURL,true);
     $scope.$watch('selection.selectionMode',$scope.updateURL,true);
+    $scope.$watch('selection.graphVisible',$scope.updateURL,true);
 
     console.log('Building a controller...');
 

@@ -44,6 +44,14 @@ angular.module('ausEnvApp')
     service.selectedRegion = null;
     service.availableFeatures = [];
     service.selectedPoint = null;
+
+    service.graphVisible = {
+      bar:true,
+      pie:false,
+      timeseries:false,
+      options:true
+    };
+
 //    service.WMS_SERVER = 'http://localhost:8881';
     service.WMS_SERVER = 'http://hydrograph.flowmatters.com.au';
     service.ozLatLngZm = {
