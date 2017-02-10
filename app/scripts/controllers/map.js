@@ -55,7 +55,7 @@ angular.module('ausEnvApp')
         mapTypeControl:false,
         streetViewControl:true,
         zoomControl:false,
-        scaleControl:true,
+        scaleControl:true
       }
     };
 
@@ -146,6 +146,10 @@ angular.module('ausEnvApp')
       };
       $scope.$watch('selection.mapType',setMapType);
       setMapType(selection.mapType);
+
+      $scope.map.options.streetViewControlOptions = {
+        position: maps.ControlPosition.BOTTOM_RIGHT
+      };
 
       $scope.checkCentre = function(map){
         var google = window.google;
