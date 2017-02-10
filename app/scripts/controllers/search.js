@@ -75,7 +75,6 @@ angular.module('ausEnvApp')
     var result = $q.defer();
     selection.doWithMap(function(map){
       var service = new google.maps.Geocoder();
-      console.log(bnds);
       service.geocode({
         address:val,
         componentRestrictions: {
@@ -83,13 +82,11 @@ angular.module('ausEnvApp')
         },
         region:'AU'
       },function(results,status){
-        console.log(status);
         if(status!=='OK'){
           result.reject();
           return;
         }
 
-        console.log(results);
         result.resolve(results.filter(function(r){
           return r.formatted_address!=='Australia';
         }));
@@ -116,9 +113,7 @@ angular.module('ausEnvApp')
     };
 
     $scope.zoomToAddress = function(){
-      console.log($scope.address);
       var pt = maybe('address.selected.geometry.location');
-      console.log(pt);
       if(pt){
         selection.selectionMode='point';
         selection.selectedPoint=pt;
