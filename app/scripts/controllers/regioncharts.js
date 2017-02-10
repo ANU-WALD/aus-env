@@ -186,12 +186,19 @@ angular.module('ausEnvApp')
     $scope.getLineChartData = function(){
       var result = $q.defer();
       var locators = $scope.locate();
-
       var layer = $scope.selection.selectedLayer;
+
       layer = layer.regionTimeSeries;
       if(!layer||!locators.id){
         result.reject();return result.promise;
       }
+
+      if(!layer.url){
+        var REGION_TS_PATH='ub8/au/RegionTimeSeries/';
+        layer.url = REGION_TS_PATH+layer.fn+'.{{year}}.{{source}}.RegionTimeSeries.nc';
+      }
+
+      layer.variable = layer.variable||'RegionMean';
 
       spatialFoci.regionTypes().then(function(rt){
         $q.all([timeseries.retrieveTimeSeriesForPolygon(locators.id,layer,selection.year),details.getPolygonAnnualTimeSeries(rt[0])]).then(function(resp){
