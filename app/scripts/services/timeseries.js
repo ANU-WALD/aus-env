@@ -134,6 +134,9 @@ angular.module('ausEnvApp')
             query += service.dapRangeQuery(idIndex);
             $http.get(query).then(function(resp){
               var data = dap.simplify(dap.parseData(resp.data,ddx));
+              if(layer.scale){
+                data[layer.variable] = data[layer.variable].map(function(v){return v * layer.scale;});
+              }
               result.resolve(data);
             });
           });

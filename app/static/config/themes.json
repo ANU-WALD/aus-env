@@ -402,7 +402,8 @@
           "variable":"OWL"
         },
         "regionTimeSeries":{
-          "fn":"MOD09A1.OWLau.0_005deg"
+          "fn":"MOD09A1.OWLau.0_005deg",
+          "scale":100.0
         }
       },
       {
@@ -492,15 +493,15 @@
           "time":"{{year}}-12-31",
           "colorscalerange":"-75,75",
           "palette":"anu_wald_gistemp",
-          "transparent":false,
-          "bgcolor":"0xFFFFFF"
+          "transparent":true
         },
         "timeseries":{
           "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.{{year}}.aust.005.BS.nc",
           "variable":"BS"
         },
         "regionTimeSeries":{
-          "url":"ub8/au/RegionTimeSeries/FractCover.V3_0_1.{{year}}.aust.005.BS.{{source}}.RegionTimeSeries.nc"
+          "url":"ub8/au/RegionTimeSeries/FractCover.V3_0_1.{{year}}.aust.005.BS.{{source}}.RegionTimeSeries.nc",
+          "scale":100.0
         }
       },
       {
