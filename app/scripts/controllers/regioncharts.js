@@ -40,17 +40,19 @@ angular.module('ausEnvApp')
         style:'bar',
         icon:'fa-bar-chart',
         tooltip:'Annual time series',
-        isOpen:true
+        visible:true
       },
       {
         style:'pie',
         icon:'fa-pie-chart',
-        tooltip:'Totals by land cover type'
+        tooltip:'Totals by land cover type',
+        visible:true
       },
       {
         style:'timeseries',
         icon:'fa-line-chart',
-        tooltip:'Detailed time series'
+        tooltip:'Detailed time series',
+        visible:true
       }
     ];
 
