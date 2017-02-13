@@ -1,5 +1,7 @@
 <uib-accordion close-others="false">
-  <uib-accordion-group ng-repeat="view in viewOptions" is-open="selection.graphVisible[view.style]">
+  <uib-accordion-group ng-repeat="view in viewOptions"
+                       ng-show="view.visible"
+                       is-open="selection.graphVisible[view.style]">
     <uib-accordion-heading>
       <i class="fa" ng-class="view.icon"></i>
       &nbsp{{view.tooltip}}

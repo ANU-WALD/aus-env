@@ -16,16 +16,29 @@ angular.module('ausEnvApp')
       {
         style:'bar',
         icon:'fa-bar-chart',
-        tooltip:'Annual time series'
+        tooltip:'Annual time series',
+        visible:true
       },
       {
         style:'timeseries',
         icon:'fa-line-chart',
-        tooltip:'Detailed time series'
+        tooltip:'Detailed time series',
+        visible:true
       }
     ];
 
     $scope.viewOptions = $scope.origViewOptions.slice();
+
+    $scope.chartView = function(chart,visible){
+      for(var i in $scope.viewOptions){
+        var c = $scope.viewOptions[i];
+        if(c.style===chart){
+          console.log(chart,visible);
+          c.visible=visible;
+          return;
+        }
+      }
+    };
 
     $scope.locationLabel = function(){
       return $interpolate('{{selectedPoint.lat() | number:4}}&deg;,{{selectedPoint.lng()|number:4}}&deg;')(selection);
@@ -55,8 +68,11 @@ angular.module('ausEnvApp')
 
       if(!pt){
         result.reject();
+        $scope.chartView('bar',false);
         return result.promise;
       }
+
+      $scope.chartView('bar',true);
 
       spatialFoci.regionTypes().then(function(rt){
         $q.all([timeseries.retrieveAnnualForPoint(pt,layer),details.getPolygonAnnualTimeSeries(rt[0])]).then(function(resp){
@@ -79,12 +95,16 @@ angular.module('ausEnvApp')
       var layer = $scope.selection.selectedLayer;
       layer = layer.timeseries;
       if(!layer){
+        $scope.chartView('timeseries',false);
         result.reject();return result.promise;
       }
       var pt = $scope.selection.selectedPoint;
       if(!pt){
+        $scope.chartView('timeseries',false);
         result.reject();return result.promise;
       }
+
+      $scope.chartView('timeseries',true);
 
       spatialFoci.regionTypes().then(function(rt){
         $q.all([timeseries.retrieveTimeSeriesForPoint(pt,layer,selection.year),details.getPolygonAnnualTimeSeries(rt[0])]).then(function(resp){
