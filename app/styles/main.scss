@@ -428,6 +428,12 @@ li.theme-item{
   }
 }
 
+.map-type-panel{
+  margin-top:10px;
+  margin-right:10px;
+  background-color: rgba(255, 0, 0, 0);
+}
+
 .details-map-tool {
   margin-right:5px;
   width:300px;
@@ -683,9 +689,28 @@ canvas {
 /* Map Display Control - top-right */
 .map-display-option{
   display:inline-block;
+  /*
   background:white;
+  */
+
   min-height:25px;
+  /*
   border:1px solid black;
+  */
+
+  border-radius:3px;
+
+/*
+  div {
+    button{
+      width:100%;
+    }
+
+    ul {
+      width:100%;
+    }
+  }
+*/
 }
 
 
