@@ -497,7 +497,8 @@
         },
         "timeseries":{
           "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.{{year}}.aust.005.BS.nc",
-          "variable":"BS"
+          "variable":"BS",
+          "_FillValue":255
         },
         "regionTimeSeries":{
           "url":"ub8/au/RegionTimeSeries/FractCover.V3_0_1.{{year}}.aust.005.BS.{{source}}.RegionTimeSeries.nc",

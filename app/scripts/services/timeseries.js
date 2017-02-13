@@ -84,7 +84,12 @@ angular.module('ausEnvApp')
             query += service.dapRangeQuery(lngIndex);
             query += service.dapRangeQuery(latIndex);
             $http.get(query).then(function(resp){
-              var data = dap.simplify(dap.parseData(resp.data,ddx));
+              var _fills;
+              if(layer._FillValue){
+                _fills={};
+                _fills[layer.variable]=layer._FillValue;
+              }
+              var data = dap.simplify(dap.parseData(resp.data,ddx,_fills));
               result.resolve(data);
             },function(){
               result.reject();
