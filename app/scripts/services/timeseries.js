@@ -67,6 +67,8 @@ angular.module('ausEnvApp')
       $q.all(['das','ddx'].map(function(m){return service.retrieveMetadata(url,m);}))
         .then(function(allMeta){
           var ddx = allMeta[1];
+          var variableMetadata = ddx.variables[layer.variable];
+          var dimensionOrder = variableMetadata.dimensions.map(function(dim){return dim.name;});
           $q.all(['time','longitude','latitude'].map(function(dim){
             return service.retrieveDimension(url,dim);
           })).then(function(dimensions){
@@ -80,9 +82,19 @@ angular.module('ausEnvApp')
             // http://dapds00.nci.org.au/thredds/dodsC/ub8/au/treecover/250m/ANUWALD.TreeCover.AllYears.250m.nc.ascii?AllYears[0:1:22][1746:1:1746][9042:1:9042]
             var query = BASE_URL+url+'.ascii?';
             query += layer.variable;
-            query += service.dapRangeQuery(0,t.length-1);
-            query += service.dapRangeQuery(lngIndex);
-            query += service.dapRangeQuery(latIndex);
+            dimensionOrder.forEach(function(dim){
+              switch(dim.toLowerCase()){
+                case 'time':
+                  query += service.dapRangeQuery(0,t.length-1);
+                  break;
+                case 'latitude':
+                  query += service.dapRangeQuery(latIndex);
+                  break;
+                case 'longitude':
+                  query += service.dapRangeQuery(lngIndex);
+                  break;
+              }
+            });
             $http.get(query).then(function(resp){
               var _fills;
               if(layer._FillValue){
