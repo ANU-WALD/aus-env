@@ -120,14 +120,7 @@ angular.module('ausEnvApp')
       var result = $q.defer();
       id = +id;
 
-//      console.log('Annual time series for point... Layer');
-//      console.log(layer);
-//      console.log(pt);
-
-      // Fill in actual url;
       var url = $interpolate(layer.url)({year:year,source:details.polygonSource()});
-
-      console.log(url);
 
       $q.all(['das','ddx'].map(function(m){return service.retrieveMetadata(url,m);}))
         .then(function(allMeta){
