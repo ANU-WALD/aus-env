@@ -31,7 +31,7 @@ angular.module('ausEnvApp')
   }])
 
   .controller('RegionChartsCtrl', function ($scope,$q,selection,details,timeseries,spatialFoci) {
-    var NO_TIMESERIES='No time series by region available for this layer. Select a different layer or switch to region mode under options.';
+    var NO_TIMESERIES='No time series by region available for this layer. Select a different layer or switch to point mode under options.';
     $scope.selection = selection;
     $scope.watchList = ['selectionMode','selectedRegion','selectedLayer','regionType'];
     $scope.selectedRegionArea = null;
