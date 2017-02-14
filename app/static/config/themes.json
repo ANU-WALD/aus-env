@@ -33,7 +33,7 @@
           "variable":"ChangeAllYears",
           "time":"{{year}}-12-31",
           "palette":"anu_wald_gistemp_inv",
-          "belowmincolor":"extend"
+          "belowmincolor":"transparent"
         }
       },
       {
