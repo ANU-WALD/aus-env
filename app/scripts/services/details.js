@@ -8,7 +8,7 @@
  * Service in the ausEnvApp.
  */
 angular.module('ausEnvApp')
-  .service('details', function ($q,$http,$window,staticData,selection,csv) {
+  .service('details', function ($q,$http,$window,$interpolate,staticData,selection,csv) {
     var service = this;
 
     var STATIC_CSV_SOURCE='/aucsv/accounts/';
@@ -56,12 +56,14 @@ angular.module('ausEnvApp')
       return result.promise;
     };
 
-    service.summaryName = function() {
+    service.summaryName = function(key) {
       var summaryName = null;
+      key = key || 'summary';
       if(selection.selectedLayer[selection.dataModeConfig()]){
-        summaryName = selection.selectedLayer[selection.dataModeConfig()].summary;
+        var source = selection.selectedLayer[selection.dataModeConfig()];
+        summaryName = source[key] || source.summary;
       }
-      summaryName = summaryName || selection.selectedLayer.summary;
+      summaryName = summaryName || selection.selectedLayer[key] || selection.selectedLayer.summary;
       return summaryName;
     };
 
@@ -73,7 +75,15 @@ angular.module('ausEnvApp')
     service.getPolygonAnnualTimeSeries = function(regionType){
       var result = $q.defer();
       $q.all([selection.getSelectedLayer(),selection.getRegionType()]).then(function(){
-        var url = ANNUAL_TIME_SERIES+service.summaryName()+'.'+service.polygonSource(regionType)+'.TimeSeries.mean.csv';
+        var url = ANNUAL_TIME_SERIES;
+        var summaryName = service.summaryName('annualSummary');
+        if(summaryName.indexOf('{{')>=0){
+          url += $interpolate(summaryName)({
+            regionType:service.polygonSource(regionType)
+          });
+        } else {
+          url += summaryName+'.'+service.polygonSource(regionType)+'.TimeSeries.mean.csv';
+        }
         result.resolve(service.retrieveCSV(url));
       });
 

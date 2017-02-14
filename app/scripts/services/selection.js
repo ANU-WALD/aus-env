@@ -323,7 +323,7 @@ angular.module('ausEnvApp')
 
     service.mapModesAvailable = function() {
       return service.selectedLayer &&
-             service.selectedLayer.summary &&
+             (service.selectedLayer.summary||service.selectedLayer.annualSummary) &&
              !service.selectedLayer.disablePolygons;
     };
 
