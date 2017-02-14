@@ -52,6 +52,7 @@ angular.module('ausEnvApp')
         }
       },
       options:{
+        minZoom:3,
         mapTypeControl:false,
         streetViewControl:true,
         zoomControl:false,
