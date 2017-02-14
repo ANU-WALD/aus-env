@@ -71,6 +71,7 @@ angular.module('ausEnvApp')
       var result = $q.defer();
 
       var layer = $scope.selection.selectedLayer;
+      var metadata = $scope.buildMetadata(layer);
       layer = layer.normal || layer;
       var pt = $scope.selection.selectedPoint;
 
@@ -80,7 +81,6 @@ angular.module('ausEnvApp')
         return result.promise;
       }
 
-      var metadata = $scope.buildMetadata(layer);
       $scope.chartView('bar',true);
 
       spatialFoci.regionTypes().then(function(rt){

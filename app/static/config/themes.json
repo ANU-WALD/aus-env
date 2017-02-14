@@ -279,6 +279,7 @@
       {
         "default":false,
         "title":"Fire occurrence",
+        "units":"",
         "summary":"Sentinel.Nhotspots.AnnualSums",
         "missingYears":[2000,2001],
         "url":"ub8/au/fire/Sentinel.Nhotspots.AnnualSums.nc",
@@ -309,6 +310,7 @@
         "title":"Soil moisture",
         "summary":"OzWALD.annual.Ssoil.AnnualMeans",
         "palette":"anu_wald_blues09",
+        "units":"mm",
         "default":true,
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.AnnualMeans.nc",
@@ -337,6 +339,7 @@
         "title":"Precipitation",
         "summary":"OzWALD.annual.Pg.AnnualSums",
         "palette":"anu_wald_blues09",
+        "units":"mm",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc",
           "variable":"AnnualSums",
@@ -373,6 +376,7 @@
       {
         "default":true,
         "title":"Inundation",
+        "units":"%",
         "summary":"MOD09A1.OWLau.0_005deg.AnnualMaxima",
         "palette":"anu_wald_bluescale20",
         "normal":{
@@ -402,6 +406,7 @@
       {
         "default":false,
         "title":"Runoff",
+        "units":"mm",
         "summary":"OzWALD.annual.Qtot.AnnualSums",
         "palette":"anu_wald_darkblues",
         "normal":{
@@ -431,7 +436,6 @@
         "default":false,
         "title":"River flow",
         "summary":"OzWALD.annual.Qtot.AnnualSums",
-        "palette":"anu_wald_darkblues",
         "units":"ML",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qriv.AnnualSums.nc",
@@ -439,6 +443,7 @@
           "time":"{{year}}-12-31",
           "colorscalerange":"10000,100000000",
           "palette":"anu_wald_darkblues",
+          "units":"ML",
           "logscale":true,
           "belowmincolor":"extend"
         },
@@ -469,6 +474,7 @@
       {
         "default":true,
         "title":"Exposed soil",
+        "units":"%",
         "summary":"FractCover.V3_0_1.AnnualMeans.aust.005.BS",
         "palette":"anu_wald_gisheat_inv",
         "normal":{
@@ -503,6 +509,7 @@
         "title":"Vegetation leaf area",
         "summary":"MOD15A2.1000m_lai.AnnualMeans",
         "palette":"anu_wald_darkgreen",
+        "units":"m^2/m^2",
         "normal":{
           "url":"ub8/au/LAI/MOD15A2.1000m_lai.AnnualMeans.nc",
           "variable":"AnnualMeans",
@@ -538,6 +545,7 @@
         "title":"Vegetation carbon uptake",
         "summary":"OzWALD.annual.GPP.AnnualSums",
         "palette":"anu_wald_darkgreen",
+        "units":"gC/m^2",
         "normal":{
           "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.AnnualSums.nc",
           "variable":"AnnualSums",
