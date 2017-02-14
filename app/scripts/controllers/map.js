@@ -255,7 +255,7 @@ angular.module('ausEnvApp')
         strokeWeight:0,
         strokeOpacity:0,
         fillColor:$scope.polygonFillColour(feature) || 'unfilled',
-        fillOpacity:1,
+        fillOpacity:$scope.mapOpacity(),
         color:'#000'
       };
 
@@ -427,15 +427,6 @@ angular.module('ausEnvApp')
           }
         };
       });
-
-//        data:resp,
-//        style:{
-//          weight:1,
-//          color:'green',
-//          //fillColor:'red',
-//          fillOpacity:0,
-//        }
-//      };
     });
   });
 
@@ -544,25 +535,25 @@ angular.module('ausEnvApp')
     $scope.$watch('selection.'+prop,$scope.showWMS);
   });
 
+  $scope.mapOpacity = function(){
+    return (selection.imageMode===imagemodes.opaque)?1.0:TRANSPARENT_OPACITY;
+  };
+
   $scope.$watch('selection.imageMode',function(){
     if(!$scope.gridData){
       return;
     }
-    $scope.gridData.opacity=(selection.imageMode===imagemodes.opaque)?1.0:TRANSPARENT_OPACITY;
-    $scope.map.refreshGrid = !$scope.map.refreshGrid;
+
+    if(selection.mapMode === mapmodes.grid){
+      $scope.gridData.opacity=$scope.mapOpacity();
+      $scope.map.refreshGrid = !$scope.map.refreshGrid;
+    } else {
+      $scope.updateStyling();
+    }
   });
 
   $scope.setDefaultTheme = function(themesData){
     selection.selectTheme(themesData[0]);
-  };
-
-  $scope.showFeatureOverlays = function() {
-    if($scope.layers.overlays.selectionLayer) {
-      //$scope.layers.overlays.selectionLayer.style.weight = 3;
-      $scope.geojson.style.fillColor='red';
-      $scope.geojson.style.fillOpacity=0.65;
-      $scope.geojson.style.color='black';
-    }
   };
 
   configuration.themes().then(function(themeData){
