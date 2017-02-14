@@ -323,10 +323,11 @@ angular.module('ausEnvApp')
             colours: data[1],
             values: data[0]
           };
-          if((selection.dataMode===datamodes.delta)&&selection.selectedLayer.delta) {
+          var deltaMode=(selection.dataMode===datamodes.delta)&&selection.selectedLayer.delta;
+          if(deltaMode) {
             $scope.polygonMapping.values = colourschemes.annualDelta($scope.polygonMapping.values);
           }
-          $scope.polygonMapping.dataRange = colourschemes.dataRange($scope.polygonMapping.values,$scope.selection.year);
+          $scope.polygonMapping.dataRange = colourschemes.dataRange($scope.polygonMapping.values,$scope.selection.year,deltaMode);
           doUpdateStyles();
         });
       }

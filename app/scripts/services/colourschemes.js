@@ -60,7 +60,7 @@ angular.module('ausEnvApp')
       return result;
     };
 
-    service.dataRange = function(vals,year) {
+    service.dataRange = function(vals,year,forceDelta) {
       var colIdx = vals.columnNames.indexOf(''+year);
       var polygonValues = Object.keys(vals)
         .filter(function(key){return key.startsWith('PlaceIndex');})
@@ -72,7 +72,7 @@ angular.module('ausEnvApp')
       });
       var actualRange = service.arrayRange(polygonValues);
 
-      if((actualRange[0]<0)&&(actualRange[1]>0)) {
+      if(forceDelta||((actualRange[0]<0)&&(actualRange[1]>0))) {
         var extent = Math.max(Math.abs(actualRange[0]),actualRange[1]);
         return [-extent,extent];
       }

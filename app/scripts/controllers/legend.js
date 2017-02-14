@@ -46,10 +46,11 @@ angular.module('ausEnvApp')
           $scope.mapDescription = $scope.mapDescription || data.Description;
           $scope.mapUnits = $scope.mapUnits || details.unitsText(data.Units);
 
-          if((selection.dataMode===datamodes.delta)&&selection.selectedLayer.delta) {
+          var deltaMode = (selection.dataMode===datamodes.delta)&&selection.selectedLayer.delta;
+          if(deltaMode) {
             data = colourschemes.annualDelta(data);
           }
-          $scope.polygonDataRange = colourschemes.dataRange(data,$scope.selection.year);
+          $scope.polygonDataRange = colourschemes.dataRange(data,$scope.selection.year,deltaMode);
 
           result.resolve(true);
         });
