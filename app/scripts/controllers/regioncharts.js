@@ -135,15 +135,16 @@ angular.module('ausEnvApp')
       var locators = $scope.locate();
 
       if(!locators.id){
+        result.reject();
         $scope.chartView('bar',false);
-        return;
+        return result.promise;;
       }
 
       details.getPolygonAnnualTimeSeries().then(function(csvData){
         if(!csvData){
           result.reject();
           $scope.chartView('bar',false);
-          return;
+          return result.promise;
         }
 
         $scope.chartView('bar',true);
