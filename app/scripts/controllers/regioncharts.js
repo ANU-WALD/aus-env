@@ -58,6 +58,16 @@ angular.module('ausEnvApp')
 
     $scope.viewOptions = $scope.origViewOptions.slice();
 
+    $scope.chartView = function(chart,visible){
+      for(var i in $scope.viewOptions){
+        var c = $scope.viewOptions[i];
+        if(c.style===chart){
+          c.visible=visible;
+          return;
+        }
+      }
+    };
+
     $scope.canShowChart = function(style,layer,regionType){
       layer = layer || $scope.selection.selectedLayer;
       regionType = regionType || $scope.selection.regionType;
@@ -125,14 +135,19 @@ angular.module('ausEnvApp')
       var locators = $scope.locate();
 
       if(!locators.id){
+        $scope.chartView('bar',false);
         return;
       }
 
       details.getPolygonAnnualTimeSeries().then(function(csvData){
         if(!csvData){
           result.reject();
+          $scope.chartView('bar',false);
           return;
         }
+
+        $scope.chartView('bar',true);
+
 //        $scope.barChartData = data;
 //        $scope.bar.download = data.URL;
 //        $scope.units = data.Units;
@@ -148,6 +163,7 @@ angular.module('ausEnvApp')
         result.resolve([data,csvData]);
       },function(){
         console.log('no annual time series for polygon');
+        $scope.chartView('bar',false);
         result.reject();
       });
       return result.promise;
@@ -158,6 +174,7 @@ angular.module('ausEnvApp')
       var locators = $scope.locate();
 
       if(!locators.id){
+        $scope.chartView('pie',false);
         return;
       }
 
@@ -178,8 +195,10 @@ angular.module('ausEnvApp')
 
         var indexName = "PlaceIndex" + locators.id;
         var series = data[indexName];
+        $scope.chartView('pie',true);
         result.resolve([series,labels,colours,data]);
       },function(){
+        $scope.chartView('pie',false);
         result.reject();
       });
       return result.promise;
@@ -192,6 +211,7 @@ angular.module('ausEnvApp')
 
       layer = layer.regionTimeSeries;
       if(!layer||!locators.id){
+        $scope.chartView('timeseries',false);
         result.reject();return result.promise;
       }
 
@@ -206,8 +226,10 @@ angular.module('ausEnvApp')
         $q.all([timeseries.retrieveTimeSeriesForPolygon(locators.id,layer,selection.year),details.getPolygonAnnualTimeSeries(rt[0])]).then(function(resp){
           var data = resp[0];
           var metadata = resp[1];
+          $scope.chartView('timeseries',true);
           result.resolve([data[layer.variable],data.time,metadata]);
         },function(){
+          $scope.chartView('timeseries',false);
           result.reject();
         });
       });

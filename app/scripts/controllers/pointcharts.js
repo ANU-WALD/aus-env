@@ -33,7 +33,6 @@ angular.module('ausEnvApp')
       for(var i in $scope.viewOptions){
         var c = $scope.viewOptions[i];
         if(c.style===chart){
-          console.log(chart,visible);
           c.visible=visible;
           return;
         }
