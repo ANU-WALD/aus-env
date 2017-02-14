@@ -1,38 +1,18 @@
 <div class="zoom-button">
-<button type="button" class="btn btn-default map-button" uib-tooltip="Zoom To Australia" tooltip-popup-delay="750" tooltip-placement="right" ng-click="selection.zoomToFeature(true)"><span class="fa fa-lg fa-arrows-alt"/></button>
+  <button type="button" class="btn btn-default map-button" uib-tooltip="Zoom To Australia" tooltip-popup-delay="750" tooltip-placement="right" ng-click="selection.zoomToFeature(true)"><span class="fa fa-lg fa-arrows-alt"/></button>
 </div>
 <div class="zoom-button">
-<button type="button"
-        class="btn btn-default map-button"
-        tooltip-placement="right"
-        uib-popover-template="'views/searchbuttons.html'"
-        popover-is-open="showPopovers.search"
-        popover-placement="right"
-        ng-mouseenter="showPopovers.search=true"
-        ng-click="showPopovers.search=!showPopovers.search"
-        ng-mouseleave="hideSearch()"
-        popover-trigger="none"
-        >
-  <span class="fa fa-lg fa-search"/>
-</button>
-
-<!--
-        ng-click="openSearchModal()"
--->
-
-<!--
-<button type="button"
-        class="btn btn-default map-button"
-        uib-tooltip="Search"
-        tooltip-placement="right"
-        uib-popover-template="'views/maptools/search.html'"
-        popover-placement="right"
-        popover-append-to-body="true"
-        popover-is-open="showSearch"
-        popover-class="search-popover"
-        ng-click="showSearch=!showSearch"
-        >
-  <span class="fa fa-lg fa-search"/>
-</button>
--->
+  <button type="button"
+          class="btn btn-default map-button"
+          tooltip-placement="right"
+          uib-popover-template="'views/searchbuttons.html'"
+          popover-is-open="showPopovers.search"
+          popover-placement="right"
+          ng-mouseenter="showPopovers.search=true"
+          ng-click="showPopovers.search=!showPopovers.search"
+          ng-mouseleave="hideSearch()"
+          popover-trigger="none"
+          >
+    <span class="fa fa-lg fa-search"/>
+  </button>
 </div>

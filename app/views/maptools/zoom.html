@@ -1,4 +1,4 @@
-<div class="nudge-left panel panel-group">
+<div class="nudge-left panel panel-group zoom-panel">
   <div class="hidden-xs" ng-include="'views/maptools/zoom-buttons.html'">
   </div>
   <div ng-include="'views/maptools/zoom-buttons-other.html'">
@@ -13,7 +13,11 @@
               tooltip-placement="right"
               ng-click="openShareModal()"><span class="fa fa-lg fa-share-alt"/></button>
     </div>
-    <div class="zoom-button" id="streetViewHost" style="position:relative;top:0;left:0;">
+    <div class="zoom-button">
+      <button type="button"
+              class="btn btn-default map-button"
+              ng-click="showTour()"><i class="fa fa-lg fa-question"></i>
+      </button>
     </div>
   </div>
 </div>

@@ -134,6 +134,16 @@ li.theme-item.open {
   .nav > li {
     height:$navbar-height;
   }
+
+
+  .zoom-panel{
+    margin-left:10px;
+    margin-top:10px;
+  }
+
+  .legend-panel{
+    margin-left:10px;
+  }
 }
 
 .nav > li {
@@ -452,10 +462,11 @@ li.theme-item{
   padding-bottom:3px;
   padding-left:6px;
   padding-right:6px;
+  width:35px;
 }
 
 div.zoom-button{
-  width:40px;
+  width:35px;
   height:28px;
 }
 

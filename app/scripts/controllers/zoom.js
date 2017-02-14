@@ -82,4 +82,8 @@ angular.module('ausEnvApp')
       $scope.searchMode=2;
       $scope.openSearchModal();
     };
+
+    $scope.showTour = function(){
+      $scope.selection.showHelp=true;
+    };
   });

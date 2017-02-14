@@ -28,14 +28,23 @@ angular.module('ausEnvApp')
 
     $scope.runningLocally = (window.location.hostname==='localhost');
 
-    var options = {
-      animation:true,
-      templateUrl: 'views/about.html',
-      scope: $scope
+    $scope.showHelp = function(){
+      var options = {
+        animation:true,
+        templateUrl: 'views/about.html',
+        scope: $scope
+      };
+      if($scope.selection.showHelp){
+        $scope.modalInstance = $uibModal.open(options);
+      }
+      $scope.selection.showHelp=false;
     };
 
-    if(!localStorage.preventAbout&&!$scope.embedded){
-      $scope.modalInstance = $uibModal.open(options);
+    $scope.appOptions.doNotShow = localStorage.preventAbout!==undefined;
+
+    if(!$scope.appOptions.doNotShow&&!$scope.embedded){
+      $scope.selection.showHelp=true;
+      $scope.showHelp();
     }
 
     $scope.closeModal = function(){
@@ -264,4 +273,6 @@ angular.module('ausEnvApp')
     if(!$routeParams.latitude){
       selection.centreAustralia();
     }
+
+    $scope.$watch('selection.showHelp',$scope.showHelp);
   });

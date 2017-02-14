@@ -6,7 +6,7 @@
       <i class="fa" ng-class="view.icon"></i>
       &nbsp{{view.tooltip}}
       <span class="pull-right">
-        <i class="fa" ng-class="view.isOpen?'fa-chevron-down':'fa-chevron-up'"></i>
+        <i class="fa" ng-class="selection.graphVisible[view.style]?'fa-chevron-down':'fa-chevron-up'"></i>
       </span>
     </uib-accordion-heading>
     <div ng-if="selection.graphVisible[view.style]" ng-include="'views/details/'+view.style+'.html'"></div>
