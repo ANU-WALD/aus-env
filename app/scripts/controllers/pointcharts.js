@@ -58,6 +58,15 @@ angular.module('ausEnvApp')
       });
     };
 
+    $scope.buildMetadata = function(layer){
+      return {
+        label:layer.title,
+        Title:layer.title,
+        Description:layer.description,
+        Units:layer.units
+      };
+    };
+
     $scope.getBarData = function(){
       var result = $q.defer();
 
@@ -71,13 +80,12 @@ angular.module('ausEnvApp')
         return result.promise;
       }
 
+      var metadata = $scope.buildMetadata(layer);
       $scope.chartView('bar',true);
 
       spatialFoci.regionTypes().then(function(rt){
         $q.all([timeseries.retrieveAnnualForPoint(pt,layer),details.getPolygonAnnualTimeSeries(rt[0])]).then(function(resp){
           var dapData = resp[0];
-          var metadata = resp[1];
-
           var data = $scope.buildEvents(dapData,layer.variable);
           result.resolve([data,metadata]);
         },function(){
@@ -92,6 +100,8 @@ angular.module('ausEnvApp')
       var result = $q.defer();
 
       var layer = $scope.selection.selectedLayer;
+
+      var metadata = $scope.buildMetadata(layer);
       layer = layer.timeseries;
       if(!layer){
         $scope.chartView('timeseries',false);
@@ -108,7 +118,7 @@ angular.module('ausEnvApp')
       spatialFoci.regionTypes().then(function(rt){
         $q.all([timeseries.retrieveTimeSeriesForPoint(pt,layer,selection.year),details.getPolygonAnnualTimeSeries(rt[0])]).then(function(resp){
           var data = resp[0];
-          var metadata = resp[1];
+//          var metadata = resp[1];
           result.resolve([data[layer.variable],data.time,metadata,layer.units]);
         },function(){
           result.reject();
