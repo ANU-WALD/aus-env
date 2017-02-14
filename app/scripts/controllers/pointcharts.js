@@ -9,6 +9,8 @@
  */
 angular.module('ausEnvApp')
   .controller('PointchartsCtrl', function ($scope,$interpolate,$q,selection,details,timeseries,spatialFoci) {
+    var NO_POINT_MODE='Point selection mode not available for this layer. Switch to Region mode under options.';
+    var NO_POINT_SELECTED = 'No point selected. Select a point on the map.';
     $scope.selection = selection;
     $scope.watchList = ['selectionMode','selectedLayer','selectedPoint'];
 
@@ -29,11 +31,12 @@ angular.module('ausEnvApp')
 
     $scope.viewOptions = $scope.origViewOptions.slice();
 
-    $scope.chartView = function(chart,visible){
+    $scope.chartView = function(chart,visible,reason){
       for(var i in $scope.viewOptions){
         var c = $scope.viewOptions[i];
         if(c.style===chart){
           c.visible=visible;
+          c.reason=visible?'':(reason||'');
           return;
         }
       }
@@ -72,20 +75,27 @@ angular.module('ausEnvApp')
 
       var layer = $scope.selection.selectedLayer;
       var metadata = $scope.buildMetadata(layer);
+
+      if(layer.disablePoint){
+        result.reject();
+        $scope.chartView('bar',false,NO_POINT_MODE);
+        return result.promise;
+      }
+
       layer = layer.normal || layer;
       var pt = $scope.selection.selectedPoint;
 
       if(!pt){
         result.reject();
-        $scope.chartView('bar',false);
+        $scope.chartView('bar',false,NO_POINT_SELECTED);
         return result.promise;
       }
 
       $scope.chartView('bar',true);
 
       spatialFoci.regionTypes().then(function(rt){
-        $q.all([timeseries.retrieveAnnualForPoint(pt,layer),details.getPolygonAnnualTimeSeries(rt[0])]).then(function(resp){
-          var dapData = resp[0];
+        timeseries.retrieveAnnualForPoint(pt,layer).then(function(resp){
+          var dapData = resp;
           var data = $scope.buildEvents(dapData,layer.variable);
           result.resolve([data,metadata]);
         },function(){
@@ -104,12 +114,18 @@ angular.module('ausEnvApp')
       var metadata = $scope.buildMetadata(layer);
       layer = layer.timeseries;
       if(!layer){
-        $scope.chartView('timeseries',false);
+        $scope.chartView('timeseries',false,NO_POINT_MODE);
         result.reject();return result.promise;
       }
+      if(layer.disablePoint){
+        result.reject();
+        $scope.chartView('bar',false,NO_POINT_MODE);
+        return result.promise;
+      }
+
       var pt = $scope.selection.selectedPoint;
       if(!pt){
-        $scope.chartView('timeseries',false);
+        $scope.chartView('timeseries',false,NO_POINT_SELECTED);
         result.reject();return result.promise;
       }
 

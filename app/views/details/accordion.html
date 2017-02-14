@@ -1,15 +1,19 @@
 <uib-accordion close-others="false">
   <uib-accordion-group ng-repeat="view in viewOptions"
-                       ng-show="view.visible"
                        is-open="selection.graphVisible[view.style]">
     <uib-accordion-heading>
       <i class="fa" ng-class="view.icon"></i>
       &nbsp{{view.tooltip}}
-      <span class="pull-right">
+      <span ng-show="view.visible" class="pull-right">
         <i class="fa" ng-class="selection.graphVisible[view.style]?'fa-chevron-down':'fa-chevron-up'"></i>
       </span>
     </uib-accordion-heading>
-    <div ng-if="selection.graphVisible[view.style]" ng-include="'views/details/'+view.style+'.html'"></div>
+    <div ng-show="view.visible">
+      <div ng-if="selection.graphVisible[view.style]" ng-include="'views/details/'+view.style+'.html'"></div>
+    </div>
+    <div ng-show="!view.visible">
+      Chart not available. {{view.reason}}
+    </div>
   </uib-accordion-group>
 
   <uib-accordion-group is-open="selection.graphVisible.options">

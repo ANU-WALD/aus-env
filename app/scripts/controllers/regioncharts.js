@@ -31,6 +31,7 @@ angular.module('ausEnvApp')
   }])
 
   .controller('RegionChartsCtrl', function ($scope,$q,selection,details,timeseries,spatialFoci) {
+    var NO_TIMESERIES='No time series by region available for this layer. Select a different layer or switch to region mode under options.';
     $scope.selection = selection;
     $scope.watchList = ['selectionMode','selectedRegion','selectedLayer','regionType'];
     $scope.selectedRegionArea = null;
@@ -58,11 +59,12 @@ angular.module('ausEnvApp')
 
     $scope.viewOptions = $scope.origViewOptions.slice();
 
-    $scope.chartView = function(chart,visible){
+    $scope.chartView = function(chart,visible,reason){
       for(var i in $scope.viewOptions){
         var c = $scope.viewOptions[i];
         if(c.style===chart){
           c.visible=visible;
+          c.reason=visible?'':(reason||'');
           return;
         }
       }
@@ -143,7 +145,7 @@ angular.module('ausEnvApp')
       details.getPolygonAnnualTimeSeries().then(function(csvData){
         if(!csvData){
           result.reject();
-          $scope.chartView('bar',false);
+          $scope.chartView('bar',false,NO_TIMESERIES);
           return result.promise;
         }
 
@@ -163,8 +165,7 @@ angular.module('ausEnvApp')
         });
         result.resolve([data,csvData]);
       },function(){
-        console.log('no annual time series for polygon');
-        $scope.chartView('bar',false);
+        $scope.chartView('bar',false,NO_TIMESERIES);
         result.reject();
       });
       return result.promise;
@@ -212,7 +213,7 @@ angular.module('ausEnvApp')
 
       layer = layer.regionTimeSeries;
       if(!layer||!locators.id){
-        $scope.chartView('timeseries',false);
+        $scope.chartView('timeseries',false,NO_TIMESERIES);
         result.reject();return result.promise;
       }
 
@@ -230,7 +231,7 @@ angular.module('ausEnvApp')
           $scope.chartView('timeseries',true);
           result.resolve([data[layer.variable],data.time,metadata]);
         },function(){
-          $scope.chartView('timeseries',false);
+          $scope.chartView('timeseries',false,NO_TIMESERIES);
           result.reject();
         });
       });
