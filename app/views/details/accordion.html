@@ -43,7 +43,7 @@
   </uib-accordion-group>
 -->
 
-  <uib-accordion-group is-disabled="true" is-open="accordions.options" ng-click="toggleSelectionMode($event)">
+  <uib-accordion-group is-disabled="true" is-open="noneAvailable()" ng-click="toggleSelectionMode($event)">
     <uib-accordion-heading ng-click="toggleSelectionMode($event)">
       Chart data by
         <span ng-class="{bold:(selection.selectionMode==='region')}">Region</span>
@@ -52,9 +52,12 @@
          ng-class="(selection.selectionMode==='region')?'fa-flip-horizontal':''"
          ng-click="toggleSelectionMode($event)"></i>
       &nbsp
-      <span <span ng-class="{bold:(selection.selectionMode==='point')}">Point</span>
+      <span ng-class="{bold:(selection.selectionMode==='point')}">Point</span>
     </uib-accordion-heading>
-    {{accordions}}
+    <span ng-if="needAPoint()">Select a point for charts</span>
+    <span ng-if="needARegion()">Select a region for charts</span>
+
+    <span ng-if="noChartsAvailable()">No charts available for {{selection.selectedLayer.title}} for {{selection.selectionMode}}s.</span>
   </uib-accordion-group>
 
 </uib-accordion>

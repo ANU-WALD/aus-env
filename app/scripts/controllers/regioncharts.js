@@ -70,6 +70,12 @@ angular.module('ausEnvApp')
       }
     };
 
+    $scope.noneAvailable = function(){
+      return $scope.viewOptions.filter(function(vo){
+        return vo.visible;
+      }).length===0;
+    };
+
     $scope.canShowChart = function(style,layer,regionType){
       layer = layer || $scope.selection.selectedLayer;
       regionType = regionType || $scope.selection.regionType;

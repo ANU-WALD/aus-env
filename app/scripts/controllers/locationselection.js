@@ -23,4 +23,19 @@ angular.module('ausEnvApp')
         selection.selectionMode='point';
       }
     };
+
+    $scope.needAPoint = function(){
+      return !$scope.noChartsAvailable()&&(selection.selectionMode==='region')&&!selection.selectedRegion;
+    };
+
+    $scope.needARegion = function(){
+      return !$scope.noChartsAvailable()&&(selection.selectionMode==='point')&&!selection.selectedPoint;
+    };
+
+    $scope.noChartsAvailable = function(){
+      return selection.selectedLayer&&(
+        ((selection.selectionMode==='point')&&(selection.selectedLayer.disablePoint))||
+        ((selection.selectionMode==='region')&&(selection.selectedLayer.disablePolygons))
+      );
+    };
   });

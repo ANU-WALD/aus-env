@@ -42,6 +42,12 @@ angular.module('ausEnvApp')
       }
     };
 
+    $scope.noneAvailable = function(){
+      return $scope.viewOptions.filter(function(vo){
+        return vo.visible;
+      }).length===0;
+    };
+
     $scope.locationLabel = function(){
       return $interpolate('{{selectedPoint.lat() | number:4}}&deg;,{{selectedPoint.lng()|number:4}}&deg;')(selection);
     };
