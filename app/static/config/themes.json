@@ -63,7 +63,10 @@
         "time":"{{year}}-01-01",
         "missingYears":[2000,2001,2002],
         "annualByPolygonId":true,
-        "palette":"anu_wald_single_landcover",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":"anu_wald_bluescale20"
+        },
         "legend":{
           "grid":"patchOnly",
           "region":null
@@ -96,7 +99,10 @@
         "time":"{{year}}-01-01",
         "missingYears":[2000,2001,2002],
         "summary":"",
-        "palette":"anu_wald_single_landcover",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":"anu_wald_bluescale20"
+        },
         "legend":{
           "grid":"patchOnly",
           "region":null
@@ -133,7 +139,10 @@
         "time":"{{year}}-01-01",
         "missingYears":[2000,2001,2002],
         "summary":"",
-        "palette":"anu_wald_single_landcover",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":"anu_wald_bluescale20"
+        },
         "legend":{
           "grid":"patchOnly",
           "region":null
@@ -175,7 +184,10 @@
         "time":"{{year}}-01-01",
         "missingYears":[2000,2001,2002],
         "summary":"",
-        "palette":"anu_wald_single_landcover",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":"anu_wald_bluescale20"
+        },
         "legend":{
           "grid":"patchOnly",
           "region":null
@@ -227,7 +239,10 @@
         "time":"{{year}}-01-01",
         "missingYears":[2000,2001,2002],
         "summary":"",
-        "palette":"anu_wald_single_landcover",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":"anu_wald_bluescale20"
+        },
         "legend":{
           "grid":"patchOnly",
           "region":null
@@ -264,7 +279,10 @@
         "time":"{{year}}-01-01",
         "missingYears":[2000,2001,2002],
         "summary":"",
-        "palette":"anu_wald_single_landcover",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":"anu_wald_bluescale20"
+        },
         "legend":{
           "grid":"patchOnly",
           "region":null

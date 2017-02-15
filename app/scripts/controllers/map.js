@@ -524,7 +524,8 @@ angular.module('ausEnvApp')
       }
     });
     if(settings.palette) {
-      $scope.layers.overlays.aWMS.layerParams.styles = 'boxfill/'+settings.palette;
+      var palette = settings.palette.grid||settings.palette;
+      $scope.layers.overlays.aWMS.layerParams.styles = 'boxfill/'+palette;
     }
     $scope.layers.overlays.aWMS.layerParams.showOnSelector = false;
     colourschemes.coloursFor(selection.selectedLayer).then(function(colours){
