@@ -123,6 +123,16 @@ angular.module('ausEnvApp')
       return csv.parseRegularCSV(text,'',true);
     });
 
+    service.patchOnly = function(){
+      return $q.resolve([
+        {
+          Class_Name:'',
+          Red:156,
+          Green:25,
+          Blue:31
+        }
+      ]);
+    };
     /*
   var unit_dict = [];
   unit_dict['frequency'] = "occurrences/year";
