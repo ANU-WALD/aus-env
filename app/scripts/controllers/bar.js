@@ -82,7 +82,7 @@ angular.module('ausEnvApp')
         var metadata = data[1];
 
         $scope.barOptions.animation = true;
-        $scope.barData = [barData.map(function(e){return e.value;})];
+        $scope.barData = [barData.map(function(e){return isNaN(e.value)?0.0:e.value;})];
         $scope.barLabels = barData.map(function(e){return e.label;});
         $scope.barSeries = [metadata.label];
         $scope.adjustColours();
