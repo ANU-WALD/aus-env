@@ -48,8 +48,8 @@
       Chart data by
         <span ng-class="{bold:(selection.selectionMode==='region')}">Region</span>
         &nbsp
-        <i class="fa"
-         ng-class="(selection.selectionMode==='point')?'fa-toggle-on':'fa-toggle-off'"
+        <i class="fa fa-toggle-on"
+         ng-class="(selection.selectionMode==='region')?'fa-flip-horizontal':''"
          ng-click="toggleSelectionMode($event)"></i>
       &nbsp
       <span <span ng-class="{bold:(selection.selectionMode==='point')}">Point</span>
