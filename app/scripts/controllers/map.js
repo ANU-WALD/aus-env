@@ -38,8 +38,8 @@ angular.module('ausEnvApp')
     PlainMapType.prototype.getTile = function(coord, zoom, ownerDocument) {
       var div = ownerDocument.createElement('div');
       //div.innerHTML = coord;
-      div.style.width = '256px';
-      div.style.height = '256px';
+      div.style.width = this.tileSize.width+'px';
+      div.style.height = this.tileSize.height+'px';
       div.style.fontSize = '10';
       div.style.borderStyle = 'solid';
       div.style.borderWidth = '1px';
@@ -203,8 +203,9 @@ angular.module('ausEnvApp')
         $scope.theMap.data.setStyle($scope.geoJsonStyling);
         $scope.theMap.data.addListener('click', $scope.polygonSelected);
 
-        $scope.theMap.mapTypes.set('WHITE',new PlainMapType('#FFF',new google.maps.Size(256, 256),'White'));
-        $scope.theMap.mapTypes.set('BLACK',new PlainMapType('#000',new google.maps.Size(256, 256),'Black'));
+        var tileSize = new google.maps.Size(512, 512);
+        $scope.theMap.mapTypes.set('WHITE',new PlainMapType('#FFF',tileSize,'White'));
+        $scope.theMap.mapTypes.set('BLACK',new PlainMapType('#000',tileSize,'Black'));
         mapReady.resolve();
       });
       $scope.gridData = $scope.createImageMapFromWMS('aWMS');
