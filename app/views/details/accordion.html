@@ -16,12 +16,14 @@
     </div>
   </uib-accordion-group>
 
+<!--
+
   <uib-accordion-group is-open="selection.graphVisible.options">
     <uib-accordion-heading>
       <i class="fa fa-cogs"></i>
       &nbsp Options
       <span class="pull-right">
-        <i class="fa" ng-class="view.isOpen?'fa-chevron-down':'fa-chevron-up'"></i>
+        <i class="fa" ng-class="selection.graphVisible.options?'fa-chevron-down':'fa-chevron-up'"></i>
       </span>
     </uib-accordion-heading>
 
@@ -34,4 +36,20 @@
       <i class="fa fa-hand-pointer-o"></i>&nbsp Region
     </label>
   </uib-accordion-group>
+-->
+
+  <uib-accordion-group is-disabled="true" is-open="accordions.options" ng-click="toggleSelectionMode($event)">
+    <uib-accordion-heading ng-click="toggleSelectionMode($event)">
+      Chart data by
+        <span ng-class="{bold:(selection.selectionMode==='region')}">Region</span>
+        &nbsp
+        <i class="fa"
+         ng-class="(selection.selectionMode==='point')?'fa-toggle-on':'fa-toggle-off'"
+         ng-click="toggleSelectionMode($event)"></i>
+      &nbsp
+      <span <span ng-class="{bold:(selection.selectionMode==='point')}">Point</span>
+    </uib-accordion-heading>
+    {{accordions}}
+  </uib-accordion-group>
+
 </uib-accordion>
