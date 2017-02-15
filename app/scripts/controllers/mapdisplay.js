@@ -8,9 +8,10 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('MapdisplayCtrl', function ($scope,$timeout,staticData,mapmodes,selection,spatialFoci) {
+  .controller('MapdisplayCtrl', function ($scope,$timeout,staticData,mapmodes,backgroundmodes,selection,spatialFoci) {
     $scope.mapmodes = mapmodes;
     $scope.selection = selection;
+    $scope.backgroundModes = backgroundmodes;
     staticData.unwrap($scope,'options',spatialFoci.regionTypes);
 
     $scope.dropdownsOpen={

@@ -26,4 +26,11 @@ angular.module('ausEnvApp')
   });
 
 
+angular.module('ausEnvApp')
+  .constant('backgroundmodes', {
+    roadmap:'Roadmap',
+    satellite:'Satellite',
+    white:'White',
+    black:'Black'
+  });
 

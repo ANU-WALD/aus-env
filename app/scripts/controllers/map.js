@@ -23,6 +23,32 @@ angular.module('ausEnvApp')
     var proj4 = $window.proj4;
     var webMercator = proj4(proj4.defs('EPSG:3857'));
 
+    /**
+     * @constructor
+     * @implements {google.maps.MapType}
+     */
+    function PlainMapType(colour,size,name) {
+      this.colour = colour;
+      this.tileSize=size;
+      this.name = name;
+      this.alt = name;
+    }
+
+    PlainMapType.prototype.maxZoom = 19;
+    PlainMapType.prototype.getTile = function(coord, zoom, ownerDocument) {
+      var div = ownerDocument.createElement('div');
+      //div.innerHTML = coord;
+      div.style.width = '256px';
+      div.style.height = '256px';
+      div.style.fontSize = '10';
+      div.style.borderStyle = 'solid';
+      div.style.borderWidth = '1px';
+      div.style.borderColor = this.colour;
+      div.style.backgroundColor = this.colour;
+      return div;
+    };
+
+
     var pointToWebMercator = function(pt){
       return webMercator.forward([pt.lng(),pt.lat()]);
     };
@@ -143,7 +169,7 @@ angular.module('ausEnvApp')
         }
 
         newVal = newVal.toUpperCase();
-        $scope.map.options.mapTypeId = maps.MapTypeId[newVal];
+        $scope.map.options.mapTypeId = maps.MapTypeId[newVal] || newVal;
       };
       $scope.$watch('selection.mapType',setMapType);
       setMapType(selection.mapType);
@@ -176,6 +202,9 @@ angular.module('ausEnvApp')
         $scope.map.showGrid=true;
         $scope.theMap.data.setStyle($scope.geoJsonStyling);
         $scope.theMap.data.addListener('click', $scope.polygonSelected);
+
+        $scope.theMap.mapTypes.set('WHITE',new PlainMapType('#FFF',new google.maps.Size(256, 256),'White'));
+        $scope.theMap.mapTypes.set('BLACK',new PlainMapType('#000',new google.maps.Size(256, 256),'Black'));
         mapReady.resolve();
       });
       $scope.gridData = $scope.createImageMapFromWMS('aWMS');
