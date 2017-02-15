@@ -25,11 +25,11 @@ angular.module('ausEnvApp')
     };
 
     $scope.needAPoint = function(){
-      return !$scope.noChartsAvailable()&&(selection.selectionMode==='region')&&!selection.selectedRegion;
+      return !$scope.noChartsAvailable()&&(selection.selectionMode==='point')&&!selection.selectedPoint;
     };
 
     $scope.needARegion = function(){
-      return !$scope.noChartsAvailable()&&(selection.selectionMode==='point')&&!selection.selectedPoint;
+      return !$scope.noChartsAvailable()&&(selection.selectionMode==='region')&&!selection.selectedRegion;
     };
 
     $scope.noChartsAvailable = function(){
