@@ -65,7 +65,7 @@
         "annualByPolygonId":true,
         "palette":{
           "grid":"anu_wald_single_landcover",
-          "region":"anu_wald_bluescale20"
+          "region":"anu_wald_gisheat_inv.v2"
         },
         "legend":{
           "grid":"patchOnly",
@@ -101,7 +101,7 @@
         "summary":"",
         "palette":{
           "grid":"anu_wald_single_landcover",
-          "region":"anu_wald_bluescale20"
+          "region":"anu_wald_gisheat_inv.v2"
         },
         "legend":{
           "grid":"patchOnly",
@@ -141,7 +141,7 @@
         "summary":"",
         "palette":{
           "grid":"anu_wald_single_landcover",
-          "region":"anu_wald_bluescale20"
+          "region":"anu_wald_gisheat_inv.v2"
         },
         "legend":{
           "grid":"patchOnly",
@@ -186,7 +186,7 @@
         "summary":"",
         "palette":{
           "grid":"anu_wald_single_landcover",
-          "region":"anu_wald_bluescale20"
+          "region":"anu_wald_gisheat_inv.v2"
         },
         "legend":{
           "grid":"patchOnly",
@@ -241,7 +241,7 @@
         "summary":"",
         "palette":{
           "grid":"anu_wald_single_landcover",
-          "region":"anu_wald_bluescale20"
+          "region":"anu_wald_gisheat_inv.v2"
         },
         "legend":{
           "grid":"patchOnly",
@@ -281,7 +281,7 @@
         "summary":"",
         "palette":{
           "grid":"anu_wald_single_landcover",
-          "region":"anu_wald_bluescale20"
+          "region":"anu_wald_gisheat_inv.v2"
         },
         "legend":{
           "grid":"patchOnly",
