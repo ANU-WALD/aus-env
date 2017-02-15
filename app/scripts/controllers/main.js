@@ -216,7 +216,9 @@ angular.module('ausEnvApp')
           }
           return NONE;
         }
-      }
+      },
+      'mapType',
+      'imageMode'
     ];
 
     $scope.processRouteParams = function(){

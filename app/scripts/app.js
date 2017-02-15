@@ -96,8 +96,14 @@ angular
         libraries: libs
       });
     }
+
+    var urlComponents=[
+      'year','selectedLayer','mapMode','dataMode','regionType','selectedDetailsView',
+      'latitude','longitude','zoom','selectedRegion','mapType','imageMode'
+    ];
+    var templateUrl = '/'+urlComponents.map(function(c){return ':'+c+'?';}).join('/');
     $routeProvider
-      .when('/:year?/:selectedLayer?/:mapMode?/:dataMode?/:regionType?/:selectedDetailsView?/:latitude?/:longitude?/:zoom?/:selectedRegion?', {
+      .when(templateUrl, {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
