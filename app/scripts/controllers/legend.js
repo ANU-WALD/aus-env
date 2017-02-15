@@ -91,9 +91,15 @@ angular.module('ausEnvApp')
         $scope.colourScaleRange = $scope.polygonDataRange;
       }
 
-      if(selection.selectedLayer.legend) {
+      var customLegend = selection.selectedLayer.legend;
+      var mm = selection.mapMode.toLowerCase();
+      if(customLegend&&customLegend[mm]!==undefined){
+        customLegend=customLegend[mm];
+      }
+
+      if(customLegend) {
         // +++ NASTY HACK TO GET DLCD CODES
-        details[selection.selectedLayer.legend]().then(function(colourCodes){
+        details[customLegend]().then(function(colourCodes){
           $scope.colourScheme = [];
           for(var key in colourCodes) {
             var e = colourCodes[key];
