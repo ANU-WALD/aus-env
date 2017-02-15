@@ -16,7 +16,7 @@ angular.module('ausEnvApp')
       $scope.mapDescription = null;
       $scope.mapUnits = null;
       $scope.mapTimePeriod = null;
-
+      $scope.mapSuffix = null;
       if(!selection.selectedLayer) {
         result.resolve(false);
         return result.promise;
@@ -54,6 +54,13 @@ angular.module('ausEnvApp')
 
           result.resolve(true);
         });
+
+        $scope.mapSuffix = '';
+
+        if((selection.mapMode===mapmodes.region)&&selection.regionType){
+          $scope.mapSuffix = ' by ' + selection.regionType.name;
+        }
+
       }
 
       return result.promise;

@@ -62,7 +62,6 @@
         "variable":"DLCD",
         "time":"{{year}}-01-01",
         "missingYears":[2000,2001,2002],
-        "annualByPolygonId":true,
         "palette":{
           "grid":"anu_wald_single_landcover",
           "region":"anu_wald_gisheat_inv.v2"

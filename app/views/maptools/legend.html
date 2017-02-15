@@ -1,7 +1,7 @@
 <div class="nudge-left legend panel panel-group">
   <strong>{{mapTitle}} (<span ng-bind-html="mapUnits"></span>) <i ng-show="mapDescription" class="fa fa-info-circle"
    uib-tooltip="{{mapDescription}}" tooltip-append-to-body="true"></i>
-   <br/>{{mapTimePeriod}}
+   <br/>{{mapTimePeriod}}{{mapSuffix}}
   </strong>
   <div style="display:table;line-height:15px">
   <div style="display:table-row;padding:0;" ng-repeat="row in colourScheme">
