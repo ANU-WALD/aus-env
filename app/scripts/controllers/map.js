@@ -598,12 +598,4 @@ angular.module('ausEnvApp')
     selection.selectedPoint = latlng;
   };
 
-  $scope.shareLinkFacebook = function(event){
-    event.preventDefault();
-
-    console.log('here');
-    $window.open("https://www.facebook.com/sharer/sharer.php?u="+escape($window.location.href)+"&t="+$document.title, '',
-                'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
-  };
-
 });
