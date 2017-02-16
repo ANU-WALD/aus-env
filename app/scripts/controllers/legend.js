@@ -44,7 +44,10 @@ angular.module('ausEnvApp')
             $scope.mapTitle = selection.selectedLayerTitle(data.Title);
           }
           $scope.mapDescription = $scope.mapDescription || data.Description;
-          $scope.mapUnits = $scope.mapUnits || details.unitsText(data.Units);
+
+          if(!$scope.mapUnits||($scope.selection.mapMode===mapmodes.region)){
+            $scope.mapUnits = details.unitsText(data.Units);
+          }
 
           var deltaMode = (selection.dataMode===datamodes.delta)&&selection.selectedLayer.delta;
           if(deltaMode) {
