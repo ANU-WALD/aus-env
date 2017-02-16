@@ -1,8 +1,8 @@
 <div class="modal-header">
     <h2 class="modal-title">
       Australia's Environment Explorer
-      <i ng-click="closeModal()" class="text-muted pull-right fa fa-times"></i>
     </h2>
+<!--      <i ng-click="closeModal()" class="text-muted pull-right fa fa-times"></i>-->
 </div>
 <div class="modal-body">
 
@@ -42,8 +42,17 @@
           <label>
             <input type="checkbox" ng-model="appOptions.doNotShow" ng-click="doNotShowClicked()">
             &nbspUnderstood,
-        I don’t need to see this again <small>(If you do, just use the (?) button on the screen)</small>
+        I don’t need to see this again
           </label>
+          <div class="pull-right">
+            <button class="btn"
+                    ng-class="{'btn-success':appOptions.doNotShow}"
+                    ng-click="closeModal()">Continue
+            </button>
+          </div>
+
+          <p><small>(If you do, just use the <span class="like-a-btn"><i class="fa fa-lg fa-question"></i></span> button in the map control panel)</small></p>
+
       </div>
     </div>
   </div>
