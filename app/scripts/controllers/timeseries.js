@@ -13,8 +13,28 @@ angular.module('ausEnvApp')
     var $ = window.$;
     $scope.line = details.chartMetaData();
 
+    $scope.clearChart = function(){
+      $scope.line = details.chartMetaData();
+      $scope.lineData=[];
+      $scope.lineSeries=[];
+      var target = $element[0];
+      target = $('.timeseries-chart',target)[0];
+
+      Plotly.purge(target);
+    };
+
     $scope.createTimeSeriesChart = function(){
+      if(!$scope.selection.graphVisible.timeseries){
+        $scope.clearChart();
+        return;
+      }
+
       $scope.getLineChartData().then(function(data){
+        if(!$scope.selection.graphVisible.timeseries){
+          $scope.clearChart();
+          return;
+        }
+
         var series = data[0];
         var labels = data[1];
         var metadata = data[2];
@@ -68,15 +88,7 @@ angular.module('ausEnvApp')
           modeBarButtonsToRemove: ['hoverCompareCartesian','hoverClosestCartesian','lasso2d','select2d'],
           displaylogo: false
         });
-      },function(){
-        $scope.line = details.chartMetaData();
-        $scope.lineData=[];
-        $scope.lineSeries=[];
-        var target = $element[0];
-        target = $('.timeseries-chart',target)[0];
-
-        Plotly.purge(target);
-      });
+      },$scope.clearChart);
     };
 
     $scope.watchList.forEach(function(prop){
@@ -84,4 +96,6 @@ angular.module('ausEnvApp')
     });
 
     $scope.$watch('selection.year',$scope.createTimeSeriesChart);
+
+    $scope.$watch('selection.graphVisible.timeseries',$scope.createTimeSeriesChart);
   });
