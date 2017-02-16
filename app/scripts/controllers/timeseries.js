@@ -27,6 +27,18 @@ angular.module('ausEnvApp')
           $scope.line.units = details.unitsText(altUnits);
         }
 
+        var range;
+        if($scope.line.units==='%'){
+          var actualVals = series.filter(function(v){
+            return !isNaN(v);
+          });
+          var max = Math.max.apply(null, actualVals);
+          var min = Math.min.apply(null, actualVals);
+          if(max>99){
+            range = [Math.min(95,20*Math.floor(min/20.0)),100];
+          }
+        }
+
         var _ = window._;
         $scope.line.download = downloads.downloadableTable(_.zip(labels.map(function(d){return d.toLocaleDateString('en-GB');}),series),['Date','Value']);
         $scope.line.download_fn = downloads.makeDownloadFilename($scope.locationLabel(),$scope.line.title,selection.year);
@@ -47,7 +59,8 @@ angular.module('ausEnvApp')
             t:10
           },
           yaxis:{
-            title:$scope.line.units
+            title:$scope.line.units,
+            range:range
           },
           showlegend:false
 

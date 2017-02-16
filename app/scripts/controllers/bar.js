@@ -75,6 +75,33 @@ angular.module('ausEnvApp')
       $scope.barColors = $scope.assignBarChartColours($scope.barLabels);
     };
 
+    $scope.ensureGoodScale = function(data,units){
+      $scope.barOptions.scaleOverride = false;
+
+      if(!data || !data.length){
+        return;
+      }
+
+      if(!((units==='percent')||(units==='%'))){
+        return;
+      }
+
+      var vals = data.map(function(e){return e.value;});
+      var max = Math.max.apply(null, vals);
+      var min = Math.min.apply(null, vals);
+
+      if(max>99){
+        var axisMax = 100;
+        var axisMin = Math.min(90,10*Math.floor(min/10.0));
+        var nSteps=5;
+        var step = (axisMax-axisMin)/nSteps;
+        $scope.barOptions.scaleOverride = true;
+        $scope.barOptions.scaleSteps = nSteps;
+        $scope.barOptions.scaleStepWidth = step;
+        $scope.barOptions.scaleStartValue = axisMin;
+      }
+    };
+
     $scope.createBarChart = function(){
       $scope.barOptions.animation = true;
       $scope.getBarData().then(function(data){
@@ -82,6 +109,9 @@ angular.module('ausEnvApp')
         var metadata = data[1];
 
         $scope.barOptions.animation = true;
+
+        $scope.ensureGoodScale(barData,metadata.Units);
+
         $scope.barData = [barData.map(function(e){return isNaN(e.value)?0.0:e.value;})];
         $scope.barLabels = barData.map(function(e){return e.label;});
         $scope.barSeries = [metadata.label];

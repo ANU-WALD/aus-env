@@ -13,6 +13,8 @@
         "palette":"anu_wald_darkgreen",
         "time":"{{year}}-12-31",
         "missingYears":[2001,2003],
+        "units":"percent",
+        "description":"Percent of area classified as forest at 25 metre resolution mapping using Landsat imagery following the NCAS classification.",
         "normal":{
           "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.AllYears.250m.nc",
           "zooms":{
