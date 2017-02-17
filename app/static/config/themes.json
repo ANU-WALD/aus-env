@@ -50,7 +50,7 @@
         "colorscalerange":"1,35",
         "summary":"",
         "disablePolygons":true,
-        "palette":"anu_wald_dlcd.v2",
+        "palette":"anu_wald_dlcd.v3",
         "legend":"landCoverCodes",
         "disablePoint":true
       },
