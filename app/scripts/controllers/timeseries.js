@@ -8,7 +8,7 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('TimeseriesCtrl', function ($scope,$log,$element,details,downloads,selection) {
+  .controller('TimeseriesCtrl', function ($scope,$log,$element,$timeout,details,downloads,selection) {
     var Plotly = window.Plotly;
     var $ = window.$;
     $scope.line = details.chartMetaData();
@@ -65,28 +65,30 @@ angular.module('ausEnvApp')
         var target = $element[0];
         target = $('.timeseries-chart',target)[0];
 
-        Plotly.newPlot( target, [{
-          x: labels,
-          y: series,
-          line:{
-            color:details.themeColours.darkGreen
-          }
-         }], {
-          margin: {
-            l:40,
-            r:10,
-            b:30,
-            t:10
-          },
-          yaxis:{
-            title:$scope.line.units,
-            range:range
-          },
-          showlegend:false
+        $timeout(function(){
+          Plotly.newPlot( target, [{
+            x: labels,
+            y: series,
+            line:{
+              color:details.themeColours.darkGreen
+            }
+           }], {
+            margin: {
+              l:40,
+              r:10,
+              b:30,
+              t:10
+            },
+            yaxis:{
+              title:$scope.line.units,
+              range:range
+            },
+            showlegend:false
 
-        },{
-          modeBarButtonsToRemove: ['hoverCompareCartesian','hoverClosestCartesian','lasso2d','select2d'],
-          displaylogo: false
+          },{
+            modeBarButtonsToRemove: ['hoverCompareCartesian','hoverClosestCartesian','lasso2d','select2d'],
+            displaylogo: false
+          });
         });
       },$scope.clearChart);
     };
