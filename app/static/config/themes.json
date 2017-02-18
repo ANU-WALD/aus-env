@@ -543,20 +543,20 @@
       "units":"%",
       "summary":"FractCover.V3_0_1.AnnualMeans.aust.005.BS",
       "palette":"anu_wald_gisheat_inv.v2",
+      "abovemaxcolor":"transparent",
       "normal":{
         "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.AnnualMeans.aust.005.BS.nc",
         "variable":"AnnualMeans",
         "time":"{{year}}-12-31",
         "colorscalerange":"0,100",
         "belowmincolor":"extend",
-        "abovemaxcolor":"transparent",
         "palette":"anu_wald_gisheat_inv.v2"
       },
       "delta":{
         "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.ChangesAnnualMean.aust.005.BS.nc",
         "variable":"ChangesAnnualMean",
         "time":"{{year}}-12-31",
-        "colorscalerange":"-75,75",
+        "colorscalerange":"-100,100",
         "palette":"anu_wald_gistemp",
         "transparent":true
       },
