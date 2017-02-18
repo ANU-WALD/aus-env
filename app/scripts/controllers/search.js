@@ -62,6 +62,8 @@ angular.module('ausEnvApp')
       selection.initialisePolygons(newOption);
     }; //regionTypeChanged
 
+    $scope.regionTypeChanged(selection.regionType);
+
     $scope.canUseSearchText = function() {
       return selection.regionType !== null;
     };  //canUseSearchText
