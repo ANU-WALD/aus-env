@@ -816,3 +816,8 @@ canvas {
 
   color:#777;
 }
+
+.region-search .dropdown-menu {
+  max-height:250px;
+  overflow-y: auto;
+}
