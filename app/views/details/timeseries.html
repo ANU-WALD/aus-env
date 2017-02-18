@@ -7,9 +7,10 @@
   <div>
     <div class="timeseries-chart" id="timeseries" style="width:100%;height:200px;"></div>
 
+    <div class="text-center verticaltext_content"><span ng-bind-html="line.units"/></div>
+
     <a class="download-link" ng-show="line.download" download="{{line.download_fn}}" ng-href="{{line.download}}"><i class="fa fa-download"></i>&nbspGet the data</a>
 
-    <div class="text-center verticaltext_content chart-vertical-position"><span ng-bind-html="bar.units"/></div>
 
   </div>
 </div>
