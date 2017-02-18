@@ -510,25 +510,14 @@ h2.details-heading {
   margin-top: 10px;
 }
 
-.verticaltext {
-  position: relative;
-  padding-left:50px;
-  margin:1em 0;
-  min-height:120px;
-}
-
 .verticaltext_content {
   position: relative;
   transform: rotate(-90deg);
   color: #000;
-  //background-color: yellow;
   font-size:12px;
-  //font-weight:bold;
-}
 
-.chart-vertical-position {
-  right:90px;
-  bottom:150px;
+  right:95px;
+  bottom:110px;
   width:200px;
 }
 
