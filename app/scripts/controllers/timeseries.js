@@ -79,6 +79,9 @@ angular.module('ausEnvApp')
               b:30,
               t:10
             },
+            xaxis:{
+              tickformat:'%b'
+            },
             yaxis:{
      //         title:$scope.line.units,
               range:range,
