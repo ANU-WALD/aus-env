@@ -40,7 +40,7 @@
       },
       {
         "source":"Land cover mapping",
-        "title":"All",
+        "title":"All land cover classes",
         "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
         "units":"classification",
         "url":"ub8/au/LandCover/DLCD.AllYears.nc",
