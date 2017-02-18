@@ -478,7 +478,10 @@ angular.module('ausEnvApp')
     $scope.map.refreshRegions = !$scope.map.refreshRegions;
 
     if(!$scope.selection.mapModesAvailable()) {
-      selection.mapMode = mapmodes.grid;
+      if(selection.mapMode!==mapmodes.grid){
+        selection.mapMode = mapmodes.grid;
+        $scope.map.refreshGrid = !$scope.map.refreshGrid;
+      }
     }
 
     if(layer.missingYears && (layer.missingYears.indexOf(selection.year)>=0)){
