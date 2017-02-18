@@ -80,8 +80,12 @@ angular.module('ausEnvApp')
               t:10
             },
             yaxis:{
-              title:$scope.line.units,
-              range:range
+     //         title:$scope.line.units,
+              range:range,
+              tickfont: {
+                size: 11,
+                color: 'black'
+              },
             },
             showlegend:false
 
