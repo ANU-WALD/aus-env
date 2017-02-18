@@ -10,6 +10,10 @@
   	 chart-data="pieData" chart-labels="pieLabels" chart-options="pieChartOptions" chart-colours="pieColours">
   </canvas>
 
-  <a class="download-link" ng-show="pie.download" download="{{pie.download_fn}}" ng-href="{{pie.download}}"><i class="fa fa-download"></i>Get the data</a>
+
+  <span ng-if="pie.download">
+    <a class="download-link" ng-show="dataURISupported" download="{{pie.download_fn}}" ng-href="{{pie.download}}"><i class="fa fa-download"></i>Get the data</a>
+    <span ng-show="!dataURISupported">{{dataDownloadMessage}}</span>
+  </span>
   <span class="pull-right" ng-show="pie.sum">Total: {{pie.sum | number}}&nbsp<span ng-bind-html="pie.units"/>&nbsp</span>
 </div>

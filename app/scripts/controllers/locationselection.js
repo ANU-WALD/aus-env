@@ -8,7 +8,7 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('LocationselectionCtrl', function ($scope,$log,selection) {
+  .controller('LocationselectionCtrl', function ($scope,$log,$q,selection) {
     $scope.selection = selection;
 
     $scope.accordions={
@@ -38,4 +38,32 @@ angular.module('ausEnvApp')
         ((selection.selectionMode==='region')&&(selection.selectedLayer.disablePolygons))
       );
     };
+
+
+    $scope.checkDataURISupport = function(){
+      // Adapted from http://stackoverflow.com/a/36915691
+      var result = $q.defer();
+      try {
+          var request = new XMLHttpRequest();
+          request.onload = function reqListener() {
+              result.resolve(true);
+          };
+          request.onerror = function reqListener() {
+              result.resolve(false);
+          };
+          request.open('GET', 'data:application/pdf;base64,cw==');
+          request.send();
+      } catch (ex) {
+          result.resolve(false);
+      }
+      return result.promise;
+    };
+
+    $scope.checkDataURISupport().then(function(supported){
+      $scope.dataURISupported = supported;
+
+      if(!supported){
+        $scope.dataDownloadMessage = 'CSV download supported in Firefox, Chrome';
+      }
+    });
   });

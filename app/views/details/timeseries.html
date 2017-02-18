@@ -9,8 +9,9 @@
 
     <div class="text-center verticaltext_content"><span ng-bind-html="line.units"/></div>
 
-    <a class="download-link" ng-show="line.download" download="{{line.download_fn}}" ng-href="{{line.download}}"><i class="fa fa-download"></i>&nbspGet the data</a>
-
-
+    <span ng-if="line.download">
+      <a class="download-link" ng-show="dataURISupported" download="{{line.download_fn}}" ng-href="{{line.download}}"><i class="fa fa-download"></i>&nbspGet the data</a>
+      <span ng-show="!dataURISupported">{{dataDownloadMessage}}</span>
+    </span>
   </div>
 </div>
