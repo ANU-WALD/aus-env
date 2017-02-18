@@ -183,7 +183,8 @@ angular.module('ausEnvApp')
 
       if(!locators.id){
         $scope.chartView('pie',false);
-        return;
+        result.reject();
+        return result.promise;
       }
 
       details.getPieChartData().then(function(data){
