@@ -212,7 +212,7 @@ angular.module('ausEnvApp')
           }
 
           if(selection.selectedRegion){
-            return selection.selectedRegion.name;
+            return selection.selectedRegion.name.replace(/\//g,'%2F');
           }
           return NONE;
         }
