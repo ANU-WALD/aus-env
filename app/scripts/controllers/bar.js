@@ -104,6 +104,7 @@ angular.module('ausEnvApp')
 
     $scope.createBarChart = function(){
       $scope.barOptions.animation = true;
+      $scope.bar.loading=true;
       $scope.getBarData().then(function(data){
         var barData = data[0];
         var metadata = data[1];
@@ -120,11 +121,13 @@ angular.module('ausEnvApp')
 
         $scope.bar.download = downloads.downloadableTable(barData.map(function(line){return [line.label,line.value];}),['Year','Value']);
         $scope.bar.download_fn = downloads.makeDownloadFilename($scope.locationLabel(),$scope.bar.title,'annual');
+        $scope.bar.loading=false;
       },function(){
         $scope.barData = [];
         $scope.barLabels = [];
         $scope.barSeries = [];
         $scope.bar = details.chartMetaData();
+        $scope.bar.loading=false;
       });
     };
 

@@ -1,5 +1,8 @@
 <div ng-controller="BarCtrl">
-  <h2 class="details-heading" ng-bind-html="locationLabel()"></h2>
+  <h2 class="details-heading">
+    <span ng-show="!bar.loading" ng-bind-html="locationLabel()"></span>
+    <span ng-show="bar.loading">Loading...</span>
+  </h2>
   <h3 class="chart-title">
     {{bar.title}}
     <i class="fa fa-info-circle" uib-tooltip="{{bar.description}}" tooltip-append-to-body="true"></i>

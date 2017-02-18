@@ -29,6 +29,7 @@ angular.module('ausEnvApp')
         return;
       }
 
+      $scope.line.loading=true;
       $scope.getLineChartData().then(function(data){
         if(!$scope.selection.graphVisible.timeseries){
           $scope.clearChart();
@@ -42,7 +43,6 @@ angular.module('ausEnvApp')
         $scope.lineData = [];
         $scope.lineData.push(series);
         $scope.lineSeries = ['TS'];
-        details.populateLabels($scope.line,metadata);
         if(altUnits){
           $scope.line.units = details.unitsText(altUnits);
         }
@@ -66,6 +66,10 @@ angular.module('ausEnvApp')
         target = $('.timeseries-chart',target)[0];
 
         $timeout(function(){
+          $(target).one('plotly_afterplot', function(){
+            details.populateLabels($scope.line,metadata);
+            $scope.line.loading=false;
+          });
           Plotly.newPlot( target, [{
             x: labels,
             y: series,
@@ -96,7 +100,9 @@ angular.module('ausEnvApp')
             modeBarButtonsToRemove: ['hoverCompareCartesian','hoverClosestCartesian','lasso2d','select2d'],
             displaylogo: false
           });
+
         });
+
       },$scope.clearChart);
     };
 

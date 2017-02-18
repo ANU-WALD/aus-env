@@ -21,6 +21,7 @@ angular.module('ausEnvApp')
     };
 
     $scope.createChart = function(){
+      $scope.pie.loading=true;
       $scope.getPieData().then(function(data){
         var _ = window._;
         var series = data[0];
@@ -36,10 +37,12 @@ angular.module('ausEnvApp')
         $scope.pie.sum = $scope.pieData.reduce(function(x,y){return x+y;}).toFixed();
         $scope.pie.download = downloads.downloadableTable(_.zip(labels,series),['Land Cover','Value']);
         $scope.pie.download_fn = downloads.makeDownloadFilename($scope.locationLabel(),$scope.pie.title,selection.year+'_by_landcover_classification');
+        $scope.pie.loading=false;
       },function(){
         $scope.pie = details.chartMetaData();
         $scope.pieData=[];
         $scope.pieLabels = [];
+        $scope.pie.loading=false;
       });
     };
 

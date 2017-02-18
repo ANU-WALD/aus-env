@@ -1,5 +1,8 @@
 <div ng-controller="PieCtrl">
-  <h2 class="details-heading" ng-bind-html="locationLabel()"></h2>
+  <h2 class="details-heading">
+    <span ng-show="!pie.loading" ng-bind-html="locationLabel()"></span>
+    <span ng-show="pie.loading">Loading...</span>
+  </h2>
   <h3 class="chart-title">
     {{selection.year}} {{pie.title}} (<span ng-bind-html="pie.units"></span>)
     <i class="fa fa-info-circle" uib-tooltip="{{pie.description}}" tooltip-append-to-body="true"></i>
