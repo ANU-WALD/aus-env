@@ -589,7 +589,8 @@ angular.module('ausEnvApp')
   });
 
   $scope.setDefaultTheme = function(themesData){
-    selection.selectTheme(themesData[0]);
+    var defaultTheme = themesData.filter(function(t){return t.default;})[0] || themesData[0];
+    selection.selectTheme(defaultTheme);
   };
 
   configuration.themes().then(function(themeData){

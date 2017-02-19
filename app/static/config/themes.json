@@ -319,7 +319,6 @@
 {
   "id":"bushfire",
   "name":"Bushfire",
-  "status":"constant",
   "icon":"fire.png",
   "layers":[
     {
@@ -369,7 +368,6 @@
 {
   "id":"wa",
   "name":"Water Availability",
-  "status":"improving",
   "icon":"water.png",
   "layers":[
     {
@@ -436,7 +434,6 @@
 {
   "id":"wetlands",
   "name":"Rivers and Wetlands",
-  "status":"constant",
   "icon":"wetlands.png",
   "layers":[
     {
@@ -533,8 +530,8 @@
 },
 {
   "id":"lh",
+  "default":true,
   "name":"Landscape Health",
-  "status":"degrading",
   "icon":"landscape.png",
   "layers":[
     {
@@ -603,7 +600,6 @@
 {
   "id":"cs",
   "name":"Carbon Storage",
-  "status":"degrading",
   "icon":"carbon_uptake.png",
   "layers":[
     {

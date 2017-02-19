@@ -158,7 +158,7 @@ angular.module('ausEnvApp')
       });
     };
 
-    service.selectThemeByName('Tree Cover');
+    service.selectThemeByName('Landscape Health');
 
     service.selectTheme = function(theme){
       service.theme = theme.name;
