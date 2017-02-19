@@ -589,6 +589,7 @@ angular.module('ausEnvApp')
     if(selection.mapMode === mapmodes.grid){
       $scope.gridData.opacity=$scope.mapOpacity();
       $scope.map.refreshGrid = !$scope.map.refreshGrid;
+      $scope.map.refreshRegions = !$scope.map.refreshRegions;
     } else {
       $scope.updateStyling();
     }
