@@ -13,10 +13,10 @@
       <span class="visible-xs-inline visible-sm-inline">&nbsp{{theme.name}}&nbsp</span>
       <span class="caret"></span>
     </a>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu layer-menu">
       <li class="layer-item" ng-repeat="layer in theme.layers" ng-class="{'dropdown-submenu':layer.sublayers}">
         <a ng-click="selectThemeAndLayer(theme,layer)">{{layer.title}}</a>
-        <ul ng-if="layer.sublayers" class="dropdown-menu">
+        <ul ng-if="layer.sublayers" class="dropdown-menu sublayer-menu">
           <li class="layer-item" ng-repeat="sl in layer.sublayers" ng-click="selectThemeAndLayer(theme,sl,layer)">
             {{sl.title}}
           </li>

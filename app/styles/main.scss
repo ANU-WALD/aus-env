@@ -287,22 +287,6 @@ li.theme-item{
 
 
 
-/*.navbar-nav {
-  ul.dropdown-menu, {
-    background-color:$navbar-default-bg;
-    z-index:10000;
-
-    li {
-      z-index:10000;
-
-      a {
-        z-index: 10000;
-      }
-    }
-  }
-}
-*/
-
 /*
  * Added by PM to fix IE not rendering the navbar icon links the same as Chrome
  * Appears to have no impact on Chrome.
@@ -744,49 +728,67 @@ canvas {
   vertical-align: middle;
 }
 
-/* Submenus: http://stackoverflow.com/a/18024991; */
-.dropdown-submenu {
-    position:relative;
-}
-.dropdown-submenu>.dropdown-menu {
-    top:0;
-    left:100%;
-    margin-top:-6px;
-    margin-left:-1px;
-    -webkit-border-radius:0 6px 6px 6px;
-    -moz-border-radius:0 6px 6px 6px;
-    border-radius:0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
+@media screen and (max-width:$container-sm - 1){
+  .dropdown-submenu {
     display:block;
-}
-.dropdown-submenu>a:after {
+  }
+  .dropdown-menu.sublayer-menu{
     display:block;
-    content:" ";
-    float:right;
-    width:0;
-    height:0;
-    border-color:transparent;
-    border-style:solid;
-    border-width:5px 0 5px 5px;
-    border-left-color:#cccccc;
-    margin-top:5px;
-    margin-right:-10px;
-}
-.dropdown-submenu:hover>a:after {
-    border-left-color:#ffffff;
-}
-.dropdown-submenu.pull-left {
-    float:none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-    left:-100%;
-    margin-left:10px;
-    -webkit-border-radius:6px 0 6px 6px;
-    -moz-border-radius:6px 0 6px 6px;
-    border-radius:6px 0 6px 6px;
+
+    li {
+      list-style-type:circle;
+      list-style-position: inside;
+      margin-left:26px;
+      color:#ccc;
+    }
+  }
 }
 
+@media screen and (min-width:$container-sm){
+  /* Submenus: http://stackoverflow.com/a/18024991; */
+  .dropdown-submenu {
+      position:relative;
+  }
+  .dropdown-submenu>.dropdown-menu {
+      top:0;
+      left:100%;
+      margin-top:-6px;
+      margin-left:-1px;
+      -webkit-border-radius:0 6px 6px 6px;
+      -moz-border-radius:0 6px 6px 6px;
+      border-radius:0 6px 6px 6px;
+  }
+  .dropdown-submenu:hover>.dropdown-menu {
+      display:block;
+  }
+  .dropdown-submenu>a:after {
+      display:block;
+      content:" ";
+      float:right;
+      width:0;
+      height:0;
+      border-color:transparent;
+      border-style:solid;
+      border-width:5px 0 5px 5px;
+      border-left-color:#cccccc;
+      margin-top:5px;
+      margin-right:-10px;
+  }
+  .dropdown-submenu:hover>a:after {
+      border-left-color:#ffffff;
+  }
+  .dropdown-submenu.pull-left {
+      float:none;
+  }
+  .dropdown-submenu.pull-left>.dropdown-menu {
+      left:-100%;
+      margin-left:10px;
+      -webkit-border-radius:6px 0 6px 6px;
+      -moz-border-radius:6px 0 6px 6px;
+      border-radius:6px 0 6px 6px;
+  }
+
+}
 
 .text-muted{
   color:inherit;
