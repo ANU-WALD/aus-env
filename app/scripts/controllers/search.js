@@ -23,6 +23,9 @@ angular.module('ausEnvApp')
     $scope.coordChanged = function(){
       var g = window.google;
       selection.selectionMode='point';
+      if(isNaN($scope.coords.lat)||isNaN($scope.coords.lng)){
+        return;
+      }
       selection.selectedPoint = new g.maps.LatLng(+$scope.coords.lat,+$scope.coords.lng);
     };
 
