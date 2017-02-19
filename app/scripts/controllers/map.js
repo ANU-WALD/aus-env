@@ -281,13 +281,18 @@ angular.module('ausEnvApp')
              (feature.getProperty(selection.regionType.labelField)===selection.selectedRegion.name);
     };
 
+    $scope.cursorToUse = function(){
+      return (selection.selectionMode==='point')?'crosshair':null;
+    };
+
     $scope.geoJsonStyling = function(feature) {
       var style = {
         strokeWeight:0,
         strokeOpacity:0,
         fillColor:$scope.polygonFillColour(feature) || 'unfilled',
         fillOpacity:$scope.mapOpacity(),
-        color:'#000'
+        color:'#000',
+        cursor: $scope.cursorToUse()
       };
 
       if(style.fillColor==='unfilled') {
@@ -337,6 +342,7 @@ angular.module('ausEnvApp')
           $scope.mapReady.then(function(){
             styleApplicationsPending--;
             $scope.theMap.data.setStyle($scope.geoJsonStyling);
+            $scope.theMap.setOptions({draggableCursor:$scope.cursorToUse()});
           });
         }
       };
