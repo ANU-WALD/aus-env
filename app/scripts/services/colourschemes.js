@@ -18,16 +18,16 @@ angular.module('ausEnvApp')
       if(layer[selection.dataModeConfig()]) {
         sources.unshift(layer[selection.dataModeConfig()]);
       }
-        for(var source in sources) {
-          var palette = sources[source].palette;
-          if(palette) {
-            var mm = selection.mapMode.toLowerCase();
-            if(palette[mm]){
-              return palette[mm];
-            }
-            return palette;
-          }
+      //      palette = palette[selection.dataModeConfig()]||palette;
+
+      for(var source in sources) {
+        var palette = sources[source].palette;
+        if(palette) {
+          palette = palette[selection.mapMode.toLowerCase()] || palette;
+          palette = palette[selection.dataModeConfig()]||palette;
+          return palette;
         }
+      }
       return 'rainbow';
     };
 

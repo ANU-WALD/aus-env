@@ -22,7 +22,7 @@ angular.module('ausEnvApp')
         return result.promise;
       }
 
-      if(selection.selectedLayer.delta && (selection.dataMode===datamodes.delta)){
+      if(selection.deltaMode()){
         $scope.mapTimePeriod = +(selection.year-1) + ' to ' + selection.year;
       } else {
         $scope.mapTimePeriod = +selection.year;
@@ -49,7 +49,7 @@ angular.module('ausEnvApp')
             $scope.mapUnits = details.unitsText(data.Units);
           }
 
-          var deltaMode = (selection.dataMode===datamodes.delta)&&selection.selectedLayer.delta;
+          var deltaMode = selection.deltaMode();
           if(deltaMode) {
             data = colourschemes.annualDelta(data);
           }

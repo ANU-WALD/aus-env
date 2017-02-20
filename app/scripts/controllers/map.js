@@ -360,7 +360,7 @@ angular.module('ausEnvApp')
             colours: data[1],
             values: data[0]
           };
-          var deltaMode=(selection.dataMode===datamodes.delta)&&selection.selectedLayer.delta;
+          var deltaMode=selection.deltaMode();
           if(deltaMode) {
             $scope.polygonMapping.values = colourschemes.annualDelta($scope.polygonMapping.values);
           }
@@ -564,6 +564,7 @@ angular.module('ausEnvApp')
     });
     if(settings.palette) {
       var palette = settings.palette.grid||settings.palette;
+      palette = palette[selection.dataModeConfig()]||palette;
       $scope.layers.overlays.aWMS.layerParams.styles = 'boxfill/'+palette;
     }
     $scope.layers.overlays.aWMS.layerParams.showOnSelector = false;

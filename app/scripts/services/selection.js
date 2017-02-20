@@ -327,14 +327,13 @@ angular.module('ausEnvApp')
              !service.selectedLayer.disablePolygons;
     };
 
-    service.dataModesAvailable = function() {
-      return service.selectedLayer &&
-             service.selectedLayer.normal &&
-             service.selectedLayer.delta;
-    };
-
     service.dataModeConfig = function(){
       return service.dataMode===datamodes.delta?'delta':'normal';
+    };
+
+    service.deltaMode = function(){
+      return (service.dataMode===datamodes.delta)&&
+             (service.selectedLayer.delta||(service.mapMode===mapmodes.region));
     };
 
     service.setRegionTypeByName = function(name){
@@ -366,24 +365,12 @@ angular.module('ausEnvApp')
       return (service.mapMode === mapmodes.grid);
     };
 
-    service.setOpacity = function(opacity) {
-      // +++ redundant???
-      if(service.layers.overlays.selectionLayer) {
-        var opac = service.layers.overlays.selectionLayer.layerOptions.opacity || 1;
-        opac += opacity;
-        if (opac < 0){ opac = 0; }
-        if (opac > 1){ opac = 1; }
-        service.layers.overlays.selectionLayer.layerOptions.opacity = opac;
-        service.layers.overlays.selectionLayer.doRefresh = true;
-      }
-    };
-
     service.selectedLayerTitle = function(text) {
       if(!service.selectedLayer) {
         return '';
       }
 
-      if(service.selectedLayer.delta && (service.dataMode===datamodes.delta)){
+      if(service.deltaMode()){
         return 'Change in ' + (text||service.selectedLayer.title);
       }
       return text||service.selectedLayer.title;

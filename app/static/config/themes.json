@@ -66,7 +66,10 @@
         "missingYears":[2000,2001,2002],
         "palette":{
           "grid":"anu_wald_single_landcover",
-          "region":"anu_wald_gisheat_inv.v2"
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
         },
         "legend":{
           "grid":"patchOnly",
@@ -102,7 +105,10 @@
         "summary":"",
         "palette":{
           "grid":"anu_wald_single_landcover",
-          "region":"anu_wald_gisheat_inv.v2"
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
         },
         "legend":{
           "grid":"patchOnly",
@@ -142,7 +148,10 @@
         "summary":"",
         "palette":{
           "grid":"anu_wald_single_landcover",
-          "region":"anu_wald_gisheat_inv.v2"
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
         },
         "legend":{
           "grid":"patchOnly",
@@ -187,7 +196,10 @@
         "summary":"",
         "palette":{
           "grid":"anu_wald_single_landcover",
-          "region":"anu_wald_gisheat_inv.v2"
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
         },
         "legend":{
           "grid":"patchOnly",
@@ -242,7 +254,10 @@
         "summary":"",
         "palette":{
           "grid":"anu_wald_single_landcover",
-          "region":"anu_wald_gisheat_inv.v2"
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
         },
         "legend":{
           "grid":"patchOnly",
@@ -282,7 +297,10 @@
         "summary":"",
         "palette":{
           "grid":"anu_wald_single_landcover",
-          "region":"anu_wald_gisheat_inv.v2"
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
         },
         "legend":{
           "grid":"patchOnly",
@@ -353,7 +371,13 @@
       "time":"{{year}}-12-31",
       "logscale":false,
       "colorscalerange":"0.002,100",
-      "palette":"anu_wald_gisheat_inv.v2",
+      "palette":{
+        "grid":"anu_wald_gisheat_inv.v2",
+        "region":{
+          "normal":"anu_wald_gisheat_inv.v2",
+          "delta":"anu_wald_gistemp_inv"
+        }
+      },
       "timeseries":{
         "url":"ub8/au/fire/Sentinel.Nhotspots.{{year}}.nc",
         "variable":"Nhotspots",
