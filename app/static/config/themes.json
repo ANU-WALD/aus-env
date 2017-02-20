@@ -31,7 +31,7 @@
         },
         "delta":{
           "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.ChangeAllYears.250m.nc",
-          "colorscalerange":"-30,30",
+          "colorscalerange":"-100,100",
           "variable":"ChangeAllYears",
           "time":"{{year}}-12-31",
           "palette":"anu_wald_gistemp_inv",
