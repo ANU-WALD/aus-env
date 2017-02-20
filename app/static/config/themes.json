@@ -375,7 +375,7 @@
         "grid":"anu_wald_gisheat_inv.v2",
         "region":{
           "normal":"anu_wald_gisheat_inv.v2",
-          "delta":"anu_wald_gistemp_inv"
+          "delta":"anu_wald_gistemp"
         }
       },
       "timeseries":{
