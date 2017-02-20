@@ -38,6 +38,14 @@ angular.module('ausEnvApp')
 
         var series = data[0];
         var labels = data[1];
+
+        var valueNonNull = function(_,i){
+          return !isNaN(series[i]);
+        };
+
+        labels = labels.filter(valueNonNull);
+        series = series.filter(valueNonNull);
+
         var metadata = data[2];
         var altUnits = data[3];
         $scope.lineData = [];
@@ -75,7 +83,8 @@ angular.module('ausEnvApp')
             y: series,
             line:{
               color:details.themeColours.darkGreen
-            }
+            },
+            mode:'lines'+((series.length<365)?'+markers':'')
            }], {
             margin: {
               l:40,
@@ -84,7 +93,8 @@ angular.module('ausEnvApp')
               t:10
             },
             xaxis:{
-              tickformat:'%b'
+              tickformat:'%b',
+              range:[labels[0],labels[labels.lenght-1]]
             },
             yaxis:{
      //         title:$scope.line.units,
@@ -100,9 +110,11 @@ angular.module('ausEnvApp')
             modeBarButtonsToRemove: ['hoverCompareCartesian','hoverClosestCartesian','lasso2d','select2d'],
             displaylogo: false
           });
-
+          Plotly.relayout( target, {
+              'xaxis.autorange': true,
+              'yaxis.autorange': false
+          });
         });
-
       },$scope.clearChart);
     };
 
