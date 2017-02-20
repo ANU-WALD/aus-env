@@ -113,7 +113,7 @@ angular.module('ausEnvApp')
 
     $scope.zoomToPoint = function(){
       selection.selectionMode='point';
-      selection.selectedPoint = new g.maps.LatLng(+$scope.coords.lat,+$scope.coords.lng);
+      selection.selectedPoint = new google.maps.LatLng(+$scope.coords.lat,+$scope.coords.lng);
       selection.zoomToSelectedPoint();
     };
 
