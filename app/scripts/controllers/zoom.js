@@ -86,4 +86,20 @@ angular.module('ausEnvApp')
     $scope.showTour = function(){
       $scope.selection.showHelp=true;
     };
+
+    $scope.haveSelection = function(){
+      if(selection.selectionMode==='region'){
+        return selection.selectedRegion;
+      }
+
+      return selection.selectedPoint;
+    };
+
+    $scope.zoomToSelection = function(){
+      if(selection.selectionMode==='region'){
+        selection.zoomToFeature();
+      } else {
+        selection.zoomToSelectedPoint();
+      }
+    };
   });
