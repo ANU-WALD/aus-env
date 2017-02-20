@@ -344,7 +344,7 @@
       "title":"Fire intensity",
       "description":"Annual maximum fire intensity derived from satellite observations by Geoscience Australia's Sentinel Hotspots system",
       "units":"&deg;C",
-      "summary":"Sentinel.Nhotspots.AnnualSums",
+      "summary":null,
       "missingYears":[2000,2001],
       "disablePolygons":true,
       "url":"ub8/au/fire/Sentinel.MaxTemp.AnnualMaxima.nc",
@@ -522,7 +522,8 @@
     {
       "default":false,
       "title":"River flow",
-      "summary":"OzWALD.annual.Qtot.AnnualSums",
+      "summary":null,
+      "disablePolygons":true,
       "units":"ML",
       "normal":{
         "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qriv.AnnualSums.nc",

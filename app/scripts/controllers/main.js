@@ -270,8 +270,6 @@ angular.module('ausEnvApp')
     $scope.$watch('selection.selectionMode',$scope.updateURL,true);
     $scope.$watch('selection.graphVisible',$scope.updateURL,true);
 
-    console.log('Building a controller...');
-
     if(!$routeParams.latitude){
       selection.centreAustralia();
     }

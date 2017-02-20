@@ -77,6 +77,11 @@ angular.module('ausEnvApp')
       $q.all([selection.getSelectedLayer(),selection.getRegionType()]).then(function(){
         var url = ANNUAL_TIME_SERIES;
         var summaryName = service.summaryName('annualSummary');
+        if(summaryName===null){
+          result.reject();
+          return result.promise;
+        }
+
         if(summaryName.indexOf('{{')>=0){
           url += $interpolate(summaryName)({
             regionType:service.polygonSource(regionType)
@@ -95,14 +100,21 @@ angular.module('ausEnvApp')
     };
 
     service.getPieChartData = function(){
+      var result = $q.defer();
+
       var summaryName = service.summaryName();
+
+      if(summaryName===null){
+        result.reject();
+        return result.promise;
+      }
+
       if(summaryName.length) {
         summaryName += '.';
       }
       var url = PIE_CHART_DATA+summaryName+service.polygonSource()+'.DLCD.'+selection.year+'.sum.csv';
       var mainData = service.retrieveCSV(url);
       var landCover = service.landCoverCodes();
-      var result = $q.defer();
 
       $q.all([mainData,landCover]).then(function(results){
         var data = results[0];

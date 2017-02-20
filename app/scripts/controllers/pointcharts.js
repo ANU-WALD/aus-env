@@ -138,9 +138,8 @@ angular.module('ausEnvApp')
       $scope.chartView('timeseries',true);
 
       spatialFoci.regionTypes().then(function(rt){
-        $q.all([timeseries.retrieveTimeSeriesForPoint(pt,layer,selection.year),details.getPolygonAnnualTimeSeries(rt[0])]).then(function(resp){
-          var data = resp[0];
-//          var metadata = resp[1];
+        timeseries.retrieveTimeSeriesForPoint(pt,layer,selection.year).then(function(resp){
+          var data = resp;
           result.resolve([data[layer.variable],data.time,metadata,layer.units]);
         },function(){
           result.reject();
