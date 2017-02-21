@@ -73,50 +73,41 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'leaflet-directive',
     'ui.bootstrap',
     'ngTouch',
     'ng-static-data',
     'chart.js',
-    'angularScreenfull'
+    'angularScreenfull',
+    'ui.select',
+    'uiGmapgoogle-maps'
   ])
-  .config(function ($routeProvider,$logProvider) {
+  .config(function ($routeProvider,$logProvider,uiGmapGoogleMapApiProvider,$compileProvider){
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|data):/);
+
+    var key='WENFO_GOOGLE_MAPS_API_KEY';
+    var libs = 'geometry,visualization';
+    if(key.indexOf('WENFO')===0){
+      uiGmapGoogleMapApiProvider.configure({
+        libraries: libs
+      });
+    } else {
+      uiGmapGoogleMapApiProvider.configure({
+        key:key,
+        libraries: libs
+      });
+    }
+
+    var urlComponents=[
+      'year','selectedLayer','mapMode','dataMode','regionType','selectedDetailsView',
+      'latitude','longitude','zoom','selectedRegion','mapType','imageMode'
+    ];
+    var templateUrl = '/'+urlComponents.map(function(c){return ':'+c+'?';}).join('/');
     $routeProvider
-      .when('/', {
+      .when(templateUrl, {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-//      .when('/about', {
-//        templateUrl: 'views/about.html',
-//        controller: 'AboutCtrl',
-//        controllerAs: 'about'
-//      })
-//      .when('/headlines', {
-//        templateUrl: 'views/headlines.html',
-//        controller: 'HeadlinesCtrl',
-//        controllerAs: 'headlines'
-//      })
-//      .when('/search', {
-//        templateUrl: 'views/search.html',
-//        controller: 'HeadlinesCtrl',
-//        controllerAs: 'search'
-//      })
-//      .when('/details', {
-//        templateUrl: 'views/details.html',
-//        controller: 'DetailsCtrl',
-//        controllerAs: 'details'
-//      })
-//      .when('/map', {
-//        templateUrl: 'views/map.html',
-//        controller: 'MapCtrl',
-//        controllerAs: 'map'
-//      })
-//      .when('/debug', {
-//        templateUrl: 'views/debug.html',
-//        controller: 'DebugCtrl',
-//        controllerAs: 'debugger'
-//      })
       .otherwise({
         redirectTo: '/'
       });

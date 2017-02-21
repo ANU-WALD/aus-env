@@ -7,15 +7,27 @@ install:
   - npm install
   - bower install
   - gem install compass
+  - bower list
+  - npm list
 script:
   - grunt test
   - grunt build
+  - SCRIPTS_FN=`ls dist/scripts/scripts*.js`
+  - sed "s/WENFO_GOOGLE_MAPS_API_KEY/$GOOGLE_MAPS_API_KEY/g" < $SCRIPTS_FN > tmp
+  - mv tmp $SCRIPTS_FN
 deploy:
-  skip_cleanup: true
-  provider: script
-  script: bash -c "cd dist && find . -type f -exec curl -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp.wenfo.org{} \;"
-  on:
-    branch: production
+  # deploy to "wenfo.org/staging/aus-env" on branch master
+  - skip_cleanup: true
+    provider: script
+    script: bash -c "cd dist && find . -type f -exec curl -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp.wenfo.org/staging/{} \;"
+    on:
+      branch: master
+  # deploy to "wenfo.org/aus-env" on branch production
+  - skip_cleanup: true
+    provider: script
+    script: bash -c "cd dist && find . -type f -exec curl -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp.wenfo.org{} \;"
+    on:
+      branch: production
 notifications:
   email: false
   slack:

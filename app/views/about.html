@@ -1,1 +1,61 @@
-<p>This is the about view.</p>
+<div class="modal-header">
+    <h2 class="modal-title">
+      Australia's Environment Explorer
+    </h2>
+<!--      <i ng-click="closeModal()" class="text-muted pull-right fa fa-times"></i>-->
+</div>
+<div class="modal-body">
+
+<div class="row">
+  <div class="col-xs-12 col-md-5">
+  <p>Below a few links to help you on your way:  </p>
+
+  <uL>
+    <li><a target="_blank" href="http://www.wenfo.org/wald/how-to-use-australias-environment-data-explorer/">How to use the Explorer</a></li>
+    <li><a target="_blank" href="http://www.wenfo.org/wald/australias-environment/">Latest national summary report</a></li>
+    <li><a target="_blank" href="http://www.wenfo.org/wald/australias-environment/">About this site</a></li>
+    <li><a target="_blank" href="http://www.wenfo.org/wald/australias-environment/#Download">Download data</a></li>
+    <li><a target="_blank" href="http://www.wenfo.org/wald/australias-environment/#FAQ">FAQ</a></li>
+    <li><a target="_blank" href="http://www.wenfo.org/wald/">About us</a></li>
+    <li><a href="mailto:albert.vandijk@anu.edu.au">Contact us</a></li>
+  </uL>
+  </div>
+
+  <div class="hidden-xs hidden-sm col-md-7">
+    <a class="thumbnail">
+      <img class="img-rounded" src="images/AusEnv_photo.png">
+    </a>
+  </div>
+</div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="well">
+        <p><strong>Disclaimer:</strong>
+        The material provided on this website is experimental and derived through active research.
+        The Australian National University does not have a legislated role in providing authoritative information.
+        All information is made available on the understanding that it does not constitute professional advice.
+        Before relying on the material in any important matter, users should carefully evaluate its accuracy, currency,
+        completeness and relevance for their purposes, and should obtain any appropriate professional advice relevant to
+        their particular circumstances. Links to other websites do not constitute an endorsement of material at those sites,
+        or any associated organisation, product or service.
+        </p>
+          <hr/>
+          <label>
+            <input type="checkbox" ng-model="appOptions.doNotShow" ng-click="doNotShowClicked()">
+            &nbspUnderstood,
+        I don’t need to see this again
+          </label>
+          <div class="pull-right">
+            <button class="btn"
+                    ng-class="{'btn-success':appOptions.doNotShow}"
+                    ng-click="closeModal()">Continue
+            </button>
+          </div>
+
+          <p><small>(If you do, just use the <span class="like-a-btn"><i class="fa fa-lg fa-question"></i></span> button in the map control panel)</small></p>
+
+      </div>
+    </div>
+  </div>
+</div>

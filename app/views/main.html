@@ -10,63 +10,34 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#/">
-<!--        <img class="hidden-lg hidden-xs hidden-sm main-logo navbar-icon pull-left" src="images/australian-continent.svg">-->
         <img class="visible-lg main-logo navbar-icon pull-left" src="images/2x_anu_logo_small.png">
         <img class="hidden-lg main-logo navbar-icon pull-left" src="images/2x_anu_logo_only.png">
 
-        <span>&nbspAustralia's Environment in</span>
+        <span>&nbspAustralia's Environment Explorer
+        </a>
+        <div class="pull-right years-nav" ng-include="'views/responsive/year_separate.html'"></div>
 
-        &nbsp{{selection.year}}</a>
       </div>
-      <div id="navbar" class="navbar-collapse collapse" ng-class="{'in':!selection.navbarCollapsed}">
-          <form class="fullscreen-form navbar-form navbar-right">
+      <div ng-if="!embedded" id="navbar" class="navbar-collapse collapse" ng-class="{'in':!selection.navbarCollapsed}">
+          <form class="hidden-xs fullscreen-form navbar-form navbar-right">
             <button ngsf-toggle-fullscreen class="btn btn-primary" uib-tooltip="Toggle Fullscreen"
                     tooltip-placement="bottom" tooltip-append-to-body="true">
               <i show-if-fullscreen=false class="fa fa-expand"></i>
               <i show-if-fullscreen=true class="fa fa-compress"></i>
             </button>
           </form>
-          <div ng-include="'views/navbar/search.html'" ng-controller="SearchCtrl"></div>
+
           <div ng-include="'views/navbar/themes.html'" ng-controller="ThemeswitcherCtrl"></div>
 
       </div>
     </div>
   </nav>
 
-<!--
-  <nav class="row control-row">
-    <div class="container-fluid">
-      <div class="col-xs-12 col-sm-6">
-        <span class="navbar-brand" style="font-family:verdana; font-size: 30px">Australia's Environment in {{selection.year}}</span>
-      </div>
-    </div>
-  </nav>
--->
-<!--
-
-  <div class="row control-row">
-    <div class="col-xs-12 col-sm-6 navigation-panel">
-        <div ng-include="'views/themeswitcher.html'" ng-controller="ThemeswitcherCtrl"></div>
-    </div>
-    <div class="col-xs-12 col-sm-offset-2 col-sm-4 navigation-panel">
-        <div ng-include="'views/search.html'" ng-controller="SearchCtrl"></div>
-    </div>
-  </div>
--->
-
   <div class="row">
     <div class="col-xs-12">
       <div ng-include="'views/map.html'" ng-controller="MapCtrl"></div>
     </div>
-    <div class="visible-xs-block">
-      <div class="col-xs-12">
-        <div class="panel panel-default">
-          <div class="container">
-            <div ng-include="'views/details.html'" ng-controller="DetailsCtrl"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div ng-include="'views/responsive/details_separate.html'"></div>
   </div>
 
 </div>

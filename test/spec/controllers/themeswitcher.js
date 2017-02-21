@@ -16,8 +16,4 @@ describe('Controller: ThemeswitcherCtrl', function () {
 //      // place here mocked dependencies
 //    });
   }));
-//
-//  it('should attach a list of awesomeThings to the scope', function () {
-//    expect(ThemeswitcherCtrl.awesomeThings.length).toBe(3);
-//  });
 });

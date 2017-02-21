@@ -1,37 +1,7 @@
 <div class="btn-group">
-  <button ng-disabled="!mapModesAvailable()"
-          class="btn toggle"
-          ng-class="(selection.mapMode===mapmodes.grid)?'btn-primary':'btn-default'"
-          ng-model="selection.mapMode"
-          uib-btn-radio="mapmodes.grid"
-          tooltip-append-to-body="true"
-          tooltip-placement="bottom"
-          uib-tooltip="Original data">Grid</button>
-  <button ng-disabled="!mapModesAvailable()"
-          class="btn toggle"
-          ng-class="(selection.mapMode===mapmodes.region)?'btn-primary':'btn-default'"
-          ng-model="selection.mapMode"
-          uib-btn-radio="mapmodes.region"
-          tooltip-append-to-body="true"
-          tooltip-placement="bottom"
-          uib-tooltip="Data averaged by region">Region</button>
-</div>
-
-<div class="btn-group">
-  <button ng-disabled="!dataModesAvailable()"
-          class="btn toggle"
-          ng-class="(selection.dataMode==='normal')?'btn-primary':'btn-default'"
-          ng-model="selection.dataMode"
-          uib-btn-radio="'normal'"
-          tooltip-append-to-body="true"
-          tooltip-placement="bottom"
-          uib-tooltip="Value for the year">Actual</button>
-  <button ng-disabled="!dataModesAvailable()"
-          class="btn toggle"
-          ng-class="(selection.dataMode==='delta')?'btn-primary':'btn-default'"
-          ng-model="selection.dataMode"
-          uib-btn-radio="'delta'"
-          tooltip-append-to-body="true"
-          tooltip-placement="bottom"
-          uib-tooltip="Change from previous year">Change</button>
+  <mapoption width="200" options="options" label="'name'" item="selection.regionType"></mapoption>
+  <mapoption width="100" options="['Grid','Region']" item="selection.mapMode"></mapoption>
+  <mapoption width="100" options="['Actual','Change']" item="selection.dataMode"></mapoption>
+  <mapoption width="100" options="backgroundModes" item="selection.mapType"></mapoption>
+  <mapoption width="125" options="['Transparent','Opaque']" item="selection.imageMode"></mapoption>
 </div>

@@ -1,0 +1,85 @@
+<div class="modal-body" ng-controller="SearchCtrl">
+  <uib-tabset active="searchMode">
+    <uib-tab heading="{{selection.regionType.name}}">
+      <form class="form-inline" ng-submit="selection.zoomToFeature()">
+        <div class="form-group">
+           <label>Location</label>
+           <div class="btn-group region-search">
+             <input type="text"
+                    class="form-control"
+                    placeholder="Search or select"
+                    ng-model="selection.selectedRegion"
+                    ng-change="selection.selectionMode='region'"
+                    ng-model-options="{debounce:{'default':500,'blur':0}}"
+                    uib-typeahead="feature as feature.name for feature in selection.availableFeatures | filter:$viewValue"
+                    typeahead-editable="false"
+                    typeahead-select-on-exact="true"
+                    typeahead-min-length="0">
+            <span class="fa fa-times-circle searchClear"
+                  ng-click="selection.selectedRegion=null"
+                  ng-show="selection.selectedRegion">
+            </span>
+          </div>
+        </div>
+        <button ng-disabled="!selection.selectedRegion" type="submit"
+                class="btn btn-primary"
+                uib-tooltip="Zoom to selected region" tooltip-append-to-body="true"
+                tooltip-placement="bottom">Zoom To
+        </button>
+      </form>
+    </uib-tab>
+
+    <uib-tab heading="Lat/Lon">
+      <form class="form-inline" ng-submit="zoomToPoint()">
+        <div class="form-group">
+          <label>Latitude</label>
+          <input type="text"
+                 class="form-control"
+                 placeholder="eg -28.95"
+                 ng-change="coordChanged()"
+                 ng-model="coords.lat"
+                 ng-model-options="{debounce:{'default':1000,'blur':0}}"
+                 uib-tooltip="Latitude in decimal degrees, eg -17.5, or 17.5S"
+                 tooltip-append-to-body="true">
+          <label>Longitude</label>
+          <input type="text"
+                 class="form-control"
+                 placeholder="eg 143.25"
+                 ng-change="coordChanged()"
+                 ng-model="coords.lng"
+                 ng-model-options="{debounce:{'default':1000,'blur':0}}"
+                 uib-tooltip="Longitude in decimal degrees, eg 123.4, or 123.4E"
+                 tooltip-append-to-body="true">
+         </div>
+        <button type="submit"
+                ng-disabled="!selection.selectedPoint"
+                class="btn btn-primary"
+                uib-tooltip="Pan/Zoom to selected point" tooltip-append-to-body="true"
+                tooltip-placement="bottom">Locate
+        </button>
+      </form>
+    </uib-tab>
+
+    <uib-tab heading="Address">
+      <form class="form-inline" ng-submit="zoomToAddress()">
+        <div class="form-group">
+          <label>Address</label>
+          <div class="btn-group">
+            <input type="text"
+                  ng-model="address.selected"
+                  placeholder="Address or locality"
+                  uib-typeahead="address as address.formatted_address for address in getLocation($viewValue)"
+                  typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
+            <i ng-show="loadingLocations" class="fa fa-pulse fa-spinner"></i>
+          </div>
+        </div>
+        <button type="submit"
+                ng-disabled="!address.selected"
+                class="btn btn-primary"
+                uib-tooltip="Zoom to selected region"
+                tooltip-append-to-body="true"
+                tooltip-placement="bottom">Locate</button>
+      </form>
+    </uib-tab>
+  </uib-tabset>
+</div>

@@ -1,0 +1,8 @@
+<div ng-mouseenter="showPopovers.search=true"
+     ng-mouseleave="hideSearch()">
+     <div class="btn-group-vertical">
+      <button type="button" class="btn btn-default" ng-click="searchByRegion()">Search by {{selection.regionType.name}}</button>
+      <button type="button" class="btn btn-default" ng-click="searchByLatLon()">Search by Lat/Lon</button>
+      <button type="button" class="btn btn-default" ng-click="searchByLocation()">Search by Location</button>
+     </div>
+</div>

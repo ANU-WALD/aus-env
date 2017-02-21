@@ -1,4 +1,7 @@
-<strong>{{selection.theme}}</strong> &gt; {{mapTitle}}
-<i ng-show="mapDescription" class="fa fa-info-circle"
-   uib-tooltip="{{mapDescription}}" tooltip-append-to-body="true"></i>
-<ng-include class="pull-right" src="'views/maptools/maptypebuttons.html'" />
+<strong>{{selection.theme}}</strong> &gt; {{selection.selectedLayerTitle()}}
+<i ng-show="mapDescription"
+   class="fa fa-info-circle"
+   uib-tooltip="{{mapDescription}}"
+   tooltip-append-to-body="true"
+   tooltip-placement="bottom"></i>
+<ng-include src="'views/maptools/maptypebuttons.html'" ng-controller="MapdisplayCtrl"/>

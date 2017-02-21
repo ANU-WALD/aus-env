@@ -1,0 +1,63 @@
+<uib-accordion close-others="false">
+  <uib-accordion-group ng-repeat="view in viewOptions"
+                       ng-show="view.visible"
+                       is-open="selection.graphVisible[view.style]">
+    <uib-accordion-heading>
+      <i class="fa" ng-class="view.icon"></i>
+      &nbsp{{view.tooltip}}
+      <span class="pull-right">
+        <i class="fa" ng-class="selection.graphVisible[view.style]?'fa-chevron-down':'fa-chevron-up'"></i>
+      </span>
+    </uib-accordion-heading>
+    <div>
+<!--  <div ng-if="selection.graphVisible[view.style]" ng-include="'views/details/'+view.style+'.html'"></div>-->
+      <div ng-include="'views/details/'+view.style+'.html'"></div>
+    </div>
+
+<!--
+    <div ng-show="!view.visible">
+      Chart not available. {{view.reason}}
+    </div>
+-->
+  </uib-accordion-group>
+
+<!--
+
+  <uib-accordion-group is-open="selection.graphVisible.options">
+    <uib-accordion-heading>
+      <i class="fa fa-cogs"></i>
+      &nbsp Options
+      <span class="pull-right">
+        <i class="fa" ng-class="selection.graphVisible.options?'fa-chevron-down':'fa-chevron-up'"></i>
+      </span>
+    </uib-accordion-heading>
+
+    <label class="radio-inline">
+      <input type="radio" ng-model="selection.selectionMode" ng-value="'point'">
+      <i class="fa fa-crosshairs"></i>&nbsp Point
+    </label>
+    <label class="radio-inline">
+      <input type="radio" ng-model="selection.selectionMode" ng-value="'region'">
+      <i class="fa fa-hand-pointer-o"></i>&nbsp Region
+    </label>
+  </uib-accordion-group>
+-->
+
+  <uib-accordion-group is-disabled="true" is-open="noneAvailable()" ng-click="toggleSelectionMode($event)">
+    <uib-accordion-heading ng-click="toggleSelectionMode($event)">
+      Chart data by
+        <span ng-class="{bold:(selection.selectionMode==='region')}">Region</span>
+        &nbsp
+        <i class="fa fa-toggle-on"
+         ng-class="(selection.selectionMode==='region')?'fa-flip-horizontal':''"
+         ng-click="toggleSelectionMode($event)"></i>
+      &nbsp
+      <span ng-class="{bold:(selection.selectionMode==='point')}">Point</span>
+    </uib-accordion-heading>
+    <span ng-if="needAPoint()">Select a point for charts</span>
+    <span ng-if="needARegion()">Select a region for charts</span>
+
+    <span ng-if="noChartsAvailable()">No charts available for {{selection.selectedLayer.title}} for {{selection.selectionMode}}s.</span>
+  </uib-accordion-group>
+
+</uib-accordion>

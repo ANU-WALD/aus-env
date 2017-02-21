@@ -1,6 +1,20 @@
-<canvas id="lineserieschart" class="chart chart-line" chart-options="lineOptions"
-        chart-data="lineData"
-        chart-labels="lineLabels" chart-legend="false" chart-series="lineSeries"
-        chart-click="onLineClick" chart-hover="onLineHover">
-</canvas>
+<div ng-controller="TimeseriesCtrl">
+  <h2 class="details-heading">
+    <span ng-show="!line.loading" ng-bind-html="locationLabel()"></span>
+    <span ng-show="line.loading">Loading...</span>
+  </h2>
+  <h3 class="chart-title">
+    {{line.title}} for {{selection.year}}
+    <i class="fa fa-info-circle" uib-tooltip="{{line.description}}" tooltip-append-to-body="true"></i>
+  </h3>
+  <div>
+    <div class="timeseries-chart" id="timeseries" style="width:100%;height:200px;"></div>
 
+    <div class="text-center verticaltext_content"><span ng-bind-html="line.units"/></div>
+
+    <span ng-if="line.download">
+      <a class="download-link" ng-show="dataURISupported" download="{{line.download_fn}}" ng-href="{{line.download}}"><i class="fa fa-download"></i>&nbspGet the data</a>
+      <span ng-show="!dataURISupported">{{dataDownloadMessage}}</span>
+    </span>
+  </div>
+</div>

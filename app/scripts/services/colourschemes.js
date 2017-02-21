@@ -15,20 +15,17 @@ angular.module('ausEnvApp')
 
     service.colourSchemeNameForLayer = function(layer) {
       var sources = [layer];
-      var properties = ['palette'];
-      if(layer[selection.dataMode]) {
-        sources.unshift(layer[selection.dataMode]);
+      if(layer[selection.dataModeConfig()]) {
+        sources.unshift(layer[selection.dataModeConfig()]);
       }
-      if(selection.mapMode===mapmodes.region) {
-        properties.unshift('summary_palette');
-      }
+      //      palette = palette[selection.dataModeConfig()]||palette;
 
-      for(var property in properties) {
-        for(var source in sources) {
-          var palette = sources[source][properties[property]];
-          if(palette) {
-            return palette;
-          }
+      for(var source in sources) {
+        var palette = sources[source].palette;
+        if(palette) {
+          palette = palette[selection.mapMode.toLowerCase()] || palette;
+          palette = palette[selection.dataModeConfig()]||palette;
+          return palette;
         }
       }
       return 'rainbow';
@@ -53,5 +50,46 @@ angular.module('ausEnvApp')
 
       }
       return service.colourSchemes[paletteName];
+    };
+
+    service.arrayRange = function(theArray){
+      var result = [Math.min.apply(null,theArray),Math.max.apply(null,theArray)];
+      return result;
+    };
+
+    service.dataRange = function(vals,year,forceDelta) {
+      var colIdx = vals.columnNames.indexOf(''+year);
+      var polygonValues = Object.keys(vals)
+        .filter(function(key){return key.startsWith('PlaceIndex');})
+        .map(function(key){
+          return vals[key][colIdx];
+        });
+      polygonValues = polygonValues.filter(function(v){
+        return isFinite(v);
+      });
+      var actualRange = service.arrayRange(polygonValues);
+
+      if(forceDelta||((actualRange[0]<0)&&(actualRange[1]>0))) {
+        var extent = Math.max(Math.abs(actualRange[0]),actualRange[1]);
+        return [-extent,extent];
+      }
+      return actualRange;
+    };
+
+    service.annualDelta = function(values){
+      var copy = JSON.parse(JSON.stringify(values));
+      copy.columnNames.shift();
+      Object.keys(copy)
+        .filter(function(k){return k.startsWith('PlaceIndex');})
+        .forEach(function(k){
+          var prev = copy[k].slice(); prev.pop();
+          var curr = copy[k].slice(); curr.shift();
+          var diff = [];
+          for(var i=0; i<prev.length;i++){
+            diff.push(curr[i]-prev[i]);
+          }
+          copy[k] = diff;
+        });
+      return copy;
     };
   });

@@ -1,0 +1,22 @@
+<div
+     class="pull-left"
+     ng-mouseenter="enterDropDown()"
+     ng-mouseleave="exitDropDown()"
+     uib-dropdown
+     is-open="isOpen">
+  <button id="single-button"
+          type="button"
+          class="btn btn-primary"
+          ng-style="{width:width}"
+          ng-disabled="disabled">
+    {{label?item[label]:item}} <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu"
+      uib-dropdown-menu
+      role="menu"
+      aria-labelledby="single-button"
+      ng-mouseenter="enterDropDown()"
+      ng-mouseleave="exitDropDown()">
+    <li ng-repeat="opt in options" role="menuitem"><a ng-click="setItem(opt)">{{label?opt[label]:opt}}</a></li>
+  </ul>
+</div>

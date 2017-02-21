@@ -1,2 +1,28 @@
-<button type="button" class="btn btn-default map-button" uib-tooltip="Zoom To Australia" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="selection.zoomToFeature(true)"><span class="fa fa-lg fa-arrows-alt"/></button>
-<button type="button" class="btn btn-default map-button" ng-class="{'disabled':!selection.haveRegion()}" uib-tooltip="Zoom To Selection" tooltip-popup-delay="750" tooltip-placement="bottom" ng-click="selection.zoomToFeature()"><span class="fa fa-lg fa-search"/></button>
+<div class="zoom-button">
+  <button type="button" class="btn btn-default map-button" uib-tooltip="Zoom To Australia" tooltip-popup-delay="750" tooltip-placement="right" ng-click="selection.zoomToFeature(true)"><span class="fa fa-lg fa-arrows-alt"/></button>
+</div>
+<div class="zoom-button">
+  <button type="button"
+          ng-disabled="!haveSelection()"
+          class="btn btn-default map-button"
+          ng-click="zoomToSelection()"
+          tooltip-popup-delay="750"
+          tooltip-placement="right"
+          uib-tooltip="Zoom to selection"><i class="fa fa-lg fa-compress"></i>
+  </button>
+</div>
+<div class="zoom-button">
+  <button type="button"
+          class="btn btn-default map-button"
+          tooltip-placement="right"
+          uib-popover-template="'views/searchbuttons.html'"
+          popover-is-open="showPopovers.search"
+          popover-placement="right"
+          ng-mouseenter="showPopovers.search=true"
+          ng-click="showPopovers.search=!showPopovers.search"
+          ng-mouseleave="hideSearch()"
+          popover-trigger="none"
+          >
+    <span class="fa fa-lg fa-search"/>
+  </button>
+</div>

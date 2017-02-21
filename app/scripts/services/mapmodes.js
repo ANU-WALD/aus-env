@@ -10,5 +10,27 @@
 angular.module('ausEnvApp')
   .constant('mapmodes', {
     grid:'Grid',
-    region:'Polygon'
+    region:'Region'
   });
+
+angular.module('ausEnvApp')
+  .constant('datamodes', {
+    actual:'Actual',
+    delta:'Change'
+  });
+
+angular.module('ausEnvApp')
+  .constant('imagemodes', {
+    transparent:'transparent',
+    opaque:'Opaque'
+  });
+
+
+angular.module('ausEnvApp')
+  .constant('backgroundmodes', {
+    roadmap:'Roadmap',
+    satellite:'Satellite',
+    white:'White',
+    black:'Black'
+  });
+

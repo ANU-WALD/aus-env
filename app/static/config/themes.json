@@ -4,6 +4,7 @@
     "name":"Land cover change",
     "longName":"Land cover change",
     "icon":"landuse.png",
+
     "layers":[
       {
         "default":true,
@@ -11,290 +12,678 @@
         "summary":"ANUWALD.TreeCover.AllYears.250m",
         "palette":"anu_wald_darkgreen",
         "time":"{{year}}-12-31",
+        "missingYears":[2001,2003],
+        "units":"percent",
+        "description":"Percent of area classified as forest at 25 metre resolution mapping using Landsat imagery following the NCAS classification.",
         "normal":{
           "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.AllYears.250m.nc",
-          "colorscalerange":"0,100",
+          "zooms":{
+            "9":{
+              "url":"ub8/au/treecover/ANUWALD.TreeCover.25m.{{year}}.nc",
+              "layers":"TreeCover",
+              "colorscalerange":"0.0001,1"
+            }
+          },
+          "colorscalerange":"0.0001,100",
           "variable":"AllYears",
           "time":"{{year}}-12-31",
           "palette":"anu_wald_darkgreen"
         },
         "delta":{
           "url":"ub8/au/treecover/250m/ANUWALD.TreeCover.ChangeAllYears.250m.nc",
-          "colorscalerange":"-30,30",
+          "colorscalerange":"-100,100",
           "variable":"ChangeAllYears",
           "time":"{{year}}-12-31",
           "palette":"anu_wald_gistemp_inv",
-          "belowmincolor":"extend"
+          "belowmincolor":"transparent"
         }
       },
       {
-        "title":"Land cover",
+        "source":"Land cover mapping",
+        "title":"All land cover classes",
         "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
         "units":"classification",
-        "url":"ub8/au/LandCover/DLCD_v2_MODIS_EVI_2012-2013.nc",
+        "url":"ub8/au/LandCover/DLCD.AllYears.nc",
         "variable":"DLCD",
-        "time":"2012-12-31",
-        "colorscalerange":"0,35",
+        "time":"{{year}}-01-01",
+        "missingYears":[2000,2001,2002],
+        "colorscalerange":"1,35",
         "summary":"",
         "disablePolygons":true,
-        "palette":"anu_wald_dlcd",
+        "palette":"anu_wald_dlcd.v3",
         "legend":"landCoverCodes",
-        "disable-bar":true
+        "disablePoint":true
+      },
+      {
+        "source":"Land cover mapping",
+        "title":"Artificial",
+        "menuOnly":true,
+        "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
+        "units":"classification",
+        "url":"ub8/au/LandCover/DLCD.AllYears.nc",
+        "variable":"DLCD",
+        "time":"{{year}}-01-01",
+        "missingYears":[2000,2001,2002],
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
+        },
+        "legend":{
+          "grid":"patchOnly",
+          "region":null
+        },
+        "belowmincolor":"transparent",
+        "abovemaxcolor":"transparent",
+        "summary":"",
+        "disablePoint":true,
+        "sublayers":[
+          {
+            "title":"Extraction Sites",
+            "colorscalerange":"0.5,1.5",
+            "annualSummary":"{{regionType}}.LandCover.1.mean.DLCD.csv"
+          },
+          {
+            "title":"Urban Areas",
+            "colorscalerange":"34.5,35.5",
+            "annualSummary":"{{regionType}}.LandCover.35.mean.DLCD.csv"
+          }
+        ]
+      },
+      {
+        "source":"Land cover mapping",
+        "title":"Wetlands",
+        "menuOnly":true,
+        "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
+        "units":"classification",
+        "url":"ub8/au/LandCover/DLCD.AllYears.nc",
+        "variable":"DLCD",
+        "time":"{{year}}-01-01",
+        "missingYears":[2000,2001,2002],
+        "summary":"",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
+        },
+        "legend":{
+          "grid":"patchOnly",
+          "region":null
+        },
+        "belowmincolor":"transparent",
+        "abovemaxcolor":"transparent",
+        "disablePoint":true,
+        "sublayers":[
+          {
+            "title":"Inland Waterbodies",
+            "colorscalerange":"2.5,3.5",
+            "annualSummary":"{{regionType}}.LandCover.3.mean.DLCD.csv"
+          },
+          {
+            "title":"Salt Lakes",
+            "colorscalerange":"3.5,4.5",
+            "annualSummary":"{{regionType}}.LandCover.4.mean.DLCD.csv"
+          },
+          {
+            "title":"Wetlands",
+            "colorscalerange":"10.5,11.5",
+            "annualSummary":"{{regionType}}.LandCover.11.mean.DLCD.csv"
+          }
+        ]
+      },
+      {
+        "source":"Land cover mapping",
+        "title":"Cropping",
+        "menuOnly":true,
+        "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
+        "units":"classification",
+        "url":"ub8/au/LandCover/DLCD.AllYears.nc",
+        "variable":"DLCD",
+        "time":"{{year}}-01-01",
+        "missingYears":[2000,2001,2002],
+        "summary":"",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
+        },
+        "legend":{
+          "grid":"patchOnly",
+          "region":null
+        },
+        "belowmincolor":"transparent",
+        "abovemaxcolor":"transparent",
+        "disablePoint":true,
+        "sublayers":[
+          {
+            "title":"Irrigated Cropping",
+            "colorscalerange":"4.5,5.5",
+            "annualSummary":"{{regionType}}.LandCover.5.mean.DLCD.csv"
+          },
+          {
+            "title":"Irrigated Sugar",
+            "colorscalerange":"6.5,7.5",
+            "annualSummary":"{{regionType}}.LandCover.7.mean.DLCD.csv"
+          },
+          {
+            "title":"Rainfed Cropping",
+            "colorscalerange":"7.5,8.5",
+            "annualSummary":"{{regionType}}.LandCover.8.mean.DLCD.csv"
+          },
+          {
+            "title":"Rainfed Sugar",
+            "colorscalerange":"9.5,10.5",
+            "annualSummary":"{{regionType}}.LandCover.10.mean.DLCD.csv"
+          }
+        ]
+      },
+      {
+        "source":"Land cover mapping",
+        "title":"Grasses",
+        "menuOnly":true,
+        "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
+        "units":"classification",
+        "url":"ub8/au/LandCover/DLCD.AllYears.nc",
+        "variable":"DLCD",
+        "time":"{{year}}-01-01",
+        "missingYears":[2000,2001,2002],
+        "summary":"",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
+        },
+        "legend":{
+          "grid":"patchOnly",
+          "region":null
+        },
+        "belowmincolor":"transparent",
+        "abovemaxcolor":"transparent",
+        "disablePoint":true,
+        "sublayers":[
+          {
+            "title":"Irrigated Pasture",
+            "colorscalerange":"5.5,6.5",
+            "annualSummary":"{{regionType}}.LandCover.6.mean.DLCD.csv"
+          },
+          {
+            "title":"Rainfed Pasture",
+            "colorscalerange":"8.5,9.5",
+            "annualSummary":"{{regionType}}.LandCover.9.mean.DLCD.csv"
+          },
+          {
+            "title":"Tussock Grasses - Closed",
+            "colorscalerange":"13.5,14.5",
+            "annualSummary":"{{regionType}}.LandCover.14.mean.DLCD.csv"
+          },
+          {
+            "title":"Alpine Grasses - Open",
+            "colorscalerange":"14.5,15.5",
+            "annualSummary":"{{regionType}}.LandCover.15.mean.DLCD.csv"
+          },
+          {
+            "title":"Hummock Grasses - Open",
+            "colorscalerange":"15.5,16.5",
+            "annualSummary":"{{regionType}}.LandCover.16.mean.DLCD.csv"
+          },
+          {
+            "title":"Tussock Grasses - Open",
+            "colorscalerange":"17.5,18.5",
+            "annualSummary":"{{regionType}}.LandCover.18.mean.DLCD.csv"
+          }
+        ]
+      },
+      {
+        "source":"Land cover mapping",
+        "title":"Shrubs",
+        "menuOnly":true,
+        "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
+        "units":"classification",
+        "url":"ub8/au/LandCover/DLCD.AllYears.nc",
+        "variable":"DLCD",
+        "time":"{{year}}-01-01",
+        "missingYears":[2000,2001,2002],
+        "summary":"",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
+        },
+        "legend":{
+          "grid":"patchOnly",
+          "region":null
+        },
+        "belowmincolor":"transparent",
+        "abovemaxcolor":"transparent",
+        "disablePoint":true,
+        "sublayers":[
+          {
+            "title":"Shrubs and Grasses - Sparse-Scattered",
+            "colorscalerange":"18.5,19.5",
+            "annualSummary":"{{regionType}}.LandCover.19.mean.DLCD.csv"
+          },
+          {
+            "title":"Shrubs - Closed",
+            "colorscalerange":"23.5,24.5",
+            "annualSummary":"{{regionType}}.LandCover.24.mean.DLCD.csv"
+          },
+          {
+            "title":"Shrubs - Open",
+            "colorscalerange":"24.5,25.5",
+            "annualSummary":"{{regionType}}.LandCover.25.mean.DLCD.csv"
+          }
+        ]
+      },
+      {
+        "source":"Land cover mapping",
+        "title":"Trees",
+        "menuOnly":true,
+        "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
+        "units":"classification",
+        "url":"ub8/au/LandCover/DLCD.AllYears.nc",
+        "variable":"DLCD",
+        "time":"{{year}}-01-01",
+        "missingYears":[2000,2001,2002],
+        "summary":"",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
+        },
+        "legend":{
+          "grid":"patchOnly",
+          "region":null
+        },
+        "belowmincolor":"transparent",
+        "abovemaxcolor":"transparent",
+        "disablePoint":true,
+        "sublayers":[
+          {
+            "title":"Trees - Closed",
+            "colorscalerange":"30.5,31.5",
+            "annualSummary":"{{regionType}}.LandCover.31.mean.DLCD.csv"
+          },
+          {
+            "title":"Trees - Open",
+            "colorscalerange":"31.5,32.5",
+            "annualSummary":"{{regionType}}.LandCover.32.mean.DLCD.csv"
+          },
+          {
+            "title":"Trees - Scattered",
+            "colorscalerange":"32.5,33.5",
+            "annualSummary":"{{regionType}}.LandCover.33.mean.DLCD.csv"
+          },
+          {
+            "title":"Trees - Sparse",
+            "colorscalerange":"33.5,34.5",
+            "annualSummary":"{{regionType}}.LandCover.34.mean.DLCD.csv"
+          }
+        ]
       }
     ]
-  },
-  {
-    "id":"bushfire",
-    "name":"Bushfire",
-    "status":"constant",
-    "icon":"fire.png",
-    "layers":[
-      {
-        "default":true,
-        "title":"Fire intensity",
-        "description":"Annual maximum fire intensity derived from satellite observations by Geoscience Australia's Sentinel Hotspots system",
-        "units":"&deg;C",
-        "summary":"Sentinel.Nhotspots.AnnualSums",
-        "disablePolygons":true,
-        "url":"ub8/au/fire/Sentinel.MaxTemp.AnnualMaxima.nc",
+},
+{
+  "id":"bushfire",
+  "name":"Bushfire",
+  "icon":"fire.png",
+  "layers":[
+    {
+      "default":true,
+      "title":"Fire intensity",
+      "description":"Annual maximum fire intensity derived from satellite observations by Geoscience Australia's Sentinel Hotspots system",
+      "units":"&deg;C",
+      "summary":null,
+      "missingYears":[2000,2001],
+      "disablePolygons":true,
+      "url":"ub8/au/fire/Sentinel.MaxTemp.AnnualMaxima.nc",
+      "variable":"MaxTemp",
+      "_FillValue":-1,
+      "time":"{{year}}-12-31",
+      "colorscalerange":"50,200",
+      "palette":"anu_wald_gisheat_inv.v2",
+      "timeseries":{
+        "url":"ub8/au/fire/Sentinel.MaxTemp.{{year}}.nc",
         "variable":"MaxTemp",
-        "time":"{{year}}-12-31",
-        "colorscalerange":"50,200",
-        "palette":"anu_wald_gisheat_inv"
+        "_FillValue":-1
+      }
+    },
+    {
+      "default":false,
+      "title":"Fire occurrence",
+      "units":"",
+      "summary":"Sentinel.Nhotspots.AnnualSums",
+      "missingYears":[2000,2001],
+      "url":"ub8/au/fire/Sentinel.Nhotspots.AnnualSums.nc",
+      "variable":"Nhotspots",
+      "_FillValue":-1,
+      "time":"{{year}}-12-31",
+      "logscale":false,
+      "colorscalerange":"0.002,100",
+      "palette":{
+        "grid":"anu_wald_gisheat_inv.v2",
+        "region":{
+          "normal":"anu_wald_gisheat_inv.v2",
+          "delta":"anu_wald_gistemp"
+        }
       },
-      {
-        "default":false,
-        "title":"Fire occurrence",
-        "summary":"Sentinel.Nhotspots.AnnualSums",
-        "url":"ub8/au/fire/Sentinel.Nhotspots.AnnualSums.nc",
+      "timeseries":{
+        "url":"ub8/au/fire/Sentinel.Nhotspots.{{year}}.nc",
         "variable":"Nhotspots",
+        "_FillValue":-1
+      },
+      "regionTimeSeries":{
+        "fn":"Sentinel.Nhotspots"
+      }
+    }
+  ]
+},
+{
+  "id":"wa",
+  "name":"Water Availability",
+  "icon":"water.png",
+  "layers":[
+    {
+      "title":"Soil moisture",
+      "summary":"OzWALD.annual.Ssoil.AnnualMeans",
+      "palette":"anu_wald_blues09",
+      "units":"mm",
+      "default":true,
+      "normal":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.AnnualMeans.nc",
+        "variable":"AnnualMeans",
         "time":"{{year}}-12-31",
-        "logscale":false,
-        "colorscalerange":"0.002,100",
-        "palette":"anu_wald_gisheat_inv"
+        "colorscalerange":"0,1800",
+        "palette":"anu_wald_blues09"
+      },
+      "delta":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.ChangesAnnualMeans.nc",
+        "variable":"ChangesAnnualMeans",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"-550,550",
+        "palette":"anu_wald_gistemp_inv"
+      },
+      "timeseries":{
+        "url":"ub8/au/OzWALD/daily/OzWALD.daily.Ssoil.{{year}}.nc",
+        "variable":"Ssoil"
+      },
+      "regionTimeSeries":{
+        "fn":"OzWALD.daily.Ssoil"
       }
-    ]
-  },
-  {
-    "id":"wa",
-    "name":"Water Availability",
-    "status":"improving",
-    "icon":"water.png",
-    "layers":[
-      {
-        "title":"Soil moisture",
-        "summary":"OzWALD.annual.Ssoil.AnnualMeans",
-        "palette":"anu_wald_blues09",
-        "default":true,
-        "normal":{
-          "url":"ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.AnnualMeans.nc",
-          "variable":"AnnualMeans",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"0,2000",
-          "palette":"anu_wald_blues09"
-        },
-        "delta":{
-          "url":"ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.ChangesAnnualMeans.nc",
-          "variable":"ChangesAnnualMeans",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"-500,500",
-          "palette":"anu_wald_gistemp_inv"
-        }
+    },
+    {
+      "default":false,
+      "title":"Precipitation",
+      "summary":"OzWALD.annual.Pg.AnnualSums",
+      "palette":"anu_wald_blues09",
+      "units":"mm",
+      "normal":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc",
+        "variable":"AnnualSums",
+        "time":"{{year}}-12-31",
+        "logscale":true,
+        "colorscalerange":"100,4600",
+        "belowmincolor":"extend",
+        "palette":"anu_wald_blues09"
       },
-      {
-        "default":false,
-        "title":"Precipitation",
-        "summary":"OzWALD.annual.Pg.AnnualSums",
-        "palette":"anu_wald_blues09",
-        "normal":{
-          "url":"ub8/au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc",
-          "variable":"AnnualSums",
-          "time":"{{year}}-12-31",
-          "logscale":true,
-          "colorscalerange":"100,5000",
-          "belowmincolor":"extend",
-          "palette":"anu_wald_blues09"
-        },
-        "delta":{
-          "url":"ub8/au/OzWALD/annual/OzWALD.annual.Pg.ChangesAnnualSums.nc",
-          "variable":"ChangesAnnualSums",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"-2000,2000",
-          "belowmincolor":"extend",
-          "palette":"anu_wald_gistemp_inv"
-        }
+      "delta":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Pg.ChangesAnnualSums.nc",
+        "variable":"ChangesAnnualSums",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"-2200,2200",
+        "belowmincolor":"extend",
+        "palette":"anu_wald_gistemp_inv"
+      },
+      "timeseries":{
+        "url":"ub8/au/OzWALD/daily/OzWALD.daily.Pg.{{year}}.nc",
+        "variable":"Pg"
+      },
+      "regionTimeSeries":{
+        "fn":"OzWALD.daily.Pg"
       }
-    ]
-  },
-  {
-    "id":"wetlands",
-    "name":"Rivers and Wetlands",
-    "status":"constant",
-    "icon":"wetlands.png",
-    "layers":[
-      {
-        "default":true,
-        "title":"Inundation",
-        "summary":"MOD09A1.OWLau.0_005deg.AnnualMaxima",
-        "palette":"anu_wald_bluescale20",
-        "normal":{
-          "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.AnnualMaxima.nc",
-          "variable":"AnnualMaxima",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"0,100",
-          "palette":"anu_wald_bluescale20"
-        },
-        "delta":{
-          "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.ChangesAnnualMaximum.nc",
-          "variable":"ChangesAnnualMax",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"-100,100",
-          "palette":"anu_wald_gistemp_inv"
-        }
+    }
+  ]
+},
+{
+  "id":"wetlands",
+  "name":"Rivers and Wetlands",
+  "icon":"wetlands.png",
+  "layers":[
+    {
+      "default":true,
+      "title":"Inundation",
+      "units":"%",
+      "summary":"MOD09A1.OWLau.0_005deg.AnnualMaxima",
+      "palette":"anu_wald_bluescale20",
+      "normal":{
+        "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.AnnualMaxima.nc",
+        "variable":"AnnualMaxima",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"0,100",
+        "palette":"anu_wald_bluescale20"
       },
-      {
-        "default":false,
-        "title":"Runoff",
-        "summary":"OzWALD.annual.Qtot.AnnualSums",
-        "palette":"anu_wald_darkblues",
-        "normal":{
-          "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qtot.AnnualSums.nc",
-          "variable":"AnnualSums",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"0,2000",
-          "palette":"anu_wald_darkblues"
-        },
-        "delta":{
-          "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qtot.ChangesAnnualSums.nc",
-          "variable":"ChangesAnnualSums",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"-2000,2000",
-          "belowmincolor":"extend",
-          "palette":"anu_wald_gistemp_inv"
-        }
+      "delta":{
+        "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.ChangesAnnualMaximum.nc",
+        "variable":"ChangesAnnualMax",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"-100,100",
+        "palette":"anu_wald_gistemp_inv",
+        "abovemaxcolor":"transparent"
       },
-      {
-        "default":false,
-        "title":"River flow",
-        "summary":"OzWALD.annual.Qtot.AnnualSums",
+      "timeseries":{
+        "url":"ub8/au/owl/MOD09A1.OWLau.0_005deg.{{year}}.nc",
+        "variable":"OWL"
+      },
+      "regionTimeSeries":{
+        "fn":"MOD09A1.OWLau.0_005deg",
+        "scale":100.0
+      }
+    },
+    {
+      "default":false,
+      "title":"Runoff",
+      "units":"mm",
+      "summary":"OzWALD.annual.Qtot.AnnualSums",
+      "palette":"anu_wald_darkblues",
+      "normal":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qtot.AnnualSums.nc",
+        "variable":"AnnualSums",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"0,1800",
+        "palette":"anu_wald_darkblues"
+      },
+      "delta":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qtot.ChangesAnnualSums.nc",
+        "variable":"ChangesAnnualSums",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"-2200,2200",
+        "belowmincolor":"extend",
+        "palette":"anu_wald_gistemp_inv"
+      },
+      "timeseries":{
+        "url":"ub8/au/OzWALD/daily/OzWALD.daily.Qtot.{{year}}.nc",
+        "variable":"Qtot"
+      },
+      "regionTimeSeries":{
+        "fn":"OzWALD.daily.Qtot"
+      }
+    },
+    {
+      "default":false,
+      "title":"River flow",
+      "summary":null,
+      "disablePolygons":true,
+      "units":"ML",
+      "normal":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qriv.AnnualSums.nc",
+        "variable":"AnnualSums",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"10000,100000000",
         "palette":"anu_wald_darkblues",
         "units":"ML",
-        "normal":{
-          "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qriv.AnnualSums.nc",
-          "variable":"AnnualSums",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"10000,100000000",
-          "palette":"anu_wald_darkblues",
-          "logscale":true,
-          "belowmincolor":"extend"
-        },
-        "delta":{
-          "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qriv.ChangesAnnualSums.nc",
-          "variable":"ChangesAnnualSums",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"-1000000,1000000",
-          "belowmincolor":"extend",
-          "palette":"anu_wald_gistemp_inv"
-        }
-      }
-    ]
-  },
-  {
-    "id":"lh",
-    "name":"Landscape Health",
-    "status":"degrading",
-    "icon":"landscape.png",
-    "layers":[
-      {
-        "default":true,
-        "title":"Exposed soil",
-        "summary":"FractCover.V3_0_1.AnnualMeans.aust.005.BS",
-        "palette":"anu_wald_gisheat_inv",
-        "normal":{
-          "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.AnnualMeans.aust.005.BS.nc",
-          "variable":"AnnualMeans",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"0,100",
-          "belowmincolor":"extend",
-          "palette":"anu_wald_gisheat_inv"
-        },
-        "delta":{
-          "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.ChangesAnnualMean.aust.005.BS.nc",
-          "variable":"ChangesAnnualMean",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"-75,75",
-          "palette":"anu_wald_gistemp",
-          "transparent":false,
-          "bgcolor":"0xFFFFFF"
-        }
+        "logscale":true,
+        "belowmincolor":"extend"
       },
-      {
-        "default":false,
-        "title":"Vegetation leaf area",
-        "summary":"MOD15A2.1000m_lai.AnnualMeans",
-        "palette":"anu_wald_darkgreen",
-        "normal":{
-          "url":"ub8/au/LAI/MOD15A2.1000m_lai.AnnualMeans.nc",
-          "variable":"AnnualMeans",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"0,7",
-          "palette":"anu_wald_darkgreen"
-        },
-        "delta":{
-          "url":"ub8/au/LAI/MOD15A2.1000m_lai.ChangesAnnualMean.nc",
-          "variable":"ChangesAnnualMean",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"-4,4",
-          "palette":"anu_wald_gistemp_inv"
-        }
-      }
-    ]
-  },
-  {
-    "id":"cs",
-    "name":"Carbon Storage",
-    "status":"degrading",
-    "icon":"carbon_uptake.png",
-    "layers":[
-      {
-        "default":true,
-        "title":"Vegetation carbon uptake",
-        "summary":"OzWALD.annual.GPP.AnnualSums",
-        "palette":"anu_wald_darkgreen",
-        "normal":{
-          "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.AnnualSums.nc",
-          "variable":"AnnualSums",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"0,4000",
-          "palette":"anu_wald_darkgreen"
-        },
-        "delta":{
-          "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.ChangesAnnualSums.nc",
-          "variable":"ChangesAnnualSums",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"-2000,2000",
-          "palette":"anu_wald_gistemp_inv"
-        }
+      "delta":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Qriv.ChangesAnnualSums.nc",
+        "variable":"ChangesAnnualSums",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"-1100000,1100000",
+        "belowmincolor":"extend",
+        "palette":"anu_wald_gistemp_inv"
       },
-      {
-        "title":"Fire carbon emission",
-        "summary":"GFASv12.BurntCarbon.AnnualSums",
-        "palette":"anu_wald_gisheat_inv",
-        "normal":{
-          "url":"ub8/au/FireEmissions/GFASv12.BurntCarbon.AnnualSums.nc",
-          "variable":"AnnualSums",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"0,1500",
-          "palette":"anu_wald_gisheat_inv"
-        },
-        "delta":{
-          "url":"ub8/au/FireEmissions/GFASv12.BurntCarbon.ChangeAnnualSums.nc",
-          "variable":"ChangeAnnualSums",
-          "time":"{{year}}-12-31",
-          "colorscalerange":"-1500,1500",
-          "palette":"anu_wald_gistemp"
-        }
+      "timeseries":{
+        "url":"ub8/au/OzWALD/daily/OzWALD.daily.Qriv.{{year}}.nc",
+        "variable":"Qriv"
+      },
+      "regionTimeSeries":{
+        "fn":"OzWALD.daily.Qtot"
       }
-    ]
-  }
+    }
+  ]
+},
+{
+  "id":"lh",
+  "default":true,
+  "name":"Landscape Health",
+  "icon":"landscape.png",
+  "layers":[
+    {
+      "default":true,
+      "title":"Exposed soil",
+      "units":"%",
+      "summary":"FractCover.V3_0_1.AnnualMeans.aust.005.BS",
+      "palette":"anu_wald_gisheat_inv.v2",
+      "abovemaxcolor":"transparent",
+      "normal":{
+        "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.AnnualMeans.aust.005.BS.nc",
+        "variable":"AnnualMeans",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"0,100",
+        "belowmincolor":"extend",
+        "palette":"anu_wald_gisheat_inv.v2"
+      },
+      "delta":{
+        "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.ChangesAnnualMean.aust.005.BS.nc",
+        "variable":"ChangesAnnualMean",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"-100,100",
+        "palette":"anu_wald_gistemp",
+        "transparent":true
+      },
+      "timeseries":{
+        "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.{{year}}.aust.005.BS.nc",
+        "variable":"BS",
+        "_FillValue":255
+      },
+      "regionTimeSeries":{
+        "url":"ub8/au/RegionTimeSeries/FractCover.V3_0_1.{{year}}.aust.005.BS.{{source}}.RegionTimeSeries.nc",
+        "scale":100.0
+      }
+    },
+    {
+      "default":false,
+      "title":"Vegetation leaf area",
+      "summary":"MOD15A2.1000m_lai.AnnualMeans",
+      "palette":"anu_wald_darkgreen",
+      "units":"m^2/m^2",
+      "normal":{
+        "url":"ub8/au/LAI/MOD15A2.1000m_lai.AnnualMeans.nc",
+        "variable":"AnnualMeans",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"0,9",
+        "palette":"anu_wald_darkgreen"
+      },
+      "delta":{
+        "url":"ub8/au/LAI/MOD15A2.1000m_lai.ChangesAnnualMean.nc",
+        "variable":"ChangesAnnualMean",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"-4,4",
+        "palette":"anu_wald_gistemp_inv"
+      },
+      "timeseries":{
+        "url":"ub8/au/LAI/MOD15A2.1000m_lai.{{year}}.nc",
+        "variable":"LAI"
+      },
+      "regionTimeSeries":{
+        "fn":"MOD15A2.1000m_lai"
+      }
+    }
+  ]
+},
+{
+  "id":"cs",
+  "name":"Carbon Storage",
+  "icon":"carbon_uptake.png",
+  "layers":[
+    {
+      "default":true,
+      "title":"Vegetation carbon uptake",
+      "summary":"OzWALD.annual.GPP.AnnualSums",
+      "palette":"anu_wald_darkgreen",
+      "units":"gC/m^2",
+      "normal":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.AnnualSums.nc",
+        "variable":"AnnualSums",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"0,4000",
+        "palette":"anu_wald_darkgreen"
+      },
+      "delta":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.annual.GPP.ChangesAnnualSums.nc",
+        "variable":"ChangesAnnualSums",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"-2200,2200",
+        "palette":"anu_wald_gistemp_inv"
+      },
+      "timeseries":{
+        "url":"ub8/au/OzWALD/daily/OzWALD.daily.GPP.{{year}}.nc",
+        "variable":"GPP",
+        "units":"umol m^-2s^-1 "
+      },
+      "regionTimeSeries":{
+        "fn":"OzWALD.daily.GPP"
+      }
+    },
+    {
+      "title":"Fire carbon emission",
+      "summary":"GFASv12.BurntCarbon.AnnualSums",
+      "missingYears":[2000,2001],
+      "palette":"anu_wald_gisheat_inv.v2",
+      "units":"gC/m^2",
+      "normal":{
+        "url":"ub8/au/FireEmissions/GFASv12.BurntCarbon.AnnualSums.nc",
+        "variable":"AnnualSums",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"0,1500",
+        "palette":"anu_wald_gisheat_inv.v2"
+      },
+      "delta":{
+        "url":"ub8/au/FireEmissions/GFASv12.BurntCarbon.ChangeAnnualSums.nc",
+        "variable":"ChangeAnnualSums",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"-1650,1650",
+        "palette":"anu_wald_gistemp"
+      },
+      "timeseries":{
+        "url":"ub8/au/FireEmissions/GFASv12.BurntCarbon.{{year}}.nc",
+        "variable":"BurntCarbon"
+      },
+      "regionTimeSeries":{
+        "fn":"GFASv12.BurntCarbon"
+      }
+    }
+  ]
+}
 ]

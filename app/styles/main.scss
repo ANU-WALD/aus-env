@@ -5,6 +5,7 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 $brand-primary:$color-primary-0;
 $selected-item-background:lighten($color-secondary-2-0,5%);
 $navbar-default-bg:$selected-item-background;
+$navbar-year-background:darken($color-secondary-2-0,10%);
 $navbar-inverse-link-active-bg:$navbar-default-bg;
 $navbar-default-link-color:#ccc;
 /*$navbar-default-brand-color:#fff;*/
@@ -41,11 +42,35 @@ html, body{
 .navbar{
   border:none;
   border-radius: 0;
+
 }
 
 .navbar-icon{
   margin-top:6px;
   height: $navbar-height * 0.7;
+}
+
+.years-nav{
+  display:inline;
+}
+
+.year-select{
+  background:$navbar-year-background;
+  border:2px solid $selected-item-background;
+  border-radius:3px;
+  margin-right:15px;
+
+  a.years{
+    display:initial;
+    padding:0;
+    padding-right:4px;
+  }
+}
+
+.navbar-year{
+  margin-left:0px !important;
+  padding-left:0px;
+  padding-right:0px;
 }
 
 .main-logo{
@@ -76,6 +101,10 @@ li.theme-item.open {
   }
 }
 
+.layer-item{
+  white-space: nowrap;
+}
+
 /*
 .themes-nav.nav > li.layer-item > a {
   display:block;
@@ -88,9 +117,36 @@ li.theme-item.open {
 }
 */
 
+/* Forms in modals */
+@media (min-width: $container-md) {
+  .pull-right-lg {
+      float: right;
+  }
+
+  .row-min-padding {
+    [class*="col-"] {
+      padding-left: 2px !important;
+      padding-right: 2px !important;
+    }
+  }
+}
+
+
+
+
 @media screen and (min-width:$container-sm) {
   .nav > li {
     height:$navbar-height;
+  }
+
+
+  .zoom-panel{
+    margin-left:10px;
+    margin-top:10px;
+  }
+
+  .legend-panel{
+    margin-left:10px;
   }
 }
 
@@ -120,10 +176,19 @@ li.theme-item.open {
   font-size:24px;
 }
 
+.navbar-dropdown{
+  width:300px;
+}
+
+span.form-control.ui-select-toggle{
+  width:100% !important;
+}
+
 @media screen and (max-width:1500px){
   .navbar-brand {
     font-size:20px;
   }
+
 }
 
 @media screen and (max-width:1330px){
@@ -139,6 +204,16 @@ li.theme-item.open {
   /* Logo padding */
   .main-logo {
     padding-right:12px;
+  }
+}
+
+@media screen and (min-width:$container-md){
+  ul.nav li.dropdown.theme-item:hover > ul.dropdown-menu{
+    display:block;
+  }
+
+  ul.nav li.dropdown.year-select:hover > ul.dropdown-menu{
+    display:block;
   }
 }
 
@@ -181,7 +256,7 @@ li.theme-item.open {
 @media screen and (min-width:$container-md) and (max-width:1330px) {
   .navbar-form{
 
-    .form-control{
+    .form-control, .navbar-dropdown{
       width:120px;
     }
   }
@@ -212,22 +287,6 @@ li.theme-item{
 
 
 
-/*.navbar-nav {
-  ul.dropdown-menu, {
-    background-color:$navbar-default-bg;
-    z-index:10000;
-
-    li {
-      z-index:10000;
-
-      a {
-        z-index: 10000;
-      }
-    }
-  }
-}
-*/
-
 /*
  * Added by PM to fix IE not rendering the navbar icon links the same as Chrome
  * Appears to have no impact on Chrome.
@@ -248,6 +307,17 @@ li.theme-item{
   top:0;
 }
 */
+
+.current-year{
+}
+
+.year-selectors{
+  position: relative;
+  top:-15px;
+  button{
+    width:20px;
+  }
+}
 
 /*****
  * Controls
@@ -270,9 +340,9 @@ li.theme-item{
   width:70%;
 }
 
-#searchClear {
-  position: absolute;
-  right: 5px;
+.searchClear {
+  position: relative;
+  right: 20px;
   top: 0;
   bottom: 0;
   height: 14px;
@@ -315,6 +385,29 @@ li.theme-item{
 .main-map {
   width:100%;
   height:400px;
+  position:relative;
+  top:0px;
+}
+
+.no-data-message{
+  position:absolute;
+  top:0px;
+  height:100%;
+  width:100%;
+  pointer-events: none;
+  h1 {
+    pointer-events: all;
+    position:relative;
+    top:50%;
+    transform:translateY(-50%);
+    text-align: center;
+    margin-left:15%;
+    margin-right:15%;
+    color:lightgrey;
+    background:$selected-item-background;
+    border:5px solid lightgrey;
+    border-radius:8px;
+  }
 }
 
 @media screen and (min-width:$container-sm) and (max-width:$container-large-desktop) {
@@ -333,11 +426,23 @@ li.theme-item{
   }
 }
 
+.map-type-panel{
+  margin-top:10px;
+  margin-right:10px;
+  background-color: rgba(255, 0, 0, 0);
+}
+
 .details-map-tool {
+  margin-right:5px;
   width:300px;
   background:#FFF;
   border:1px solid black;
   border-radius:3px;
+}
+
+.details-map-container{
+  max-height:90%;
+  overflow-y:auto;
 }
 
 .map-button {
@@ -345,6 +450,12 @@ li.theme-item{
   padding-bottom:3px;
   padding-left:6px;
   padding-right:6px;
+  width:35px;
+}
+
+div.zoom-button{
+  width:35px;
+  height:28px;
 }
 
 .link-bar a {
@@ -383,25 +494,14 @@ h2.details-heading {
   margin-top: 10px;
 }
 
-.verticaltext {
-  position: relative;
-  padding-left:50px;
-  margin:1em 0;
-  min-height:120px;
-}
-
 .verticaltext_content {
   position: relative;
   transform: rotate(-90deg);
   color: #000;
-  //background-color: yellow;
   font-size:12px;
-  //font-weight:bold;
-}
 
-.chart-vertical-position {
-  right:90px;
-  bottom:150px;
+  right:100px;
+  bottom:110px;
   width:200px;
 }
 
@@ -464,11 +564,21 @@ h4.chart-subtitle{
   color:#000;
 }
 
+.map-year-control{
+  margin-bottom:10px;
+  background:white;
+  border:1px solid black;
+  border-radius:3px;
+}
+
 /**** Legend styles */
 .legend {
+  margin-bottom:5px;
   border: 1px black solid;
+  margin-left:5px;
   padding: 4px;
 }
+
 
 .legend-entry {
   float: left;
@@ -550,4 +660,155 @@ canvas {
   top:45%;
   left:45%;
   color:#DDD;
+}
+
+.leaflet-tile-container img{
+  image-rendering: -moz-crisp-edges;         /* Firefox */
+  image-rendering:   -o-pixelated;         /* Opera */
+  image-rendering: -webkit-pixelated;/* Webkit (non-standard naming) */
+  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+}
+
+
+.angular-google-map, .angular-google-map-container { height: 100%; width:100%; }
+
+
+/* Map Display Control - top-right */
+.map-display-option{
+  display:inline-block;
+  /*
+  background:white;
+  */
+
+  min-height:25px;
+  /*
+  border:1px solid black;
+  */
+
+  border-radius:3px;
+
+/*
+  div {
+    button{
+      width:100%;
+    }
+
+    ul {
+      width:100%;
+    }
+  }
+*/
+}
+
+
+.search-popover{
+  max-width:800px;
+}
+
+
+
+.modal {
+  text-align: center;
+}
+
+/* Vertically centre the modals http://stackoverflow.com/a/25160044*/
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+@media screen and (max-width:$container-sm - 1){
+  .dropdown-submenu {
+    display:block;
+  }
+  .dropdown-menu.sublayer-menu{
+    display:block;
+
+    li {
+      list-style-type:circle;
+      list-style-position: inside;
+      margin-left:26px;
+      color:#ccc;
+    }
+  }
+}
+
+@media screen and (min-width:$container-sm){
+  /* Submenus: http://stackoverflow.com/a/18024991; */
+  .dropdown-submenu {
+      position:relative;
+  }
+  .dropdown-submenu>.dropdown-menu {
+      top:0;
+      left:100%;
+      margin-top:-6px;
+      margin-left:-1px;
+      -webkit-border-radius:0 6px 6px 6px;
+      -moz-border-radius:0 6px 6px 6px;
+      border-radius:0 6px 6px 6px;
+  }
+  .dropdown-submenu:hover>.dropdown-menu {
+      display:block;
+  }
+  .dropdown-submenu>a:after {
+      display:block;
+      content:" ";
+      float:right;
+      width:0;
+      height:0;
+      border-color:transparent;
+      border-style:solid;
+      border-width:5px 0 5px 5px;
+      border-left-color:#cccccc;
+      margin-top:5px;
+      margin-right:-10px;
+  }
+  .dropdown-submenu:hover>a:after {
+      border-left-color:#ffffff;
+  }
+  .dropdown-submenu.pull-left {
+      float:none;
+  }
+  .dropdown-submenu.pull-left>.dropdown-menu {
+      left:-100%;
+      margin-left:10px;
+      -webkit-border-radius:6px 0 6px 6px;
+      -moz-border-radius:6px 0 6px 6px;
+      border-radius:6px 0 6px 6px;
+  }
+
+}
+
+.text-muted{
+  color:inherit;
+  font-weight:normal;
+}
+
+.bold{
+  font-weight: bolder;
+}
+
+.like-a-btn{
+  display:inline-block;
+  border:1px solid #AAA;
+  padding:2px 5px;
+  border-radius:3px;
+
+  color:#777;
+}
+
+.region-search .dropdown-menu {
+  max-height:250px;
+  overflow-y: auto;
 }

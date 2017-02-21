@@ -1,0 +1,23 @@
+<ul class="nav navbar-nav hidden-sm hidden-xs">
+  <li class="year-select dropdown theme-item">
+    <a uib-tooltip="Select year"
+       tooltip-append-to-body="true"
+       tooltip-placement="right"
+       class="dropdown-toggle fix-ie-navbar years"
+       data-toggle="dropdown"
+       role="button"
+       aria-haspopup="true"
+       aria-expanded="true">
+      <span class="navbar-year navbar-brand">&nbsp{{selection.year}}&nbsp</span>
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li class="layer-item" ng-repeat="year in selection.availableYears">
+        <a ng-click="selection.year = year">
+          {{year}}
+          <i ng-show="year===selection.year" class="fa fa-check"></i>
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>

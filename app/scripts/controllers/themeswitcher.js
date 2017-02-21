@@ -8,8 +8,8 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('ThemeswitcherCtrl', function ($scope,staticData,themes,selection) {
-    staticData.unwrap($scope,'themes',themes.themes);
+  .controller('ThemeswitcherCtrl', function ($scope,staticData,configuration,selection) {
+    staticData.unwrap($scope,'themes',configuration.themes);
 
     $scope.iconMapping = {
       degrading:'fa-arrow-down',
@@ -37,8 +37,11 @@ angular.module('ausEnvApp')
     };
 
     $scope.selectThemeAndLayer = function(theme,layer) {
+      if(layer.menuOnly){
+        return;
+      }
+
       $scope.selectTheme(theme);
-      $scope.selection.selectedLayerName = layer.title;
       $scope.selection.selectedLayer = layer;
     };
   });

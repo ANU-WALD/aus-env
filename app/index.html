@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Australia's Environment</title>
+    <title>Australia's Environment Explorer</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <link rel="icon" href="favicon.ico?v=2" type="image/x-icon" />
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -44,8 +44,6 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
-    <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
@@ -57,27 +55,45 @@
     <script src="bower_components/angular-screenfull/dist/angular-screenfull.js"></script>
     <script src="bower_components/dap-query-js/dist/dap-query.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-ui-select/dist/select.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script src="bower_components/proj4/dist/proj4.js"></script>
+    <script src="bower_components/plotlyjs/plotly.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/map.js"></script>
         <script src="scripts/controllers/search.js"></script>
-        <script src="scripts/controllers/details.js"></script>
+        <script src="scripts/controllers/regioncharts.js"></script>
         <script src="scripts/services/selection.js"></script>
         <script src="scripts/services/themes.js"></script>
         <script src="scripts/controllers/themeswitcher.js"></script>
         <script src="scripts/services/spatialfoci.js"></script>
-        <script src="scripts/controllers/layerswitcher.js"></script>
         <script src="scripts/controllers/thecharts.js"></script>
         <script src="scripts/services/details.js"></script>
-        <script src="scripts/services/placeidmap.js"></script>
         <script src="scripts/services/mapmodes.js"></script>
         <script src="scripts/services/csv.js"></script>
         <script src="scripts/services/colourschemes.js"></script>
+        <script src="scripts/services/timeseries.js"></script>
+        <script src="scripts/controllers/mapdisplay.js"></script>
+        <script src="scripts/services/configuration.js"></script>
+        <script src="scripts/controllers/legend.js"></script>
+        <script src="scripts/controllers/zoom.js"></script>
+        <script src="scripts/controllers/locationselection.js"></script>
+        <script src="scripts/controllers/pointcharts.js"></script>
+        <script src="scripts/controllers/sharing.js"></script>
+        <script src="scripts/controllers/year.js"></script>
+        <script src="scripts/controllers/bar.js"></script>
+        <script src="scripts/controllers/pie.js"></script>
+        <script src="scripts/controllers/timeseries.js"></script>
+        <script src="scripts/services/downloads.js"></script>
+        <script src="scripts/directives/share.js"></script>
+        <script src="scripts/directives/mapoption.js"></script>
         <!-- endbuild -->
 </body>
 </html>
