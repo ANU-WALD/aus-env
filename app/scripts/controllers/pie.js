@@ -49,4 +49,6 @@ angular.module('ausEnvApp')
     $scope.watchList.forEach(function(prop){
       $scope.$watch('selection.'+prop,$scope.createChart);
     });
+
+    $scope.$watch('selection.year',$scope.createChart);
   });

@@ -40,7 +40,11 @@ angular.module('ausEnvApp')
       $scope.selection.showHelp=false;
     };
 
-    $scope.appOptions.doNotShow = localStorage.preventAbout!==undefined;
+    try{
+      $scope.appOptions.doNotShow = localStorage.preventAbout!==undefined;
+    } catch(_) {
+      $scope.appOptions.doNotShow = false;
+    }
 
     if(!$scope.appOptions.doNotShow&&!$scope.embedded){
       $scope.selection.showHelp=true;
@@ -52,10 +56,14 @@ angular.module('ausEnvApp')
     };
 
     $scope.doNotShowClicked = function(){
-      if($scope.appOptions.doNotShow){
-        localStorage.setItem('preventAbout',true);
-      } else {
-        localStorage.removeItem('preventAbout');
+      try{
+        if($scope.appOptions.doNotShow){
+          localStorage.setItem('preventAbout',true);
+        } else {
+          localStorage.removeItem('preventAbout');
+        }
+      } catch(_) {
+
       }
     };
 
