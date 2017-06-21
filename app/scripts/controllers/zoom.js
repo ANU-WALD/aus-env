@@ -8,7 +8,7 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('ZoomCtrl', function ($scope,$uibModal,$timeout,selection) {
+  .controller('ZoomCtrl', function ($scope,$uibModal,$timeout,$interpolate,selection) {
     $scope.showPopovers={
       search:false
     };
@@ -102,4 +102,21 @@ angular.module('ausEnvApp')
         selection.zoomToSelectedPoint();
       }
     };
+
+    $scope.gridDownloadURL = function(){
+      var settings = selection.mapSettings(selection.selectedLayer);
+      var url = settings.url;
+      url += $interpolate('?service=WCS&version=1.0.0&request=GetCoverage&coverage={{variable}}&format=GeoTIFF_Float&time={{time}}T00:00:00Z')(settings);
+
+      console.log(url);
+      url = $interpolate(url)(selection);
+      console.log(url);
+      return 'http://dapds00.nci.org.au/thredds/wcs/'+url;
+    };
+
+    $scope.gridDownloadFilename = function(){
+      var settings = selection.mapSettings(selection.selectedLayer);
+
+      return $interpolate('grid_{{title}}_{{variable}}_{{year}}.tif')(settings).replace(/ /g,"_");
+    }
   });

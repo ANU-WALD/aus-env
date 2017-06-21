@@ -19,6 +19,16 @@
               ng-click="showTour()"><i class="fa fa-lg fa-question"></i>
       </button>
     </div>
+    <div class="zoom-button">
+      <a class="btn btn-default map-button"
+         ng-click="downloadMap()"
+         uib-tooltip="Download grid"
+         tooltip-placement="right"
+         ng-disabled="selection.mapMode!=='Grid'"
+         ng-href="{{gridDownloadURL()}}"
+         download="{{gridDownloadFilename()}}"><i class="fa fa-lg fa-download"></i>
+      </a>
+    </div>
   </div>
 </div>
 
