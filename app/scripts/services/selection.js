@@ -376,6 +376,23 @@ angular.module('ausEnvApp')
       return text||service.selectedLayer.title;
     };
 
+    service.mapSettings = function(layer){
+      var settings = {};
+      var keys = ['time','variable','url','colorscalerange',
+                  'belowmincolor','abovemaxcolor','palette','logscale',
+                  'transparent','bgcolor','zooms'];
+      keys.forEach(function(k){settings[k] = layer[k];});
+      if(layer[service.dataModeConfig()]) {
+        keys.forEach(function(k){
+          if(layer[service.dataModeConfig()][k]!==undefined) {
+            settings[k] = layer[service.dataModeConfig()][k];
+          }
+        });
+      }
+
+      return settings;
+    };
+
     function _makeLayer() {
       return {
         name: 'Some Model Results',
