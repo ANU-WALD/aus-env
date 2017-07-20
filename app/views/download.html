@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <h2 class="modal-title">
+      Downloading {{selection.selectedLayerTitle()}}
+      <i ng-click="closeModal()" class="text-muted pull-right fa fa-remove"></i>
+    </h2>
+</div>
+
+<div class="modal-body">
+
+<h3>Metadata</h3>
+
+<table>
+  <thead>
+  </thead>
+  <tbody>
+    <tr ng-repeat="(key,value) in metadata">
+      <td><strong>{{key}}</strong></td>
+      <td>{{value}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<a class="btn btn-primary"
+   ng-href="{{downloadURL}}"
+   download>
+   <i class="fa fa-lg fa-download"></i>
+   Download Grid as GeoTIFF
+</a>
+
+<a class="btn btn-primary"
+   ng-show="dataURISupported"
+   ng-href="{{metadata_download}}"
+   download="{{metadata_fn}}">
+   <i class="fa fa-lg fa-download"></i>
+   Download Metadata as CSV
+</a>
+
+</div>

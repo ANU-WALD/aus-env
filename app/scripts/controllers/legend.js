@@ -22,11 +22,7 @@ angular.module('ausEnvApp')
         return result.promise;
       }
 
-      if(selection.deltaMode()){
-        $scope.mapTimePeriod = +(selection.year-1) + ' to ' + selection.year;
-      } else {
-        $scope.mapTimePeriod = +selection.year;
-      }
+      $scope.mapTimePeriod = selection.mapTimePeriod();
 
       $scope.mapTitle = selection.selectedLayerTitle();
       $scope.mapDescription = selection.selectedLayer.description;

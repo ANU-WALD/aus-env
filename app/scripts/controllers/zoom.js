@@ -8,11 +8,14 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('ZoomCtrl', function ($scope,$uibModal,$timeout,$interpolate,selection) {
+  .controller('ZoomCtrl', function ($scope,$uibModal,$timeout,$interpolate,
+                                    selection,timeseries,configuration,
+                                    downloads) {
     $scope.showPopovers={
       search:false
     };
     $scope.selection = selection;
+    $scope.datasetFilename='';
 
     $scope.$watch('selection.selectedLayer',function(){
       if(!selection.selectedLayer){
@@ -103,20 +106,60 @@ angular.module('ausEnvApp')
       }
     };
 
-    $scope.gridDownloadURL = function(){
-      var settings = selection.mapSettings(selection.selectedLayer);
-      var url = settings.url;
-      url += $interpolate('?service=WCS&version=1.0.0&request=GetCoverage&coverage={{variable}}&format=GeoTIFF_Float&time={{time}}T00:00:00Z')(settings);
+    $scope.mapSettings = function(){
+      return selection.mapSettings(selection.selectedLayer);
+    };
 
-      console.log(url);
+    $scope.gridDownloadURL = function(){
+      var url = $scope.datasetFilename +
+        $interpolate('?service=WCS&version=1.0.0&request=GetCoverage&coverage={{variable}}&format=GeoTIFF_Float&time={{time}}T00:00:00Z')($scope.mapSettings());
+
       url = $interpolate(url)(selection);
-      console.log(url);
       return 'http://dapds00.nci.org.au/thredds/wcs/'+url;
     };
 
     $scope.gridDownloadFilename = function(){
-      var settings = selection.mapSettings(selection.selectedLayer);
+      return $interpolate('grid_{{title}}_{{variable}}_{{year}}.tif')($scope.mapSettings()).replace(/ /g,"_");
+    };
 
-      return $interpolate('grid_{{title}}_{{variable}}_{{year}}.tif')(settings).replace(/ /g,"_");
-    }
+    var FIELDS_TO_IGNORE=['_ChunkSizes'];
+    var ignore_fields = function(key){
+      return FIELDS_TO_IGNORE.indexOf(key)<0;
+    };
+
+    $scope.download = function(){
+      var settings = $scope.mapSettings();
+      $scope.datasetFilename = $interpolate(settings.url)(selection);
+      $scope.mapVariable = settings.variable;
+      timeseries.retrieveMetadata($scope.datasetFilename,'das').then(function(das){
+        $scope.das = das;
+
+        $scope.metadata = {
+          title:selection.selectedLayerTitle(),
+          time_period:selection.mapTimePeriod()
+        };
+        Object.keys(das.variables[$scope.mapVariable]).filter(ignore_fields).forEach(function(attr){
+          $scope.metadata[attr]=das.variables[$scope.mapVariable][attr];
+        });
+        Object.keys(das.attr).filter(ignore_fields).forEach(function(attr){
+          $scope.metadata[attr]=das.attr[attr];
+        });
+
+        $scope.buildMetadataDownload();
+      });
+
+      $scope.downloadURL = $scope.gridDownloadURL();
+
+      $scope.showModal('download');
+    };
+
+    $scope.buildMetadataDownload = function(){
+      var keys = Object.keys($scope.metadata);
+      var vals = keys.map(function(k){return $scope.metadata[k];});
+      $scope.metadata_download = downloads.downloadableTable(_.zip(keys,vals),['Key','Value']);
+      $scope.metadata_fn='metadata.csv';
+    };
+    configuration.checkDataURISupport().then(function(supported){
+      $scope.dataURISupported = supported;
+    });
   });

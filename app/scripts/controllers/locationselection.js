@@ -8,7 +8,7 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('LocationselectionCtrl', function ($scope,$log,$q,selection) {
+  .controller('LocationselectionCtrl', function ($scope,$log,$q,selection,configuration) {
     $scope.selection = selection;
 
     $scope.accordions={
@@ -39,27 +39,7 @@ angular.module('ausEnvApp')
       );
     };
 
-
-    $scope.checkDataURISupport = function(){
-      // Adapted from http://stackoverflow.com/a/36915691
-      var result = $q.defer();
-      try {
-          var request = new XMLHttpRequest();
-          request.onload = function reqListener() {
-              result.resolve(true);
-          };
-          request.onerror = function reqListener() {
-              result.resolve(false);
-          };
-          request.open('GET', 'data:application/pdf;base64,cw==');
-          request.send();
-      } catch (ex) {
-          result.resolve(false);
-      }
-      return result.promise;
-    };
-
-    $scope.checkDataURISupport().then(function(supported){
+    configuration.checkDataURISupport().then(function(supported){
       $scope.dataURISupported = supported;
 
       if(!supported){

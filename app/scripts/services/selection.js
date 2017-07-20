@@ -376,6 +376,14 @@ angular.module('ausEnvApp')
       return text||service.selectedLayer.title;
     };
 
+    service.mapTimePeriod = function(){
+      if(service.deltaMode()){
+        return +(service.year-1) + ' to ' + service.year;
+      } else {
+        return +service.year;
+      }
+    };
+
     service.mapSettings = function(layer){
       var settings = {};
       var keys = ['time','variable','url','colorscalerange',
