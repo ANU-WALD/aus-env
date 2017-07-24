@@ -40,6 +40,7 @@
       },
       {
         "source":"Land cover mapping",
+        "metadataKey":"Land cover",
         "title":"All land cover classes",
         "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
         "units":"classification",
@@ -56,6 +57,7 @@
       },
       {
         "source":"Land cover mapping",
+        "metadataKey":"Land cover",
         "title":"Artificial",
         "menuOnly":true,
         "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
@@ -94,6 +96,7 @@
       },
       {
         "source":"Land cover mapping",
+        "metadataKey":"Land cover",
         "title":"Wetlands",
         "menuOnly":true,
         "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
@@ -137,6 +140,7 @@
       },
       {
         "source":"Land cover mapping",
+        "metadataKey":"Land cover",
         "title":"Cropping",
         "menuOnly":true,
         "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
@@ -185,6 +189,7 @@
       },
       {
         "source":"Land cover mapping",
+        "metadataKey":"Land cover",
         "title":"Grasses",
         "menuOnly":true,
         "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
@@ -243,6 +248,7 @@
       },
       {
         "source":"Land cover mapping",
+        "metadataKey":"Land cover",
         "title":"Shrubs",
         "menuOnly":true,
         "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",
@@ -286,6 +292,7 @@
       },
       {
         "source":"Land cover mapping",
+        "metadataKey":"Land cover",
         "title":"Trees",
         "menuOnly":true,
         "description":"Land cover type from Geoscience Australia's Dynamic Land Cover Data.",

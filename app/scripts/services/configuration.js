@@ -13,6 +13,8 @@ angular.module('ausEnvApp')
 
     service.themes = staticData.deferredGet(service,'static/config/themes.json','_themes');
 
+    service.metadata = staticData.deferredGet(service,'static/config/additional_metadata.json','_metadata');
+
     var DONT_PROPAGATE=['sublayers','menuOnly'];
 
     var configureSublayers = function(themes){

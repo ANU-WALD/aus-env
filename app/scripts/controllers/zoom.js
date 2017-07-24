@@ -8,7 +8,7 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('ZoomCtrl', function ($scope,$uibModal,$timeout,$interpolate,
+  .controller('ZoomCtrl', function ($scope,$uibModal,$timeout,$interpolate,$q,
                                     selection,timeseries,configuration,
                                     downloads) {
     $scope.showPopovers={
@@ -122,28 +122,61 @@ angular.module('ausEnvApp')
       return $interpolate('grid_{{title}}_{{variable}}_{{year}}.tif')($scope.mapSettings()).replace(/ /g,"_");
     };
 
-    var FIELDS_TO_IGNORE=['_ChunkSizes'];
+    var FIELDS_TO_IGNORE=['_ChunkSizes','creator_name','ANU_license'];
     var ignore_fields = function(key){
       return FIELDS_TO_IGNORE.indexOf(key)<0;
+    };
+
+    $scope.extractMetadata = function(){
+      var result = {};
+      var args = Array.prototype.slice.call(arguments);
+      args.forEach(function(arg){
+        if(!arg){
+          return;
+        }
+
+        Object.keys(arg).filter(ignore_fields).forEach(function(f){
+          result[f]=arg[f];
+        });
+
+      })
+      return result;
     };
 
     $scope.download = function(){
       var settings = $scope.mapSettings();
       $scope.datasetFilename = $interpolate(settings.url)(selection);
       $scope.mapVariable = settings.variable;
-      timeseries.retrieveMetadata($scope.datasetFilename,'das').then(function(das){
-        $scope.das = das;
+      $q.all([
+          timeseries.retrieveMetadata($scope.datasetFilename,'das'),
+          configuration.metadata()
+        ])
+      .then(function(das_and_metadata){
+        $scope.das = das_and_metadata[0];
+        var additional_metadata = das_and_metadata[1];
 
-        $scope.metadata = {
+        console.log(selection.selectedLayer,additional_metadata);
+        var key = selection.selectedLayer.metadataKey || selection.selectedLayer.title;
+        var meta = additional_metadata.filter(function(record){return record.name===key})[0];
+        console.log(meta);
+        $scope.metadata = $scope.extractMetadata({
           title:selection.selectedLayerTitle(),
           time_period:selection.mapTimePeriod()
-        };
-        Object.keys(das.variables[$scope.mapVariable]).filter(ignore_fields).forEach(function(attr){
-          $scope.metadata[attr]=das.variables[$scope.mapVariable][attr];
-        });
-        Object.keys(das.attr).filter(ignore_fields).forEach(function(attr){
-          $scope.metadata[attr]=das.attr[attr];
-        });
+        },
+        $scope.das.variables[$scope.mapVariable],
+        $scope.das.attr,
+        meta
+        );
+//        $scope.metadata = {
+//          title:selection.selectedLayerTitle(),
+//          time_period:selection.mapTimePeriod()
+//        };
+//        Object.keys($scope.das.variables[$scope.mapVariable]).filter(ignore_fields).forEach(function(attr){
+//          $scope.metadata[attr]=$scope.das.variables[$scope.mapVariable][attr];
+//        });
+//        Object.keys($scope.das.attr||{}).filter(ignore_fields).forEach(function(attr){
+//          $scope.metadata[attr]=$scope.das.attr[attr];
+//        });
 
         $scope.buildMetadataDownload();
       });

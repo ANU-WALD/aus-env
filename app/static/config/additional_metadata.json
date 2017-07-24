@@ -1,0 +1,132 @@
+[
+  {
+    "name": "Tree cover",
+    "Description": "Determined as the percent area classified as forest mapped from Landsat satellite imagery following the National Carbon Accounting System (NCAS) classification. Extended for recent years using a machine learning algorithm by ANU Water and Landscape Dynamics.",
+    "Data creator": "Department of the Environment and Energy, Australian National University",
+    "Data license": "Creative Commons by Attribution (CC BY 3.0 AU, https://creativecommons.org/licenses/by/3.0/au/deed.en).",
+    "Reference": "1) Furby, S., 2002. Land cover change: specification for remote sensing analysis. National Carbon Accounting System, Technical Report no. 9, Australian Greenhouse Office, Canberra (http://pandora.nla.gov.au/pan/102841/20090717-1556/www.climatechange.gov.au/ncas/reports/pubs/tr09final.pdf), 2) ANU machine learning algorithm not yet documented.",
+    "Resolution": "annual, 1/4000° (~25 m) binary classification and percent tree cover at 0.0025° (~250m)",
+    "Annual data": "annual mapping: direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/treecover/250m/ANUWALD.TreeCover.AllYears.250m.nc, ~500 MB) or via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/treecover/250m/catalog.xml&amp;dataset=ub8-au/treecover/250m/ANUWALD.TreeCover.AllYears.250m.nc). File contains all years in the record.",
+    "Other data forms": "High and low resolution mapping for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/treecover/catalog.xml)"
+  },
+  {
+    "name": "Land cover",
+    "Description": "Land cover classification from Geoscience Australia Dynamic Land Cover Data. Extended for recent years (2014 onwards) using a machine learning algorithm developed by ANU Water and Landscape Dynamics.",
+    "Data creator": "Geoscience Australia",
+    "Data license": "Creative Commons by Attribution (CC BY 3.0 AU &#8211; https://creativecommons.org/licenses/by/3.0/au/deed.en).",
+    "Reference": "1) Lymburner, L., Tan, P., Mueller, N., Thackway, R., Thankappan, M., Islam, A., Lewis, A., Randall, L. &amp; Senarath, U., 2011. The National Dynamic Land Cover Dataset &#8211; Technical report. Record 2011/031. Geoscience Australia, Canberra (http://www.ga.gov.au/metadata-gateway/metadata/record/gcat_71069), 2) ANU machine learning algorithm not yet documented.",
+    "Resolution": "annual, 0.0026° (~260 m)",
+    "Annual data": "annual mapping: direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/LandCover/DLCD.AllYears.nc, ~400 MB) or via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/LandCover/catalog.xml&amp;dataset=ub8-au/LandCover/DLCD.AllYears.nc). File contains all years in the record.",
+    "Other data forms": "Original bi-annual land cover data can be downloaded from Geoscience Australia (http://www.ga.gov.au/scientific-topics/earth-obs/landcover)"
+  },
+  {
+    "name": "Inundation",
+    "Description": "Percent of area (%) covered by water at least once during the year as mapped from MODIS satellite observations using the Open Water Likelihood algorithm.",
+    "Data creator": "CSIRO Land and Water, Australian National University",
+    "Data license": "Creative Commons by Attribution (CC BY 3.0 AU &#8211; https://creativecommons.org/licenses/by/3.0/au/deed.en).",
+    "Reference": "Guerschman J.P., Warren G., Byrne, G., Lymburner, L., Mueller, N., Van Dijk, A.I.J.M., 2011. MODIS-based standing water detection for flood and large reservoir mapping: algorithm development and applications for the Australian continent. CSIRO: Water for a Healthy Country National Research Flagship Report, Canberra (https://publications.csiro.au/rpr/pub?list=SEA&amp;pid=csiro:EP105358)",
+    "Resolution": "8 days, 0.005° (~500km)",
+    "Annual data": "annual maxima: direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/owl/MOD09A1.OWLau.0_005deg.AnnualMaxima.nc, ~100 MB) or via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/owl/catalog.xml&amp;dataset=ub8-au/owl/MOD09A1.OWLau.0_005deg.AnnualMaxima.nc). File contains all years in the record.",
+    "Other data forms": "Annual minima, means and maxima as well as time series for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/owl/catalog.xml) . Also available resampled to 0.05° (~5 km) resolution (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/owl/catalog.xml)"
+  },
+  {
+    "name": "Fire intensity",
+    "Description": "Annual maximum fire intensity (°C) mapped at 2.5 km resolution as derived from the Geoscience Australia Sentinel system",
+    "Data creator": "Geoscience Australia, Australian National University",
+    "Data license": "Creative Commons by Attribution (CC BY 3.0 AU &#8211; https://creativecommons.org/licenses/by/3.0/au/deed.en).",
+    "Reference": "Geoscience Australia, 2014. Sentinel Hotspots Product Description Document V1.2, code D2014-145826, Geocat Reference 70869 (http://sentinel.ga.gov.au/resources/img/help/Sentinel_Hotspots_Product_Desc.pdf)",
+    "Resolution": "daily, 0.025° (~2.5km)",
+    "Annual data": "Annual maxima at 2.5 km:  direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/fire/Sentinel.MaxTemp.AnnualMaxima.nc, ~2MB) or via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/fire/catalog.xml&amp;dataset=ub8-au/fire/Sentinel.MaxTemp.AnnualMaxima.nc). File contains all years in the record.",
+    "Other data forms": "Time series for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/fire/catalog.xml)"
+  },
+  {
+    "name": "Fire occurrence",
+    "Description": "Annual number of fires frequency mapped at 2.5 km resolution as derived from the Geoscience Australia Sentinel system",
+    "Data creator": "Geoscience Australia, Australian National University",
+    "Data license": "Creative Commons by Attribution (CC BY 3.0 AU &#8211; https://creativecommons.org/licenses/by/3.0/au/deed.en).",
+    "Reference": "Geoscience Australia, 2014. Sentinel Hotspots Product Description Document V1.2, code D2014-145826, Geocat Reference 70869 (http://sentinel.ga.gov.au/resources/img/help/Sentinel_Hotspots_Product_Desc.pdf)",
+    "Resolution": "Daily, 0.025° (~2.5km)",
+    "Annual data": "Annual sums at 2.5 km: direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/fire/Sentinel.Nhotspots.AnnualSums.nc, ~2MB) or via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/fire/catalog.xml&amp;dataset=ub8-au/fire/Sentinel.Nhotspots.AnnualSums.nc). File contains all years in the record.",
+    "Other data forms": "Time series for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/fire/catalog.xml)"
+  },
+  {
+    "name": "Exposed soil",
+    "Description": "Annual mean percentage of soil that is unprotected by living vegetation or litter. Derived from a fractional cover algorithm that exploits MODIS satellite imagery to estimate fractions of photosynthetic vegetation, non-photosynthetic vegetation and exposed soil.",
+    "Data creator": "CSIRO Land and Water",
+    "Data license": "Creative Commons by Attribution (CC BY 3.0 AU &#8211; https://creativecommons.org/licenses/by/3.0/au/deed.en).",
+    "Reference": "Guerschman, JP, Scarth, PF, McVicar, TR, Renzullo, LJ, Malthus, TJ, Stewart, JB, Rickards, JE, Trevithick, R. (2015). Assessing the effects of site heterogeneity and soil properties when unmixing photosynthetic vegetation, non-photosynthetic vegetation and bare soil fractions from Landsat and MODIS data. Remote Sensing of Environment 161:12–26 (http://www.sciencedirect.com/science/article/pii/S0034425715000395)",
+    "Resolution": "8 days, 0.0025° (~250m)",
+    "Annual data": "Annual means: direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/FractCov/BS/FractCover.V3_0_1.AnnualMeans.aust.005.BS.nc, ~300 MB) or via THREDDS http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/FractCov/BS/catalog.xml&amp;dataset=ub8-au/FractCov/BS/FractCover.V3_0_1.AnnualMeans.aust.005.BS.nc. File contains all years in the record.",
+    "Other data forms": "Annual minima, maxima and means as well as time series for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/FractCov/BS/catalog.xml). Same also available for photosynthesising (PV) and non-photosynthesising (NPV) vegetation cover fractions (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/FractCov/catalog.xml)."
+  },
+  {
+    "name": "Vegetation leaf area",
+    "Description": "Annual mean leaf area index (LAI) defined as area of leaf per area of ground (m2/m2) as derived from MODIS satellite imagery.",
+    "Data creator": "NASA, TERN AusCover",
+    "Data license": "Free access, citation requested (https://lpdaac.usgs.gov/citing_our_data)",
+    "Reference": "Yang, W., Huang, D., Tan, B., Stroeve, J.C., Shabanov, N.V., Knyazikhin, Y., Nemani, R.R., &amp; Myneni, R.B., 2006. Analysis of leaf area index and fraction of PAR absorbed by vegetation products from the Terra MODIS sensor: 2000-2005. Geoscience and Remote Sensing, IEEE Transactions on, 44, 1829-1842 (http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=1645283)",
+    "Resolution": "8 days, 0.01° (~1 km)",
+    "Annual data": "Annual averages: direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/LAI/MOD15A2.1000m_lai.AnnualMeans.nc, ~400MB) or via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/LAI/catalog.xml&amp;dataset=ub8-au/LAI/MOD15A2.1000m_lai.AnnualMeans.nc). File contains all years in the record.",
+    "Other data forms": "Available as annual maxima, minima and means, as well as time series for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/LAI/catalog.xml)."
+  },
+  {
+    "name": "Fire carbon emissions",
+    "Description": "Annual emission of carbon from wildfire estimated the Global Fire Assimilation System v1.2",
+    "Data creator": "European Centre for Medium-Range Weather Forecasts (ECMWF)",
+    "Data license": "Free by attribution (http://apps.ecmwf.int/datasets/data/cams-gfas/licence/)",
+    "Reference": "Kaiser, J.W., Heil, A., Andreae, M.O., Benedetti, A., Chubarova, N., Jones, L., Morcrette, J.J., Razinger, M., Schultz, M.G., Suttie, M., &amp; van der Werf, G.R., 2012. Biomass burning emissions estimated with a global fire assimilation system based on observed fire radiative power. Biogeosciences, 9, 527-554 (http://www.biogeosciences.net/9/527/2012/)",
+    "Resolution": "Daily, 0.1° (~10 km)",
+    "Annual data": "Annual sums: direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/FireEmissions/GFASv12.BurntCarbon.AnnualSums.nc, ~2MB) or via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/FireEmissions/catalog.xml&amp;dataset=ub8-au/FireEmissions/GFASv12.BurntCarbon.AnnualSums.nc). File contains all years in the record.",
+    "Other data forms": "Available as time series for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/FireEmissions/catalog.xml)"
+  },
+  {
+    "name": "Precipitation",
+    "Description": "Estimates of daily precipitation (Pg in mm) derived by merging of Bureau of Meteorology gridded daily rainfall and satellite rainfall estimates derived from the TRMM-TMPA product (before 2016) and the GPM product (after 2017)",
+    "Data creator": "Bureau of Meteorology, Australian National University, CSIRO Land and Water",
+    "Data license": "Creative Commons by Attribution (CC BY 3.0 AU &#8211; https://creativecommons.org/licenses/by/3.0/au/deed.en).",
+    "Reference": "Forthcoming, but based on: 1) Jones, D., Wang, W., &amp; Fawcett, R. (2009). High-quality spatial climate data-sets for Australia. Australian Meteorological and Oceanographic Journal, 58, 233-248. (http://www.academia.edu/download/35529899/jones_hres.pdf), 2) Chappell, A., Renzullo, L. J., Raupach, T. H., &amp; Haylock, M. (2013). Evaluating geostatistical methods of blending satellite and gauge data to estimate near real-time daily rainfall for Australia. Journal of Hydrology, 493, 105-114.  (http://www.sciencedirect.com/science/article/pii/S0022169413003181)",
+    "Resolution": "Daily, 0.05° (~5 km)",
+    "Annual data": "Annual sums:  direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc) or via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/annual/catalog.xml&amp;dataset=ub8-au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc). File contains all years in the record.",
+    "Other data forms": "Annual minima, maxima and time series for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/catalog.xml, look for .Pg. in filename)"
+  },
+  {
+    "name": "Soil moisture",
+    "Description": "Total soil water storage (Ssoil in mm) predicted by the OzWALD model-data fusion system, which assimilates a variety of satellite observations into a version of the AWRA-L water balance model.",
+    "Data creator": "Australian National University",
+    "Data license": "Creative Commons by Attribution (CC BY 3.0 AU &#8211; https://creativecommons.org/licenses/by/3.0/au/deed.en).",
+    "Reference": "Forthcoming, but based on: Van Dijk, A.I.J.M., 2010. AWRA Technical Report 3. Landscape Model (version 0.5) Technical Description. In. Canberra: WIRADA / CSIRO Water for a Healthy Country Flagship (http://www.clw.csiro.au/publications/waterforahealthycountry/2010/wfhc-aus-water-resources-assessment-system.pdf)",
+    "Resolution": "Daily, 0.05° (~5 km)",
+    "Annual data": "Annual sums:  direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.AnnualMeans.nc) or via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/annual/catalog.xml&amp;dataset=ub8-au/OzWALD/annual/OzWALD.annual.Ssoil.AnnualMeans.nc). File contains all years in the record.",
+    "Other data forms": "Annual minima, maxima and time series for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/catalog.xml, look for .Ssoil. in filename)"
+  },
+  {
+    "name": "Runoff",
+    "Description": "Spatial runoff generation (Qtot in mm)  predicted by the OzWALD model-data fusion system, which assimilates a variety of satellite observations into a version of the AWRA-L water balance model.",
+    "Data creator": "Australian National University",
+    "Data license": "Creative Commons by Attribution (CC BY 3.0 AU &#8211; https://creativecommons.org/licenses/by/3.0/au/deed.en).",
+    "Reference": "Forthcoming, but based on:Van Dijk, A.I.J.M., 2010. AWRA Technical Report 3. Landscape Model (version 0.5) Technical Description. In. Canberra: WIRADA / CSIRO Water for a Healthy Country Flagship (http://www.clw.csiro.au/publications/waterforahealthycountry/2010/wfhc-aus-water-resources-assessment-system.pdf)",
+    "Resolution": "Daily, 0.05° (~5 km)",
+    "Annual data": "Annual sums:  direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/OzWALD/annual/OzWALD.annual.Qtot.AnnualSums.nc) or via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/annual/catalog.xml&amp;dataset=ub8-au/OzWALD/annual/OzWALD.annual.Qtot.AnnualSums.nc). File contains all years in the record.",
+    "Other data forms": "Annual minima, maxima and time series (in mm/d) for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/catalog.xml), look for .Qtot. in filename)"
+  },
+  {
+    "name": "River flow",
+    "Description": "Routed river flow (Qriv in ML)  predicted by the OzWALD model-data fusion system, which assimilates a variety of satellite observations into a version of the AWRA-L water balance model.",
+    "Data creator": "Australian National University",
+    "Data license": "Creative Commons by Attribution (CC BY 3.0 AU &#8211; https://creativecommons.org/licenses/by/3.0/au/deed.en).",
+    "Reference": "Forthcoming, but based on: Van Dijk, A.I.J.M., 2010. AWRA Technical Report 3. Landscape Model (version 0.5) Technical Description. In. Canberra: WIRADA / CSIRO Water for a Healthy Country Flagship (http://www.clw.csiro.au/publications/waterforahealthycountry/2010/wfhc-aus-water-resources-assessment-system.pdf)",
+    "Resolution": "Daily, 0.05° (~5 km)",
+    "Annual data": "Annual sums:  direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/OzWALD/annual/OzWALD.annual.Qriv.AnnualSums.nc) or via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/annual/catalog.xml&amp;dataset=ub8-au/OzWALD/annual/OzWALD.annual.Qriv.AnnualSums.nc). File contains all years in the record.",
+    "Other data forms": "Annual minima, maxima and time series (in ML/d) for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/catalog.xml), look for .Qriv. in filename)"
+  },
+  {
+    "name": "Vegetation carbon uptake",
+    "Description": "Vegetation carbon uptake or gross primary production (GPP in gC/m2)  predicted by the OzWALD model-data fusion system, which assimilates a variety of satellite observations into a version of the AWRA-L water balance model.",
+    "Data creator": " Australian National University",
+    "Data license": "Creative Commons by Attribution (CC BY 3.0 AU &#8211; https://creativecommons.org/licenses/by/3.0/au/deed.en).",
+    "Reference": "Forthcoming, but based on: 1) Van Dijk, A.I.J.M., 2010. AWRA Technical Report 3. Landscape Model (version 0.5) Technical Description. In. Canberra: WIRADA / CSIRO Water for a Healthy Country Flagship (http://www.clw.csiro.au/publications/waterforahealthycountry/2010/wfhc-aus-water-resources-assessment-system.pdf), 2) Yebra, M., Van Dijk, A.I.J.M., Leuning, R., Guerschman, J.P., 2015. Global vegetation gross primary production estimation using satellite-derived light-use efficiency and canopy conductance. Remote Sensing of Environment, 163, 206-216 (http://www.sciencedirect.com/science/article/pii/S0034425715001121)",
+    "Resolution": "Daily, 0.05° (~5 km)",
+    "Annual data": "Annual sums:  direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/OzWALD/annual/OzWALD.annual.GPP.AnnualSums.nc) or via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/annual/catalog.xml&amp;dataset=ub8-au/OzWALD/annual/OzWALD.annual.GPP.AnnualSums.nc). File contains all years in the record.",
+    "Other data forms": "Annual minima, maxima and time series (in umol m-2 s-1) for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/catalog.xml), look for .GPP. in filename)"
+  }
+]
