@@ -70,7 +70,7 @@
     "Other data forms": "Available as annual maxima, minima and means, as well as time series for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/LAI/catalog.xml)."
   },
   {
-    "name": "Fire carbon emissions",
+    "name": "Fire carbon emission",
     "Description": "Annual emission of carbon from wildfire estimated the Global Fire Assimilation System v1.2",
     "Data creator": "European Centre for Medium-Range Weather Forecasts (ECMWF)",
     "Data license": "Free by attribution (http://apps.ecmwf.int/datasets/data/cams-gfas/licence/)",
