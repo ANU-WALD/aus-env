@@ -62,7 +62,6 @@ angular.module('ausEnvApp')
     };
 
     $scope.hideSearch = function(){
-      console.log('here');
       $scope.showPopovers.search='closing';
       $timeout(function(){
         if($scope.showPopovers.search==='closing'){
@@ -122,7 +121,7 @@ angular.module('ausEnvApp')
       return $interpolate('grid_{{title}}_{{variable}}_{{year}}.tif')($scope.mapSettings()).replace(/ /g,"_");
     };
 
-    var FIELDS_TO_IGNORE=['_ChunkSizes','creator_name','ANU_license'];
+    var FIELDS_TO_IGNORE=['_ChunkSizes','creator_name','ANU_license','creator_url','institution'];
     var ignore_fields = function(key){
       return FIELDS_TO_IGNORE.indexOf(key)<0;
     };
@@ -155,10 +154,8 @@ angular.module('ausEnvApp')
         $scope.das = das_and_metadata[0];
         var additional_metadata = das_and_metadata[1];
 
-        console.log(selection.selectedLayer,additional_metadata);
         var key = selection.selectedLayer.metadataKey || selection.selectedLayer.title;
         var meta = additional_metadata.filter(function(record){return record.name===key})[0];
-        console.log(meta);
         $scope.metadata = $scope.extractMetadata({
           title:selection.selectedLayerTitle(),
           time_period:selection.mapTimePeriod()
