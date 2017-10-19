@@ -15,16 +15,8 @@ angular.module('ausEnvApp')
       return "data:text/plain;charset=utf-8,"+encodeURIComponent(txt);
     };
 
-    service.timeseriesToCSV = function(data){
-
-    };
-
-    service.pieDataToCSV = function(data){
-
-    };
-
     service.tableToCSV = function(data,labels){
-      var result = labels.join(',')+'\n'+data.map(function(entry){return entry.join(',')}).join('\n');
+      var result = labels.join(',')+'\n'+data.map(function(entry){return entry.join(',');}).join('\n');
       return result;
     };
 
@@ -41,5 +33,5 @@ angular.module('ausEnvApp')
       result = result.replace(/&deg;/g,'');
       result = result.replace(/,/g,'-');
       return result;
-    }
+    };
   });

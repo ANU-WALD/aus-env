@@ -8,7 +8,11 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .controller('LegendCtrl', function ($scope,$q,selection,details,mapmodes,datamodes,colourschemes) {
+  .controller('LegendCtrl', function ($scope,$q,selection,details,
+                                      mapmodes,datamodes,colourschemes,
+                                      configuration) {
+    $scope.layerMetadata = configuration.metadata();
+
     $scope.updateMapTitles = function() {
       var result = $q.defer();
       $scope.selection = selection;
@@ -22,11 +26,7 @@ angular.module('ausEnvApp')
         return result.promise;
       }
 
-      if(selection.deltaMode()){
-        $scope.mapTimePeriod = +(selection.year-1) + ' to ' + selection.year;
-      } else {
-        $scope.mapTimePeriod = +selection.year;
-      }
+      $scope.mapTimePeriod = selection.mapTimePeriod();
 
       $scope.mapTitle = selection.selectedLayerTitle();
       $scope.mapDescription = selection.selectedLayer.description;
@@ -175,6 +175,13 @@ angular.module('ausEnvApp')
         } else {
           $scope.colourScheme=[];
         }
+      });
+
+      $scope.layerMetadata.then(function(metadata){
+        var key = selection.selectedLayer.metadataKey || selection.selectedLayer.title;
+        var meta = metadata.filter(function(record){return record.name===key})[0];
+        $scope.layerSource = meta['Data creator'].replace(',','<br/>');
+        $scope.infoURL = 'http://www.wenfo.org/wald/australias-environment-explorer-data-description-and-download/#' + key.replace(' ','_').replace(' ','%20');
       });
     };
 

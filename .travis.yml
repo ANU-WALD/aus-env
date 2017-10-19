@@ -1,6 +1,6 @@
 sudo: false
 language: node_js
-node_js: stable
+node_js: 7
 install:
   - npm install -g bower grunt-cli
   - npm install phantomjs-prebuilt

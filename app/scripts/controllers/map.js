@@ -13,15 +13,10 @@ angular.module('ausEnvApp')
                                    $document,
                                    uiGmapGoogleMapApi,uiGmapIsReady,
                                    selection,configuration,mapmodes,details,colourschemes,
-                                   timeseries,spatialFoci,datamodes,imagemodes) {
+                                   timeseries,spatialFoci,datamodes,imagemodes,googleMapsWMS) {
 
     var TRANSPARENT_OPACITY=0.6;
     var BASE_URL='http://dapds00.nci.org.au/thredds';
-    var TILE_SIZE=256;
-    var TILE_WIDTH=TILE_SIZE;
-    var TILE_HEIGHT=TILE_SIZE;
-    var proj4 = $window.proj4;
-    var webMercator = proj4(proj4.defs('EPSG:3857'));
 
     /**
      * @constructor
@@ -46,11 +41,6 @@ angular.module('ausEnvApp')
       div.style.borderColor = this.colour;
       div.style.backgroundColor = this.colour;
       return div;
-    };
-
-
-    var pointToWebMercator = function(pt){
-      return webMercator.forward([pt.lng(),pt.lat()]);
     };
 
     $scope.selection = selection;
@@ -86,23 +76,10 @@ angular.module('ausEnvApp')
       }
     };
 
-    $scope.computeTileBounds = function(map,coord,zoom){
-      var google = window.google;
-      var proj = map.getProjection();
-      var zfactor = Math.pow(2, zoom);
-      var xScale = TILE_WIDTH/zfactor;
-      var yScale = TILE_HEIGHT/zfactor;
-
-      var top = proj.fromPointToLatLng(new google.maps.Point(coord.x * xScale, coord.y * yScale));
-      var bot = proj.fromPointToLatLng(new google.maps.Point((coord.x + 1) * xScale, (coord.y + 1) * yScale));
-
-      top = pointToWebMercator(top);
-      bot = pointToWebMercator(bot);
-
-      return [top[0],bot[1],bot[0],top[1]].join(',');
-    };
-
     $scope.layerUrlForZoom = function(settings,zoom){
+      if(!settings){
+        return null;
+      }
       for(var i=zoom;i>=1;i--){
         if(settings['urlFor'+i]){
           return settings['urlFor'+i];
@@ -112,6 +89,10 @@ angular.module('ausEnvApp')
     };
 
     $scope.settingsForZoom = function(orig,zoom){
+      if(!orig){
+        return null;
+      }
+
       var result = {};
       var key;
       for(key in orig.layerParams){
@@ -132,33 +113,11 @@ angular.module('ausEnvApp')
     };
 
     $scope.createImageMapFromWMS = function(layerKey){
-      var google = window.google;
-      return {
-        getTileUrl: function(coord,zoom){
-          if(!$scope.theMap){
-            return null;
-          }
-
-          var settings = $scope.layers.overlays[layerKey];
-          if(!settings){
-            return null;
-          }
-          var bbox = $scope.computeTileBounds($scope.theMap,coord,zoom);
-
-          var url = $scope.layerUrlForZoom(settings,zoom) + '&service=WMS&version=1.1.1&request=GetMap';
-          url += "&BBOX=" + bbox;      // set bounding box
-          url += "&FORMAT=image/png" ; //WMS format
-          var layerParams = $scope.settingsForZoom(settings,zoom);
-          for(var key in layerParams){
-            url += '&'+key+'='+layerParams[key];
-          }
-          url += "&SRS=EPSG:3857";     //set Web Mercator
-          return url;
-        },
-        tileSize:new google.maps.Size(256,256),
-        isPng:true,
-        opacity:(selection.imageMode===imagemodes.opaque)?1.0:TRANSPARENT_OPACITY
-      };
+      return googleMapsWMS.buildImageMap(
+        function(){return $scope.theMap;},
+        function(zoom){return $scope.layerUrlForZoom($scope.layers.overlays[layerKey],zoom);},
+        function(zoom){return $scope.settingsForZoom($scope.layers.overlays[layerKey],zoom);},
+        function(){return (selection.imageMode===imagemodes.opaque)?1.0:TRANSPARENT_OPACITY;});
     };
 
     uiGmapGoogleMapApi.then(function(maps) {
@@ -428,8 +387,8 @@ angular.module('ausEnvApp')
           transparent:true,
           zIndex:50,
           showOnSelector: false,
-          width:TILE_WIDTH,
-          height:TILE_HEIGHT,
+          width:googleMapsWMS.TILE_WIDTH,
+          height:googleMapsWMS.TILE_HEIGHT,
           tiled:true
         }
       };
@@ -504,23 +463,13 @@ angular.module('ausEnvApp')
     }
 
     var prefix = '';
-    var keys = ['time','variable','url','colorscalerange',
-                'belowmincolor','abovemaxcolor','palette','logscale',
-                'transparent','bgcolor','zooms'];
-
-    var settings = {};
-    keys.forEach(function(k){settings[k] = layer[k];});
     if(layer[selection.dataModeConfig()]) {
       if(selection.dataMode===datamodes.delta) {
         prefix = 'Change in ';
       }
-      keys.forEach(function(k){
-        if(layer[selection.dataModeConfig()][k]!==undefined) {
-          settings[k] = layer[selection.dataModeConfig()][k];
-        }
-      });
     }
 
+    var settings = selection.mapSettings(layer);
     $scope.layers.overlays.aWMS = $scope.selection.makeLayer();
 
     var fn = $interpolate(settings.url)(selection);
@@ -555,7 +504,7 @@ angular.module('ausEnvApp')
     $scope.layers.overlays.aWMS.layerParams.time = $interpolate(settings.time)(selection);
     $scope.layers.overlays.aWMS.layerParams.layers = settings.variable;
     $scope.layers.overlays.aWMS.layerParams.colorscalerange = settings.colorscalerange;
-    keys = ['transparent','bgcolor',
+    var keys = ['transparent','bgcolor',
             'belowmincolor','abovemaxcolor','logscale'];
     keys.forEach(function(key){
       if(settings[key] !== undefined) {

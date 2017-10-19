@@ -13,6 +13,8 @@ angular.module('ausEnvApp')
 
     service.themes = staticData.deferredGet(service,'static/config/themes.json','_themes');
 
+    service.metadata = staticData.deferredGet(service,'static/config/additional_metadata.json','_metadata');
+
     var DONT_PROPAGATE=['sublayers','menuOnly'];
 
     var configureSublayers = function(themes){
@@ -42,4 +44,24 @@ angular.module('ausEnvApp')
 
       loadedQ.resolve();
     });
+
+    service.checkDataURISupport = function(){
+      // Adapted from http://stackoverflow.com/a/36915691
+      var result = $q.defer();
+      try {
+          var request = new XMLHttpRequest();
+          request.onload = function reqListener() {
+              result.resolve(true);
+          };
+          request.onerror = function reqListener() {
+              result.resolve(false);
+          };
+          request.open('GET', 'data:application/pdf;base64,cw==');
+          request.send();
+      } catch (ex) {
+          result.resolve(false);
+      }
+      return result.promise;
+    };
+
   });

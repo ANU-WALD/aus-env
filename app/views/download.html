@@ -1,0 +1,55 @@
+<div class="modal-header">
+    <h2 class="modal-title">
+      Downloading {{selection.selectedLayerTitle()}}
+      <i ng-click="closeModal()" class="text-muted pull-right fa fa-remove"></i>
+    </h2>
+</div>
+
+<div class="modal-body">
+
+  <div class="row">
+    <div class="col-xs-12">
+      <p>
+      Use the left button to download the grid layer on display in geotiff format.</p>
+
+      <ul>
+      <li>A random file name will be generated. it is recommended to rename the file or to also save the metadata below using the right button.</li>
+      <li>For further details on the nature and origin of these data, or to access the same data in netCDF format via OPeNDAP THREDDS, follow <a hgref="" target="_blank">this link</a>.</li>
+      </ul>
+
+
+      <a class="btn btn-primary"
+         ng-href="{{downloadURL}}"
+         download>
+         <i class="fa fa-lg fa-download"></i>
+         Download Grid as GeoTIFF
+      </a>
+
+      <a class="btn btn-primary"
+         ng-show="dataURISupported"
+         ng-href="{{metadata_download}}"
+         download="{{metadata_fn}}">
+         <i class="fa fa-lg fa-download"></i>
+         Download Metadata as CSV
+      </a>
+
+      <hr/>
+
+      <h3>Metadata</h3>
+
+      <div class="table-responsive">
+        <table class="table modal-table">
+          <thead>
+          </thead>
+          <tbody class="table">
+            <tr ng-repeat="(key,value) in metadata">
+              <td><strong>{{key}}</strong></td>
+              <td>{{value}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
