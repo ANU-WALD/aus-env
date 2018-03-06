@@ -60,5 +60,26 @@
     "labelField":"WETLAND_NA",
     "summary":"wetlands",
     "keyField":"OBJECTID"
+  },
+  {
+    "name":"Drainage Divisions",
+    "description":"TODO",
+    "source":"dd_converted",
+    "sourceWMS":"AWRADrainageDivision",
+    "globalLabel":"All Drainage Divisions",
+    "labelField":"Division",
+    "summary":"dd_converted",
+    "keyField":"OBJECTID"
+  },
+  {
+    "name":"Federal Electorates",
+    "description":"TODO",
+    "source":"elb_converted",
+    "sourceWMS":"COM20111216_ELB_region_WA_NSW_ACT",
+    "globalLabel":"All Federal Electorates",
+    "labelField":"ELECT_DIV",
+    "summary":"elb_converted",
+    "keyField":"ID"
   }
+
 ]
