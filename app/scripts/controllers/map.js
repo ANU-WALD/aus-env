@@ -158,11 +158,11 @@ angular.module('ausEnvApp')
 
       uiGmapIsReady.promise(1).then(function(instances){
         $scope.theMap = instances[0].map;
-        $scope.map.showGrid=true;
+        $scope.map.showGrid=(selection.mapMode===mapmodes.grid);
         $scope.theMap.data.setStyle($scope.geoJsonStyling);
         $scope.theMap.data.addListener('click', $scope.polygonSelected);
 
-        var tileSize = new google.maps.Size(512, 512);
+        var tileSize = new google.maps.Size(256, 256);
         $scope.theMap.mapTypes.set('WHITE',new PlainMapType('#FFF',tileSize,'White'));
         $scope.theMap.mapTypes.set('BLACK',new PlainMapType('#000',tileSize,'Black'));
         mapReady.resolve();
@@ -441,13 +441,13 @@ angular.module('ausEnvApp')
 
     $scope.map.refreshGrid = !$scope.map.refreshGrid;
     $scope.map.refreshRegions = !$scope.map.refreshRegions;
-
     if(!$scope.selection.mapModesAvailable()) {
       if(selection.mapMode!==mapmodes.grid){
         selection.mapMode = mapmodes.grid;
         $scope.map.refreshGrid = !$scope.map.refreshGrid;
       }
     }
+
 
     if(layer.missingYears && (layer.missingYears.indexOf(selection.year)>=0)){
       $scope.noDataMessage = (layer.source||layer.title) + ' not available for ' + selection.year;
@@ -459,7 +459,13 @@ angular.module('ausEnvApp')
       if($scope.layers.overlays.aWMS) {
         delete $scope.layers.overlays.aWMS;
       }
+      $scope.map.showGrid = false;
       return;
+    }
+
+    if(!$scope.map.showGrid){
+      $scope.map.showGrid = true;
+      $scope.map.refreshGrid = !$scope.map.refreshGrid;
     }
 
     var prefix = '';
