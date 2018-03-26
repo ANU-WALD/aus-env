@@ -570,11 +570,11 @@
       "default":true,
       "title":"Exposed soil",
       "units":"%",
-      "summary":"FractCover.V3_0_1.AnnualMeans.aust.005.BS",
+      "summary":"FC.V310.MCD43A4.AnnualMeans.aust.006.BS",
       "palette":"anu_wald_gisheat_inv.v2",
       "abovemaxcolor":"transparent",
       "normal":{
-        "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.AnnualMeans.aust.005.BS.nc",
+        "url":"ub8/au/FractCov/BS/FC.V310.MCD43A4.AnnualMeans.aust.006.BS.nc",
         "variable":"AnnualMeans",
         "time":"{{year}}-12-31",
         "colorscalerange":"0,100",
@@ -582,7 +582,7 @@
         "palette":"anu_wald_gisheat_inv.v2"
       },
       "delta":{
-        "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.ChangesAnnualMean.aust.005.BS.nc",
+        "url":"ub8/au/FractCov/BS/FC.V310.MCD43A4.ChangesAnnualMean.aust.006.BS.nc",
         "variable":"ChangesAnnualMean",
         "time":"{{year}}-12-31",
         "colorscalerange":"-100,100",
@@ -590,12 +590,12 @@
         "transparent":true
       },
       "timeseries":{
-        "url":"ub8/au/FractCov/BS/FractCover.V3_0_1.{{year}}.aust.005.BS.nc",
+        "url":"ub8/au/FractCov/BS/FC.V310.MCD43A4.{{year}}.aust.006.BS.nc",
         "variable":"BS",
         "_FillValue":255
       },
       "regionTimeSeries":{
-        "url":"ub8/au/RegionTimeSeries/FractCover.V3_0_1.{{year}}.aust.005.BS.{{source}}.RegionTimeSeries.nc",
+        "url":"ub8/au/RegionTimeSeries/FC.V310.MCD43A4.{{year}}.aust.006.BS.{{source}}.RegionTimeSeries.nc",
         "scale":100.0
       }
     },

@@ -68,7 +68,7 @@
     "sourceWMS":"AWRADrainageDivision",
     "globalLabel":"All Drainage Divisions",
     "labelField":"Division",
-    "summary":"dd_converted",
+    "summaryName":"geofab_DD",
     "keyField":"OBJECTID"
   },
   {
@@ -78,7 +78,7 @@
     "sourceWMS":"COM20111216_ELB_region_WA_NSW_ACT",
     "globalLabel":"All Federal Electorates",
     "labelField":"ELECT_DIV",
-    "summary":"elb_converted",
+    "summaryName":"aec_bnd_2016",
     "keyField":"ID"
   }
 
