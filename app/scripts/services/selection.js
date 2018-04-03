@@ -328,7 +328,7 @@ angular.module('ausEnvApp')
     };
 
     service.colourMode = function(){
-      let result = service.dataModeConfig();
+      var result = service.dataModeConfig();
       return (result==='rank')?'delta':'normal';
     }
 
