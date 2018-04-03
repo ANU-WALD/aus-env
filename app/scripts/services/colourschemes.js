@@ -15,16 +15,17 @@ angular.module('ausEnvApp')
 
     service.colourSchemeNameForLayer = function(layer) {
       var sources = [layer];
-      if(layer[selection.dataModeConfig()]) {
-        sources.unshift(layer[selection.dataModeConfig()]);
+      var colourMode = selection.colourMode();
+      if(layer[colourMode]) {
+        sources.unshift(layer[colourMode]);
       }
-      //      palette = palette[selection.dataModeConfig()]||palette;
+      //      palette = palette[colourMode]||palette;
 
       for(var source in sources) {
         var palette = sources[source].palette;
         if(palette) {
           palette = palette[selection.mapMode.toLowerCase()] || palette;
-          palette = palette[selection.dataModeConfig()]||palette;
+          palette = palette[colourMode]||palette;
           return palette;
         }
       }
