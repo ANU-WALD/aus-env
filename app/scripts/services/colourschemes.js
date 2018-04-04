@@ -15,13 +15,13 @@ angular.module('ausEnvApp')
 
     service.colourSchemeNameForLayer = function(layer) {
       var sources = [layer];
-      var suffix='';
+      var rankMode = false;
       var mode = selection.dataModeConfig();
       if(mode==='rank'){
         mode='delta';
 
         if(selection.mapMode===mapmodes.region){
-          suffix='7';
+          rankMode = true;
         }
       }
 
@@ -34,7 +34,13 @@ angular.module('ausEnvApp')
         if(palette) {
           palette = palette[selection.mapMode.toLowerCase()] || palette;
           palette = palette[mode]||palette;
-          return palette+suffix;
+          if(rankMode){
+            if(palette.endsWith('_inv')){
+              return 'rdbu_7';
+            }
+            return 'rdbu_7_rev';
+          }
+          return palette;
         }
       }
       return 'rainbow';

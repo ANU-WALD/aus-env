@@ -143,13 +143,13 @@ angular.module('ausEnvApp')
 
     $scope.makeRankColourScheme = function(data){
       var labels = [
-        'Lowest on record',
+        'Lowest for period',
         'Very low (10 yrs)',
         'Low (5 yrs)',
         'Average',
         'High (5 yrs)',
         'Very high (10 yrs)',
-        'Highest on record'
+        'Highest for period'
       ]
 
 
