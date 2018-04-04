@@ -233,7 +233,7 @@ angular.module('ausEnvApp')
     };
 
     $scope.rankColourScale = function(val){
-      let idx = 0;
+      var idx = 0;
       if(val >= 10){
         idx = 6;
       } else if(val > 9){
