@@ -225,11 +225,37 @@ angular.module('ausEnvApp')
 //      var range = themes.colourRange($scope.selection.selectedLayer).split(',').map(function(v){
 //        return +v;
 //      });
+
+      if(selection.dataModeConfig()==='rank'){
+        return $scope.rankColourScale(val);
+      }
+      return $scope.colourScaleLinear(val);
+    };
+
+    $scope.rankColourScale = function(val){
+      let idx = 0;
+      if(val >= 10){
+        idx = 6;
+      } else if(val > 9){
+        idx = 5;
+      } else if(val >= 8){
+        idx = 4;
+      } else if(val > 2) {
+        idx = 3;
+      } else if(val > 1) {
+        idx = 2;
+      } else if(val > 0) {
+        idx = 1;
+      }
+
+      return $scope.polygonMapping.colours[idx];
+    };
+
+    $scope.colourScaleLinear = function(val){
       var range = $scope.polygonMapping.dataRange;
       var point = (val-range[0])/(range[1]-range[0]);
       var pos = Math.round(point*($scope.polygonMapping.colours.length-1));
       var selectedColour = $scope.polygonMapping.colours[pos];
-
       return selectedColour;
     };
 

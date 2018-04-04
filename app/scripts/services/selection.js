@@ -327,11 +327,6 @@ angular.module('ausEnvApp')
              !service.selectedLayer.disablePolygons;
     };
 
-    service.colourMode = function(){
-      var result = service.dataModeConfig();
-      return (result==='rank')?'delta':'normal';
-    }
-
     service.dataModeConfig = function(){
       switch(service.dataMode){
         case datamodes.delta: return 'delta';
