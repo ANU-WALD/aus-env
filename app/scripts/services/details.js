@@ -74,7 +74,7 @@ angular.module('ausEnvApp')
 
     service.getPolygonAnnualTimeSeries = function(regionType){
       var result = $q.defer();
-      var datamode = selection.dataModeConfig()==='normal'?'mean':'rank';
+      var datamode = selection.dataModeConfig()==='rank'?'rank':'mean';
 
       $q.all([selection.getSelectedLayer(),selection.getRegionType()]).then(function(){
         var url = ANNUAL_TIME_SERIES;
