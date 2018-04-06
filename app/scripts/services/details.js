@@ -72,9 +72,10 @@ angular.module('ausEnvApp')
       return regionType.summaryName || regionType.source;
     };
 
-    service.getPolygonAnnualTimeSeries = function(regionType){
+    service.getPolygonAnnualTimeSeries = function(regionType,mode){
       var result = $q.defer();
-      var datamode = selection.dataModeConfig()==='rank'?'rank':'mean';
+      var datamode = mode||
+        (selection.dataModeConfig()==='rank'?'rank':'mean');
 
       $q.all([selection.getSelectedLayer(),selection.getRegionType()]).then(function(){
         var url = ANNUAL_TIME_SERIES;

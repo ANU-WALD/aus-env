@@ -232,7 +232,10 @@ angular.module('ausEnvApp')
       layer.variable = layer.variable||'RegionMean';
 
       spatialFoci.regionTypes().then(function(rt){
-        $q.all([timeseries.retrieveTimeSeriesForPolygon(locators.id,layer,selection.year),details.getPolygonAnnualTimeSeries(rt[0])]).then(function(resp){
+        $q.all([
+          timeseries.retrieveTimeSeriesForPolygon(locators.id,layer,selection.year),
+          details.getPolygonAnnualTimeSeries(rt[0],'mean')
+        ]).then(function(resp){
           var data = resp[0];
           var metadata = resp[1];
           $scope.chartView('timeseries',true);

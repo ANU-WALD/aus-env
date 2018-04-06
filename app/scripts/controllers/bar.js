@@ -135,5 +135,7 @@ angular.module('ausEnvApp')
       $scope.$watch('selection.'+prop,$scope.createBarChart);
     });
 
+    $scope.$watch('selection.dataMode',$scope.createBarChart);
+
     $scope.$watch('selection.year',$scope.adjustColours);
   });

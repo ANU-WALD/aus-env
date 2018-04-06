@@ -570,6 +570,20 @@ angular.module('ausEnvApp')
     return (selection.imageMode===imagemodes.opaque)?1.0:TRANSPARENT_OPACITY;
   };
 
+  $scope.$watch('selection.mapMode',function(){
+    if((selection.mapMode===mapmodes.grid)&&
+       (selection.dataMode===datamodes.rank)){
+      selection.dataMode=datamodes.actual;
+    }
+  });
+
+  $scope.$watch('selection.dataMode',function(){
+    if((selection.mapMode===mapmodes.grid)&&
+       (selection.dataMode===datamodes.rank)){
+      selection.mapMode=mapmodes.region;
+    }    
+  });
+
   $scope.$watch('selection.imageMode',function(){
     if(!$scope.gridData){
       return;
