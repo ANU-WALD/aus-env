@@ -67,6 +67,7 @@ angular.module('ausEnvApp')
         }
       },
       options:{
+        fullscreenControl: false,
         minZoom:3,
         mapTypeControl:false,
         streetViewControl:true,
@@ -581,7 +582,7 @@ angular.module('ausEnvApp')
     if((selection.mapMode===mapmodes.grid)&&
        (selection.dataMode===datamodes.rank)){
       selection.mapMode=mapmodes.region;
-    }    
+    }
   });
 
   $scope.$watch('selection.imageMode',function(){
