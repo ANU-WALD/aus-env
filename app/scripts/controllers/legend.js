@@ -49,11 +49,20 @@ angular.module('ausEnvApp')
             $scope.mapUnits = details.unitsText(data.Units);
           }
 
+          if($scope.selection.dataModeConfig()==='rank'){
+            $scope.mapUnits = 'return time';
+          }
+
           var deltaMode = selection.deltaMode();
-          if(deltaMode) {
+          if(deltaMode){
             data = colourschemes.annualDelta(data);
           }
-          $scope.polygonDataRange = colourschemes.dataRange(data,$scope.selection.year,deltaMode);
+
+          if(selection.dataModeConfig()==='rank'){
+            $scope.polygonDataRange = [0,10]
+          } else {
+            $scope.polygonDataRange = colourschemes.dataRange(data,$scope.selection.year,deltaMode);
+          }
 
           result.resolve(true);
         });
@@ -87,7 +96,7 @@ angular.module('ausEnvApp')
 
     $scope.updateColourScheme = function() {
       // +++TODO need to compute applyLogTransform
-      var applyLogTransform=false;
+      // var applyLogTransform=false;
       $scope.colourScheme = [];
 
       if(selection.mapMode===mapmodes.grid){
@@ -96,7 +105,7 @@ angular.module('ausEnvApp')
           $scope.colourScaleRange = selection.selectedLayer[selection.dataModeConfig()].colorscalerange || $scope.colourScaleRange;
         }
         $scope.colourScaleRange = $scope.colourScaleRange.split(',').map(function(e){return +e;});
-        $scope.applyLogTransform = false;
+        // $scope.applyLogTransform = false;
       } else {
         $scope.colourScaleRange = $scope.polygonDataRange;
       }
@@ -123,49 +132,78 @@ angular.module('ausEnvApp')
         });
       } else {
         colourschemes.coloursFor(selection.selectedLayer).then(function(data){
-          var range = $scope.colourScaleRange;
-          var decimalPlaces = Math.max(0,2-(+Math.log10(range[1]-range[0]).toFixed()));
-          if(applyLogTransform) {
-            range = range.map(Math.log);
+          if(selection.dataModeConfig()==='rank'){
+            $scope.makeRankColourScheme(data);
+          } else {
+            $scope.makeRegularColourScheme(data);
           }
-          var binSize = (range[1]-range[0])/data.length;
-
-          var valToText = function(val,dp){
-            dp = dp || decimalPlaces;
-            dp = Math.min(dp,10);
-            if(applyLogTransform){
-              val = Math.exp(val);
-            }
-
-            return details.formatValue(val,dp);
-          };
-
-          var distinctText = function(val,lowerText){
-            var valText;
-            var dp = decimalPlaces;
-            do{
-              valText = valToText(val,dp);
-              dp++;
-            }while((+lowerText>=+valText)&&(dp<=10));
-
-            return valText;
-          };
-
-          var lowerText = valToText(range[0]);
-          $scope.colourScheme = data.slice().map(function(e,idx){
-            var upperText = distinctText(range[0]+((idx+1)*binSize),lowerText);
-            var label = lowerText + ' - ' + upperText;
-            lowerText = upperText;
-            return [{
-              colour: e,
-              text: label
-            }];
-          });
-          $scope.colourScheme[data.length-1][0].text = '&ge;'+valToText(range[1]-binSize);
-          $scope.colourScheme.reverse();
-          $scope.colourScheme = $scope.balanceColourScheme($scope.colourScheme);
         });
       }
+    };
+
+    $scope.makeRankColourScheme = function(data){
+      var labels = [
+        'Lowest for period',
+        'Very low (10 yrs)',
+        'Low (5 yrs)',
+        'Average',
+        'High (5 yrs)',
+        'Very high (10 yrs)',
+        'Highest for period'
+      ]
+
+
+      $scope.colourScheme = labels.map(function(lbl,i){
+        return [{
+          colour: data[i],
+          text:lbl
+        }];
+      });
+      $scope.colourScheme.reverse();
+    };
+
+    $scope.makeRegularColourScheme = function(data){
+      var range = $scope.colourScaleRange;
+      var decimalPlaces = Math.max(0,2-(+Math.log10(range[1]-range[0]).toFixed()));
+      // if(applyLogTransform) {
+      //   range = range.map(Math.log);
+      // }
+      var binSize = (range[1]-range[0])/data.length;
+
+      var valToText = function(val,dp){
+        dp = dp || decimalPlaces;
+        dp = Math.min(dp,10);
+        // if(applyLogTransform){
+        //   val = Math.exp(val);
+        // }
+
+        return details.formatValue(val,dp);
+      };
+
+      var distinctText = function(val,lowerText){
+        var valText;
+        var dp = decimalPlaces;
+        do{
+          valText = valToText(val,dp);
+          dp++;
+        }while((+lowerText>=+valText)&&(dp<=10));
+
+        return valText;
+      };
+
+      var lowerText = valToText(range[0]);
+      $scope.colourScheme = data.slice().map(function(e,idx){
+        var upperText = distinctText(range[0]+((idx+1)*binSize),lowerText);
+        var label = lowerText + ' - ' + upperText;
+        lowerText = upperText;
+        return [{
+          colour: e,
+          text: label
+        }];
+      });
+      $scope.colourScheme[data.length-1][0].text = '&ge;'+valToText(range[1]-binSize);
+      $scope.colourScheme.reverse();
+      $scope.colourScheme = $scope.balanceColourScheme($scope.colourScheme);
     };
 
     $scope.update = function(){

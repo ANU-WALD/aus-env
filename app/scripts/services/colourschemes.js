@@ -15,16 +15,31 @@ angular.module('ausEnvApp')
 
     service.colourSchemeNameForLayer = function(layer) {
       var sources = [layer];
-      if(layer[selection.dataModeConfig()]) {
-        sources.unshift(layer[selection.dataModeConfig()]);
+      var rankMode = false;
+      var mode = selection.dataModeConfig();
+      if(mode==='rank'){
+        mode='delta';
+
+        if(selection.mapMode===mapmodes.region){
+          rankMode = true;
+        }
       }
-      //      palette = palette[selection.dataModeConfig()]||palette;
+
+      if(layer[mode]) {
+        sources.unshift(layer[mode]);
+      }
 
       for(var source in sources) {
         var palette = sources[source].palette;
         if(palette) {
           palette = palette[selection.mapMode.toLowerCase()] || palette;
-          palette = palette[selection.dataModeConfig()]||palette;
+          palette = palette[mode]||palette;
+          if(rankMode){
+            if(palette.endsWith('_inv')){
+              return 'rdbu_7';
+            }
+            return 'rdbu_7_rev';
+          }
           return palette;
         }
       }

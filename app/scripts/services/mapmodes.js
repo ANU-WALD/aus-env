@@ -16,7 +16,8 @@ angular.module('ausEnvApp')
 angular.module('ausEnvApp')
   .constant('datamodes', {
     actual:'Actual',
-    delta:'Change'
+    delta:'Change',
+    rank:'Rank'
   });
 
 angular.module('ausEnvApp')

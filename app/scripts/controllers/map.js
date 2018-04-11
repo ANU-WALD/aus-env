@@ -48,7 +48,6 @@ angular.module('ausEnvApp')
 
     var mapReady = $q.defer();
     $scope.mapReady = mapReady.promise;
-
     $scope.map = {
       showGrid:true,
       showRegions:true,
@@ -158,11 +157,11 @@ angular.module('ausEnvApp')
 
       uiGmapIsReady.promise(1).then(function(instances){
         $scope.theMap = instances[0].map;
-        $scope.map.showGrid=true;
+        $scope.map.showGrid=(selection.mapMode===mapmodes.grid);
         $scope.theMap.data.setStyle($scope.geoJsonStyling);
         $scope.theMap.data.addListener('click', $scope.polygonSelected);
 
-        var tileSize = new google.maps.Size(512, 512);
+        var tileSize = new google.maps.Size(256, 256);
         $scope.theMap.mapTypes.set('WHITE',new PlainMapType('#FFF',tileSize,'White'));
         $scope.theMap.mapTypes.set('BLACK',new PlainMapType('#000',tileSize,'Black'));
         mapReady.resolve();
@@ -208,7 +207,7 @@ angular.module('ausEnvApp')
     });
 
     $scope.polygonFillColour = function(feature) {
-      if(!$scope.polygonMapping || (selection.mapMode!==$scope.mapmodes.region)) {
+      if(!$scope.polygonMapping || (selection.mapMode===$scope.mapmodes.grid)) {
         return null;
       }
       var key = feature.getProperty($scope.selection.regionType.keyField);
@@ -226,11 +225,37 @@ angular.module('ausEnvApp')
 //      var range = themes.colourRange($scope.selection.selectedLayer).split(',').map(function(v){
 //        return +v;
 //      });
+
+      if(selection.dataModeConfig()==='rank'){
+        return $scope.rankColourScale(val);
+      }
+      return $scope.colourScaleLinear(val);
+    };
+
+    $scope.rankColourScale = function(val){
+      var idx = 0;
+      if(val >= 10){
+        idx = 6;
+      } else if(val > 9){
+        idx = 5;
+      } else if(val >= 8){
+        idx = 4;
+      } else if(val > 2) {
+        idx = 3;
+      } else if(val > 1) {
+        idx = 2;
+      } else if(val > 0) {
+        idx = 1;
+      }
+
+      return $scope.polygonMapping.colours[idx];
+    };
+
+    $scope.colourScaleLinear = function(val){
       var range = $scope.polygonMapping.dataRange;
       var point = (val-range[0])/(range[1]-range[0]);
       var pos = Math.round(point*($scope.polygonMapping.colours.length-1));
       var selectedColour = $scope.polygonMapping.colours[pos];
-
       return selectedColour;
     };
 
@@ -320,10 +345,16 @@ angular.module('ausEnvApp')
             values: data[0]
           };
           var deltaMode=selection.deltaMode();
-          if(deltaMode) {
+          if(deltaMode){
             $scope.polygonMapping.values = colourschemes.annualDelta($scope.polygonMapping.values);
           }
-          $scope.polygonMapping.dataRange = colourschemes.dataRange($scope.polygonMapping.values,$scope.selection.year,deltaMode);
+
+          if(selection.dataModeConfig()==='rank'){
+            $scope.polygonMapping.dataRange = [0,10]
+          } else {
+            $scope.polygonMapping.dataRange = colourschemes.dataRange($scope.polygonMapping.values,$scope.selection.year,deltaMode);
+          }
+
           doUpdateStyles();
         });
       }
@@ -441,13 +472,13 @@ angular.module('ausEnvApp')
 
     $scope.map.refreshGrid = !$scope.map.refreshGrid;
     $scope.map.refreshRegions = !$scope.map.refreshRegions;
-
     if(!$scope.selection.mapModesAvailable()) {
       if(selection.mapMode!==mapmodes.grid){
         selection.mapMode = mapmodes.grid;
         $scope.map.refreshGrid = !$scope.map.refreshGrid;
       }
     }
+
 
     if(layer.missingYears && (layer.missingYears.indexOf(selection.year)>=0)){
       $scope.noDataMessage = (layer.source||layer.title) + ' not available for ' + selection.year;
@@ -459,13 +490,21 @@ angular.module('ausEnvApp')
       if($scope.layers.overlays.aWMS) {
         delete $scope.layers.overlays.aWMS;
       }
+      $scope.map.showGrid = false;
       return;
+    }
+
+    if(!$scope.map.showGrid){
+      $scope.map.showGrid = true;
+      $scope.map.refreshGrid = !$scope.map.refreshGrid;
     }
 
     var prefix = '';
     if(layer[selection.dataModeConfig()]) {
       if(selection.dataMode===datamodes.delta) {
         prefix = 'Change in ';
+      } else if(selection.dataMode===datamodes.rank){
+        prefix = 'Rank of ';
       }
     }
 
@@ -530,6 +569,20 @@ angular.module('ausEnvApp')
   $scope.mapOpacity = function(){
     return (selection.imageMode===imagemodes.opaque)?1.0:TRANSPARENT_OPACITY;
   };
+
+  $scope.$watch('selection.mapMode',function(){
+    if((selection.mapMode===mapmodes.grid)&&
+       (selection.dataMode===datamodes.rank)){
+      selection.dataMode=datamodes.actual;
+    }
+  });
+
+  $scope.$watch('selection.dataMode',function(){
+    if((selection.mapMode===mapmodes.grid)&&
+       (selection.dataMode===datamodes.rank)){
+      selection.mapMode=mapmodes.region;
+    }    
+  });
 
   $scope.$watch('selection.imageMode',function(){
     if(!$scope.gridData){

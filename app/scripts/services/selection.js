@@ -17,7 +17,7 @@ angular.module('ausEnvApp')
     service.bounds = {
       year:{
         min:2000,
-        max:2016
+        max:2017
       }
       // +++TODO Limit pan and zoom
     };
@@ -328,7 +328,12 @@ angular.module('ausEnvApp')
     };
 
     service.dataModeConfig = function(){
-      return service.dataMode===datamodes.delta?'delta':'normal';
+      switch(service.dataMode){
+        case datamodes.delta: return 'delta';
+        case datamodes.rank: 
+          if(service.mapMode===mapmodes.region) return 'rank';
+        default: return 'normal';
+      }
     };
 
     service.deltaMode = function(){
@@ -372,7 +377,10 @@ angular.module('ausEnvApp')
 
       if(service.deltaMode()){
         return 'Change in ' + (text||service.selectedLayer.title);
+      } else if(service.dataModeConfig()==='rank'){
+        return 'Rank of ' + (text||service.selectedLayer.title);
       }
+
       return text||service.selectedLayer.title;
     };
 

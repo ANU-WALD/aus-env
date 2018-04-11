@@ -8,7 +8,7 @@
  * Service in the ausEnvApp.
  */
 angular.module('ausEnvApp')
-  .service('details', function ($q,$http,$window,$interpolate,staticData,selection,csv) {
+  .service('details', function ($q,$http,$window,$interpolate,staticData,selection,csv,datamodes) {
     var service = this;
 
     var STATIC_CSV_SOURCE='/aucsv/accounts/';
@@ -72,8 +72,11 @@ angular.module('ausEnvApp')
       return regionType.summaryName || regionType.source;
     };
 
-    service.getPolygonAnnualTimeSeries = function(regionType){
+    service.getPolygonAnnualTimeSeries = function(regionType,mode){
       var result = $q.defer();
+      var datamode = mode||
+        (selection.dataModeConfig()==='rank'?'rank':'mean');
+
       $q.all([selection.getSelectedLayer(),selection.getRegionType()]).then(function(){
         var url = ANNUAL_TIME_SERIES;
         var summaryName = service.summaryName('annualSummary');
@@ -87,7 +90,7 @@ angular.module('ausEnvApp')
             regionType:service.polygonSource(regionType)
           });
         } else {
-          url += summaryName+'.'+service.polygonSource(regionType)+'.TimeSeries.mean.csv';
+          url += summaryName+'.'+service.polygonSource(regionType)+'.TimeSeries.'+datamode+'.csv';
         }
         result.resolve(service.retrieveCSV(url));
       });
