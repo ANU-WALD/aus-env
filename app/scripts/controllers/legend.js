@@ -219,7 +219,7 @@ angular.module('ausEnvApp')
         var key = selection.selectedLayer.metadataKey || selection.selectedLayer.title;
         var meta = metadata.filter(function(record){return record.name===key})[0];
         $scope.layerSource = meta['Data creator'].replace(',','<br/>');
-        $scope.infoURL = 'http://www.wenfo.org/wald/australias-environment-explorer-data-description-and-download/#' + key.replace(' ','_').replace(' ','%20');
+        $scope.infoURL = 'http://wald.anu.edu.au/australias-environment-explorer-data-description-and-download/#' + key.replace(' ','_').replace(' ','%20');
       });
     };
 
