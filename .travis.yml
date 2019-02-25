@@ -1,33 +1,36 @@
 sudo: false
 language: node_js
 node_js: 7
+before_install:
+- openssl aes-256-cbc -K $encrypted_cc14136cad00_key -iv $encrypted_cc14136cad00_iv
+  -in id_rsa_deploy.enc -out ../keys/id_rsa_deploy -d
+- chmod 600 id_rsa_deploy
 install:
-  - npm install -g bower grunt-cli
-  - npm install phantomjs-prebuilt
-  - npm install
-  - bower install
-  - gem install compass
-  - bower list
-  - npm list
+- npm install -g bower grunt-cli
+- npm install phantomjs-prebuilt
+- npm install
+- bower install
+- gem install compass
+- bower list
+- npm list
 script:
-  - grunt test
-  - grunt build
-  - SCRIPTS_FN=`ls dist/scripts/scripts*.js`
-  - sed "s/WENFO_GOOGLE_MAPS_API_KEY/$GOOGLE_MAPS_API_KEY/g" < $SCRIPTS_FN > tmp
-  - mv tmp $SCRIPTS_FN
+- grunt test
+- grunt build
+- SCRIPTS_FN=`ls dist/scripts/scripts*.js`
+- sed "s/WENFO_GOOGLE_MAPS_API_KEY/$GOOGLE_MAPS_API_KEY/g" < $SCRIPTS_FN > tmp
+- mv tmp $SCRIPTS_FN
 deploy:
-  # deploy to "wenfo.org/staging/aus-env" on branch master
-  - skip_cleanup: true
-    provider: script
-    script: bash -c "cd dist && find . -type f -exec curl -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp.wenfo.org/staging/{} \;"
-    on:
-      branch: master
-  # deploy to "wenfo.org/aus-env" on branch production
-  - skip_cleanup: true
-    provider: script
-    script: bash -c "cd dist && find . -type f -exec curl -u $FTP_USER:$FTP_PASSWORD --ftp-create-dirs -T {} ftp.wenfo.org{} \;"
-    on:
-      branch: production
+- skip_cleanup: true
+  provider: script
+  script: cd dist && scp -o StrictHostKeyChecking=no -i ../id_rsa_deploy -r . $FTP_USER@wenfo.org:/home/$FTP_USER/public_html/ausenv/staging
+  on:
+    branch: master
+- skip_cleanup: true
+  provider: script
+  script: bash -c "cd dist && find . -type f -exec curl -u $FTP_USER:$FTP_PASSWORD
+    --ftp-create-dirs -T {} ftp.wenfo.org{} \;"
+  on:
+    branch: production
 notifications:
   email: false
   slack:
