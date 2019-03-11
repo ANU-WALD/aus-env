@@ -17,7 +17,7 @@ angular.module('ausEnvApp')
     service.bounds = {
       year:{
         min:2000,
-        max:2017
+        max:2018
       }
       // +++TODO Limit pan and zoom
     };
