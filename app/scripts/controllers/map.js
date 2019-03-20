@@ -541,7 +541,10 @@ angular.module('ausEnvApp')
       }
     }
 
-    $scope.layers.overlays.aWMS.layerParams.time = $interpolate(settings.time)(selection);
+    if(settings.time){
+      $scope.layers.overlays.aWMS.layerParams.time = $interpolate(settings.time)(selection);
+    }
+
     $scope.layers.overlays.aWMS.layerParams.layers = settings.variable;
     $scope.layers.overlays.aWMS.layerParams.colorscalerange = settings.colorscalerange;
     var keys = ['transparent','bgcolor',

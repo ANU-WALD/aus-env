@@ -1,0 +1,21 @@
+Value,Class_Name,Red,Green,Blue,Alpha,shortname (see NOTE),header,code
+1,Natural environments,201,190,255,255,NaturalEnvironment,1,Natural environments
+2,Production native forests,41,168,39,255,ProductionForestry,2,Forestry
+3,Plantation forestry,173,255,181,255,PlantationForestry,2,Forestry
+4,Grazing on native pasture,255,255,229,255,GrazingNativePasture,3,Grazing
+5,Grazing on modified pasture,255,146,15,255,GrazingModifiedPasture,3,Grazing
+6,Dryland cropping,255,255,0,255,Cropping,4,Dryland agriculture
+7,Dryland horticulture,178,135,120,255,Horticulture,4,Dryland agriculture
+8,Land in transition,255,255,255,255,InTransition,4,Dryland agriculture
+9,Irrigated pasture,155,106,92,255,IrrigatedPasture,5,Irrigated agriculture
+10,Irrigated cropping,202,184,84,255,IrrigatedCropping,5,Irrigated agriculture
+11,Irrigated horticulture,156,84,46,255,IrrigatedHorticulture,5,Irrigated agriculture
+12,Intensive horticulture,190,254,190,255,IntensiveHorticulture,6,Intensive uses
+13,Intensive animal husbandry,255,201,189,255,IntensiveAnimal,6,Intensive uses
+14,Industrial,178,178,178,255,Industrial,6,Intensive uses
+15,Residential,254,0,0,255,Residential,6,Intensive uses
+16,Infrastructure,70,50,100,255,Infrastructure,6,Intensive uses
+17,Transport and communication,80,80,80,255,Transport,6,Intensive uses
+18,Mining,70,131,142,255,Mining,6,Intensive uses
+19,Natural water and wetlands,106,180,255,255,NaturalWater,7,Water and wetlands
+20,Artificial water bodies,0,0,254,255,ArtificialWater,7,Water and wetlands

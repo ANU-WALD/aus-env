@@ -138,6 +138,10 @@ angular.module('ausEnvApp')
       return csv.parseRegularCSV(text,'',true);
     });
 
+    service.landUseCodes = staticData.deferredGet(service,'static/config/landuse_codes.csv','_landuseText',function(text){
+      return csv.parseRegularCSV(text,'',true);
+    });
+
     service.patchOnly = function(){
       return $q.resolve([
         {

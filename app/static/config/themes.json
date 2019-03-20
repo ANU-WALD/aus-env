@@ -39,6 +39,20 @@
         }
       },
       {
+        "title":"All land use classes",
+        "metadataKey":"Land Use",
+        "description":"Land use type from XXX YYY.",
+        "units":"classification",
+        "url":"ub8/au/LandUse/clum_0917_reclass_50m.nc",
+        "variable":"LandUse",
+        "colorscalerange":"1,20",
+        "summary":"",
+        "disablePolygons":true,
+        "palette":"anu_wald_landuse",
+        "legend":"landUseCodes",
+        "disablePoint":true
+      },
+      {
         "source":"Land cover mapping",
         "metadataKey":"Land cover",
         "title":"All land cover classes",
@@ -340,6 +354,106 @@
         ]
       }
     ]
+},
+{
+  "id":"weather",
+  "name":"Weather",
+  "icon":"water.png",
+  "layers":[
+    {
+      "default":false,
+      "title":"Maximum temperature",
+      "summary":"OzWALD.annual.Tmax.AnnualMaxima",
+      "palette":"anu_wald_blues09",
+      "units":"degC",
+      "normal":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Tmax.AnnualMaxima.nc",
+        "variable":"AnnualMaxima",
+        "time":"{{year}}-12-31",
+        "logscale":true,
+        "colorscalerange":"20,50",
+        "belowmincolor":"extend",
+        "palette":"anu_wald_blues09"
+      },
+      "delta":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Tmax.ChangesAnnualMaxima.nc",
+        "variable":"ChangesAnnualMaxima",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"-20,20",
+        "belowmincolor":"extend",
+        "palette":"anu_wald_gistemp_inv"
+      },
+      "timeseries":{
+        "url":"ub8/au/OzWALD/daily/OzWALD.daily.Tmax.{{year}}.nc",
+        "variable":"Tmax"
+      },
+      "regionTimeSeries":{
+        "fn":"OzWALD.daily.Tmax"
+      }
+    },
+    {
+      "default":false,
+      "title":"Minimum temperature",
+      "summary":"OzWALD.Tmin.AnnualMinima",
+      "palette":"anu_wald_blues09",
+      "units":"degC",
+      "normal":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.Tmin.AnnualMinima.nc",
+        "variable":"AnnualMinima",
+        "time":"{{year}}-12-31",
+        "logscale":true,
+        "colorscalerange":"-5,30",
+        "belowmincolor":"extend",
+        "palette":"anu_wald_blues09"
+      },
+      "delta":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.Tmin.ChangesAnnualMinima.nc",
+        "variable":"ChangesAnnualMinima",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"-2000,2000",
+        "belowmincolor":"extend",
+        "palette":"anu_wald_gistemp_inv"
+      },
+      "timeseries":{
+        "url":"ub8/au/OzWALD/daily/OzWALD.daily.Tmin.{{year}}.nc",
+        "variable":"Tmin"
+      },
+      "regionTimeSeries":{
+        "fn":"OzWALD.daily.Tmin"
+      }
+    },
+    {
+      "default":false,
+      "title":"Snow cover",
+      "summary":"OzWALD.SN.AnnualMaxima",
+      "palette":"anu_wald_blues09",
+      "units":"",
+      "normal":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.SN.AnnualMaxima.nc",
+        "variable":"AnnualMaxima",
+        "time":"{{year}}-12-31",
+        "logscale":true,
+        "colorscalerange":"0,100",
+        "belowmincolor":"extend",
+        "palette":"anu_wald_blues09"
+      },
+      "delta":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.SN.ChangesAnnualMaxima.nc",
+        "variable":"ChangesAnnualMaxima",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"-100,100",
+        "belowmincolor":"extend",
+        "palette":"anu_wald_gistemp_inv"
+      },
+      "timeseries":{
+        "url":"ub8/au/OzWALD/daily/OzWALD.daily.SN.{{year}}.nc",
+        "variable":"SN"
+      },
+      "regionTimeSeries":{
+        "fn":"OzWALD.daily.SN"
+      }
+    }
+  ]
 },
 {
   "id":"bushfire",

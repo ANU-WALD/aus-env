@@ -10,6 +10,16 @@
     "Other data forms": "High and low resolution mapping for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/treecover/catalog.xml)"
   },
   {
+    "name": "Land use",
+    "Description": "Land use classification from XXX, YYY.",
+    "Data creator": "YYY",
+    "Data license": "Creative Commons by Attribution (CC BY 3.0 AU &#8211; https://creativecommons.org/licenses/by/3.0/au/deed.en).",
+    "Reference": "???",
+    "Resolution": "~50m",
+    "Annual data": "annual mapping: direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/LandUse/DLCD.AllYears.nc, ~400 MB) or via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/LandCover/catalog.xml&amp;dataset=ub8-au/LandCover/DLCD.AllYears.nc).",
+    "Other data forms": "Original bi-annual land cover data can be downloaded from Geoscience Australia (http://www.ga.gov.au/scientific-topics/earth-obs/landcover)"
+  },
+  {
     "name": "Land cover",
     "Description": "Land cover classification from Geoscience Australia Dynamic Land Cover Data. Extended for recent years (2014 onwards) using a machine learning algorithm developed by ANU Water and Landscape Dynamics.",
     "Data creator": "Geoscience Australia",
