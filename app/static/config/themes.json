@@ -358,7 +358,7 @@
 {
   "id":"weather",
   "name":"Weather",
-  "icon":"water.png",
+  "icon":"temperature.png",
   "layers":[
     {
       "default":false,
