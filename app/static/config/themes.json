@@ -370,10 +370,10 @@
         "url":"ub8/au/OzWALD/annual/OzWALD.annual.Tmax.AnnualMaxima.nc",
         "variable":"AnnualMaxima",
         "time":"{{year}}-12-31",
-        "logscale":true,
+        "logscale":false,
         "colorscalerange":"20,50",
         "belowmincolor":"extend",
-        "palette":"anu_wald_blues09"
+        "palette":"anu_wald_gisheat_inv.v2"
       },
       "delta":{
         "url":"ub8/au/OzWALD/annual/OzWALD.annual.Tmax.ChangesAnnualMaxima.nc",
@@ -401,10 +401,10 @@
         "url":"ub8/au/OzWALD/annual/OzWALD.Tmin.AnnualMinima.nc",
         "variable":"AnnualMinima",
         "time":"{{year}}-12-31",
-        "logscale":true,
+        "logscale":false,
         "colorscalerange":"-5,30",
         "belowmincolor":"extend",
-        "palette":"anu_wald_blues09"
+        "palette":"anu_wald_gisheat_inv.v2"
       },
       "delta":{
         "url":"ub8/au/OzWALD/annual/OzWALD.Tmin.ChangesAnnualMinima.nc",
@@ -432,9 +432,8 @@
         "url":"ub8/au/OzWALD/annual/OzWALD.SN.AnnualMaxima.nc",
         "variable":"AnnualMaxima",
         "time":"{{year}}-12-31",
-        "logscale":true,
-        "colorscalerange":"0,100",
-        "belowmincolor":"extend",
+        "logscale":false,
+        "colorscalerange":"1,100",
         "palette":"anu_wald_blues09"
       },
       "delta":{

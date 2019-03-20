@@ -90,6 +90,36 @@
     "Other data forms": "Available as time series for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/FireEmissions/catalog.xml)"
   },
   {
+    "name": "Maximum temperature",
+    "Description": "XXXX: Estimates of daily precipitation (Pg in mm) derived by merging of Bureau of Meteorology gridded daily rainfall and satellite rainfall estimates derived from the TRMM-TMPA product (before 2016) and the GPM product (after 2017)",
+    "Data creator": "Bureau of Meteorology, Australian National University, CSIRO Land and Water",
+    "Data license": "Creative Commons by Attribution (CC BY 3.0 AU &#8211; https://creativecommons.org/licenses/by/3.0/au/deed.en).",
+    "Reference": "Forthcoming, but based on: 1) Jones, D., Wang, W., &amp; Fawcett, R. (2009). High-quality spatial climate data-sets for Australia. Australian Meteorological and Oceanographic Journal, 58, 233-248. (http://www.academia.edu/download/35529899/jones_hres.pdf), 2) Chappell, A., Renzullo, L. J., Raupach, T. H., &amp; Haylock, M. (2013). Evaluating geostatistical methods of blending satellite and gauge data to estimate near real-time daily rainfall for Australia. Journal of Hydrology, 493, 105-114.  (http://www.sciencedirect.com/science/article/pii/S0022169413003181)",
+    "Resolution": "Daily, 0.05° (~5 km)",
+    "Annual data": "Annual sums:  direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc) or via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/annual/catalog.xml&amp;dataset=ub8-au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc). File contains all years in the record.",
+    "Other data forms": "Annual minima, maxima and time series for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/catalog.xml, look for .Pg. in filename)"
+  },
+  {
+    "name": "Minimum temperature",
+    "Description": "XXXX: Estimates of daily precipitation (Pg in mm) derived by merging of Bureau of Meteorology gridded daily rainfall and satellite rainfall estimates derived from the TRMM-TMPA product (before 2016) and the GPM product (after 2017)",
+    "Data creator": "Bureau of Meteorology, Australian National University, CSIRO Land and Water",
+    "Data license": "Creative Commons by Attribution (CC BY 3.0 AU &#8211; https://creativecommons.org/licenses/by/3.0/au/deed.en).",
+    "Reference": "Forthcoming, but based on: 1) Jones, D., Wang, W., &amp; Fawcett, R. (2009). High-quality spatial climate data-sets for Australia. Australian Meteorological and Oceanographic Journal, 58, 233-248. (http://www.academia.edu/download/35529899/jones_hres.pdf), 2) Chappell, A., Renzullo, L. J., Raupach, T. H., &amp; Haylock, M. (2013). Evaluating geostatistical methods of blending satellite and gauge data to estimate near real-time daily rainfall for Australia. Journal of Hydrology, 493, 105-114.  (http://www.sciencedirect.com/science/article/pii/S0022169413003181)",
+    "Resolution": "Daily, 0.05° (~5 km)",
+    "Annual data": "Annual sums:  direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc) or via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/annual/catalog.xml&amp;dataset=ub8-au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc). File contains all years in the record.",
+    "Other data forms": "Annual minima, maxima and time series for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/catalog.xml, look for .Pg. in filename)"
+  },
+  {
+    "name": "Snow cover",
+    "Description": "XXXX: Estimates of daily precipitation (Pg in mm) derived by merging of Bureau of Meteorology gridded daily rainfall and satellite rainfall estimates derived from the TRMM-TMPA product (before 2016) and the GPM product (after 2017)",
+    "Data creator": "Bureau of Meteorology, Australian National University, CSIRO Land and Water",
+    "Data license": "Creative Commons by Attribution (CC BY 3.0 AU &#8211; https://creativecommons.org/licenses/by/3.0/au/deed.en).",
+    "Reference": "Forthcoming, but based on: 1) Jones, D., Wang, W., &amp; Fawcett, R. (2009). High-quality spatial climate data-sets for Australia. Australian Meteorological and Oceanographic Journal, 58, 233-248. (http://www.academia.edu/download/35529899/jones_hres.pdf), 2) Chappell, A., Renzullo, L. J., Raupach, T. H., &amp; Haylock, M. (2013). Evaluating geostatistical methods of blending satellite and gauge data to estimate near real-time daily rainfall for Australia. Journal of Hydrology, 493, 105-114.  (http://www.sciencedirect.com/science/article/pii/S0022169413003181)",
+    "Resolution": "Daily, 0.05° (~5 km)",
+    "Annual data": "Annual sums:  direct download (http://dapds00.nci.org.au/thredds/fileServer/ub8/au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc) or via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/annual/catalog.xml&amp;dataset=ub8-au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.nc). File contains all years in the record.",
+    "Other data forms": "Annual minima, maxima and time series for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/catalog.xml, look for .Pg. in filename)"
+  },
+  {
     "name": "Precipitation",
     "Description": "Estimates of daily precipitation (Pg in mm) derived by merging of Bureau of Meteorology gridded daily rainfall and satellite rainfall estimates derived from the TRMM-TMPA product (before 2016) and the GPM product (after 2017)",
     "Data creator": "Bureau of Meteorology, Australian National University, CSIRO Land and Water",
