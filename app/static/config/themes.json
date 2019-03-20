@@ -393,6 +393,37 @@
     },
     {
       "default":false,
+      "title":"Hot Days",
+      "summary":"OzWALD.annual.Tmax.HotDays",
+      "palette":"anu_wald_blues09",
+      "units":"degC",
+      "normal":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Tmax.AnnualMaxima.nc",
+        "variable":"HotDays",
+        "time":"{{year}}-12-31",
+        "logscale":false,
+        "colorscalerange":"0,50",
+        "belowmincolor":"extend",
+        "palette":"anu_wald_gisheat_inv.v2"
+      },
+      "delta":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Tmax.ChangesAnnualMaxima.nc",
+        "variable":"ChangesAnnualMaxima",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"-20,20",
+        "belowmincolor":"extend",
+        "palette":"anu_wald_gistemp_inv"
+      },
+      "timeseries":{
+        "url":"ub8/au/OzWALD/daily/OzWALD.daily.Tmax.{{year}}.nc",
+        "variable":"Tmax"
+      },
+      "regionTimeSeries":{
+        "fn":"OzWALD.daily.Tmax"
+      }
+    },
+    {
+      "default":false,
       "title":"Minimum temperature",
       "summary":"OzWALD.Tmin.AnnualMinima",
       "palette":"anu_wald_blues09",
@@ -420,6 +451,36 @@
       },
       "regionTimeSeries":{
         "fn":"OzWALD.daily.Tmin"
+      }
+    },
+    {
+      "default":false,
+      "title":"Frost Days",
+      "summary":"OzWALD.annual.Tmin.frost_days",
+      "palette":"anu_wald_blues09",
+      "units":"degC",
+      "normal":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.Tmin.frost_days.nc",
+        "variable":"frost_days",
+        "time":"{{year}}-12-31",
+        "logscale":false,
+        "colorscalerange":"1,50",
+        "palette":"anu_wald_gisheat_inv.v2"
+      },
+      "delta":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Tmin.ChangesAnnualMaxima.nc",
+        "variable":"ChangesAnnualMaxima",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"-20,20",
+        "belowmincolor":"extend",
+        "palette":"anu_wald_gistemp_inv"
+      },
+      "timeseries":{
+        "url":"ub8/au/OzWALD/daily/OzWALD.daily.Tmax.{{year}}.nc",
+        "variable":"Tmax"
+      },
+      "regionTimeSeries":{
+        "fn":"OzWALD.daily.Tmax"
       }
     },
     {
