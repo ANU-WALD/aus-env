@@ -53,6 +53,290 @@
         "disablePoint":true
       },
       {
+        "metadataKey":"Land Use",
+        "title":"Natural environments",
+        "menuOnly":true,
+        "description":"Land use type from XXX YYY.",
+        "units":"classification",
+        "url":"ub8/au/LandUse/clum_0917_reclass_50m.nc",
+        "variable":"LandUse",
+        "summary":"",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
+        },
+        "legend":{
+          "grid":"patchOnly",
+          "region":null
+        },
+        "belowmincolor":"transparent",
+        "abovemaxcolor":"transparent",
+        "disablePoint":true,
+        "sublayers":[
+          {
+            "title":"Natural environments",
+            "colorscalerange":"0.5,1.5",
+            "annualSummary":"{{regionType}}.LandUse.NaturalEnviroment.mean.LandUse.csv"
+          }
+        ]
+      },
+      {
+        "metadataKey":"Land Use",
+        "title":"Forestry",
+        "menuOnly":true,
+        "description":"Land use type from XXX YYY.",
+        "units":"classification",
+        "url":"ub8/au/LandUse/clum_0917_reclass_50m.nc",
+        "variable":"LandUse",
+        "summary":"",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
+        },
+        "legend":{
+          "grid":"patchOnly",
+          "region":null
+        },
+        "belowmincolor":"transparent",
+        "abovemaxcolor":"transparent",
+        "disablePoint":true,
+        "sublayers":[
+          {
+            "title":"Production native forests",
+            "colorscalerange":"1.5,2.5",
+            "annualSummary":"{{regionType}}.LandUse.ProductionForestry.mean.LandUse.csv"
+          },
+          {
+            "title":"Plantation forestry",
+            "colorscalerange":"2.5,3.5",
+            "annualSummary":"{{regionType}}.LandUse.PlantationForestry.mean.LandUse.csv"
+          }
+        ]
+      },
+      {
+        "metadataKey":"Land Use",
+        "title":"Grazing",
+        "menuOnly":true,
+        "description":"Land use type from XXX YYY.",
+        "units":"classification",
+        "url":"ub8/au/LandUse/clum_0917_reclass_50m.nc",
+        "variable":"LandUse",
+        "summary":"",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
+        },
+        "legend":{
+          "grid":"patchOnly",
+          "region":null
+        },
+        "belowmincolor":"transparent",
+        "abovemaxcolor":"transparent",
+        "disablePoint":true,
+        "sublayers":[
+          {
+            "title":"Grazing on native pasture",
+            "colorscalerange":"3.5,4.5",
+            "annualSummary":"{{regionType}}.LandUse.GrazingNativePasture.mean.LandUse.csv"
+          },
+          {
+            "title":"Grazing on modified pasture",
+            "colorscalerange":"4.5,5.5",
+            "annualSummary":"{{regionType}}.LandUse.GrazingModifiedPasture.mean.LandUse.csv"
+          }
+        ]
+      },
+      {
+        "metadataKey":"Land Use",
+        "title":"Dryland agriculture",
+        "menuOnly":true,
+        "description":"Land use type from XXX YYY.",
+        "units":"classification",
+        "url":"ub8/au/LandUse/clum_0917_reclass_50m.nc",
+        "variable":"LandUse",
+        "summary":"",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
+        },
+        "legend":{
+          "grid":"patchOnly",
+          "region":null
+        },
+        "belowmincolor":"transparent",
+        "abovemaxcolor":"transparent",
+        "disablePoint":true,
+        "sublayers":[
+          {
+            "title":"Dryland cropping",
+            "colorscalerange":"5.5,6.5",
+            "annualSummary":"{{regionType}}.LandUse.Cropping.mean.LandUse.csv"
+          },
+          {
+            "title":"Dryland horticulture",
+            "colorscalerange":"6.5,7.5",
+            "annualSummary":"{{regionType}}.LandUse.Horticulture.mean.LandUse.csv"
+          },
+          {
+            "title":"Land in transition",
+            "colorscalerange":"7.5,8.5",
+            "annualSummary":"{{regionType}}.LandUse.InTransition.mean.LandUse.csv"
+          }
+        ]
+      },
+      {
+        "metadataKey":"Land Use",
+        "title":"Irrigated agriculture",
+        "menuOnly":true,
+        "description":"Land use type from XXX YYY.",
+        "units":"classification",
+        "url":"ub8/au/LandUse/clum_0917_reclass_50m.nc",
+        "variable":"LandUse",
+        "summary":"",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
+        },
+        "legend":{
+          "grid":"patchOnly",
+          "region":null
+        },
+        "belowmincolor":"transparent",
+        "abovemaxcolor":"transparent",
+        "disablePoint":true,
+        "sublayers":[
+          {
+            "title":"Irrigated Pasture",
+            "colorscalerange":"8.5,9.5",
+            "annualSummary":"{{regionType}}.LandUse.IrrigatedPasture.mean.LandUse.csv"
+          },
+          {
+            "title":"Irrigated cropping",
+            "colorscalerange":"9.5,10.5",
+            "annualSummary":"{{regionType}}.LandUse.IrrigatedCropping.mean.LandUse.csv"
+          },
+          {
+            "title":"Irrigated horticulture",
+            "colorscalerange":"10.5,11.5",
+            "annualSummary":"{{regionType}}.LandUse.IrrigatedHorticulture.mean.LandUse.csv"
+          }
+        ]
+      },
+      {
+        "metadataKey":"Land Use",
+        "title":"Intensive uses",
+        "menuOnly":true,
+        "description":"Land use type from XXX YYY.",
+        "units":"classification",
+        "url":"ub8/au/LandUse/clum_0917_reclass_50m.nc",
+        "variable":"LandUse",
+        "summary":"",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
+        },
+        "legend":{
+          "grid":"patchOnly",
+          "region":null
+        },
+        "belowmincolor":"transparent",
+        "abovemaxcolor":"transparent",
+        "disablePoint":true,
+        "sublayers":[
+          {
+            "title":"Intensive horticulture",
+            "colorscalerange":"11.5,12.5",
+            "annualSummary":"{{regionType}}.LandUse.IntensiveHorticulture.mean.LandUse.csv"
+          },
+          {
+            "title":"Intensive animal husbandry",
+            "colorscalerange":"12.5,13.5",
+            "annualSummary":"{{regionType}}.LandUse.IntensiveAnimal.mean.LandUse.csv"
+          },
+          {
+            "title":"Industrial",
+            "colorscalerange":"13.5,14.5",
+            "annualSummary":"{{regionType}}.LandUse.Industrial.mean.LandUse.csv"
+          },
+          {
+            "title":"Residential",
+            "colorscalerange":"14.5,15.5",
+            "annualSummary":"{{regionType}}.LandUse.Residential.mean.LandUse.csv"
+          },
+          {
+            "title":"Infrastructure",
+            "colorscalerange":"15.5,16.5",
+            "annualSummary":"{{regionType}}.LandUse.Infrastructure.mean.LandUse.csv"
+          },
+          {
+            "title":"Transport and communication",
+            "colorscalerange":"16.5,17.5",
+            "annualSummary":"{{regionType}}.LandUse.Transport.mean.LandUse.csv"
+          },
+          {
+            "title":"Mining",
+            "colorscalerange":"17.5,18.5",
+            "annualSummary":"{{regionType}}.LandUse.Mining.mean.LandUse.csv"
+          }
+        ]
+      },
+      {
+        "metadataKey":"Land Use",
+        "title":"Water and wetlands",
+        "menuOnly":true,
+        "description":"Land use type from XXX YYY.",
+        "units":"classification",
+        "url":"ub8/au/LandUse/clum_0917_reclass_50m.nc",
+        "variable":"LandUse",
+        "summary":"",
+        "palette":{
+          "grid":"anu_wald_single_landcover",
+          "region":{
+            "normal":"anu_wald_gisheat_inv.v2",
+            "delta":"anu_wald_gistemp_inv"
+          }
+        },
+        "legend":{
+          "grid":"patchOnly",
+          "region":null
+        },
+        "belowmincolor":"transparent",
+        "abovemaxcolor":"transparent",
+        "disablePoint":true,
+        "sublayers":[
+          {
+            "title":"Natural water and wetlands",
+            "colorscalerange":"18.5,19.5",
+            "annualSummary":"{{regionType}}.LandUse.NaturalEnviroment.mean.LandUse.csv"
+          },
+          {
+            "title":"Artificial water bodies",
+            "colorscalerange":"19.5,20.5",
+            "annualSummary":"{{regionType}}.LandUse.NaturalEnviroment.mean.LandUse.csv"
+          }
+        ]
+      },
+
+
+      {
         "source":"Land cover mapping",
         "metadataKey":"Land cover",
         "title":"All land cover classes",
