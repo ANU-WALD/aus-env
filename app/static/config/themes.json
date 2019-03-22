@@ -770,23 +770,22 @@
     {
       "default":false,
       "title":"Snow cover",
-      "summary":"OzWALD.SN.AnnualMaxima",
+      "summary":"OzWALD.SN.AnnualMeans",
       "palette":"anu_wald_blues09",
       "units":"",
       "normal":{
-        "url":"ub8/au/OzWALD/annual/OzWALD.SN.AnnualMaxima.nc",
-        "variable":"AnnualMaxima",
+        "url":"ub8/au/OzWALD/annual/OzWALD.SN.AnnualMeans.nc",
+        "variable":"AnnualMeans",
         "time":"{{year}}-12-31",
         "logscale":false,
         "colorscalerange":"1,100",
         "palette":"anu_wald_blues09"
       },
       "delta":{
-        "url":"ub8/au/OzWALD/annual/OzWALD.SN.ChangesAnnualMaxima.nc",
-        "variable":"ChangesAnnualMaxima",
+        "url":"ub8/au/OzWALD/annual/OzWALD.SN.ChangesAnnualMeans.nc",
+        "variable":"ChangesAnnualMeans",
         "time":"{{year}}-12-31",
-        "colorscalerange":"-100,100",
-        "belowmincolor":"extend",
+        "colorscalerange":"-10,10",
         "palette":"anu_wald_gistemp_inv"
       },
       "timeseries":{
@@ -1041,7 +1040,7 @@
         "url":"ub8/au/OzWALD/annual/OzWALD.PV.ChangesAnnualMinima.nc",
         "variable":"ChangesAnnualMinima",
         "time":"{{year}}-12-31",
-        "colorscalerange":"-2200,2200",
+        "colorscalerange":"-1.0,1.0",
         "palette":"anu_wald_gistemp_inv"
       },
       "timeseries":{
@@ -1069,7 +1068,7 @@
         "palette":"anu_wald_gisheat_inv.v2"
       },
       "delta":{
-        "url":"ub8/au/OzWALD/annual/OzWALD.BS.ChangesAnnualMeans",
+        "url":"ub8/au/OzWALD/annual/OzWALD.BS.ChangesAnnualMeans.nc",
         "variable":"ChangesAnnualMeans",
         "time":"{{year}}-12-31",
         "colorscalerange":"-100,100",
