@@ -367,7 +367,7 @@
       "palette":"anu_wald_blues09",
       "units":"degC",
       "normal":{
-        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Tmax.AnnualMaxima.nc",
+        "url":"ub8/au/OzWALD/annual/OzWALD.Tmax.AnnualMaxima.nc",
         "variable":"AnnualMaxima",
         "time":"{{year}}-12-31",
         "logscale":false,
@@ -393,12 +393,12 @@
     },
     {
       "default":false,
-      "title":"Hot Days",
+      "title":"Hot days",
       "summary":"OzWALD.annual.Tmax.HotDays",
       "palette":"anu_wald_blues09",
       "units":"degC",
       "normal":{
-        "url":"ub8/au/OzWALD/annual/OzWALD.annual.Tmax.AnnualMaxima.nc",
+        "url":"ub8/au/OzWALD/annual/OzWALD.Tmax.HotDays.nc",
         "variable":"HotDays",
         "time":"{{year}}-12-31",
         "logscale":false,
@@ -455,13 +455,13 @@
     },
     {
       "default":false,
-      "title":"Frost Days",
+      "title":"Frost days",
       "summary":"OzWALD.annual.Tmin.frost_days",
       "palette":"anu_wald_blues09",
       "units":"degC",
       "normal":{
-        "url":"ub8/au/OzWALD/annual/OzWALD.Tmin.frost_days.nc",
-        "variable":"frost_days",
+        "url":"ub8/au/OzWALD/annual/OzWALD.Tmin.FrostDays.nc",
+        "variable":"FrostDays",
         "time":"{{year}}-12-31",
         "logscale":false,
         "colorscalerange":"1,50",
@@ -737,9 +737,38 @@
 {
   "id":"lh",
   "default":true,
-  "name":"Landscape Health",
+  "name":"Land cover",
   "icon":"landscape.png",
   "layers":[
+    {
+      "default":true,
+      "title":"Persistent vegetation cover",
+      "summary":"OzWALD.PV.AnnualMinima",
+      "palette":"anu_wald_darkgreen",
+      "units":"gC/m^2",
+      "normal":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.PV.AnnualMinima.nc",
+        "variable":"AnnualMinima",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"0,1",
+        "palette":"anu_wald_darkgreen"
+      },
+      "delta":{
+        "url":"ub8/au/OzWALD/annual/OzWALD.PV.ChangesAnnualMinima.nc",
+        "variable":"ChangesAnnualMinima",
+        "time":"{{year}}-12-31",
+        "colorscalerange":"-2200,2200",
+        "palette":"anu_wald_gistemp_inv"
+      },
+      "timeseries":{
+        "url":"ub8/au/OzWALD/8day/OzWALD.daily.PV.{{year}}.nc",
+        "variable":"GPP",
+        "units":"umol m^-2s^-1 "
+      },
+      "regionTimeSeries":{
+        "fn":"OzWALD.daily.GPP"
+      }
+    },
     {
       "default":true,
       "title":"Exposed soil",
@@ -748,7 +777,7 @@
       "palette":"anu_wald_gisheat_inv.v2",
       "abovemaxcolor":"transparent",
       "normal":{
-        "url":"ub8/au/FractCov/BS/FC.V310.MCD43A4.AnnualMeans.aust.006.BS.nc",
+        "url":"ub8/au/OzWALD/annual/OzWALD.BS.AnnualMeans.nc",
         "variable":"AnnualMeans",
         "time":"{{year}}-12-31",
         "colorscalerange":"0,100",
@@ -756,15 +785,15 @@
         "palette":"anu_wald_gisheat_inv.v2"
       },
       "delta":{
-        "url":"ub8/au/FractCov/BS/FC.V310.MCD43A4.ChangesAnnualMean.aust.006.BS.nc",
-        "variable":"ChangesAnnualMean",
+        "url":"ub8/au/OzWALD/annual/OzWALD.BS.ChangesAnnualMeans",
+        "variable":"ChangesAnnualMeans",
         "time":"{{year}}-12-31",
         "colorscalerange":"-100,100",
         "palette":"anu_wald_gistemp",
         "transparent":true
       },
       "timeseries":{
-        "url":"ub8/au/FractCov/BS/FC.V310.MCD43A4.{{year}}.aust.006.BS.nc",
+        "url":"ub8/au/OzWALD/8day/OzWALD.PV.{{year}}.nc",
         "variable":"BS",
         "_FillValue":255
       },
@@ -780,15 +809,15 @@
       "palette":"anu_wald_darkgreen",
       "units":"m^2/m^2",
       "normal":{
-        "url":"ub8/au/LAI/MOD15A2.1000m_lai.AnnualMeans.nc",
+        "url":"ub8/au/OzWALD/annual/OzWALD.LAI.AnnualMeans.nc",
         "variable":"AnnualMeans",
         "time":"{{year}}-12-31",
         "colorscalerange":"0,9",
         "palette":"anu_wald_darkgreen"
       },
       "delta":{
-        "url":"ub8/au/LAI/MOD15A2.1000m_lai.ChangesAnnualMean.nc",
-        "variable":"ChangesAnnualMean",
+        "url":"ub8/au/OzWALD/annual/OzWALD.LAI.ChangesAnnualMeans.nc",
+        "variable":"ChangesAnnualMeans",
         "time":"{{year}}-12-31",
         "colorscalerange":"-4,4",
         "palette":"anu_wald_gistemp_inv"
