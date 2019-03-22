@@ -789,7 +789,7 @@
         "palette":"anu_wald_gistemp_inv"
       },
       "timeseries":{
-        "url":"ub8/au/OzWALD/daily/OzWALD.daily.SN.{{year}}.nc",
+        "url":"ub8/au/OzWALD/8day/SN/OzWALD.SN.{{year}}.nc",
         "variable":"SN"
       },
       "regionTimeSeries":{
@@ -1044,12 +1044,12 @@
         "palette":"anu_wald_gistemp_inv"
       },
       "timeseries":{
-        "url":"ub8/au/OzWALD/8day/OzWALD.daily.PV.{{year}}.nc",
-        "variable":"GPP",
+        "url":"ub8/au/OzWALD/8day/PV/OzWALD.PV.{{year}}.nc",
+        "variable":"PV",
         "units":"umol m^-2s^-1 "
       },
       "regionTimeSeries":{
-        "fn":"OzWALD.daily.GPP"
+        "fn":"OzWALD.daily.PV"
       }
     },
     {
@@ -1076,7 +1076,7 @@
         "transparent":true
       },
       "timeseries":{
-        "url":"ub8/au/OzWALD/8day/OzWALD.PV.{{year}}.nc",
+        "url":"ub8/au/OzWALD/8day/BS/OzWALD.BS.{{year}}.nc",
         "variable":"BS",
         "_FillValue":255
       },
@@ -1106,7 +1106,7 @@
         "palette":"anu_wald_gistemp_inv"
       },
       "timeseries":{
-        "url":"ub8/au/LAI/MOD15A2.1000m_lai.{{year}}.nc",
+        "url":"ub8/au/OzWALD/8day/LAI/OzWALD.LAI.{{year}}.nc",
         "variable":"LAI"
       },
       "regionTimeSeries":{
