@@ -33,7 +33,7 @@ angular.module('ausEnvApp')
 
         scope.setItem = function(i){
           scope.item=i;
-        }
+        };
       },
     };
   });

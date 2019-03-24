@@ -22,7 +22,7 @@ angular.module('ausEnvApp')
       } catch (e) {
         return true;
       }
-    };
+    }
 
     $scope.embedded = inIframe();
 
@@ -184,7 +184,7 @@ angular.module('ausEnvApp')
 
           if(urlElement[0]==='('){
             selection.selectionMode='point';
-            var components = urlElement.match(/\((-?\d+(\.\d+)?),(\d+(\.\d+)?)\)/)
+            var components = urlElement.match(/\((-?\d+(\.\d+)?),(\d+(\.\d+)?)\)/);
             var pt = {
               lat: +components[1],
               lng: +components[3]

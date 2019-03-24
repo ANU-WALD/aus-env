@@ -330,8 +330,11 @@ angular.module('ausEnvApp')
     service.dataModeConfig = function(){
       switch(service.dataMode){
         case datamodes.delta: return 'delta';
-        case datamodes.rank: 
-          if(service.mapMode===mapmodes.region) return 'rank';
+        case datamodes.rank:
+          if(service.mapMode===mapmodes.region) {
+            return 'rank';
+          }
+          return 'normal';
         default: return 'normal';
       }
     };

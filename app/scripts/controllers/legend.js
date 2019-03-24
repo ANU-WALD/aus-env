@@ -59,7 +59,7 @@ angular.module('ausEnvApp')
           }
 
           if(selection.dataModeConfig()==='rank'){
-            $scope.polygonDataRange = [0,10]
+            $scope.polygonDataRange = [0,10];
           } else {
             $scope.polygonDataRange = colourschemes.dataRange(data,$scope.selection.year,deltaMode);
           }
@@ -150,7 +150,7 @@ angular.module('ausEnvApp')
         'High (5 yrs)',
         'Very high (10 yrs)',
         'Highest for period'
-      ]
+      ];
 
 
       $scope.colourScheme = labels.map(function(lbl,i){
@@ -217,7 +217,7 @@ angular.module('ausEnvApp')
 
       $scope.layerMetadata.then(function(metadata){
         var key = selection.selectedLayer.metadataKey || selection.selectedLayer.title;
-        var meta = metadata.filter(function(record){return record.name===key})[0];
+        var meta = metadata.filter(function(record){return record.name===key;})[0];
         $scope.layerSource = meta['Data creator'].replace(',','<br/>');
         $scope.infoURL = 'http://wald.anu.edu.au/australias-environment-explorer-data-description-and-download/#' + key.replace(' ','_').replace(' ','%20');
       });

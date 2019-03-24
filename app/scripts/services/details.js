@@ -8,7 +8,7 @@
  * Service in the ausEnvApp.
  */
 angular.module('ausEnvApp')
-  .service('details', function ($q,$http,$window,$interpolate,staticData,selection,csv,datamodes) {
+  .service('details', function ($q,$http,$window,$interpolate,staticData,selection,csv) {
     var service = this;
 
     var STATIC_CSV_SOURCE='/aucsv/accounts/';

@@ -351,7 +351,7 @@ angular.module('ausEnvApp')
           }
 
           if(selection.dataModeConfig()==='rank'){
-            $scope.polygonMapping.dataRange = [0,10]
+            $scope.polygonMapping.dataRange = [0,10];
           } else {
             $scope.polygonMapping.dataRange = colourschemes.dataRange($scope.polygonMapping.values,$scope.selection.year,deltaMode);
           }
@@ -516,7 +516,7 @@ angular.module('ausEnvApp')
 
     var makeWMSUrl = function(u){
       return BASE_URL + '/wms/' + u +'?';
-    }
+    };
 
     $scope.layers.overlays.aWMS.name = prefix + layer.title;
     $scope.layers.overlays.aWMS.url = makeWMSUrl(fn);

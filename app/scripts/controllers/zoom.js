@@ -11,6 +11,7 @@ angular.module('ausEnvApp')
   .controller('ZoomCtrl', function ($scope,$uibModal,$timeout,$interpolate,$q,
                                     selection,timeseries,configuration,
                                     downloads) {
+    var _ = window._;
     $scope.showPopovers={
       search:false
     };
@@ -138,7 +139,7 @@ angular.module('ausEnvApp')
           result[f]=arg[f];
         });
 
-      })
+      });
       return result;
     };
 
@@ -155,7 +156,7 @@ angular.module('ausEnvApp')
         var additional_metadata = das_and_metadata[1];
 
         var key = selection.selectedLayer.metadataKey || selection.selectedLayer.title;
-        var meta = additional_metadata.filter(function(record){return record.name===key})[0];
+        var meta = additional_metadata.filter(function(record){return record.name===key;})[0];
         $scope.metadata = $scope.extractMetadata({
           title:selection.selectedLayerTitle(),
           time_period:selection.mapTimePeriod()

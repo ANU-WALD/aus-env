@@ -145,7 +145,7 @@ angular.module('ausEnvApp')
       if(!locators.id){
         result.reject();
         $scope.chartView('bar',false);
-        return result.promise;;
+        return result.promise;
       }
 
       details.getPolygonAnnualTimeSeries().then(function(csvData){
@@ -167,7 +167,7 @@ angular.module('ausEnvApp')
           return {
             value:csvData[indexName][i],
             label:col
-          }
+          };
         });
         result.resolve([data,csvData]);
       },function(){
