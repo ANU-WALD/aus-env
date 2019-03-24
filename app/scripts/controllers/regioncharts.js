@@ -46,7 +46,7 @@ angular.module('ausEnvApp')
       {
         style:'pie',
         icon:'fa-pie-chart',
-        tooltip:'Totals by land cover type',
+        tooltip:'Totals by land use type',
         visible:true
       },
       {
