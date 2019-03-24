@@ -8,13 +8,11 @@
  * Service in the ausEnvApp.
  */
 angular.module('ausEnvApp')
-  .service('details', function ($q,$http,$window,$interpolate,staticData,selection,csv) {
+  .service('details', function ($q,$http,$window,$interpolate,staticData,selection,csv,environment) {
     var service = this;
 
-    var STATIC_CSV_SOURCE='/aucsv/accounts/';
-    var ANNUAL_TIME_SERIES=STATIC_CSV_SOURCE;
-    var REGION_AREAS='/aucsv/region_areas/';
-    var PIE_CHART_DATA=STATIC_CSV_SOURCE;
+    var ANNUAL_TIME_SERIES=environment.STATIC_CSV_SOURCE;
+    var PIE_CHART_DATA=environment.STATIC_CSV_SOURCE;
     service.dap = $window.dap;
     service.MAX_CACHE_LENGTH=20;
     service.cache = [];
@@ -115,7 +113,7 @@ angular.module('ausEnvApp')
       if(summaryName.length) {
         summaryName += '.';
       }
-      var url = PIE_CHART_DATA+summaryName+service.polygonSource()+'.DLCD.'+selection.year+'.sum.csv';
+      var url = PIE_CHART_DATA+summaryName+service.polygonSource()+'.'+environment.BY_LAND_TYPE_SUMMARY+'.'+selection.year+'.sum.csv';
       var mainData = service.retrieveCSV(url);
       var landCover = service.landCoverCodes();
 
@@ -130,15 +128,15 @@ angular.module('ausEnvApp')
     };
 
     service.getRegionAreas = function() {
-      var url = REGION_AREAS+service.polygonSource()+'.csv';
+      var url = environment.REGION_AREAS+service.polygonSource()+'.csv';
       return service.retrieveCSV(url);
     };
 
-    service.landCoverCodes = staticData.deferredGet(service,'static/config/DLCD_codes.csv','_landcoverText',function(text){
+    service.landCoverCodes = staticData.deferredGet(service,environment.LANDCOVER_CODES,'_landcoverText',function(text){
       return csv.parseRegularCSV(text,'',true);
     });
 
-    service.landUseCodes = staticData.deferredGet(service,'static/config/landuse_codes.csv','_landuseText',function(text){
+    service.landUseCodes = staticData.deferredGet(service,environment.LANDUSE_CODES,'_landuseText',function(text){
       return csv.parseRegularCSV(text,'',true);
     });
 

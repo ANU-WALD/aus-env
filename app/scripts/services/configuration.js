@@ -8,12 +8,12 @@
  * Service in the ausEnvApp.
  */
 angular.module('ausEnvApp')
-  .service('configuration', function (staticData,$q) {
+  .service('configuration', function (staticData,$q,environment) {
     var service = this;
 
-    service.themes = staticData.deferredGet(service,'static/config/themes.json','_themes');
+    service.themes = staticData.deferredGet(service,environment.THEMES,'_themes');
 
-    service.metadata = staticData.deferredGet(service,'static/config/additional_metadata.json','_metadata');
+    service.metadata = staticData.deferredGet(service,environment.LAYER_DETAILS,'_metadata');
 
     var DONT_PROPAGATE=['sublayers','menuOnly'];
 
