@@ -47,8 +47,11 @@ angular.module('ausEnvApp')
           }
 
           var bbox = service.computeTileBounds(theMap,coord,zoom);
-
-          var url = getURL(zoom) + '&service=WMS&version=1.1.1&request=GetMap';
+          var base = getURL(zoom);
+          if(!base){
+            console.log('NO URL!',zoom);
+          }
+          var url = base + '&service=WMS&version=1.1.1&request=GetMap';
           url += "&BBOX=" + bbox;      // set bounding box
           url += "&FORMAT=image/png" ; //WMS format
           var layerParams = getOpacity?getOptions(zoom):{};
