@@ -11,11 +11,11 @@ angular.module('ausEnvApp')
   .service('environment', function () {
     var service = this;
 
-    service.STATIC_CSV_SOURCE='/aucsv/accounts/';
+    service.STATIC_CSV_SOURCE='/aucsv/accounts2/';
     service.REGION_AREAS='/aucsv/region_areas/';
     service.LANDCOVER_CODES='static/config/DLCD_codes.csv';
     service.LANDUSE_CODES='static/config/landuse_codes.csv';
-    service.BY_LAND_TYPE_SUMMARY='DLCD';
+    service.BY_LAND_TYPE_SUMMARY='clum0917';
     service.THEMES='static/config/themes.json';
     service.LAYER_DETAILS='static/config/additional_metadata.json';
   });

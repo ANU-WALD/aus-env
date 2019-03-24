@@ -180,7 +180,6 @@ angular.module('ausEnvApp')
     $scope.getPieData = function(){
       var result = $q.defer();
       var locators = $scope.locate();
-
       if(!locators.id){
         $scope.chartView('pie',false);
         result.reject();
@@ -192,16 +191,13 @@ angular.module('ausEnvApp')
 //        $scope.pie.download = data.URL;
 //        $scope.pieData = [];
 //        details.populateLabels($scope.pie,data);
-
         var labels = data.columnNames.map(function(column){
           return data.columnPresentation[column].Class_Name;
         });
-
         var colours = data.columnNames.map(function(column){
           var pres = data.columnPresentation[column];
           return rgbToHex(pres.Red,pres.Green,pres.Blue);
         });
-
         var indexName = "PlaceIndex" + locators.id;
         var series = data[indexName];
         $scope.chartView('pie',true);

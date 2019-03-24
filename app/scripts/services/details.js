@@ -115,13 +115,13 @@ angular.module('ausEnvApp')
       }
       var url = PIE_CHART_DATA+summaryName+service.polygonSource()+'.'+environment.BY_LAND_TYPE_SUMMARY+'.'+selection.year+'.sum.csv';
       var mainData = service.retrieveCSV(url);
-      var landCover = service.landCoverCodes();
+      var landuse = service.landUseCodes();
 
-      $q.all([mainData,landCover]).then(function(results){
+      $q.all([mainData,landuse]).then(function(results){
         var data = results[0];
         data.columnNames = data.columnNames.map(function(c){return +c;});
-        var landCoverCodes = results[1];
-        data.columnPresentation = landCoverCodes;
+        var landTypeCodes = results[1];
+        data.columnPresentation = landTypeCodes;
         result.resolve(data);
       });
       return result.promise;
