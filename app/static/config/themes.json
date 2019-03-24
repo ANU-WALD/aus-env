@@ -43,9 +43,16 @@
         "metadataKey":"Land Use",
         "description":"Land use type from XXX YYY.",
         "units":"classification",
-        "url":"ub8/au/LandUse/clum_0917_reclass_50m.nc",
+        "zooms":{
+          "9":{
+            "url":"ub8/au/LandUse/clum_0917_reclass_50m.nc"
+
+          }
+        },
+        "url":"ub8/au/LandUse/clum_0917_reclass_250m.nc",
         "variable":"LandUse",
         "colorscalerange":"1,20",
+        "abovemaxcolor":"transparent",
         "summary":"",
         "disablePolygons":true,
         "palette":"anu_wald_landuse",
