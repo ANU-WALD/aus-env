@@ -860,38 +860,6 @@
         "regionTimeSeries": {
           "fn": "OzWALD.daily.Qtot"
         }
-      },
-      {
-        "default": false,
-        "title": "River flow",
-        "summary": null,
-        "disablePolygons": true,
-        "units": "ML",
-        "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.annual.Qriv.AnnualSums.nc",
-          "variable": "AnnualSums",
-          "time": "{{year}}-12-31",
-          "colorscalerange": "10000,100000000",
-          "palette": "anu_wald_darkblues",
-          "units": "ML",
-          "logscale": true,
-          "belowmincolor": "extend"
-        },
-        "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.annual.Qriv.ChangesAnnualSums.nc",
-          "variable": "ChangesAnnualSums",
-          "time": "{{year}}-12-31",
-          "colorscalerange": "-1100000,1100000",
-          "belowmincolor": "extend",
-          "palette": "anu_wald_gistemp_inv"
-        },
-        "timeseries": {
-          "url": "ub8/au/OzWALD/daily/OzWALD.daily.Qriv.{{year}}.nc",
-          "variable": "Qriv"
-        },
-        "regionTimeSeries": {
-          "fn": "OzWALD.daily.Qtot"
-        }
       }
     ]
   },
