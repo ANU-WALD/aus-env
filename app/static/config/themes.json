@@ -518,7 +518,7 @@
       {
         "default": false,
         "title": "Maximum temperature",
-        "summary": "OzWALD.annual.Tmax.AnnualMaxima",
+        "summary": "OzWALD.Tmax.AnnualMaxima",
         "palette": "anu_wald_blues09",
         "units": "degC",
         "normal": {
@@ -549,7 +549,7 @@
       {
         "default": false,
         "title": "Hot days",
-        "summary": "OzWALD.annual.Tmax.HotDays",
+        "summary": "OzWALD.Tmax.HotDays",
         "palette": "anu_wald_blues09",
         "units": "degC",
         "normal": {
@@ -611,7 +611,7 @@
       {
         "default": false,
         "title": "Frost days",
-        "summary": "OzWALD.annual.Tmin.frost_days",
+        "summary": "OzWALD.Tmin.FrostDays",
         "palette": "anu_wald_blues09",
         "units": "degC",
         "normal": {
@@ -805,29 +805,30 @@
         "default": true,
         "title": "Inundation",
         "units": "%",
-        "summary": "MOD09A1.OWLau.0_005deg.AnnualMaxima",
+        "summary": "OzWALD.OW.AnnualMaxima",
         "palette": "anu_wald_bluescale20",
         "normal": {
-          "url": "ub8/au/owl/MOD09A1.OWLau.0_005deg.AnnualMaxima.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.OW.AnnualMaxima.nc",
           "variable": "AnnualMaxima",
           "time": "{{year}}-12-31",
-          "colorscalerange": "0,100",
-          "palette": "anu_wald_bluescale20"
+          "colorscalerange": "0.001,100",
+          "palette": "anu_wald_bluescale20",
+          "belowmincolor":"transparent"
         },
         "delta": {
-          "url": "ub8/au/owl/MOD09A1.OWLau.0_005deg.ChangesAnnualMaximum.nc",
-          "variable": "ChangesAnnualMax",
+          "url": "ub8/au/OzWALD/annual/OzWALD.OW.ChangesAnnualMaxima.nc",
+          "variable": "ChangesAnnualMaxima",
           "time": "{{year}}-12-31",
           "colorscalerange": "-100,100",
           "palette": "anu_wald_gistemp_inv",
           "abovemaxcolor": "transparent"
         },
         "timeseries": {
-          "url": "ub8/au/owl/MOD09A1.OWLau.0_005deg.{{year}}.nc",
+          "url": "ub8/au/OzWALD/8day/OzWALD.OW.{{year}}.nc",
           "variable": "OWL"
         },
         "regionTimeSeries": {
-          "fn": "MOD09A1.OWLau.0_005deg",
+          "fn": "OzWALD.8day.OW",
           "scale": 100.0
         }
       },
