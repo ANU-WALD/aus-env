@@ -918,7 +918,7 @@
           "url": "ub8/au/OzWALD/annual/OzWALD.PV.ChangesAnnualMinima.nc",
           "variable": "ChangesAnnualMinima",
           "time": "{{year}}-12-31",
-          "colorscalerange": "-1.0,1.0",
+          "colorscalerange": "-10.0,10.0",
           "palette": "anu_wald_gistemp_inv"
         },
         "timeseries": {
