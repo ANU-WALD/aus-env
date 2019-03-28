@@ -531,7 +531,7 @@
           "palette": "anu_wald_gisheat_inv.v2"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.annual.Tmax.ChangesAnnualMaxima.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.ChangesAnnualMaxima.nc",
           "variable": "ChangesAnnualMaxima",
           "time": "{{year}}-12-31",
           "colorscalerange": "-20,20",
@@ -562,8 +562,8 @@
           "palette": "anu_wald_gisheat_inv.v2"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.annual.Tmax.ChangesAnnualMaxima.nc",
-          "variable": "ChangesAnnualMaxima",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.ChangesHotDays.nc",
+          "variable": "ChangesHotDays",
           "time": "{{year}}-12-31",
           "colorscalerange": "-20,20",
           "belowmincolor": "extend",
@@ -596,7 +596,7 @@
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.ChangesAnnualMinima.nc",
           "variable": "ChangesAnnualMinima",
           "time": "{{year}}-12-31",
-          "colorscalerange": "-2000,2000",
+          "colorscalerange": "-10,10",
           "belowmincolor": "extend",
           "palette": "anu_wald_gistemp_inv"
         },
@@ -623,8 +623,8 @@
           "palette": "anu_wald_gisheat_inv.v2"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.annual.Tmin.ChangesAnnualMaxima.nc",
-          "variable": "ChangesAnnualMaxima",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.ChangesFrostDays.nc",
+          "variable": "ChangesFrostDays",
           "time": "{{year}}-12-31",
           "colorscalerange": "-20,20",
           "belowmincolor": "extend",
