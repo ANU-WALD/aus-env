@@ -539,7 +539,7 @@
           "palette": "anu_wald_gistemp_inv"
         },
         "timeseries": {
-          "url": "ub8/au/OzWALD/daily/OzWALD.daily.Tmax.{{year}}.nc",
+          "url": "ub8/au/OzWALD/daily/meteo/Tmax/OzWALD.Tmax.{{year}}.nc",
           "variable": "Tmax"
         },
         "regionTimeSeries": {
@@ -570,7 +570,7 @@
           "palette": "anu_wald_gistemp_inv"
         },
         "timeseries": {
-          "url": "ub8/au/OzWALD/daily/OzWALD.daily.Tmax.{{year}}.nc",
+          "url": "ub8/au/OzWALD/daily/meteo/Tmax/OzWALD.Tmax.{{year}}.nc",
           "variable": "Tmax"
         },
         "regionTimeSeries": {
@@ -601,7 +601,7 @@
           "palette": "anu_wald_gistemp_inv"
         },
         "timeseries": {
-          "url": "ub8/au/OzWALD/daily/OzWALD.daily.Tmin.{{year}}.nc",
+          "url": "ub8/au/OzWALD/daily/meteo/Tmin/OzWALD.Tmin.{{year}}.nc",
           "variable": "Tmin"
         },
         "regionTimeSeries": {
@@ -631,8 +631,8 @@
           "palette": "anu_wald_gistemp_inv"
         },
         "timeseries": {
-          "url": "ub8/au/OzWALD/daily/OzWALD.daily.Tmax.{{year}}.nc",
-          "variable": "Tmax"
+          "url": "ub8/au/OzWALD/daily/meteo/Tmin/OzWALD.Tmin.{{year}}.nc",
+          "variable": "Tmin"
         },
         "regionTimeSeries": {
           "fn": "OzWALD.daily.Tmax"
