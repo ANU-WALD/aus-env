@@ -737,26 +737,26 @@
     "layers": [
       {
         "title": "Soil moisture",
-        "summary": "OzWALD.annual.Ssoil.AnnualMeans",
+        "summary": "OzWALD.Ssoil.AnnualMeans",
         "palette": "anu_wald_blues09",
         "units": "mm",
         "default": true,
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.AnnualMeans.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Ssoil.AnnualMeans.nc",
           "variable": "AnnualMeans",
           "time": "{{year}}-12-31",
           "colorscalerange": "0,1800",
           "palette": "anu_wald_blues09"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.annual.Ssoil.ChangesAnnualMeans.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Ssoil.ChangesAnnualMeans.nc",
           "variable": "ChangesAnnualMeans",
           "time": "{{year}}-12-31",
           "colorscalerange": "-550,550",
           "palette": "anu_wald_gistemp_inv"
         },
         "timeseries": {
-          "url": "ub8/au/OzWALD/daily/OzWALD.daily.Ssoil.{{year}}.nc",
+          "url": "ub8/au/OzWALD/8day/Ssoil/OzWALD.Ssoil.{{year}}.nc",
           "variable": "Ssoil"
         },
         "regionTimeSeries": {
@@ -824,8 +824,8 @@
           "abovemaxcolor": "transparent"
         },
         "timeseries": {
-          "url": "ub8/au/OzWALD/8day/OzWALD.OW.{{year}}.nc",
-          "variable": "OWL"
+          "url": "ub8/au/OzWALD/8day/OW/OzWALD.OW.{{year}}.nc",
+          "variable": "OW"
         },
         "regionTimeSeries": {
           "fn": "OzWALD.8day.OW",
@@ -836,17 +836,17 @@
         "default": false,
         "title": "Runoff",
         "units": "mm",
-        "summary": "OzWALD.annual.Qtot.AnnualSums",
+        "summary": "OzWALD.Qtot.AnnualSums",
         "palette": "anu_wald_darkblues",
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.annual.Qtot.AnnualSums.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Qtot.AnnualSums.nc",
           "variable": "AnnualSums",
           "time": "{{year}}-12-31",
           "colorscalerange": "0,1800",
           "palette": "anu_wald_darkblues"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.annual.Qtot.ChangesAnnualSums.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Qtot.ChangesAnnualSums.nc",
           "variable": "ChangesAnnualSums",
           "time": "{{year}}-12-31",
           "colorscalerange": "-2200,2200",
@@ -854,7 +854,7 @@
           "palette": "anu_wald_gistemp_inv"
         },
         "timeseries": {
-          "url": "ub8/au/OzWALD/daily/OzWALD.daily.Qtot.{{year}}.nc",
+          "url": "ub8/au/OzWALD/8day/Qtot/OzWALD.Qtot.{{year}}.nc",
           "variable": "Qtot"
         },
         "regionTimeSeries": {
@@ -969,25 +969,25 @@
       {
         "default": true,
         "title": "Vegetation carbon uptake",
-        "summary": "OzWALD.annual.GPP.AnnualSums",
+        "summary": "OzWALD.GPP.AnnualSums",
         "palette": "anu_wald_darkgreen",
         "units": "gC/m^2",
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.annual.GPP.AnnualSums.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.GPP.AnnualSums.nc",
           "variable": "AnnualSums",
           "time": "{{year}}-12-31",
           "colorscalerange": "0,4000",
           "palette": "anu_wald_darkgreen"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.annual.GPP.ChangesAnnualSums.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.GPP.ChangesAnnualSums.nc",
           "variable": "ChangesAnnualSums",
           "time": "{{year}}-12-31",
           "colorscalerange": "-2200,2200",
           "palette": "anu_wald_gistemp_inv"
         },
         "timeseries": {
-          "url": "ub8/au/OzWALD/daily/OzWALD.daily.GPP.{{year}}.nc",
+          "url": "ub8/au/OzWALD/8day/GPP/OzWALD.GPP.{{year}}.nc",
           "variable": "GPP",
           "units": "umol m^-2s^-1 "
         },
