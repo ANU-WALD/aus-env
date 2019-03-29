@@ -19,14 +19,6 @@
 
       </div>
       <div ng-if="!embedded" id="navbar" class="navbar-collapse collapse" ng-class="{'in':!selection.navbarCollapsed}">
-          <form class="hidden-xs fullscreen-form navbar-form navbar-right">
-            <button ngsf-toggle-fullscreen class="btn btn-primary" uib-tooltip="Toggle Fullscreen"
-                    tooltip-placement="bottom" tooltip-append-to-body="true">
-              <i show-if-fullscreen=false class="fa fa-expand"></i>
-              <i show-if-fullscreen=true class="fa fa-compress"></i>
-            </button>
-          </form>
-
           <div ng-include="'views/navbar/themes.html'" ng-controller="ThemeswitcherCtrl"></div>
 
       </div>

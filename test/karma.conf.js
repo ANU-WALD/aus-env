@@ -34,8 +34,6 @@ module.exports = function(config) {
       'bower_components/ng-static-data/dist/ng-static-data.js',
       'bower_components/Chart.js/Chart.js',
       'bower_components/angular-chart.js/dist/angular-chart.js',
-      'bower_components/screenfull/dist/screenfull.js',
-      'bower_components/angular-screenfull/dist/angular-screenfull.js',
       'bower_components/dap-query-js/dist/dap-query.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-ui-select/dist/select.js',

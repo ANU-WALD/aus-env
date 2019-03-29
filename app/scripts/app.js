@@ -77,7 +77,6 @@ angular
     'ngTouch',
     'ng-static-data',
     'chart.js',
-    'angularScreenfull',
     'ui.select',
     'uiGmapgoogle-maps'
   ])
