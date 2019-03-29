@@ -948,7 +948,7 @@
           "url": "ub8/au/OzWALD/annual/OzWALD.LAI.ChangesAnnualMeans.nc",
           "variable": "ChangesAnnualMeans",
           "time": "{{year}}-12-31",
-          "colorscalerange": "-4,4",
+          "colorscalerange": "-40,40",
           "palette": "anu_wald_gistemp_inv"
         },
         "timeseries": {
