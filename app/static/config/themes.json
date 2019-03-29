@@ -519,7 +519,7 @@
         "default": false,
         "title": "Maximum temperature",
         "summary": "OzWALD.Tmax.AnnualMaxima",
-        "palette": "anu_wald_blues09",
+        "palette": "nrm_temperature_reverse",
         "units": "degC",
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.AnnualMaxima.nc",
@@ -528,7 +528,7 @@
           "logscale": false,
           "colorscalerange": "20,50",
           "belowmincolor": "extend",
-          "palette": "anu_wald_gisheat_inv.v2"
+          "palette": "nrm_temperature_reverse"
         },
         "delta": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.ChangesAnnualMaxima.nc",
@@ -536,7 +536,7 @@
           "time": "{{year}}-12-31",
           "colorscalerange": "-20,20",
           "belowmincolor": "extend",
-          "palette": "anu_wald_gistemp_inv"
+          "palette": "anu_wald_gistemp"
         },
         "timeseries": {
           "url": "ub8/au/OzWALD/daily/meteo/Tmax/OzWALD.Tmax.{{year}}.nc",
@@ -550,7 +550,7 @@
         "default": false,
         "title": "Hot days",
         "summary": "OzWALD.Tmax.HotDays",
-        "palette": "anu_wald_blues09",
+        "palette": "nrm_temperature_reverse",
         "units": "degC",
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.HotDays.nc",
@@ -559,7 +559,7 @@
           "logscale": false,
           "colorscalerange": "0,50",
           "belowmincolor": "extend",
-          "palette": "anu_wald_gisheat_inv.v2"
+          "palette": "nrm_temperature_reverse"
         },
         "delta": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.ChangesHotDays.nc",
@@ -567,7 +567,7 @@
           "time": "{{year}}-12-31",
           "colorscalerange": "-20,20",
           "belowmincolor": "extend",
-          "palette": "anu_wald_gistemp_inv"
+          "palette": "anu_wald_gistemp"
         },
         "timeseries": {
           "url": "ub8/au/OzWALD/daily/meteo/Tmax/OzWALD.Tmax.{{year}}.nc",
@@ -581,7 +581,7 @@
         "default": false,
         "title": "Minimum temperature",
         "summary": "OzWALD.Tmin.AnnualMinima",
-        "palette": "anu_wald_blues09",
+        "palette": "nrm_temperature_reverse",
         "units": "degC",
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.AnnualMinima.nc",
@@ -590,7 +590,7 @@
           "logscale": false,
           "colorscalerange": "-5,30",
           "belowmincolor": "extend",
-          "palette": "anu_wald_gisheat_inv.v2"
+          "palette": "nrm_temperature_reverse"
         },
         "delta": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.ChangesAnnualMinima.nc",
@@ -598,7 +598,7 @@
           "time": "{{year}}-12-31",
           "colorscalerange": "-10,10",
           "belowmincolor": "extend",
-          "palette": "anu_wald_gistemp_inv"
+          "palette": "anu_wald_gistemp"
         },
         "timeseries": {
           "url": "ub8/au/OzWALD/daily/meteo/Tmin/OzWALD.Tmin.{{year}}.nc",
@@ -612,7 +612,7 @@
         "default": false,
         "title": "Frost days",
         "summary": "OzWALD.Tmin.FrostDays",
-        "palette": "anu_wald_blues09",
+        "palette": "nrm_temperature",
         "units": "degC",
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.FrostDays.nc",
@@ -620,7 +620,7 @@
           "time": "{{year}}-12-31",
           "logscale": false,
           "colorscalerange": "1,50",
-          "palette": "anu_wald_gisheat_inv.v2"
+          "palette": "nrm_temperature"
         },
         "delta": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.ChangesFrostDays.nc",
