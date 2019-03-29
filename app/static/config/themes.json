@@ -6,41 +6,6 @@
     "icon": "landuse.png",
     "layers": [
       {
-        "default": true,
-        "title": "Tree cover",
-        "summary": "ANUWALD.TreeCover.AllYears.250m",
-        "palette": "anu_wald_darkgreen",
-        "time": "{{year}}-12-31",
-        "missingYears": [
-          2001,
-          2003
-        ],
-        "units": "percent",
-        "description": "Percent of area classified as forest at 25 metre resolution mapping using Landsat imagery following the NCAS classification.",
-        "normal": {
-          "url": "ub8/au/treecover/250m/ANUWALD.TreeCover.AllYears.250m.nc",
-          "zooms": {
-            "9": {
-              "url": "ub8/au/treecover/ANUWALD.TreeCover.25m.{{year}}.nc",
-              "layers": "TreeCover",
-              "colorscalerange": "0.0001,1"
-            }
-          },
-          "colorscalerange": "0.0001,100",
-          "variable": "AllYears",
-          "time": "{{year}}-12-31",
-          "palette": "anu_wald_darkgreen"
-        },
-        "delta": {
-          "url": "ub8/au/treecover/250m/ANUWALD.TreeCover.ChangeAllYears.250m.nc",
-          "colorscalerange": "-100,100",
-          "variable": "ChangeAllYears",
-          "time": "{{year}}-12-31",
-          "palette": "anu_wald_gistemp_inv",
-          "belowmincolor": "transparent"
-        }
-      },
-      {
         "title": "All land use classes",
         "metadataKey": "Land Use",
         "description": "Land use type from XXX YYY.",
