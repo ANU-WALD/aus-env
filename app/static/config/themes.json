@@ -867,7 +867,7 @@
         "default": true,
         "title": "Exposed soil",
         "units": "%",
-        "summary": "FC.V310.MCD43A4.AnnualMeans.aust.006.BS",
+        "summary": "OzWALD.BS.AnnualMeans",
         "palette": "anu_wald_gisheat_inv.v2",
         "abovemaxcolor": "transparent",
         "normal": {
@@ -892,7 +892,7 @@
           "_FillValue": 255
         },
         "regionTimeSeries": {
-          "url": "ub8/au/RegionTimeSeries/FC.V310.MCD43A4.{{year}}.aust.006.BS.{{source}}.RegionTimeSeries.nc",
+          "fn": "OzWALD.BS",
           "scale": 100.0
         }
       },
