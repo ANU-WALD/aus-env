@@ -934,7 +934,7 @@
       {
         "default": false,
         "title": "Vegetation leaf area",
-        "summary": "MOD15A2.1000m_lai.AnnualMeans",
+        "summary": "OzWALD.LAI.AnnualMeans",
         "palette": "anu_wald_darkgreen",
         "units": "m^2/m^2",
         "normal": {
@@ -956,7 +956,7 @@
           "variable": "LAI"
         },
         "regionTimeSeries": {
-          "fn": "MOD15A2.1000m_lai"
+          "fn": "OzWALD.LAI"
         }
       }
     ]
