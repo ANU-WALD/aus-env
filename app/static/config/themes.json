@@ -550,16 +550,16 @@
         "default": false,
         "title": "Hot days",
         "summary": "OzWALD.Tmax.HotDays",
-        "palette": "nrm_temperature_reverse",
+        "palette": "anu_wald_gisheat_inv.v2",
         "units": "degC",
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.HotDays.nc",
           "variable": "HotDays",
           "time": "{{year}}-12-31",
           "logscale": false,
-          "colorscalerange": "0,50",
-          "belowmincolor": "extend",
-          "palette": "nrm_temperature_reverse"
+          "colorscalerange": "1,100",
+          "belowmincolor": "transparent",
+          "palette": "anu_wald_gisheat_inv.v2"
         },
         "delta": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.ChangesHotDays.nc",
@@ -588,7 +588,7 @@
           "variable": "AnnualMinima",
           "time": "{{year}}-12-31",
           "logscale": false,
-          "colorscalerange": "-5,30",
+          "colorscalerange": "-10,25",
           "belowmincolor": "extend",
           "palette": "nrm_temperature_reverse"
         },
@@ -612,15 +612,15 @@
         "default": false,
         "title": "Frost days",
         "summary": "OzWALD.Tmin.FrostDays",
-        "palette": "nrm_temperature",
+        "palette": "anu_wald_blues09",
         "units": "degC",
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.FrostDays.nc",
           "variable": "FrostDays",
           "time": "{{year}}-12-31",
           "logscale": false,
-          "colorscalerange": "1,50",
-          "palette": "nrm_temperature"
+          "colorscalerange": "1,100",
+          "palette": "anu_wald_blues09"
         },
         "delta": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.ChangesFrostDays.nc",
@@ -649,7 +649,7 @@
           "variable": "AnnualMeans",
           "time": "{{year}}-12-31",
           "logscale": false,
-          "colorscalerange": "1,100",
+          "colorscalerange": "1,50",
           "palette": "anu_wald_blues09"
         },
         "delta": {
