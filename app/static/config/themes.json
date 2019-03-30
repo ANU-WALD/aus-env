@@ -535,8 +535,10 @@
           "palette": "anu_wald_gistemp"
         },
         "timeseries": {
+          "title":"Maximum temperature",
           "url": "ub8/au/OzWALD/daily/meteo/Tmax/OzWALD.Tmax.{{year}}.nc",
-          "variable": "Tmax"
+          "variable": "Tmax",
+          "units":"&deg;C"
         },
         "regionTimeSeries": {
           "fn": "OzWALD.daily.Tmax"
@@ -596,8 +598,10 @@
           "palette": "anu_wald_gistemp_inv"
         },
         "timeseries": {
+          "title":"Minimum temperature",
           "url": "ub8/au/OzWALD/daily/meteo/Tmin/OzWALD.Tmin.{{year}}.nc",
-          "variable": "Tmin"
+          "variable": "Tmin",
+          "units":"&deg;C"
         },
         "regionTimeSeries": {
           "fn": "OzWALD.daily.Tmax"

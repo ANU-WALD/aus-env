@@ -68,9 +68,11 @@ angular.module('ausEnvApp')
     };
 
     $scope.buildMetadata = function(layer){
+      var title = layer.timeseries&&layer.timeseries.title;
+      title = title || layer.title;
       return {
-        label:layer.title,
-        Title:layer.title,
+        label:title,
+        Title:title,
         Description:layer.description,
         Units:layer.units
       };
