@@ -23,7 +23,8 @@
         "disablePolygons": true,
         "palette": "anu_wald_landuse",
         "legend": "landUseCodes",
-        "disablePoint": true
+        "disablePoint": true,
+        "disableAnnual": true
       },
       {
         "metadataKey": "Land Use",

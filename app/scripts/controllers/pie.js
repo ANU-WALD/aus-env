@@ -22,6 +22,8 @@ angular.module('ausEnvApp')
 
     $scope.createChart = function(){
       $scope.pie.loading=true;
+      $scope.pie.year = ''
+
       $scope.getPieData().then(function(data){
         var _ = window._;
         var series = data[0];
@@ -32,6 +34,9 @@ angular.module('ausEnvApp')
         $scope.pieData = series;
         $scope.pieLabels = labels;
         $scope.pieColours = colours;
+        if(!selection.selectedLayer.disableAnnual){
+          $scope.pie.year = selection.year;
+        }
 
         details.populateLabels($scope.pie,metadata);
         $scope.pie.sum = $scope.pieData.reduce(function(x,y){return x+y;}).toFixed();

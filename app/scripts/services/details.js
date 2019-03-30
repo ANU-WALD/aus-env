@@ -100,9 +100,7 @@ angular.module('ausEnvApp')
       return service.getPolygonAnnualTimeSeries();
     };
 
-    service.getPieChartData = function(){
-      var result = $q.defer();
-
+    service.pieChartURL = function(){
       var summaryName = service.summaryName();
 
       if(summaryName===null){
@@ -113,7 +111,20 @@ angular.module('ausEnvApp')
       if(summaryName.length) {
         summaryName += '.';
       }
-      var url = PIE_CHART_DATA+summaryName+service.polygonSource()+'.'+environment.BY_LAND_TYPE_SUMMARY+'.'+selection.year+'.sum.csv';
+      var url = PIE_CHART_DATA+summaryName+
+          service.polygonSource()+
+          '.'+environment.BY_LAND_TYPE_SUMMARY;
+
+      if(!selection.selectedLayer.disableAnnual){
+        url += '.'+selection.year;
+      }
+      url += '.sum.csv';
+      return url;
+    }
+
+    service.getPieChartData = function(){
+      var result = $q.defer();
+      var url = service.pieChartURL();
       var mainData = service.retrieveCSV(url);
       var landuse = service.landUseCodes();
 
