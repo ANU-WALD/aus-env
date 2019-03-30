@@ -835,7 +835,7 @@
     "icon": "landscape.png",
     "layers": [
       {
-        "default": true,
+        "default": false,
         "title": "Persistent vegetation cover",
         "summary": "OzWALD.PV.AnnualMinima",
         "palette": "anu_wald_darkgreen",
