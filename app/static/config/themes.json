@@ -544,6 +544,8 @@
           "units":"&deg;C"
         },
         "regionTimeSeries": {
+          "title":"Maximum temperature",
+          "units":"&deg;C",
           "fn": "OzWALD.Tmax"
         }
       },
@@ -609,6 +611,8 @@
           "units":"&deg;C"
         },
         "regionTimeSeries": {
+          "title":"Minimum temperature",
+          "units":"&deg;C",
           "fn": "OzWALD.Tmax"
         }
       },
