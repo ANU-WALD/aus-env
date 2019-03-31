@@ -510,7 +510,7 @@
           "variable": "Tmax"
         },
         "regionTimeSeries": {
-          "fn": "OzWALD.daily.Tmax"
+          "fn": "OzWALD.Tmax"
         }
       },
       {
@@ -544,7 +544,7 @@
           "units":"&deg;C"
         },
         "regionTimeSeries": {
-          "fn": "OzWALD.daily.Tmax"
+          "fn": "OzWALD.Tmax"
         }
       },
       {
@@ -576,7 +576,7 @@
           "variable": "Tmin"
         },
         "regionTimeSeries": {
-          "fn": "OzWALD.daily.Tmin"
+          "fn": "OzWALD.Tmin"
         }
       },
       {
@@ -609,7 +609,7 @@
           "units":"&deg;C"
         },
         "regionTimeSeries": {
-          "fn": "OzWALD.daily.Tmax"
+          "fn": "OzWALD.Tmax"
         }
       },
       {
@@ -638,7 +638,7 @@
           "variable": "SN"
         },
         "regionTimeSeries": {
-          "fn": "OzWALD.daily.SN"
+          "fn": "OzWALD.SN"
         }
       }
     ]
@@ -734,7 +734,7 @@
           "variable": "Ssoil"
         },
         "regionTimeSeries": {
-          "fn": "OzWALD.daily.Ssoil"
+          "fn": "OzWALD.Ssoil"
         }
       },
       {
@@ -802,7 +802,7 @@
           "variable": "OW"
         },
         "regionTimeSeries": {
-          "fn": "OzWALD.8day.OW",
+          "fn": "OzWALD.OW",
           "scale": 100.0
         }
       },
@@ -832,7 +832,7 @@
           "variable": "Qtot"
         },
         "regionTimeSeries": {
-          "fn": "OzWALD.daily.Qtot"
+          "fn": "OzWALD.Qtot"
         }
       }
     ]
@@ -869,7 +869,7 @@
           "units": "umol m^-2s^-1 "
         },
         "regionTimeSeries": {
-          "fn": "OzWALD.daily.PV"
+          "fn": "OzWALD.PV"
         }
       },
       {
@@ -966,7 +966,7 @@
           "units": "umol m^-2s^-1 "
         },
         "regionTimeSeries": {
-          "fn": "OzWALD.daily.GPP"
+          "fn": "OzWALD.GPP"
         }
       },
       {
