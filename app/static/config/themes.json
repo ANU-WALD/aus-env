@@ -487,6 +487,7 @@
         "summary": "OzWALD.Tmax.AnnualMaxima",
         "palette": "nrm_temperature_reverse",
         "units": "degC",
+        "disablePie": true,
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.AnnualMaxima.nc",
           "variable": "AnnualMaxima",
@@ -518,6 +519,7 @@
         "summary": "OzWALD.Tmax.HotDays",
         "palette": "anu_wald_gisheat_inv.v2",
         "units": "degC",
+        "disablePie": true,
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.HotDays.nc",
           "variable": "HotDays",
@@ -551,6 +553,7 @@
         "summary": "OzWALD.Tmin.AnnualMinima",
         "palette": "nrm_temperature_reverse",
         "units": "degC",
+        "disablePie": true,
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.AnnualMinima.nc",
           "variable": "AnnualMinima",
@@ -582,6 +585,7 @@
         "summary": "OzWALD.Tmin.FrostDays",
         "palette": "anu_wald_blues09",
         "units": "degC",
+        "disablePie": true,
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.FrostDays.nc",
           "variable": "FrostDays",

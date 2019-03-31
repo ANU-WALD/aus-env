@@ -24,6 +24,15 @@ angular.module('ausEnvApp')
       $scope.pie.loading=true;
       $scope.pie.year = ''
 
+      if(selection.selectedLayer.disablePie){
+        $scope.chartView('pie',false);
+        $scope.pie = details.chartMetaData();
+        $scope.pieData=[];
+        $scope.pieLabels = [];
+        $scope.pie.loading=false;
+        return;
+      }
+
       $scope.getPieData().then(function(data){
         var _ = window._;
         var series = data[0];
