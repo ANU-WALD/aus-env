@@ -704,12 +704,12 @@
         "title": "Fire intensity",
         "description": "Annual maximum fire intensity derived from satellite observations by Geoscience Australia's Sentinel Hotspots system",
         "units": "&deg;C",
-        "summary": null,
+        "summary": "Sentinel.Nhotspots.AnnualSums",
         "missingYears": [
           2000,
           2001
         ],
-        "disablePolygons": true,
+        "disablePolygons": false,
         "url": "ub8/au/fire/Sentinel.MaxTemp.AnnualMaxima.nc",
         "variable": "MaxTemp",
         "_FillValue": -1,
