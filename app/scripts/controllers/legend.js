@@ -54,14 +54,15 @@ angular.module('ausEnvApp')
           }
 
           var deltaMode = selection.deltaMode();
-          if(deltaMode){
+          if(deltaMode&&!selection.selectedLayer.disableAnnual){
             data = colourschemes.annualDelta(data);
           }
 
           if(selection.dataModeConfig()==='rank'){
             $scope.polygonDataRange = [0,10];
           } else {
-            $scope.polygonDataRange = colourschemes.dataRange(data,$scope.selection.year,deltaMode);
+            var columnName = selection.selectedLayer.summaryColumn || $scope.selection.year;
+            $scope.polygonDataRange = colourschemes.dataRange(data,columnName,deltaMode);
           }
 
           result.resolve(true);

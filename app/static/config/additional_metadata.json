@@ -10,7 +10,7 @@
     "Other data forms": "High and low resolution mapping for individual years via THREDDS (http://dap.nci.org.au/thredds/remoteCatalogService?catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/treecover/catalog.xml)"
   },
   {
-    "name": "Land use",
+    "name": "Land Use",
     "Description": "Land use classification from XXX, YYY.",
     "Data creator": "YYY",
     "Data license": "Creative Commons by Attribution (CC BY 3.0 AU &#8211; https://creativecommons.org/licenses/by/3.0/au/deed.en).",

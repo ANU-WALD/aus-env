@@ -221,7 +221,10 @@ angular.module('ausEnvApp')
         return null;
       }
 
-      var idx = $scope.polygonMapping.values.columnNames.indexOf(''+$scope.selection.year);
+      var columnName = selection.selectedLayer.summaryColumn || $scope.selection.year;
+      var idx = Math.max($scope.polygonMapping.values.columnNames.indexOf(''+columnName),
+                         $scope.polygonMapping.values.columnNames.indexOf(+columnName));
+
       var val = vals[idx];
 //      var range = themes.colourRange($scope.selection.selectedLayer).split(',').map(function(v){
 //        return +v;
@@ -353,7 +356,8 @@ angular.module('ausEnvApp')
           if(selection.dataModeConfig()==='rank'){
             $scope.polygonMapping.dataRange = [0,10];
           } else {
-            $scope.polygonMapping.dataRange = colourschemes.dataRange($scope.polygonMapping.values,$scope.selection.year,deltaMode);
+            var columnName = selection.selectedLayer.summaryColumn || $scope.selection.year;
+            $scope.polygonMapping.dataRange = colourschemes.dataRange($scope.polygonMapping.values,columnName,deltaMode);
           }
 
           doUpdateStyles();

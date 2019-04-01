@@ -67,7 +67,7 @@ angular.module('ausEnvApp')
 
     service.polygonSource = function(regionType) {
       regionType = regionType || selection.regionType;
-      return regionType.summaryName || regionType.source;
+      return regionType && (regionType.summaryName || regionType.source);
     };
 
     service.getPolygonAnnualTimeSeries = function(regionType,mode){
@@ -97,6 +97,30 @@ angular.module('ausEnvApp')
     };
 
     service.getPolygonFillData = function() {
+
+      if(selection.selectedLayer.disableAnnual){
+        var url = service.pieChartURL();
+        var csv = service.retrieveCSV(url);
+        if(selection.selectedLayer.normaliseSummary){
+          var result = $q.defer();
+          csv.then(function(data){
+            data = JSON.parse(JSON.stringify(data));
+            data.Units = '%';
+            delete data.Title;
+            Object.keys(data).filter(function(n){return n.startsWith('PlaceIndex')&&n!=='PlaceIndex';})
+              .forEach(function(key){
+                var sum = data[key].reduce(function(a,b){return a+b;});
+                var multiplier = 100.0 / (sum||1.0);
+                data[key] = data[key].map(function(v){return v * multiplier;});
+              });
+            result.resolve(data);
+          });
+          return result.promise;
+
+        }
+        return csv;
+      }
+
       return service.getPolygonAnnualTimeSeries();
     };
 

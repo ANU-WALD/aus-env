@@ -135,7 +135,7 @@ angular.module('ausEnvApp')
               return;
             }
 
-            if(layer.title===themeName){
+            if((layer.title===themeName)&&!layer.menuOnly){
               service.selectTheme(theme);
               service.selectedLayer = layer;
               found=true;

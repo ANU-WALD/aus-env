@@ -72,8 +72,9 @@ angular.module('ausEnvApp')
       return result;
     };
 
-    service.dataRange = function(vals,year,forceDelta) {
-      var colIdx = vals.columnNames.indexOf(''+year);
+    service.dataRange = function(vals,columnName,forceDelta) {
+      var colIdx = Math.max(vals.columnNames.indexOf(''+columnName),
+                            vals.columnNames.indexOf(+columnName));
       var polygonValues = Object.keys(vals)
         .filter(function(key){return key.startsWith('PlaceIndex');})
         .map(function(key){

@@ -47,6 +47,7 @@
         "belowmincolor": "transparent",
         "abovemaxcolor": "transparent",
         "disablePoint": true,
+        "disableAnnual":true,
         "sublayers": [
           {
             "title": "Natural environments",
@@ -60,6 +61,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_NaturalEnvironment_500m.nc",
             "colorscalerange": "0,100",
             "variable": "NaturalEnvironment",
+            "summaryColumn":"0001",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.NaturalEnviroment.mean.LandUse.csv"
           }
         ]
@@ -85,6 +88,7 @@
         "belowmincolor": "transparent",
         "abovemaxcolor": "transparent",
         "disablePoint": true,
+        "disableAnnual":true,
         "sublayers": [
           {
             "title": "Production native forests",
@@ -98,6 +102,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_ProductionForestry_500m.nc",
             "colorscalerange": "0,100",
             "variable": "ProductionForestry",
+            "summaryColumn":"0002",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.ProductionForestry.mean.LandUse.csv"
           },
           {
@@ -112,6 +118,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_PlantationForestry_500m.nc",
             "colorscalerange": "0,100",
             "variable": "PlantationForestry",
+            "summaryColumn":"0003",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.PlantationForestry.mean.LandUse.csv"
           }
         ]
@@ -137,6 +145,7 @@
         "belowmincolor": "transparent",
         "abovemaxcolor": "transparent",
         "disablePoint": true,
+        "disableAnnual":true,
         "sublayers": [
           {
             "title": "Grazing on native pasture",
@@ -150,6 +159,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_GrazingNativePasture_500m.nc",
             "colorscalerange": "0,100",
             "variable": "GrazingNativePasture",
+            "summaryColumn":"0004",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.GrazingNativePasture.mean.LandUse.csv"
           },
           {
@@ -164,6 +175,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_GrazingModifiedPasture_500m.nc",
             "colorscalerange": "0,100",
             "variable": "GrazingModifiedPasture",
+            "summaryColumn":"0005",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.GrazingModifiedPasture.mean.LandUse.csv"
           }
         ]
@@ -189,6 +202,7 @@
         "belowmincolor": "transparent",
         "abovemaxcolor": "transparent",
         "disablePoint": true,
+        "disableAnnual":true,
         "sublayers": [
           {
             "title": "Dryland cropping",
@@ -202,6 +216,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_Cropping_500m.nc",
             "colorscalerange": "0,100",
             "variable": "Cropping",
+            "summaryColumn":"0006",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.Cropping.mean.LandUse.csv"
           },
           {
@@ -216,6 +232,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_Horticulture_500m.nc",
             "colorscalerange": "0,100",
             "variable": "Horticulture",
+            "summaryColumn":"0007",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.Horticulture.mean.LandUse.csv"
           },
           {
@@ -230,6 +248,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_InTransition_500m.nc",
             "colorscalerange": "0,100",
             "variable": "InTransition",
+            "summaryColumn":"0008",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.InTransition.mean.LandUse.csv"
           }
         ]
@@ -255,6 +275,7 @@
         "belowmincolor": "transparent",
         "abovemaxcolor": "transparent",
         "disablePoint": true,
+        "disableAnnual":true,
         "sublayers": [
           {
             "title": "Irrigated Pasture",
@@ -268,6 +289,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_IrrigatedPasture_500m.nc",
             "colorscalerange": "0,100",
             "variable": "IrrigatedPasture",
+            "summaryColumn":"0009",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.IrrigatedPasture.mean.LandUse.csv"
           },
           {
@@ -282,6 +305,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_IrrigatedCropping_500m.nc",
             "colorscalerange": "0,100",
             "variable": "IrrigatedCropping",
+            "summaryColumn":"0010",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.IrrigatedCropping.mean.LandUse.csv"
           },
           {
@@ -296,6 +321,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_IrrigatedHorticulture_500m.nc",
             "colorscalerange": "0,100",
             "variable": "IrrigatedHorticulture",
+            "summaryColumn":"0011",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.IrrigatedHorticulture.mean.LandUse.csv"
           }
         ]
@@ -321,6 +348,7 @@
         "belowmincolor": "transparent",
         "abovemaxcolor": "transparent",
         "disablePoint": true,
+        "disableAnnual":true,
         "sublayers": [
           {
             "title": "Intensive horticulture",
@@ -334,6 +362,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_IntensiveHorticulture_500m.nc",
             "colorscalerange": "0,100",
             "variable": "IntensiveHorticulture",
+            "summaryColumn":"0012",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.IntensiveHorticulture.mean.LandUse.csv"
           },
           {
@@ -348,6 +378,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_IntensiveAnimal_500m.nc",
             "colorscalerange": "0,100",
             "variable": "IntensiveAnimal",
+            "summaryColumn":"0013",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.IntensiveAnimal.mean.LandUse.csv"
           },
           {
@@ -362,6 +394,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_Industrial_500m.nc",
             "colorscalerange": "0,100",
             "variable": "Industrial",
+            "summaryColumn":"0014",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.Industrial.mean.LandUse.csv"
           },
           {
@@ -376,6 +410,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_Residential_500m.nc",
             "colorscalerange": "0,100",
             "variable": "Residential",
+            "summaryColumn":"0015",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.Residential.mean.LandUse.csv"
           },
           {
@@ -390,6 +426,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_Infrastructure_500m.nc",
             "colorscalerange": "0,100",
             "variable": "Infrastructure",
+            "summaryColumn":"0016",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.Infrastructure.mean.LandUse.csv"
           },
           {
@@ -404,6 +442,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_Transport_500m.nc",
             "colorscalerange": "0,100",
             "variable": "Transport",
+            "summaryColumn":"0017",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.Transport.mean.LandUse.csv"
           },
           {
@@ -418,6 +458,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_Mining_500m.nc",
             "colorscalerange": "0,100",
             "variable": "Mining",
+            "summaryColumn":"0018",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.Mining.mean.LandUse.csv"
           }
         ]
@@ -443,6 +485,7 @@
         "belowmincolor": "transparent",
         "abovemaxcolor": "transparent",
         "disablePoint": true,
+        "disableAnnual":true,
         "sublayers": [
           {
             "title": "Natural water and wetlands",
@@ -456,6 +499,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_NaturalWater_500m.nc",
             "colorscalerange": "0,100",
             "variable": "NaturalWater",
+            "summaryColumn":"0019",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.NaturalWater.mean.LandUse.csv"
           },
           {
@@ -470,6 +515,8 @@
             "url": "ub8/au/LandUse/ClassFraction/clum_0917_ArtificialWater_500m.nc",
             "colorscalerange": "0,100",
             "variable": "ArtificialWater",
+            "summaryColumn":"0020",
+            "normaliseSummary":true,
             "annualSummary": "{{regionType}}.LandUse.ArtificialWater.mean.LandUse.csv"
           }
         ]
