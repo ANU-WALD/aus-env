@@ -7,8 +7,8 @@
     "layers": [
       {
         "title": "All land use classes",
-        "metadataKey": "Land Use",
-        "description": "Land use type from XXX YYY.",
+        "metadataKey": "Land use",
+        "description": "Broad land use category, derived from the Catchment Land Use Mapping program",
         "units": "classification",
         "zooms": {
           "9": {
@@ -27,10 +27,10 @@
         "disableAnnual": true
       },
       {
-        "metadataKey": "Land Use",
+        "metadataKey": "Land use",
         "title": "Natural environments",
         "menuOnly": true,
-        "description": "Land use type from XXX YYY.",
+        "description": "Broad land use category, derived from the Catchment Land Use Mapping program",
         "units": "classification",
         "summary": "",
         "palette": {
@@ -68,10 +68,10 @@
         ]
       },
       {
-        "metadataKey": "Land Use",
+        "metadataKey": "Land use",
         "title": "Forestry",
         "menuOnly": true,
-        "description": "Land use type from XXX YYY.",
+        "description": "Broad land use category, derived from the Catchment Land Use Mapping program",
         "units": "classification",
         "summary": "",
         "palette": {
@@ -125,10 +125,10 @@
         ]
       },
       {
-        "metadataKey": "Land Use",
+        "metadataKey": "Land use",
         "title": "Grazing",
         "menuOnly": true,
-        "description": "Land use type from XXX YYY.",
+        "description": "Broad land use category, derived from the Catchment Land Use Mapping program",
         "units": "classification",
         "summary": "",
         "palette": {
@@ -182,10 +182,10 @@
         ]
       },
       {
-        "metadataKey": "Land Use",
+        "metadataKey": "Land use",
         "title": "Dryland agriculture",
         "menuOnly": true,
-        "description": "Land use type from XXX YYY.",
+        "description": "Broad land use category, derived from the Catchment Land Use Mapping program",
         "units": "classification",
         "summary": "",
         "palette": {
@@ -255,10 +255,10 @@
         ]
       },
       {
-        "metadataKey": "Land Use",
+        "metadataKey": "Land use",
         "title": "Irrigated agriculture",
         "menuOnly": true,
-        "description": "Land use type from XXX YYY.",
+        "description": "Broad land use category, derived from the Catchment Land Use Mapping program",
         "units": "classification",
         "summary": "",
         "palette": {
@@ -328,10 +328,10 @@
         ]
       },
       {
-        "metadataKey": "Land Use",
+        "metadataKey": "Land use",
         "title": "Intensive uses",
         "menuOnly": true,
-        "description": "Land use type from XXX YYY.",
+        "description": "Broad land use category, derived from the Catchment Land Use Mapping program",
         "units": "classification",
         "summary": "",
         "palette": {
@@ -465,10 +465,10 @@
         ]
       },
       {
-        "metadataKey": "Land Use",
+        "metadataKey": "Land use",
         "title": "Water and wetlands",
         "menuOnly": true,
-        "description": "Land use type from XXX YYY.",
+        "description": "Broad land use category, derived from the Catchment Land Use Mapping program",
         "units": "classification",
         "summary": "",
         "palette": {
@@ -702,6 +702,7 @@
       {
         "default": true,
         "title": "Fire intensity",
+        "metadataKey":"Fire frequency",
         "description": "Annual maximum fire intensity derived from satellite observations by Geoscience Australia's Sentinel Hotspots system",
         "units": "&deg;C",
         "summary": "Sentinel.Nhotspots.AnnualSums",
@@ -725,6 +726,7 @@
       {
         "default": false,
         "title": "Fire occurrence",
+        "metadataKey":"Fire frequency",
         "units": "",
         "summary": "Sentinel.Nhotspots.AnnualSums",
         "missingYears": [
@@ -762,6 +764,7 @@
     "layers": [
       {
         "title": "Soil moisture",
+        "metadataKey":"Soil water availability",
         "summary": "OzWALD.Ssoil.AnnualMeans",
         "palette": "anu_wald_blues09",
         "units": "mm",
@@ -791,6 +794,7 @@
       {
         "default": false,
         "title": "Precipitation",
+        "metadataKey":"Rainfall",
         "summary": "OzWALD.annual.Pg.AnnualSums",
         "palette": "anu_wald_blues09",
         "units": "mm",
@@ -897,6 +901,7 @@
       {
         "default": false,
         "title": "Persistent vegetation cover",
+        "metadataKey":"Persistent cover",
         "summary": "OzWALD.PV.AnnualMinima",
         "palette": "anu_wald_darkgreen",
         "units": "gC/m^2",
