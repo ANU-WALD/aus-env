@@ -10,10 +10,10 @@
 angular.module('ausEnvApp')
   .service('configuration', function (staticData,$q,environment) {
     var service = this;
+    var cacheBlock = '?_='+(new Date().getTime());
+    service.themes = staticData.deferredGet(service,environment.THEMES+cacheBlock,'_themes');
 
-    service.themes = staticData.deferredGet(service,environment.THEMES,'_themes');
-
-    service.metadata = staticData.deferredGet(service,environment.LAYER_DETAILS,'_metadata');
+    service.metadata = staticData.deferredGet(service,environment.LAYER_DETAILS+cacheBlock,'_metadata');
 
     var DONT_PROPAGATE=['sublayers','menuOnly'];
 
