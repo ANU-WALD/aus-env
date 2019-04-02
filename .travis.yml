@@ -27,8 +27,7 @@ deploy:
     branch: master
 - skip_cleanup: true
   provider: script
-  script: bash -c "cd dist && find . -type f -exec curl -u $FTP_USER:$FTP_PASSWORD
-    --ftp-create-dirs -T {} ftp.wenfo.org{} \;"
+  script: cd dist && scp -o StrictHostKeyChecking=no -i ../id_rsa_deploy -r . $FTP_USER@wenfo.org:/home/$FTP_USER/public_html/ausenv
   on:
     branch: production
 notifications:
