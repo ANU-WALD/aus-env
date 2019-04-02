@@ -925,7 +925,8 @@
           "units": "umol m^-2s^-1 "
         },
         "regionTimeSeries": {
-          "fn": "OzWALD.PV"
+          "fn": "OzWALD.PV",
+          "scale":100.0
         }
       },
       {
