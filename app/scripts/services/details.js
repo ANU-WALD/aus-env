@@ -147,7 +147,7 @@ angular.module('ausEnvApp')
     }
 
     service.scaleDataSet = function(data,scale){
-      let result = {};
+      var result = {};
       Object.keys(data).forEach(function(k){
         if(k.startsWith('PlaceIndex')&&(k!=='PlaceIndex')){
           result[k] = data[k].map(function(v){return v*scale;});
