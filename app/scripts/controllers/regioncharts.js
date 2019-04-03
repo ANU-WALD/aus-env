@@ -181,7 +181,7 @@ angular.module('ausEnvApp')
       var result = $q.defer();
       var locators = $scope.locate();
       var layer = $scope.selection.selectedLayer;
-      if(!locators.id||layer.disablePie){
+      if(!locators.id||(layer&&layer.disablePie)){
         $scope.chartView('pie',false);
         result.reject();
         return result.promise;
