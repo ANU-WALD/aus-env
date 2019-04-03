@@ -833,6 +833,7 @@
       {
         "default": true,
         "title": "Inundation",
+        "metadataKey":"Water extent",
         "units": "%",
         "summary": "OzWALD.OW.AnnualMaxima",
         "palette": "anu_wald_bluescale20",
@@ -965,6 +966,7 @@
       {
         "default": false,
         "title": "Vegetation leaf area",
+        "metadataKey":"Leaf area index",
         "summary": "OzWALD.LAI.AnnualMeans",
         "palette": "anu_wald_darkgreen",
         "units": "m^2/m^2",
