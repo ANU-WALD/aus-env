@@ -906,6 +906,8 @@
         "summary": "OzWALD.PV.AnnualMinima",
         "palette": "anu_wald_darkgreen",
         "units": "gC/m^2",
+        "summaryUnits":"km^2",
+        "summaryScale":0.01,
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.PV.AnnualMinima.nc",
           "variable": "AnnualMinima",

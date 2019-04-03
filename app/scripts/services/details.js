@@ -146,14 +146,33 @@ angular.module('ausEnvApp')
       return url;
     }
 
+    service.scaleDataSet = function(data,scale){
+      let result = {};
+      Object.keys(data).forEach(function(k){
+        if(k.startsWith('PlaceIndex')&&(k!=='PlaceIndex')){
+          result[k] = data[k].map(function(v){return v*scale;});
+        } else {
+          result[k] = data[k];
+        }
+      });
+      return result;
+    }
+
     service.getPieChartData = function(){
       var result = $q.defer();
+      var units = selection.selectedLayer.summaryUnits;
+      var scale = selection.selectedLayer.summaryScale;
       var url = service.pieChartURL();
       var mainData = service.retrieveCSV(url);
       var landuse = service.landUseCodes();
 
       $q.all([mainData,landuse]).then(function(results){
         var data = results[0];
+        data.Units = units || data.Units;
+        if(scale){
+          data = service.scaleDataSet(data,scale);
+        }
+
         data.columnNames = data.columnNames.map(function(c){return +c;});
         var landTypeCodes = results[1];
         data.columnPresentation = landTypeCodes;
