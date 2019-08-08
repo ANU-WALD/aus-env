@@ -193,4 +193,17 @@ angular.module('ausEnvApp')
     configuration.checkDataURISupport().then(function(supported){
       $scope.dataURISupported = supported;
     });
+
+    $scope.reportURL = function(){
+      if(!$scope.selection.selectedRegion){
+        return null;
+      }
+      // var base = '/viz/#/ausenv_region';
+      var base = 'https://www.flowmatters.com.au/viz/#/ausenv_region';
+      var url =base + '?show-controls=0';
+      url += '&sel-cov='+$scope.selection.regionType.summaryName;
+      url += '&sel-year='+$scope.selection.year;
+      url += '&sel-loc='+$scope.selection.selectedRegion.feature.properties[$scope.selection.regionType.keyField];
+      return url;
+    }
   });
