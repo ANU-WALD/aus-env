@@ -398,6 +398,24 @@ angular.module('ausEnvApp')
     $scope.clearView();
   });
 
+  ['year','selectedRegion','selectionMode','selectedLayer','regionType','mapMode','dataMode','selectedPoint'].forEach(function(prop){
+    $scope.$watch('selection.'+prop,function(){
+      var newVal = selection[prop];
+      if(newVal&&newVal.title){
+        newVal = newVal.title;
+      }
+      if(newVal&&newVal.name){
+        newVal = newVal.name;
+      }
+
+      if(!window.ga){
+        console.log('Cannot log event. ga not loaded');
+        return;
+      }
+      ga('send', 'event', 'selection', prop, (newVal||'').toString());
+    });
+  });
+
   $scope.$watch('selection.regionType',function(newVal){
     $scope.geojson = {};
 
