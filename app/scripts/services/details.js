@@ -289,4 +289,37 @@ angular.module('ausEnvApp')
         return label.label + ':' + service.formatValue(label.value) + ' ' + service.tooltipSafeUnits(chart);
       };
     };
+
+    service.axisRange = function(values,units){
+      if(units!=='%'){
+        return undefined;
+      }
+      var actualVals = values.filter(function(v){
+        return !isNaN(v);
+      });
+      var max = Math.max.apply(null, actualVals);
+      var min = Math.min.apply(null, actualVals);
+      if(max>99){
+        return [Math.min(95,20*Math.floor(min/20.0)),100];
+      }
+      return undefined;
+    };
+
+    service.dataRange = function(values,buffer,min,max){
+      var actualVals = values.filter(function(v){
+        return !isNaN(v);
+      });
+      var maximum = Math.max.apply(null, actualVals) + buffer;
+      var minimum = Math.min.apply(null, actualVals) - buffer;
+
+      if(min!==undefined){
+        minimum = Math.max(min,minimum);
+      }
+
+      if(max!==undefined){
+        maximum = Math.min(max,maximum);
+      }
+
+      return [minimum,maximum];
+    }
   });
