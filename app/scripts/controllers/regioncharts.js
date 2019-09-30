@@ -8,28 +8,6 @@
  * Controller of the ausEnvApp
  */
 angular.module('ausEnvApp')
-  .config(['ChartJsProvider', function (ChartJsProvider) {
-
-    /*
-    window.onload = function() {
-      console.log(document.getElementById("pie"));
-      var myPieCanvas = document.getElementById("pie").getContext("2d");
-
-      var myPieChart = new Chart(myPieCanvas).Pie(data, {
-        customTooltips: function(tooltip) {
-        }
-      });
-    };
-    */
-
-    ChartJsProvider.setOptions('Pie', {
-      tooltipFontSize: 9,
-      tooltipXPadding: 1,
-      tooltipYPadding: 3,
-      tooltipFontStyle: "300",
-    });
-  }])
-
   .controller('RegionChartsCtrl', function ($scope,$q,selection,details,timeseries,spatialFoci) {
     var NO_TIMESERIES='No time series by region available for this layer. Select a different layer or switch to point mode under options.';
     $scope.selection = selection;

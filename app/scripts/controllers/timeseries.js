@@ -55,17 +55,7 @@ angular.module('ausEnvApp')
           $scope.line.units = details.unitsText(altUnits);
         }
 
-        var range;
-        if($scope.line.units==='%'){
-          var actualVals = series.filter(function(v){
-            return !isNaN(v);
-          });
-          var max = Math.max.apply(null, actualVals);
-          var min = Math.min.apply(null, actualVals);
-          if(max>99){
-            range = [Math.min(95,20*Math.floor(min/20.0)),100];
-          }
-        }
+        var range = details.axisRange(series,$scope.line.units);
 
         var _ = window._;
         $scope.line.download = downloads.downloadableTable(_.zip(labels.map(function(d){return d.toLocaleDateString('en-GB');}),series),['Date','Value']);
@@ -94,7 +84,7 @@ angular.module('ausEnvApp')
             },
             xaxis:{
               tickformat:'%b',
-              range:[labels[0],labels[labels.lenght-1]]
+              range:[labels[0],labels[labels.length-1]]
             },
             yaxis:{
      //         title:$scope.line.units,
@@ -110,7 +100,7 @@ angular.module('ausEnvApp')
             modeBarButtonsToRemove: ['hoverCompareCartesian','hoverClosestCartesian','lasso2d','select2d'],
             displaylogo: false
           });
-          Plotly.relayout( target, {
+            Plotly.relayout( target, {
               'xaxis.autorange': true,
               'yaxis.autorange': false
           });

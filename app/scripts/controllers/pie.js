@@ -14,13 +14,6 @@ angular.module('ausEnvApp')
     $scope.pieData = [];
     $scope.pieLabels = [];
 
-    $scope.pieChartOptions = {
-      responsive: false,
-      animateRotate: false,
-      animationSteps: 1,
-      tooltipTemplate: details.tooltipTextFunction($scope.pie)
-    };
-
     $scope.clearChart = function(){
       $scope.pie = details.chartMetaData();
       $scope.pieData=[];
@@ -60,7 +53,6 @@ angular.module('ausEnvApp')
         target = $('.pie-chart',target)[0];
 
 
-        $scope.pieChartOptions.responsive = true;
         $scope.pieData = series;
         $scope.pieLabels = labels;
         $scope.pieColours = colours;
@@ -95,6 +87,7 @@ angular.module('ausEnvApp')
             showlegend:false
           },{
             modeBarButtonsToRemove: ['hoverCompareCartesian','hoverClosestCartesian','lasso2d','select2d'],
+            displayModeBar: false,
             displaylogo: false
           });
           Plotly.relayout( target, {});

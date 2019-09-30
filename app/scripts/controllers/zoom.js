@@ -205,5 +205,5 @@ angular.module('ausEnvApp')
       url += '&sel-year='+$scope.selection.year;
       url += '&sel-loc='+$scope.selection.selectedRegion.feature.properties[$scope.selection.regionType.keyField];
       return url;
-    }
+    };
   });
