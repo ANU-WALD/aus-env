@@ -12,10 +12,10 @@
         "units": "classification",
         "zooms": {
           "9": {
-            "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc"
+            "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc"
           }
         },
-        "url": "ub8/au/LandUse/clum_0917_reclass_250m.nc",
+        "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_250m.nc",
         "variable": "LandUse",
         "colorscalerange": "1,20",
         "abovemaxcolor": "transparent",
@@ -53,12 +53,12 @@
             "title": "Natural environments",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "0.5,1.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_NaturalEnvironment_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_NaturalEnvironment_500m.nc",
             "colorscalerange": "0,100",
             "variable": "NaturalEnvironment",
             "summaryColumn":"0001",
@@ -94,12 +94,12 @@
             "title": "Production native forests",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "1.5,2.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_ProductionForestry_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_ProductionForestry_500m.nc",
             "colorscalerange": "0,100",
             "variable": "ProductionForestry",
             "summaryColumn":"0002",
@@ -110,12 +110,12 @@
             "title": "Plantation forestry",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "2.5,3.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_PlantationForestry_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_PlantationForestry_500m.nc",
             "colorscalerange": "0,100",
             "variable": "PlantationForestry",
             "summaryColumn":"0003",
@@ -151,12 +151,12 @@
             "title": "Grazing on native pasture",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "3.5,4.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_GrazingNativePasture_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_GrazingNativePasture_500m.nc",
             "colorscalerange": "0,100",
             "variable": "GrazingNativePasture",
             "summaryColumn":"0004",
@@ -167,12 +167,12 @@
             "title": "Grazing on modified pasture",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "4.5,5.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_GrazingModifiedPasture_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_GrazingModifiedPasture_500m.nc",
             "colorscalerange": "0,100",
             "variable": "GrazingModifiedPasture",
             "summaryColumn":"0005",
@@ -208,12 +208,12 @@
             "title": "Dryland cropping",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "5.5,6.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_Cropping_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Cropping_500m.nc",
             "colorscalerange": "0,100",
             "variable": "Cropping",
             "summaryColumn":"0006",
@@ -224,12 +224,12 @@
             "title": "Dryland horticulture",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "6.5,7.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_Horticulture_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Horticulture_500m.nc",
             "colorscalerange": "0,100",
             "variable": "Horticulture",
             "summaryColumn":"0007",
@@ -240,12 +240,12 @@
             "title": "Land in transition",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "7.5,8.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_InTransition_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_InTransition_500m.nc",
             "colorscalerange": "0,100",
             "variable": "InTransition",
             "summaryColumn":"0008",
@@ -281,12 +281,12 @@
             "title": "Irrigated Pasture",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "8.5,9.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_IrrigatedPasture_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_IrrigatedPasture_500m.nc",
             "colorscalerange": "0,100",
             "variable": "IrrigatedPasture",
             "summaryColumn":"0009",
@@ -297,12 +297,12 @@
             "title": "Irrigated cropping",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "9.5,10.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_IrrigatedCropping_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_IrrigatedCropping_500m.nc",
             "colorscalerange": "0,100",
             "variable": "IrrigatedCropping",
             "summaryColumn":"0010",
@@ -313,12 +313,12 @@
             "title": "Irrigated horticulture",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "10.5,11.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_IrrigatedHorticulture_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_IrrigatedHorticulture_500m.nc",
             "colorscalerange": "0,100",
             "variable": "IrrigatedHorticulture",
             "summaryColumn":"0011",
@@ -354,12 +354,12 @@
             "title": "Intensive horticulture",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "11.5,12.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_IntensiveHorticulture_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_IntensiveHorticulture_500m.nc",
             "colorscalerange": "0,100",
             "variable": "IntensiveHorticulture",
             "summaryColumn":"0012",
@@ -370,12 +370,12 @@
             "title": "Intensive animal husbandry",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "12.5,13.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_IntensiveAnimal_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_IntensiveAnimal_500m.nc",
             "colorscalerange": "0,100",
             "variable": "IntensiveAnimal",
             "summaryColumn":"0013",
@@ -386,12 +386,12 @@
             "title": "Industrial",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "13.5,14.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_Industrial_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Industrial_500m.nc",
             "colorscalerange": "0,100",
             "variable": "Industrial",
             "summaryColumn":"0014",
@@ -402,12 +402,12 @@
             "title": "Residential",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "14.5,15.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_Residential_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Residential_500m.nc",
             "colorscalerange": "0,100",
             "variable": "Residential",
             "summaryColumn":"0015",
@@ -418,12 +418,12 @@
             "title": "Infrastructure",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "15.5,16.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_Infrastructure_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Infrastructure_500m.nc",
             "colorscalerange": "0,100",
             "variable": "Infrastructure",
             "summaryColumn":"0016",
@@ -434,12 +434,12 @@
             "title": "Transport and communication",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "16.5,17.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_Transport_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Transport_500m.nc",
             "colorscalerange": "0,100",
             "variable": "Transport",
             "summaryColumn":"0017",
@@ -450,12 +450,12 @@
             "title": "Mining",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "17.5,18.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_Mining_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Mining_500m.nc",
             "colorscalerange": "0,100",
             "variable": "Mining",
             "summaryColumn":"0018",
@@ -491,12 +491,12 @@
             "title": "Natural water and wetlands",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "18.5,19.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_NaturalWater_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_NaturalWater_500m.nc",
             "colorscalerange": "0,100",
             "variable": "NaturalWater",
             "summaryColumn":"0019",
@@ -507,12 +507,12 @@
             "title": "Artificial water bodies",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_0917_reclass_50m.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.nc",
                 "colorscalerange": "19.5,20.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/ClassFraction/clum_0917_ArtificialWater_500m.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_ArtificialWater_500m.nc",
             "colorscalerange": "0,100",
             "variable": "ArtificialWater",
             "summaryColumn":"0020",
