@@ -1,5 +1,25 @@
 [
   {
+    "name": "Fuel Moisture Content",
+    "Description": "TEMP",
+    "Data creator": "TEMP",
+    "Data license": "TEMP",
+    "Reference": "TEMP",
+    "Resolution": "TEMP",
+    "Annual data": "TEMP",
+    "Other data forms": "TEMP"
+  },
+    {
+    "name": "WCF",
+    "Description": "TEMP",
+    "Data creator": "TEMP",
+    "Data license": "TEMP",
+    "Reference": "TEMP",
+    "Resolution": "TEMP",
+    "Annual data": "TEMP",
+    "Other data forms": "TEMP"
+  },
+  {
     "name": "Tree cover",
     "Description": "Determined as the percent area classified as forest mapped from Landsat satellite imagery following the National Carbon Accounting System (NCAS) classification. Extended for recent years using a machine learning algorithm by ANU Water and Landscape Dynamics.",
     "Data creator": "Department of the Environment and Energy, Australian National University",
