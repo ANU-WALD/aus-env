@@ -520,6 +520,35 @@
             "annualSummary": "{{regionType}}.LandUse.ArtificialWater.mean.LandUse.csv"
           }
         ]
+      },
+      {
+        "default": true,
+        "title": "Vegetation growth",
+        "summary": "OzWALD.GPP.AnnualSums",
+        "palette": "anu_wald_darkgreen",
+        "units": "gC/m^2",
+        "normal": {
+          "url": "ub8/au/OzWALD/annual/OzWALD.GPP.AnnualSums.nc",
+          "variable": "AnnualSums",
+          "time": "{{year}}-12-31",
+          "colorscalerange": "0,4000",
+          "palette": "anu_wald_darkgreen"
+        },
+        "delta": {
+          "url": "ub8/au/OzWALD/annual/OzWALD.GPP.ChangesAnnualSums.nc",
+          "variable": "ChangesAnnualSums",
+          "time": "{{year}}-12-31",
+          "colorscalerange": "-2200,2200",
+          "palette": "anu_wald_gistemp_inv"
+        },
+        "timeseries": {
+          "url": "ub8/au/OzWALD/8day/GPP/OzWALD.GPP.{{year}}.nc",
+          "variable": "GPP",
+          "units": "umol m^-2s^-1 "
+        },
+        "regionTimeSeries": {
+          "fn": "OzWALD.GPP"
+        }
       }
     ]
   },
@@ -754,6 +783,66 @@
         "regionTimeSeries": {
           "fn": "Sentinel.Nhotspots"
         }
+      },
+      {
+        "title": "Fuel Moisture Content",
+        "metadataKey":"Fuel Moisture Content",
+        "summary": "OzWALD.FMC.AnnualMeans",
+        "palette": "anu_wald_blues09",
+        "units": "mm",
+        "default": true,
+        "normal": {
+          "url": "ub8/au/OzWALD/annual/OzWALD.FMC.AnnualMeans.nc",
+          "variable": "AnnualMeans",
+          "time": "{{year}}-12-31",
+          "colorscalerange": "0,200",
+          "palette": "anu_wald_blues09"
+        },
+        "delta": {
+          "url": "ub8/au/OzWALD/annual/OzWALD.FMC.ChangeAnnualMeans.nc",
+          "variable": "ChangeAnnualMeans",
+          "time": "{{year}}-12-31",
+          "colorscalerange": "-100,100",
+          "palette": "anu_wald_gistemp_inv"
+        },
+        "timeseries": {
+          "url": "ub8/au/OzWALD/8day/FMC/OzWALD.FMC.{{year}}.nc",
+          "variable": "FMC"
+        },
+        "regionTimeSeries": {
+          "fn": "OzWALD.FMC"
+        }
+      },
+      {
+        "title": "Fire carbon emission",
+        "summary": "GFASv12.BurntCarbon.AnnualSums",
+        "missingYears": [
+          2000,
+          2001
+        ],
+        "palette": "anu_wald_gisheat_inv.v2",
+        "units": "gC/m^2",
+        "normal": {
+          "url": "ub8/au/FireEmissions/GFASv12.BurntCarbon.AnnualSums.nc",
+          "variable": "AnnualSums",
+          "time": "{{year}}-12-31",
+          "colorscalerange": "0,1500",
+          "palette": "anu_wald_gisheat_inv.v2"
+        },
+        "delta": {
+          "url": "ub8/au/FireEmissions/GFASv12.BurntCarbon.ChangeAnnualSums.nc",
+          "variable": "ChangeAnnualSums",
+          "time": "{{year}}-12-31",
+          "colorscalerange": "-1650,1650",
+          "palette": "anu_wald_gistemp"
+        },
+        "timeseries": {
+          "url": "ub8/au/FireEmissions/GFASv12.BurntCarbon.{{year}}.nc",
+          "variable": "BurntCarbon"
+        },
+        "regionTimeSeries": {
+          "fn": "GFASv12.BurntCarbon"
+        }
       }
     ]
   },
@@ -901,34 +990,34 @@
     "layers": [
       {
         "default": false,
-        "title": "Persistent vegetation cover",
+        "title": "Tree Cover",
         "metadataKey":"Persistent cover",
-        "summary": "OzWALD.PV.AnnualMinima",
+        "summary": "OzWALD.WCF.Annual",
         "palette": "anu_wald_darkgreen",
-        "units": "gC/m^2",
+        "units": "%",
         "summaryUnits":"km^2",
         "summaryScale":0.01,
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.PV.AnnualMinima.nc",
-          "variable": "AnnualMinima",
+          "url": "ub8/au/OzWALD/annual/OzWALD.WCF.Annual.nc",
+          "variable": "WCF",
           "time": "{{year}}-12-31",
           "colorscalerange": "0,100",
           "palette": "anu_wald_darkgreen"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.PV.ChangesAnnualMinima.nc",
-          "variable": "ChangesAnnualMinima",
+          "url": "ub8/au/OzWALD/annual/OzWALD.WCF.ChangesAnnual.nc",
+          "variable": "WCF_change",
           "time": "{{year}}-12-31",
           "colorscalerange": "-35.0,35.0",
           "palette": "anu_wald_gistemp_inv"
         },
         "timeseries": {
-          "url": "ub8/au/OzWALD/8day/PV/OzWALD.PV.{{year}}.nc",
-          "variable": "PV",
+          "url": "ub8/au/OzWALD/8day/PV/OzWALD.WCF.{{year}}.nc",
+          "variable": "WCF",
           "units": "umol m^-2s^-1 "
         },
         "regionTimeSeries": {
-          "fn": "OzWALD.PV",
+          "fn": "OzWALD.WCF",
           "scale":100.0
         }
       },
@@ -994,73 +1083,6 @@
         },
         "regionTimeSeries": {
           "fn": "OzWALD.LAI"
-        }
-      }
-    ]
-  },
-  {
-    "id": "cs",
-    "name": "Carbon Storage",
-    "icon": "carbon_uptake.png",
-    "layers": [
-      {
-        "default": true,
-        "title": "Vegetation carbon uptake",
-        "summary": "OzWALD.GPP.AnnualSums",
-        "palette": "anu_wald_darkgreen",
-        "units": "gC/m^2",
-        "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.GPP.AnnualSums.nc",
-          "variable": "AnnualSums",
-          "time": "{{year}}-12-31",
-          "colorscalerange": "0,4000",
-          "palette": "anu_wald_darkgreen"
-        },
-        "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.GPP.ChangesAnnualSums.nc",
-          "variable": "ChangesAnnualSums",
-          "time": "{{year}}-12-31",
-          "colorscalerange": "-2200,2200",
-          "palette": "anu_wald_gistemp_inv"
-        },
-        "timeseries": {
-          "url": "ub8/au/OzWALD/8day/GPP/OzWALD.GPP.{{year}}.nc",
-          "variable": "GPP",
-          "units": "umol m^-2s^-1 "
-        },
-        "regionTimeSeries": {
-          "fn": "OzWALD.GPP"
-        }
-      },
-      {
-        "title": "Fire carbon emission",
-        "summary": "GFASv12.BurntCarbon.AnnualSums",
-        "missingYears": [
-          2000,
-          2001
-        ],
-        "palette": "anu_wald_gisheat_inv.v2",
-        "units": "gC/m^2",
-        "normal": {
-          "url": "ub8/au/FireEmissions/GFASv12.BurntCarbon.AnnualSums.nc",
-          "variable": "AnnualSums",
-          "time": "{{year}}-12-31",
-          "colorscalerange": "0,1500",
-          "palette": "anu_wald_gisheat_inv.v2"
-        },
-        "delta": {
-          "url": "ub8/au/FireEmissions/GFASv12.BurntCarbon.ChangeAnnualSums.nc",
-          "variable": "ChangeAnnualSums",
-          "time": "{{year}}-12-31",
-          "colorscalerange": "-1650,1650",
-          "palette": "anu_wald_gistemp"
-        },
-        "timeseries": {
-          "url": "ub8/au/FireEmissions/GFASv12.BurntCarbon.{{year}}.nc",
-          "variable": "BurntCarbon"
-        },
-        "regionTimeSeries": {
-          "fn": "GFASv12.BurntCarbon"
         }
       }
     ]
