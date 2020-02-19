@@ -1008,8 +1008,10 @@
           "url": "ub8/au/OzWALD/annual/OzWALD.WCF.ChangesAnnual.nc",
           "variable": "WCF_change",
           "time": "{{year}}-12-31",
-          "colorscalerange": "-35.0,35.0",
-          "palette": "anu_wald_gistemp_inv"
+          "colorscalerange": "-50.0,50.0",
+          "palette": "anu_wald_gistemp_inv",
+          "belowmincolor":"extend",
+          "abovemaxcolor":"extend"
         },
         "timeseries": {
           "url": "ub8/au/OzWALD/8day/PV/OzWALD.WCF.{{year}}.nc",
