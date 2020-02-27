@@ -15,7 +15,7 @@ angular.module('ausEnvApp')
     service.REGION_AREAS='/aucsv/region_areas/';
     service.LANDCOVER_CODES='static/config/DLCD_codes.csv';
     service.LANDUSE_CODES='static/config/landuse_codes.csv';
-    service.BY_LAND_TYPE_SUMMARY='clum0917';
+    service.BY_LAND_TYPE_SUMMARY='clum1219';
     service.THEMES='static/config/themes.json';
     service.LAYER_DETAILS='static/config/additional_metadata.json';
   });
