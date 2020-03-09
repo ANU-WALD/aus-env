@@ -1,0 +1,3936 @@
+[
+  {
+    "LGA_CODE19": "10050",
+    "LGA_NAME19": "Albury (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 305.9459
+  },
+  {
+    "LGA_CODE19": "10130",
+    "LGA_NAME19": "Armidale Regional (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 8620.699
+  },
+  {
+    "LGA_CODE19": "10250",
+    "LGA_NAME19": "Ballina (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 484.9389
+  },
+  {
+    "LGA_CODE19": "10300",
+    "LGA_NAME19": "Balranald (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 21690.6753
+  },
+  {
+    "LGA_CODE19": "10470",
+    "LGA_NAME19": "Bathurst Regional (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 3817.8646
+  },
+  {
+    "LGA_CODE19": "10500",
+    "LGA_NAME19": "Bayside (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 49.8904
+  },
+  {
+    "LGA_CODE19": "10550",
+    "LGA_NAME19": "Bega Valley (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 6278.8811
+  },
+  {
+    "LGA_CODE19": "10600",
+    "LGA_NAME19": "Bellingen (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 1600.4337
+  },
+  {
+    "LGA_CODE19": "10650",
+    "LGA_NAME19": "Berrigan (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 2065.7759
+  },
+  {
+    "LGA_CODE19": "10750",
+    "LGA_NAME19": "Blacktown (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 240.0487
+  },
+  {
+    "LGA_CODE19": "10800",
+    "LGA_NAME19": "Bland (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 8557.6535
+  },
+  {
+    "LGA_CODE19": "10850",
+    "LGA_NAME19": "Blayney (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 1524.647
+  },
+  {
+    "LGA_CODE19": "10900",
+    "LGA_NAME19": "Blue Mountains (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 1431.1442
+  },
+  {
+    "LGA_CODE19": "10950",
+    "LGA_NAME19": "Bogan (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 14599.8996
+  },
+  {
+    "LGA_CODE19": "11150",
+    "LGA_NAME19": "Bourke (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 41599.5072
+  },
+  {
+    "LGA_CODE19": "11200",
+    "LGA_NAME19": "Brewarrina (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 19163.4798
+  },
+  {
+    "LGA_CODE19": "11250",
+    "LGA_NAME19": "Broken Hill (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 170.1153
+  },
+  {
+    "LGA_CODE19": "11300",
+    "LGA_NAME19": "Burwood (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 7.1281
+  },
+  {
+    "LGA_CODE19": "11350",
+    "LGA_NAME19": "Byron (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 565.8029
+  },
+  {
+    "LGA_CODE19": "11400",
+    "LGA_NAME19": "Cabonne (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 6022.3498
+  },
+  {
+    "LGA_CODE19": "11450",
+    "LGA_NAME19": "Camden (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 201.0281
+  },
+  {
+    "LGA_CODE19": "11500",
+    "LGA_NAME19": "Campbelltown (C) (NSW)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 311.9111
+  },
+  {
+    "LGA_CODE19": "11520",
+    "LGA_NAME19": "Canada Bay (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 19.9233
+  },
+  {
+    "LGA_CODE19": "11570",
+    "LGA_NAME19": "Canterbury-Bankstown (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 110.2368
+  },
+  {
+    "LGA_CODE19": "11600",
+    "LGA_NAME19": "Carrathool (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 18934.4852
+  },
+  {
+    "LGA_CODE19": "11650",
+    "LGA_NAME19": "Central Coast (C) (NSW)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 1681.0695
+  },
+  {
+    "LGA_CODE19": "11700",
+    "LGA_NAME19": "Central Darling (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 53492.1931
+  },
+  {
+    "LGA_CODE19": "11720",
+    "LGA_NAME19": "Cessnock (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 1965.1589
+  },
+  {
+    "LGA_CODE19": "11730",
+    "LGA_NAME19": "Clarence Valley (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 10428.6803
+  },
+  {
+    "LGA_CODE19": "11750",
+    "LGA_NAME19": "Cobar (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 45579.3299
+  },
+  {
+    "LGA_CODE19": "11800",
+    "LGA_NAME19": "Coffs Harbour (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 1173.7437
+  },
+  {
+    "LGA_CODE19": "12000",
+    "LGA_NAME19": "Coolamon (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 2430.9037
+  },
+  {
+    "LGA_CODE19": "12150",
+    "LGA_NAME19": "Coonamble (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 9916.0536
+  },
+  {
+    "LGA_CODE19": "12160",
+    "LGA_NAME19": "Cootamundra-Gundagai Regional (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 3981.4173
+  },
+  {
+    "LGA_CODE19": "12350",
+    "LGA_NAME19": "Cowra (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 2808.7822
+  },
+  {
+    "LGA_CODE19": "12380",
+    "LGA_NAME19": "Cumberland (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 71.5511
+  },
+  {
+    "LGA_CODE19": "12390",
+    "LGA_NAME19": "Dubbo Regional (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 7534.5251
+  },
+  {
+    "LGA_CODE19": "12700",
+    "LGA_NAME19": "Dungog (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 2249.9983
+  },
+  {
+    "LGA_CODE19": "12730",
+    "LGA_NAME19": "Edward River (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 8883.4464
+  },
+  {
+    "LGA_CODE19": "12750",
+    "LGA_NAME19": "Eurobodalla (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 3428.1695
+  },
+  {
+    "LGA_CODE19": "12850",
+    "LGA_NAME19": "Fairfield (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 101.507
+  },
+  {
+    "LGA_CODE19": "12870",
+    "LGA_NAME19": "Federation (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 5685.0486
+  },
+  {
+    "LGA_CODE19": "12900",
+    "LGA_NAME19": "Forbes (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 4710.128
+  },
+  {
+    "LGA_CODE19": "12930",
+    "LGA_NAME19": "Georges River (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 38.3459
+  },
+  {
+    "LGA_CODE19": "12950",
+    "LGA_NAME19": "Gilgandra (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 4831.5057
+  },
+  {
+    "LGA_CODE19": "13010",
+    "LGA_NAME19": "Glen Innes Severn (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 5479.977
+  },
+  {
+    "LGA_CODE19": "13310",
+    "LGA_NAME19": "Goulburn Mulwaree (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 3220.0796
+  },
+  {
+    "LGA_CODE19": "13340",
+    "LGA_NAME19": "Greater Hume Shire (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 5749.5185
+  },
+  {
+    "LGA_CODE19": "13450",
+    "LGA_NAME19": "Griffith (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 1639.1728
+  },
+  {
+    "LGA_CODE19": "13550",
+    "LGA_NAME19": "Gunnedah (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 4987.0295
+  },
+  {
+    "LGA_CODE19": "13660",
+    "LGA_NAME19": "Gwydir (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 9259.6542
+  },
+  {
+    "LGA_CODE19": "13800",
+    "LGA_NAME19": "Hawkesbury (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 2775.1377
+  },
+  {
+    "LGA_CODE19": "13850",
+    "LGA_NAME19": "Hay (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 11325.9324
+  },
+  {
+    "LGA_CODE19": "13910",
+    "LGA_NAME19": "Hilltops (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 7140.8863
+  },
+  {
+    "LGA_CODE19": "14000",
+    "LGA_NAME19": "Hornsby (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 455.0375
+  },
+  {
+    "LGA_CODE19": "14100",
+    "LGA_NAME19": "Hunters Hill (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 5.7169
+  },
+  {
+    "LGA_CODE19": "14170",
+    "LGA_NAME19": "Inner West (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 35.3713
+  },
+  {
+    "LGA_CODE19": "14200",
+    "LGA_NAME19": "Inverell (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 8597.2081
+  },
+  {
+    "LGA_CODE19": "14300",
+    "LGA_NAME19": "Junee (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 2030.0222
+  },
+  {
+    "LGA_CODE19": "14350",
+    "LGA_NAME19": "Kempsey (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 3375.6707
+  },
+  {
+    "LGA_CODE19": "14400",
+    "LGA_NAME19": "Kiama (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 257.6636
+  },
+  {
+    "LGA_CODE19": "14500",
+    "LGA_NAME19": "Ku-ring-gai (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 85.4096
+  },
+  {
+    "LGA_CODE19": "14550",
+    "LGA_NAME19": "Kyogle (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 3584.1644
+  },
+  {
+    "LGA_CODE19": "14600",
+    "LGA_NAME19": "Lachlan (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 14964.2752
+  },
+  {
+    "LGA_CODE19": "14650",
+    "LGA_NAME19": "Lake Macquarie (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 648.6398
+  },
+  {
+    "LGA_CODE19": "14700",
+    "LGA_NAME19": "Lane Cove (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 10.4794
+  },
+  {
+    "LGA_CODE19": "14750",
+    "LGA_NAME19": "Leeton (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 1167.1877
+  },
+  {
+    "LGA_CODE19": "14850",
+    "LGA_NAME19": "Lismore (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 1287.7043
+  },
+  {
+    "LGA_CODE19": "14870",
+    "LGA_NAME19": "Lithgow (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 4512.2563
+  },
+  {
+    "LGA_CODE19": "14900",
+    "LGA_NAME19": "Liverpool (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 305.7396
+  },
+  {
+    "LGA_CODE19": "14920",
+    "LGA_NAME19": "Liverpool Plains (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 5082.2397
+  },
+  {
+    "LGA_CODE19": "14950",
+    "LGA_NAME19": "Lockhart (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 2895.8049
+  },
+  {
+    "LGA_CODE19": "15050",
+    "LGA_NAME19": "Maitland (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 391.5087
+  },
+  {
+    "LGA_CODE19": "15240",
+    "LGA_NAME19": "Mid-Coast (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 10053.8633
+  },
+  {
+    "LGA_CODE19": "15270",
+    "LGA_NAME19": "Mid-Western Regional (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 8752.259
+  },
+  {
+    "LGA_CODE19": "15300",
+    "LGA_NAME19": "Moree Plains (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 17906.5241
+  },
+  {
+    "LGA_CODE19": "15350",
+    "LGA_NAME19": "Mosman (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 8.6503
+  },
+  {
+    "LGA_CODE19": "15520",
+    "LGA_NAME19": "Murray River (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 11863.4771
+  },
+  {
+    "LGA_CODE19": "15560",
+    "LGA_NAME19": "Murrumbidgee (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 6880.7902
+  },
+  {
+    "LGA_CODE19": "15650",
+    "LGA_NAME19": "Muswellbrook (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 3404.884
+  },
+  {
+    "LGA_CODE19": "15700",
+    "LGA_NAME19": "Nambucca (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 1491.3432
+  },
+  {
+    "LGA_CODE19": "15750",
+    "LGA_NAME19": "Narrabri (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 13014.9937
+  },
+  {
+    "LGA_CODE19": "15800",
+    "LGA_NAME19": "Narrandera (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 4116.3459
+  },
+  {
+    "LGA_CODE19": "15850",
+    "LGA_NAME19": "Narromine (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 5261.5165
+  },
+  {
+    "LGA_CODE19": "15900",
+    "LGA_NAME19": "Newcastle (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 186.7549
+  },
+  {
+    "LGA_CODE19": "15950",
+    "LGA_NAME19": "North Sydney (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 10.4857
+  },
+  {
+    "LGA_CODE19": "15990",
+    "LGA_NAME19": "Northern Beaches (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 254.2074
+  },
+  {
+    "LGA_CODE19": "16100",
+    "LGA_NAME19": "Oberon (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 3625.047
+  },
+  {
+    "LGA_CODE19": "16150",
+    "LGA_NAME19": "Orange (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 284.2157
+  },
+  {
+    "LGA_CODE19": "16200",
+    "LGA_NAME19": "Parkes (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 5957.6138
+  },
+  {
+    "LGA_CODE19": "16260",
+    "LGA_NAME19": "Parramatta (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 83.8294
+  },
+  {
+    "LGA_CODE19": "16350",
+    "LGA_NAME19": "Penrith (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 404.7016
+  },
+  {
+    "LGA_CODE19": "16380",
+    "LGA_NAME19": "Port Macquarie-Hastings (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 3682.3921
+  },
+  {
+    "LGA_CODE19": "16400",
+    "LGA_NAME19": "Port Stephens (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 858.4357
+  },
+  {
+    "LGA_CODE19": "16490",
+    "LGA_NAME19": "Queanbeyan-Palerang Regional (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 5318.8822
+  },
+  {
+    "LGA_CODE19": "16550",
+    "LGA_NAME19": "Randwick (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 36.3311
+  },
+  {
+    "LGA_CODE19": "16610",
+    "LGA_NAME19": "Richmond Valley (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 3047.3748
+  },
+  {
+    "LGA_CODE19": "16700",
+    "LGA_NAME19": "Ryde (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 40.4748
+  },
+  {
+    "LGA_CODE19": "16900",
+    "LGA_NAME19": "Shellharbour (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 147.4211
+  },
+  {
+    "LGA_CODE19": "16950",
+    "LGA_NAME19": "Shoalhaven (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 4566.6795
+  },
+  {
+    "LGA_CODE19": "17000",
+    "LGA_NAME19": "Singleton (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 4892.717
+  },
+  {
+    "LGA_CODE19": "17040",
+    "LGA_NAME19": "Snowy Monaro Regional (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 15163.5461
+  },
+  {
+    "LGA_CODE19": "17080",
+    "LGA_NAME19": "Snowy Valleys (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 8959.0028
+  },
+  {
+    "LGA_CODE19": "17100",
+    "LGA_NAME19": "Strathfield (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 14.0009
+  },
+  {
+    "LGA_CODE19": "17150",
+    "LGA_NAME19": "Sutherland Shire (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 333.5933
+  },
+  {
+    "LGA_CODE19": "17200",
+    "LGA_NAME19": "Sydney (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 26.7429
+  },
+  {
+    "LGA_CODE19": "17310",
+    "LGA_NAME19": "Tamworth Regional (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 9884.3506
+  },
+  {
+    "LGA_CODE19": "17350",
+    "LGA_NAME19": "Temora (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 2802.016
+  },
+  {
+    "LGA_CODE19": "17400",
+    "LGA_NAME19": "Tenterfield (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 7322.793
+  },
+  {
+    "LGA_CODE19": "17420",
+    "LGA_NAME19": "The Hills Shire (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 386.1588
+  },
+  {
+    "LGA_CODE19": "17550",
+    "LGA_NAME19": "Tweed (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 1307.6562
+  },
+  {
+    "LGA_CODE19": "17620",
+    "LGA_NAME19": "Upper Hunter Shire (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 8096.0892
+  },
+  {
+    "LGA_CODE19": "17640",
+    "LGA_NAME19": "Upper Lachlan Shire (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 7127.3957
+  },
+  {
+    "LGA_CODE19": "17650",
+    "LGA_NAME19": "Uralla (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 3226.5327
+  },
+  {
+    "LGA_CODE19": "17750",
+    "LGA_NAME19": "Wagga Wagga (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 4824.4889
+  },
+  {
+    "LGA_CODE19": "17850",
+    "LGA_NAME19": "Walcha (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 6261.0242
+  },
+  {
+    "LGA_CODE19": "17900",
+    "LGA_NAME19": "Walgett (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 22308.3848
+  },
+  {
+    "LGA_CODE19": "17950",
+    "LGA_NAME19": "Warren (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 10753.7673
+  },
+  {
+    "LGA_CODE19": "18020",
+    "LGA_NAME19": "Warrumbungle Shire (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 12372.1201
+  },
+  {
+    "LGA_CODE19": "18050",
+    "LGA_NAME19": "Waverley (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 9.3507
+  },
+  {
+    "LGA_CODE19": "18100",
+    "LGA_NAME19": "Weddin (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 3414.8566
+  },
+  {
+    "LGA_CODE19": "18200",
+    "LGA_NAME19": "Wentworth (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 26256.2398
+  },
+  {
+    "LGA_CODE19": "18250",
+    "LGA_NAME19": "Willoughby (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 22.4258
+  },
+  {
+    "LGA_CODE19": "18350",
+    "LGA_NAME19": "Wingecarribee (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 2689.3413
+  },
+  {
+    "LGA_CODE19": "18400",
+    "LGA_NAME19": "Wollondilly (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 2555.434
+  },
+  {
+    "LGA_CODE19": "18450",
+    "LGA_NAME19": "Wollongong (C)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 683.986
+  },
+  {
+    "LGA_CODE19": "18500",
+    "LGA_NAME19": "Woollahra (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 12.2775
+  },
+  {
+    "LGA_CODE19": "18710",
+    "LGA_NAME19": "Yass Valley (A)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 3995.3257
+  },
+  {
+    "LGA_CODE19": "19399",
+    "LGA_NAME19": "Unincorporated NSW",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 93214.1592
+  },
+  {
+    "LGA_CODE19": "19499",
+    "LGA_NAME19": "No usual address (NSW)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "19799",
+    "LGA_NAME19": "Migratory - Offshore - Shipping (NSW)",
+    "STE_CODE16": "1",
+    "STE_NAME16": "New South Wales",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "20110",
+    "LGA_NAME19": "Alpine (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 4788.1568
+  },
+  {
+    "LGA_CODE19": "20260",
+    "LGA_NAME19": "Ararat (RC)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 4211.1171
+  },
+  {
+    "LGA_CODE19": "20570",
+    "LGA_NAME19": "Ballarat (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 739.0321
+  },
+  {
+    "LGA_CODE19": "20660",
+    "LGA_NAME19": "Banyule (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 62.5402
+  },
+  {
+    "LGA_CODE19": "20740",
+    "LGA_NAME19": "Bass Coast (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 865.8095
+  },
+  {
+    "LGA_CODE19": "20830",
+    "LGA_NAME19": "Baw Baw (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 4027.6287
+  },
+  {
+    "LGA_CODE19": "20910",
+    "LGA_NAME19": "Bayside (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 37.2111
+  },
+  {
+    "LGA_CODE19": "21010",
+    "LGA_NAME19": "Benalla (RC)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 2352.6397
+  },
+  {
+    "LGA_CODE19": "21110",
+    "LGA_NAME19": "Boroondara (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 60.1774
+  },
+  {
+    "LGA_CODE19": "21180",
+    "LGA_NAME19": "Brimbank (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 123.3991
+  },
+  {
+    "LGA_CODE19": "21270",
+    "LGA_NAME19": "Buloke (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 8000.4027
+  },
+  {
+    "LGA_CODE19": "21370",
+    "LGA_NAME19": "Campaspe (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 4518.8582
+  },
+  {
+    "LGA_CODE19": "21450",
+    "LGA_NAME19": "Cardinia (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 1282.5678
+  },
+  {
+    "LGA_CODE19": "21610",
+    "LGA_NAME19": "Casey (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 409.4289
+  },
+  {
+    "LGA_CODE19": "21670",
+    "LGA_NAME19": "Central Goldfields (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 1532.7843
+  },
+  {
+    "LGA_CODE19": "21750",
+    "LGA_NAME19": "Colac-Otway (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 3437.4701
+  },
+  {
+    "LGA_CODE19": "21830",
+    "LGA_NAME19": "Corangamite (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 4407.4921
+  },
+  {
+    "LGA_CODE19": "21890",
+    "LGA_NAME19": "Darebin (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 53.4711
+  },
+  {
+    "LGA_CODE19": "22110",
+    "LGA_NAME19": "East Gippsland (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 20940.2326
+  },
+  {
+    "LGA_CODE19": "22170",
+    "LGA_NAME19": "Frankston (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 129.598
+  },
+  {
+    "LGA_CODE19": "22250",
+    "LGA_NAME19": "Gannawarra (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 3735.3353
+  },
+  {
+    "LGA_CODE19": "22310",
+    "LGA_NAME19": "Glen Eira (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 38.6906
+  },
+  {
+    "LGA_CODE19": "22410",
+    "LGA_NAME19": "Glenelg (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 6218.5734
+  },
+  {
+    "LGA_CODE19": "22490",
+    "LGA_NAME19": "Golden Plains (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 2703.3898
+  },
+  {
+    "LGA_CODE19": "22620",
+    "LGA_NAME19": "Greater Bendigo (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 2999.9721
+  },
+  {
+    "LGA_CODE19": "22670",
+    "LGA_NAME19": "Greater Dandenong (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 129.5469
+  },
+  {
+    "LGA_CODE19": "22750",
+    "LGA_NAME19": "Greater Geelong (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 1247.9876
+  },
+  {
+    "LGA_CODE19": "22830",
+    "LGA_NAME19": "Greater Shepparton (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 2421.9093
+  },
+  {
+    "LGA_CODE19": "22910",
+    "LGA_NAME19": "Hepburn (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 1472.9844
+  },
+  {
+    "LGA_CODE19": "22980",
+    "LGA_NAME19": "Hindmarsh (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 7524.1824
+  },
+  {
+    "LGA_CODE19": "23110",
+    "LGA_NAME19": "Hobsons Bay (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 64.2404
+  },
+  {
+    "LGA_CODE19": "23190",
+    "LGA_NAME19": "Horsham (RC)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 4266.769
+  },
+  {
+    "LGA_CODE19": "23270",
+    "LGA_NAME19": "Hume (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 503.8505
+  },
+  {
+    "LGA_CODE19": "23350",
+    "LGA_NAME19": "Indigo (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 2040.069
+  },
+  {
+    "LGA_CODE19": "23430",
+    "LGA_NAME19": "Kingston (C) (Vic.)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 91.3677
+  },
+  {
+    "LGA_CODE19": "23670",
+    "LGA_NAME19": "Knox (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 113.9115
+  },
+  {
+    "LGA_CODE19": "23810",
+    "LGA_NAME19": "Latrobe (C) (Vic.)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 1425.6128
+  },
+  {
+    "LGA_CODE19": "23940",
+    "LGA_NAME19": "Loddon (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 6696.4447
+  },
+  {
+    "LGA_CODE19": "24130",
+    "LGA_NAME19": "Macedon Ranges (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 1748.2837
+  },
+  {
+    "LGA_CODE19": "24210",
+    "LGA_NAME19": "Manningham (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 113.3478
+  },
+  {
+    "LGA_CODE19": "24250",
+    "LGA_NAME19": "Mansfield (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 3843.8535
+  },
+  {
+    "LGA_CODE19": "24330",
+    "LGA_NAME19": "Maribyrnong (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 31.2254
+  },
+  {
+    "LGA_CODE19": "24410",
+    "LGA_NAME19": "Maroondah (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 61.4097
+  },
+  {
+    "LGA_CODE19": "24600",
+    "LGA_NAME19": "Melbourne (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 37.3513
+  },
+  {
+    "LGA_CODE19": "24650",
+    "LGA_NAME19": "Melton (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 527.5374
+  },
+  {
+    "LGA_CODE19": "24780",
+    "LGA_NAME19": "Mildura (RC)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 22082.4836
+  },
+  {
+    "LGA_CODE19": "24850",
+    "LGA_NAME19": "Mitchell (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 2862.0833
+  },
+  {
+    "LGA_CODE19": "24900",
+    "LGA_NAME19": "Moira (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 4046.3738
+  },
+  {
+    "LGA_CODE19": "24970",
+    "LGA_NAME19": "Monash (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 81.4829
+  },
+  {
+    "LGA_CODE19": "25060",
+    "LGA_NAME19": "Moonee Valley (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 43.1386
+  },
+  {
+    "LGA_CODE19": "25150",
+    "LGA_NAME19": "Moorabool (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 2110.5504
+  },
+  {
+    "LGA_CODE19": "25250",
+    "LGA_NAME19": "Moreland (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 50.9519
+  },
+  {
+    "LGA_CODE19": "25340",
+    "LGA_NAME19": "Mornington Peninsula (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 724.1679
+  },
+  {
+    "LGA_CODE19": "25430",
+    "LGA_NAME19": "Mount Alexander (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 1529.6184
+  },
+  {
+    "LGA_CODE19": "25490",
+    "LGA_NAME19": "Moyne (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 5481.6861
+  },
+  {
+    "LGA_CODE19": "25620",
+    "LGA_NAME19": "Murrindindi (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 3879.7505
+  },
+  {
+    "LGA_CODE19": "25710",
+    "LGA_NAME19": "Nillumbik (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 432.3373
+  },
+  {
+    "LGA_CODE19": "25810",
+    "LGA_NAME19": "Northern Grampians (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 5729.8764
+  },
+  {
+    "LGA_CODE19": "25900",
+    "LGA_NAME19": "Port Phillip (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 20.7092
+  },
+  {
+    "LGA_CODE19": "25990",
+    "LGA_NAME19": "Pyrenees (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 3434.5689
+  },
+  {
+    "LGA_CODE19": "26080",
+    "LGA_NAME19": "Queenscliffe (B)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 8.6166
+  },
+  {
+    "LGA_CODE19": "26170",
+    "LGA_NAME19": "South Gippsland (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 3296.3307
+  },
+  {
+    "LGA_CODE19": "26260",
+    "LGA_NAME19": "Southern Grampians (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 6654.0186
+  },
+  {
+    "LGA_CODE19": "26350",
+    "LGA_NAME19": "Stonnington (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 25.6514
+  },
+  {
+    "LGA_CODE19": "26430",
+    "LGA_NAME19": "Strathbogie (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 3303.2568
+  },
+  {
+    "LGA_CODE19": "26490",
+    "LGA_NAME19": "Surf Coast (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 1552.944
+  },
+  {
+    "LGA_CODE19": "26610",
+    "LGA_NAME19": "Swan Hill (RC)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 6115.3087
+  },
+  {
+    "LGA_CODE19": "26670",
+    "LGA_NAME19": "Towong (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 6674.9467
+  },
+  {
+    "LGA_CODE19": "26700",
+    "LGA_NAME19": "Wangaratta (RC)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 3645.1095
+  },
+  {
+    "LGA_CODE19": "26730",
+    "LGA_NAME19": "Warrnambool (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 120.9488
+  },
+  {
+    "LGA_CODE19": "26810",
+    "LGA_NAME19": "Wellington (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 10817.3346
+  },
+  {
+    "LGA_CODE19": "26890",
+    "LGA_NAME19": "West Wimmera (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 9108.2042
+  },
+  {
+    "LGA_CODE19": "26980",
+    "LGA_NAME19": "Whitehorse (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 64.28
+  },
+  {
+    "LGA_CODE19": "27070",
+    "LGA_NAME19": "Whittlesea (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 489.6939
+  },
+  {
+    "LGA_CODE19": "27170",
+    "LGA_NAME19": "Wodonga (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 432.6894
+  },
+  {
+    "LGA_CODE19": "27260",
+    "LGA_NAME19": "Wyndham (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 542.0949
+  },
+  {
+    "LGA_CODE19": "27350",
+    "LGA_NAME19": "Yarra (C)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 19.5425
+  },
+  {
+    "LGA_CODE19": "27450",
+    "LGA_NAME19": "Yarra Ranges (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 2468.205
+  },
+  {
+    "LGA_CODE19": "27630",
+    "LGA_NAME19": "Yarriambiack (S)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 7325.797
+  },
+  {
+    "LGA_CODE19": "29399",
+    "LGA_NAME19": "Unincorporated Vic",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 283.0142
+  },
+  {
+    "LGA_CODE19": "29499",
+    "LGA_NAME19": "No usual address (Vic.)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "29799",
+    "LGA_NAME19": "Migratory - Offshore - Shipping (Vic.)",
+    "STE_CODE16": "2",
+    "STE_NAME16": "Victoria",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "30250",
+    "LGA_NAME19": "Aurukun (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 7423.989
+  },
+  {
+    "LGA_CODE19": "30300",
+    "LGA_NAME19": "Balonne (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 31103.7071
+  },
+  {
+    "LGA_CODE19": "30370",
+    "LGA_NAME19": "Banana (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 28550.1626
+  },
+  {
+    "LGA_CODE19": "30410",
+    "LGA_NAME19": "Barcaldine (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 53382.6558
+  },
+  {
+    "LGA_CODE19": "30450",
+    "LGA_NAME19": "Barcoo (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 61830.0907
+  },
+  {
+    "LGA_CODE19": "30760",
+    "LGA_NAME19": "Blackall-Tambo (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 30537.2479
+  },
+  {
+    "LGA_CODE19": "30900",
+    "LGA_NAME19": "Boulia (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 60905.7352
+  },
+  {
+    "LGA_CODE19": "31000",
+    "LGA_NAME19": "Brisbane (C)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 1342.7188
+  },
+  {
+    "LGA_CODE19": "31750",
+    "LGA_NAME19": "Bulloo (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 73723.751
+  },
+  {
+    "LGA_CODE19": "31820",
+    "LGA_NAME19": "Bundaberg (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 6431.003
+  },
+  {
+    "LGA_CODE19": "31900",
+    "LGA_NAME19": "Burdekin (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 5043.9317
+  },
+  {
+    "LGA_CODE19": "31950",
+    "LGA_NAME19": "Burke (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 39684.0526
+  },
+  {
+    "LGA_CODE19": "32080",
+    "LGA_NAME19": "Cairns (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 1689.3129
+  },
+  {
+    "LGA_CODE19": "32250",
+    "LGA_NAME19": "Carpentaria (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 64121.0124
+  },
+  {
+    "LGA_CODE19": "32260",
+    "LGA_NAME19": "Cassowary Coast (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 4687.824
+  },
+  {
+    "LGA_CODE19": "32270",
+    "LGA_NAME19": "Central Highlands (R) (Qld)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 59834.8359
+  },
+  {
+    "LGA_CODE19": "32310",
+    "LGA_NAME19": "Charters Towers (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 68382.1643
+  },
+  {
+    "LGA_CODE19": "32330",
+    "LGA_NAME19": "Cherbourg (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 31.6002
+  },
+  {
+    "LGA_CODE19": "32450",
+    "LGA_NAME19": "Cloncurry (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 47971.2596
+  },
+  {
+    "LGA_CODE19": "32500",
+    "LGA_NAME19": "Cook (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 105718.7588
+  },
+  {
+    "LGA_CODE19": "32600",
+    "LGA_NAME19": "Croydon (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 29497.9024
+  },
+  {
+    "LGA_CODE19": "32750",
+    "LGA_NAME19": "Diamantina (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 94730.4545
+  },
+  {
+    "LGA_CODE19": "32770",
+    "LGA_NAME19": "Doomadgee (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 1827.6518
+  },
+  {
+    "LGA_CODE19": "32810",
+    "LGA_NAME19": "Douglas (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 2427.8626
+  },
+  {
+    "LGA_CODE19": "33100",
+    "LGA_NAME19": "Etheridge (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 39199.2956
+  },
+  {
+    "LGA_CODE19": "33200",
+    "LGA_NAME19": "Flinders (S) (Qld)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 41199.9374
+  },
+  {
+    "LGA_CODE19": "33220",
+    "LGA_NAME19": "Fraser Coast (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 7104.5987
+  },
+  {
+    "LGA_CODE19": "33360",
+    "LGA_NAME19": "Gladstone (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 10484.2862
+  },
+  {
+    "LGA_CODE19": "33430",
+    "LGA_NAME19": "Gold Coast (C)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 1333.7031
+  },
+  {
+    "LGA_CODE19": "33610",
+    "LGA_NAME19": "Goondiwindi (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 19258.1008
+  },
+  {
+    "LGA_CODE19": "33620",
+    "LGA_NAME19": "Gympie (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 6883.9713
+  },
+  {
+    "LGA_CODE19": "33800",
+    "LGA_NAME19": "Hinchinbrook (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 2807.1889
+  },
+  {
+    "LGA_CODE19": "33830",
+    "LGA_NAME19": "Hope Vale (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 1111.7099
+  },
+  {
+    "LGA_CODE19": "33960",
+    "LGA_NAME19": "Ipswich (C)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 1093.857
+  },
+  {
+    "LGA_CODE19": "33980",
+    "LGA_NAME19": "Isaac (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 58707.9174
+  },
+  {
+    "LGA_CODE19": "34420",
+    "LGA_NAME19": "Kowanyama (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 2555.3325
+  },
+  {
+    "LGA_CODE19": "34530",
+    "LGA_NAME19": "Livingstone (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 11757.8683
+  },
+  {
+    "LGA_CODE19": "34570",
+    "LGA_NAME19": "Lockhart River (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 3575.4992
+  },
+  {
+    "LGA_CODE19": "34580",
+    "LGA_NAME19": "Lockyer Valley (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 2269.0053
+  },
+  {
+    "LGA_CODE19": "34590",
+    "LGA_NAME19": "Logan (C)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 958.1322
+  },
+  {
+    "LGA_CODE19": "34710",
+    "LGA_NAME19": "Longreach (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 40572.2443
+  },
+  {
+    "LGA_CODE19": "34770",
+    "LGA_NAME19": "Mackay (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 7613.2964
+  },
+  {
+    "LGA_CODE19": "34800",
+    "LGA_NAME19": "McKinlay (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 40736.7989
+  },
+  {
+    "LGA_CODE19": "34830",
+    "LGA_NAME19": "Mapoon (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 537.1003
+  },
+  {
+    "LGA_CODE19": "34860",
+    "LGA_NAME19": "Maranoa (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 58705.2524
+  },
+  {
+    "LGA_CODE19": "34880",
+    "LGA_NAME19": "Mareeba (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 53491.05
+  },
+  {
+    "LGA_CODE19": "35010",
+    "LGA_NAME19": "Moreton Bay (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 2041.4746
+  },
+  {
+    "LGA_CODE19": "35250",
+    "LGA_NAME19": "Mornington (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 1247.6932
+  },
+  {
+    "LGA_CODE19": "35300",
+    "LGA_NAME19": "Mount Isa (C)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 43713.0221
+  },
+  {
+    "LGA_CODE19": "35600",
+    "LGA_NAME19": "Murweh (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 40699.7585
+  },
+  {
+    "LGA_CODE19": "35670",
+    "LGA_NAME19": "Napranum (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 2004.3545
+  },
+  {
+    "LGA_CODE19": "35740",
+    "LGA_NAME19": "Noosa (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 869.8657
+  },
+  {
+    "LGA_CODE19": "35760",
+    "LGA_NAME19": "North Burnett (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 19669.8489
+  },
+  {
+    "LGA_CODE19": "35780",
+    "LGA_NAME19": "Northern Peninsula Area (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 1052.0676
+  },
+  {
+    "LGA_CODE19": "35790",
+    "LGA_NAME19": "Palm Island (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 71.9928
+  },
+  {
+    "LGA_CODE19": "35800",
+    "LGA_NAME19": "Paroo (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 47612.8774
+  },
+  {
+    "LGA_CODE19": "36070",
+    "LGA_NAME19": "Pormpuraaw (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 4395.3657
+  },
+  {
+    "LGA_CODE19": "36150",
+    "LGA_NAME19": "Quilpie (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 67414.6563
+  },
+  {
+    "LGA_CODE19": "36250",
+    "LGA_NAME19": "Redland (C)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 537.167
+  },
+  {
+    "LGA_CODE19": "36300",
+    "LGA_NAME19": "Richmond (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 26580.7478
+  },
+  {
+    "LGA_CODE19": "36370",
+    "LGA_NAME19": "Rockhampton (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 6570.2667
+  },
+  {
+    "LGA_CODE19": "36510",
+    "LGA_NAME19": "Scenic Rim (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 4242.7432
+  },
+  {
+    "LGA_CODE19": "36580",
+    "LGA_NAME19": "Somerset (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 5373.4337
+  },
+  {
+    "LGA_CODE19": "36630",
+    "LGA_NAME19": "South Burnett (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 8381.558
+  },
+  {
+    "LGA_CODE19": "36660",
+    "LGA_NAME19": "Southern Downs (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 7107.816
+  },
+  {
+    "LGA_CODE19": "36720",
+    "LGA_NAME19": "Sunshine Coast (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 2253.8526
+  },
+  {
+    "LGA_CODE19": "36820",
+    "LGA_NAME19": "Tablelands (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 11292.8698
+  },
+  {
+    "LGA_CODE19": "36910",
+    "LGA_NAME19": "Toowoomba (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 12957.2108
+  },
+  {
+    "LGA_CODE19": "36950",
+    "LGA_NAME19": "Torres (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 883.731
+  },
+  {
+    "LGA_CODE19": "36960",
+    "LGA_NAME19": "Torres Strait Island (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 490.031
+  },
+  {
+    "LGA_CODE19": "37010",
+    "LGA_NAME19": "Townsville (C)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 3730.82
+  },
+  {
+    "LGA_CODE19": "37300",
+    "LGA_NAME19": "Weipa (T)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 10.8218
+  },
+  {
+    "LGA_CODE19": "37310",
+    "LGA_NAME19": "Western Downs (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 37936.593
+  },
+  {
+    "LGA_CODE19": "37340",
+    "LGA_NAME19": "Whitsunday (R)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 23818.8922
+  },
+  {
+    "LGA_CODE19": "37400",
+    "LGA_NAME19": "Winton (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 53813.4826
+  },
+  {
+    "LGA_CODE19": "37550",
+    "LGA_NAME19": "Woorabinda (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 390.5578
+  },
+  {
+    "LGA_CODE19": "37570",
+    "LGA_NAME19": "Wujal Wujal (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 11.842
+  },
+  {
+    "LGA_CODE19": "37600",
+    "LGA_NAME19": "Yarrabah (S)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 158.8381
+  },
+  {
+    "LGA_CODE19": "39499",
+    "LGA_NAME19": "No usual address (Qld)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "39799",
+    "LGA_NAME19": "Migratory - Offshore - Shipping (Qld)",
+    "STE_CODE16": "3",
+    "STE_NAME16": "Queensland",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "40070",
+    "LGA_NAME19": "Adelaide (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 15.5733
+  },
+  {
+    "LGA_CODE19": "40120",
+    "LGA_NAME19": "Adelaide Hills (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 794.4957
+  },
+  {
+    "LGA_CODE19": "40150",
+    "LGA_NAME19": "Adelaide Plains (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 932.4913
+  },
+  {
+    "LGA_CODE19": "40220",
+    "LGA_NAME19": "Alexandrina (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 1826.8066
+  },
+  {
+    "LGA_CODE19": "40250",
+    "LGA_NAME19": "Anangu Pitjantjatjara (AC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 102353.0512
+  },
+  {
+    "LGA_CODE19": "40310",
+    "LGA_NAME19": "Barossa (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 893.5424
+  },
+  {
+    "LGA_CODE19": "40430",
+    "LGA_NAME19": "Barunga West (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 1590.3887
+  },
+  {
+    "LGA_CODE19": "40520",
+    "LGA_NAME19": "Berri and Barmera (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 476.1962
+  },
+  {
+    "LGA_CODE19": "40700",
+    "LGA_NAME19": "Burnside (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 27.5183
+  },
+  {
+    "LGA_CODE19": "40910",
+    "LGA_NAME19": "Campbelltown (C) (SA)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 24.3486
+  },
+  {
+    "LGA_CODE19": "41010",
+    "LGA_NAME19": "Ceduna (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 5420.3436
+  },
+  {
+    "LGA_CODE19": "41060",
+    "LGA_NAME19": "Charles Sturt (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 54.7876
+  },
+  {
+    "LGA_CODE19": "41140",
+    "LGA_NAME19": "Clare and Gilbert Valleys (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 1892.4466
+  },
+  {
+    "LGA_CODE19": "41190",
+    "LGA_NAME19": "Cleve (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 5018.8484
+  },
+  {
+    "LGA_CODE19": "41330",
+    "LGA_NAME19": "Coober Pedy (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 77.6795
+  },
+  {
+    "LGA_CODE19": "41560",
+    "LGA_NAME19": "Copper Coast (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 772.9149
+  },
+  {
+    "LGA_CODE19": "41750",
+    "LGA_NAME19": "Elliston (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 6741.9317
+  },
+  {
+    "LGA_CODE19": "41830",
+    "LGA_NAME19": "Flinders Ranges (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 4070.4827
+  },
+  {
+    "LGA_CODE19": "41960",
+    "LGA_NAME19": "Franklin Harbour (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 2755.564
+  },
+  {
+    "LGA_CODE19": "42030",
+    "LGA_NAME19": "Gawler (T)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 41.1379
+  },
+  {
+    "LGA_CODE19": "42110",
+    "LGA_NAME19": "Goyder (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 6715.1418
+  },
+  {
+    "LGA_CODE19": "42250",
+    "LGA_NAME19": "Grant (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 1898.0143
+  },
+  {
+    "LGA_CODE19": "42600",
+    "LGA_NAME19": "Holdfast Bay (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 13.752
+  },
+  {
+    "LGA_CODE19": "42750",
+    "LGA_NAME19": "Kangaroo Island (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 4400.8558
+  },
+  {
+    "LGA_CODE19": "43080",
+    "LGA_NAME19": "Karoonda East Murray (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 4415.7959
+  },
+  {
+    "LGA_CODE19": "43220",
+    "LGA_NAME19": "Kimba (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 5697.1076
+  },
+  {
+    "LGA_CODE19": "43360",
+    "LGA_NAME19": "Kingston (DC) (SA)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 3339.7952
+  },
+  {
+    "LGA_CODE19": "43650",
+    "LGA_NAME19": "Light (RegC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 1276.8453
+  },
+  {
+    "LGA_CODE19": "43710",
+    "LGA_NAME19": "Lower Eyre Peninsula (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 4721.2875
+  },
+  {
+    "LGA_CODE19": "43790",
+    "LGA_NAME19": "Loxton Waikerie (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 7763.9231
+  },
+  {
+    "LGA_CODE19": "44000",
+    "LGA_NAME19": "Maralinga Tjarutja (AC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 102703.899
+  },
+  {
+    "LGA_CODE19": "44060",
+    "LGA_NAME19": "Marion (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 55.6407
+  },
+  {
+    "LGA_CODE19": "44210",
+    "LGA_NAME19": "Mid Murray (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 6271.6254
+  },
+  {
+    "LGA_CODE19": "44340",
+    "LGA_NAME19": "Mitcham (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 75.5468
+  },
+  {
+    "LGA_CODE19": "44550",
+    "LGA_NAME19": "Mount Barker (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 594.6405
+  },
+  {
+    "LGA_CODE19": "44620",
+    "LGA_NAME19": "Mount Gambier (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 33.8938
+  },
+  {
+    "LGA_CODE19": "44830",
+    "LGA_NAME19": "Mount Remarkable (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 3422.7733
+  },
+  {
+    "LGA_CODE19": "45040",
+    "LGA_NAME19": "Murray Bridge (RC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 1831.7597
+  },
+  {
+    "LGA_CODE19": "45090",
+    "LGA_NAME19": "Naracoorte and Lucindale (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 4520.127
+  },
+  {
+    "LGA_CODE19": "45120",
+    "LGA_NAME19": "Northern Areas (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 2986.1818
+  },
+  {
+    "LGA_CODE19": "45290",
+    "LGA_NAME19": "Norwood Payneham St Peters (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 15.1036
+  },
+  {
+    "LGA_CODE19": "45340",
+    "LGA_NAME19": "Onkaparinga (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 518.1251
+  },
+  {
+    "LGA_CODE19": "45400",
+    "LGA_NAME19": "Orroroo/Carrieton (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 3321.8238
+  },
+  {
+    "LGA_CODE19": "45540",
+    "LGA_NAME19": "Peterborough (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 3020.142
+  },
+  {
+    "LGA_CODE19": "45680",
+    "LGA_NAME19": "Playford (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 345.203
+  },
+  {
+    "LGA_CODE19": "45890",
+    "LGA_NAME19": "Port Adelaide Enfield (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 91.7586
+  },
+  {
+    "LGA_CODE19": "46090",
+    "LGA_NAME19": "Port Augusta (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 1195.5836
+  },
+  {
+    "LGA_CODE19": "46300",
+    "LGA_NAME19": "Port Lincoln (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 30.3681
+  },
+  {
+    "LGA_CODE19": "46450",
+    "LGA_NAME19": "Port Pirie City and Dists (M)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 1760.7097
+  },
+  {
+    "LGA_CODE19": "46510",
+    "LGA_NAME19": "Prospect (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 7.7915
+  },
+  {
+    "LGA_CODE19": "46670",
+    "LGA_NAME19": "Renmark Paringa (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 915.8655
+  },
+  {
+    "LGA_CODE19": "46860",
+    "LGA_NAME19": "Robe (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 1091.7162
+  },
+  {
+    "LGA_CODE19": "46970",
+    "LGA_NAME19": "Roxby Downs (M)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 110.4762
+  },
+  {
+    "LGA_CODE19": "47140",
+    "LGA_NAME19": "Salisbury (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 159.8432
+  },
+  {
+    "LGA_CODE19": "47290",
+    "LGA_NAME19": "Southern Mallee (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 5702.2095
+  },
+  {
+    "LGA_CODE19": "47490",
+    "LGA_NAME19": "Streaky Bay (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 6222.8591
+  },
+  {
+    "LGA_CODE19": "47630",
+    "LGA_NAME19": "Tatiara (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 6527.2084
+  },
+  {
+    "LGA_CODE19": "47700",
+    "LGA_NAME19": "Tea Tree Gully (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 95.2108
+  },
+  {
+    "LGA_CODE19": "47800",
+    "LGA_NAME19": "The Coorong (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 8833.434
+  },
+  {
+    "LGA_CODE19": "47910",
+    "LGA_NAME19": "Tumby Bay (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 2669.0747
+  },
+  {
+    "LGA_CODE19": "47980",
+    "LGA_NAME19": "Unley (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 14.2703
+  },
+  {
+    "LGA_CODE19": "48050",
+    "LGA_NAME19": "Victor Harbor (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 384.6255
+  },
+  {
+    "LGA_CODE19": "48130",
+    "LGA_NAME19": "Wakefield (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 3468.4881
+  },
+  {
+    "LGA_CODE19": "48260",
+    "LGA_NAME19": "Walkerville (M)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 3.53
+  },
+  {
+    "LGA_CODE19": "48340",
+    "LGA_NAME19": "Wattle Range (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 3926.3233
+  },
+  {
+    "LGA_CODE19": "48410",
+    "LGA_NAME19": "West Torrens (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 37.04
+  },
+  {
+    "LGA_CODE19": "48540",
+    "LGA_NAME19": "Whyalla (C)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 1071.3398
+  },
+  {
+    "LGA_CODE19": "48640",
+    "LGA_NAME19": "Wudinna (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 5075.2783
+  },
+  {
+    "LGA_CODE19": "48750",
+    "LGA_NAME19": "Yankalilla (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 751.2577
+  },
+  {
+    "LGA_CODE19": "48830",
+    "LGA_NAME19": "Yorke Peninsula (DC)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 5899.6079
+  },
+  {
+    "LGA_CODE19": "49399",
+    "LGA_NAME19": "Unincorporated SA",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 622489.4848
+  },
+  {
+    "LGA_CODE19": "49499",
+    "LGA_NAME19": "No usual address (SA)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "49799",
+    "LGA_NAME19": "Migratory - Offshore - Shipping (SA)",
+    "STE_CODE16": "4",
+    "STE_NAME16": "South Australia",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "50080",
+    "LGA_NAME19": "Albany (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 4310.8905
+  },
+  {
+    "LGA_CODE19": "50210",
+    "LGA_NAME19": "Armadale (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 559.5261
+  },
+  {
+    "LGA_CODE19": "50250",
+    "LGA_NAME19": "Ashburton (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 100818.2074
+  },
+  {
+    "LGA_CODE19": "50280",
+    "LGA_NAME19": "Augusta-Margaret River (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2122.3749
+  },
+  {
+    "LGA_CODE19": "50350",
+    "LGA_NAME19": "Bassendean (T)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 10.3449
+  },
+  {
+    "LGA_CODE19": "50420",
+    "LGA_NAME19": "Bayswater (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 34.6168
+  },
+  {
+    "LGA_CODE19": "50490",
+    "LGA_NAME19": "Belmont (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 39.8246
+  },
+  {
+    "LGA_CODE19": "50560",
+    "LGA_NAME19": "Beverley (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2370.5195
+  },
+  {
+    "LGA_CODE19": "50630",
+    "LGA_NAME19": "Boddington (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1904.4791
+  },
+  {
+    "LGA_CODE19": "50770",
+    "LGA_NAME19": "Boyup Brook (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2826.4586
+  },
+  {
+    "LGA_CODE19": "50840",
+    "LGA_NAME19": "Bridgetown-Greenbushes (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1337.361
+  },
+  {
+    "LGA_CODE19": "50910",
+    "LGA_NAME19": "Brookton (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1601.1532
+  },
+  {
+    "LGA_CODE19": "50980",
+    "LGA_NAME19": "Broome (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 54401.8236
+  },
+  {
+    "LGA_CODE19": "51080",
+    "LGA_NAME19": "Broomehill-Tambellup (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2609.6585
+  },
+  {
+    "LGA_CODE19": "51120",
+    "LGA_NAME19": "Bruce Rock (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2724.6944
+  },
+  {
+    "LGA_CODE19": "51190",
+    "LGA_NAME19": "Bunbury (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 65.4163
+  },
+  {
+    "LGA_CODE19": "51260",
+    "LGA_NAME19": "Busselton (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1454.0505
+  },
+  {
+    "LGA_CODE19": "51310",
+    "LGA_NAME19": "Cambridge (T)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 21.9554
+  },
+  {
+    "LGA_CODE19": "51330",
+    "LGA_NAME19": "Canning (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 64.8789
+  },
+  {
+    "LGA_CODE19": "51400",
+    "LGA_NAME19": "Capel (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 557.8983
+  },
+  {
+    "LGA_CODE19": "51470",
+    "LGA_NAME19": "Carnamah (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2870.9247
+  },
+  {
+    "LGA_CODE19": "51540",
+    "LGA_NAME19": "Carnarvon (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 46574.6082
+  },
+  {
+    "LGA_CODE19": "51610",
+    "LGA_NAME19": "Chapman Valley (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 3981.3333
+  },
+  {
+    "LGA_CODE19": "51680",
+    "LGA_NAME19": "Chittering (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1219.9032
+  },
+  {
+    "LGA_CODE19": "51750",
+    "LGA_NAME19": "Claremont (T)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 4.9556
+  },
+  {
+    "LGA_CODE19": "51820",
+    "LGA_NAME19": "Cockburn (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 167.8989
+  },
+  {
+    "LGA_CODE19": "51890",
+    "LGA_NAME19": "Collie (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1709.8149
+  },
+  {
+    "LGA_CODE19": "51960",
+    "LGA_NAME19": "Coolgardie (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 30297.6977
+  },
+  {
+    "LGA_CODE19": "52030",
+    "LGA_NAME19": "Coorow (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 4189.8791
+  },
+  {
+    "LGA_CODE19": "52100",
+    "LGA_NAME19": "Corrigin (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2681.2709
+  },
+  {
+    "LGA_CODE19": "52170",
+    "LGA_NAME19": "Cottesloe (T)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 3.8564
+  },
+  {
+    "LGA_CODE19": "52240",
+    "LGA_NAME19": "Cranbrook (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 3276.0491
+  },
+  {
+    "LGA_CODE19": "52310",
+    "LGA_NAME19": "Cuballing (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1195.337
+  },
+  {
+    "LGA_CODE19": "52380",
+    "LGA_NAME19": "Cue (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 13582.1956
+  },
+  {
+    "LGA_CODE19": "52450",
+    "LGA_NAME19": "Cunderdin (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1862.4458
+  },
+  {
+    "LGA_CODE19": "52520",
+    "LGA_NAME19": "Dalwallinu (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 7224.3566
+  },
+  {
+    "LGA_CODE19": "52590",
+    "LGA_NAME19": "Dandaragan (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 6711.5721
+  },
+  {
+    "LGA_CODE19": "52660",
+    "LGA_NAME19": "Dardanup (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 525.8017
+  },
+  {
+    "LGA_CODE19": "52730",
+    "LGA_NAME19": "Denmark (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1859.8488
+  },
+  {
+    "LGA_CODE19": "52800",
+    "LGA_NAME19": "Derby-West Kimberley (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 119730.9697
+  },
+  {
+    "LGA_CODE19": "52870",
+    "LGA_NAME19": "Donnybrook-Balingup (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1559.8561
+  },
+  {
+    "LGA_CODE19": "52940",
+    "LGA_NAME19": "Dowerin (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1863.0851
+  },
+  {
+    "LGA_CODE19": "53010",
+    "LGA_NAME19": "Dumbleyung (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2539.2249
+  },
+  {
+    "LGA_CODE19": "53080",
+    "LGA_NAME19": "Dundas (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 92885.0302
+  },
+  {
+    "LGA_CODE19": "53150",
+    "LGA_NAME19": "East Fremantle (T)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 3.1384
+  },
+  {
+    "LGA_CODE19": "53220",
+    "LGA_NAME19": "East Pilbara (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 372307.466
+  },
+  {
+    "LGA_CODE19": "53290",
+    "LGA_NAME19": "Esperance (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 44797.5456
+  },
+  {
+    "LGA_CODE19": "53360",
+    "LGA_NAME19": "Exmouth (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 6488.0705
+  },
+  {
+    "LGA_CODE19": "53430",
+    "LGA_NAME19": "Fremantle (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 19.0103
+  },
+  {
+    "LGA_CODE19": "53570",
+    "LGA_NAME19": "Gingin (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 3208.3585
+  },
+  {
+    "LGA_CODE19": "53640",
+    "LGA_NAME19": "Gnowangerup (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 4265.0424
+  },
+  {
+    "LGA_CODE19": "53710",
+    "LGA_NAME19": "Goomalling (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1835.4294
+  },
+  {
+    "LGA_CODE19": "53780",
+    "LGA_NAME19": "Gosnells (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 127.2975
+  },
+  {
+    "LGA_CODE19": "53800",
+    "LGA_NAME19": "Greater Geraldton (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 9909.0003
+  },
+  {
+    "LGA_CODE19": "53920",
+    "LGA_NAME19": "Halls Creek (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 133061.0128
+  },
+  {
+    "LGA_CODE19": "53990",
+    "LGA_NAME19": "Harvey (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1727.6068
+  },
+  {
+    "LGA_CODE19": "54060",
+    "LGA_NAME19": "Irwin (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2369.3298
+  },
+  {
+    "LGA_CODE19": "54130",
+    "LGA_NAME19": "Jerramungup (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 6508.5904
+  },
+  {
+    "LGA_CODE19": "54170",
+    "LGA_NAME19": "Joondalup (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 98.9285
+  },
+  {
+    "LGA_CODE19": "54200",
+    "LGA_NAME19": "Kalamunda (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 324.2957
+  },
+  {
+    "LGA_CODE19": "54280",
+    "LGA_NAME19": "Kalgoorlie/Boulder (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 95498.052
+  },
+  {
+    "LGA_CODE19": "54310",
+    "LGA_NAME19": "Karratha (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 15237.3974
+  },
+  {
+    "LGA_CODE19": "54340",
+    "LGA_NAME19": "Katanning (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1518.1854
+  },
+  {
+    "LGA_CODE19": "54410",
+    "LGA_NAME19": "Kellerberrin (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1915.433
+  },
+  {
+    "LGA_CODE19": "54480",
+    "LGA_NAME19": "Kent (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 5624.5818
+  },
+  {
+    "LGA_CODE19": "54550",
+    "LGA_NAME19": "Kojonup (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2930.9926
+  },
+  {
+    "LGA_CODE19": "54620",
+    "LGA_NAME19": "Kondinin (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 7440.8016
+  },
+  {
+    "LGA_CODE19": "54690",
+    "LGA_NAME19": "Koorda (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2832.3131
+  },
+  {
+    "LGA_CODE19": "54760",
+    "LGA_NAME19": "Kulin (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 4718.9219
+  },
+  {
+    "LGA_CODE19": "54830",
+    "LGA_NAME19": "Kwinana (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 120.0121
+  },
+  {
+    "LGA_CODE19": "54900",
+    "LGA_NAME19": "Lake Grace (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 11886.3199
+  },
+  {
+    "LGA_CODE19": "54970",
+    "LGA_NAME19": "Laverton (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 179984.601
+  },
+  {
+    "LGA_CODE19": "55040",
+    "LGA_NAME19": "Leonora (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 31915.0562
+  },
+  {
+    "LGA_CODE19": "55110",
+    "LGA_NAME19": "Mandurah (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 174.8967
+  },
+  {
+    "LGA_CODE19": "55180",
+    "LGA_NAME19": "Manjimup (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 7029.6077
+  },
+  {
+    "LGA_CODE19": "55250",
+    "LGA_NAME19": "Meekatharra (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 100188.5477
+  },
+  {
+    "LGA_CODE19": "55320",
+    "LGA_NAME19": "Melville (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 52.8506
+  },
+  {
+    "LGA_CODE19": "55390",
+    "LGA_NAME19": "Menzies (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 124110.9368
+  },
+  {
+    "LGA_CODE19": "55460",
+    "LGA_NAME19": "Merredin (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 3293.7824
+  },
+  {
+    "LGA_CODE19": "55530",
+    "LGA_NAME19": "Mingenew (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1934.8857
+  },
+  {
+    "LGA_CODE19": "55600",
+    "LGA_NAME19": "Moora (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 3763.0254
+  },
+  {
+    "LGA_CODE19": "55670",
+    "LGA_NAME19": "Morawa (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 3510.5928
+  },
+  {
+    "LGA_CODE19": "55740",
+    "LGA_NAME19": "Mosman Park (T)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 4.3472
+  },
+  {
+    "LGA_CODE19": "55810",
+    "LGA_NAME19": "Mount Magnet (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 13858.1182
+  },
+  {
+    "LGA_CODE19": "55880",
+    "LGA_NAME19": "Mount Marshall (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 10184.5937
+  },
+  {
+    "LGA_CODE19": "55950",
+    "LGA_NAME19": "Mukinbudin (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 3426.9441
+  },
+  {
+    "LGA_CODE19": "56090",
+    "LGA_NAME19": "Mundaring (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 643.2013
+  },
+  {
+    "LGA_CODE19": "56160",
+    "LGA_NAME19": "Murchison (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 45046.0922
+  },
+  {
+    "LGA_CODE19": "56230",
+    "LGA_NAME19": "Murray (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1703.4688
+  },
+  {
+    "LGA_CODE19": "56300",
+    "LGA_NAME19": "Nannup (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 3053.9361
+  },
+  {
+    "LGA_CODE19": "56370",
+    "LGA_NAME19": "Narembeen (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 3809.0285
+  },
+  {
+    "LGA_CODE19": "56460",
+    "LGA_NAME19": "Narrogin (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1631.3024
+  },
+  {
+    "LGA_CODE19": "56580",
+    "LGA_NAME19": "Nedlands (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 19.645
+  },
+  {
+    "LGA_CODE19": "56620",
+    "LGA_NAME19": "Ngaanyatjarraku (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 159821.7026
+  },
+  {
+    "LGA_CODE19": "56730",
+    "LGA_NAME19": "Northam (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1431.2215
+  },
+  {
+    "LGA_CODE19": "56790",
+    "LGA_NAME19": "Northampton (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 12543.7142
+  },
+  {
+    "LGA_CODE19": "56860",
+    "LGA_NAME19": "Nungarin (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1166.0245
+  },
+  {
+    "LGA_CODE19": "56930",
+    "LGA_NAME19": "Peppermint Grove (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1.0677
+  },
+  {
+    "LGA_CODE19": "57000",
+    "LGA_NAME19": "Perenjori (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 8301.3551
+  },
+  {
+    "LGA_CODE19": "57080",
+    "LGA_NAME19": "Perth (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 13.7193
+  },
+  {
+    "LGA_CODE19": "57140",
+    "LGA_NAME19": "Pingelly (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1294.5721
+  },
+  {
+    "LGA_CODE19": "57210",
+    "LGA_NAME19": "Plantagenet (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 4876.6821
+  },
+  {
+    "LGA_CODE19": "57280",
+    "LGA_NAME19": "Port Hedland (T)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 18417.0777
+  },
+  {
+    "LGA_CODE19": "57350",
+    "LGA_NAME19": "Quairading (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2016.9269
+  },
+  {
+    "LGA_CODE19": "57420",
+    "LGA_NAME19": "Ravensthorpe (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 9841.7503
+  },
+  {
+    "LGA_CODE19": "57490",
+    "LGA_NAME19": "Rockingham (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 257.497
+  },
+  {
+    "LGA_CODE19": "57630",
+    "LGA_NAME19": "Sandstone (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 32605.2911
+  },
+  {
+    "LGA_CODE19": "57700",
+    "LGA_NAME19": "Serpentine-Jarrahdale (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 901.2056
+  },
+  {
+    "LGA_CODE19": "57770",
+    "LGA_NAME19": "Shark Bay (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 24201.2466
+  },
+  {
+    "LGA_CODE19": "57840",
+    "LGA_NAME19": "South Perth (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 19.8116
+  },
+  {
+    "LGA_CODE19": "57910",
+    "LGA_NAME19": "Stirling (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 104.727
+  },
+  {
+    "LGA_CODE19": "57980",
+    "LGA_NAME19": "Subiaco (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 5.6182
+  },
+  {
+    "LGA_CODE19": "58050",
+    "LGA_NAME19": "Swan (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1042.9933
+  },
+  {
+    "LGA_CODE19": "58190",
+    "LGA_NAME19": "Tammin (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1101.692
+  },
+  {
+    "LGA_CODE19": "58260",
+    "LGA_NAME19": "Three Springs (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2656.6928
+  },
+  {
+    "LGA_CODE19": "58330",
+    "LGA_NAME19": "Toodyay (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1691.6486
+  },
+  {
+    "LGA_CODE19": "58400",
+    "LGA_NAME19": "Trayning (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1651.2043
+  },
+  {
+    "LGA_CODE19": "58470",
+    "LGA_NAME19": "Upper Gascoyne (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 57809.8737
+  },
+  {
+    "LGA_CODE19": "58510",
+    "LGA_NAME19": "Victoria Park (T)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 17.9397
+  },
+  {
+    "LGA_CODE19": "58540",
+    "LGA_NAME19": "Victoria Plains (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2551.0132
+  },
+  {
+    "LGA_CODE19": "58570",
+    "LGA_NAME19": "Vincent (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 11.3769
+  },
+  {
+    "LGA_CODE19": "58610",
+    "LGA_NAME19": "Wagin (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1946.1763
+  },
+  {
+    "LGA_CODE19": "58680",
+    "LGA_NAME19": "Wandering (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1903.8645
+  },
+  {
+    "LGA_CODE19": "58760",
+    "LGA_NAME19": "Wanneroo (C)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 683.2603
+  },
+  {
+    "LGA_CODE19": "58820",
+    "LGA_NAME19": "Waroona (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 832.2286
+  },
+  {
+    "LGA_CODE19": "58890",
+    "LGA_NAME19": "West Arthur (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2831.8272
+  },
+  {
+    "LGA_CODE19": "59030",
+    "LGA_NAME19": "Westonia (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 3319.4497
+  },
+  {
+    "LGA_CODE19": "59100",
+    "LGA_NAME19": "Wickepin (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2040.8985
+  },
+  {
+    "LGA_CODE19": "59170",
+    "LGA_NAME19": "Williams (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2304.7119
+  },
+  {
+    "LGA_CODE19": "59250",
+    "LGA_NAME19": "Wiluna (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 181297.3382
+  },
+  {
+    "LGA_CODE19": "59310",
+    "LGA_NAME19": "Wongan-Ballidu (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 3365.0675
+  },
+  {
+    "LGA_CODE19": "59320",
+    "LGA_NAME19": "Woodanilling (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1128.8348
+  },
+  {
+    "LGA_CODE19": "59330",
+    "LGA_NAME19": "Wyalkatchem (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 1594.4885
+  },
+  {
+    "LGA_CODE19": "59340",
+    "LGA_NAME19": "Wyndham-East Kimberley (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 112065.9843
+  },
+  {
+    "LGA_CODE19": "59350",
+    "LGA_NAME19": "Yalgoo (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 27949.4641
+  },
+  {
+    "LGA_CODE19": "59360",
+    "LGA_NAME19": "Yilgarn (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 30428.765
+  },
+  {
+    "LGA_CODE19": "59370",
+    "LGA_NAME19": "York (S)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 2131.5916
+  },
+  {
+    "LGA_CODE19": "59499",
+    "LGA_NAME19": "No usual address (WA)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "59799",
+    "LGA_NAME19": "Migratory - Offshore - Shipping (WA)",
+    "STE_CODE16": "5",
+    "STE_NAME16": "Western Australia",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "60210",
+    "LGA_NAME19": "Break O'Day (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 3523.8859
+  },
+  {
+    "LGA_CODE19": "60410",
+    "LGA_NAME19": "Brighton (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 171.1508
+  },
+  {
+    "LGA_CODE19": "60610",
+    "LGA_NAME19": "Burnie (C)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 610.9529
+  },
+  {
+    "LGA_CODE19": "60810",
+    "LGA_NAME19": "Central Coast (M) (Tas.)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 933.0892
+  },
+  {
+    "LGA_CODE19": "61010",
+    "LGA_NAME19": "Central Highlands (M) (Tas.)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 7982.4155
+  },
+  {
+    "LGA_CODE19": "61210",
+    "LGA_NAME19": "Circular Head (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 4898.011
+  },
+  {
+    "LGA_CODE19": "61410",
+    "LGA_NAME19": "Clarence (C)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 377.9552
+  },
+  {
+    "LGA_CODE19": "61510",
+    "LGA_NAME19": "Derwent Valley (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 4108.1112
+  },
+  {
+    "LGA_CODE19": "61610",
+    "LGA_NAME19": "Devonport (C)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 111.259
+  },
+  {
+    "LGA_CODE19": "61810",
+    "LGA_NAME19": "Dorset (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 3230.5456
+  },
+  {
+    "LGA_CODE19": "62010",
+    "LGA_NAME19": "Flinders (M) (Tas.)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 1996.6244
+  },
+  {
+    "LGA_CODE19": "62210",
+    "LGA_NAME19": "George Town (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 653.4377
+  },
+  {
+    "LGA_CODE19": "62410",
+    "LGA_NAME19": "Glamorgan/Spring Bay (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 2591.5618
+  },
+  {
+    "LGA_CODE19": "62610",
+    "LGA_NAME19": "Glenorchy (C)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 121.1483
+  },
+  {
+    "LGA_CODE19": "62810",
+    "LGA_NAME19": "Hobart (C)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 77.9097
+  },
+  {
+    "LGA_CODE19": "63010",
+    "LGA_NAME19": "Huon Valley (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 5507.3541
+  },
+  {
+    "LGA_CODE19": "63210",
+    "LGA_NAME19": "Kentish (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 1156.1887
+  },
+  {
+    "LGA_CODE19": "63410",
+    "LGA_NAME19": "King Island (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 1095.7407
+  },
+  {
+    "LGA_CODE19": "63610",
+    "LGA_NAME19": "Kingborough (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 720.1029
+  },
+  {
+    "LGA_CODE19": "63810",
+    "LGA_NAME19": "Latrobe (M) (Tas.)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 600.4617
+  },
+  {
+    "LGA_CODE19": "64010",
+    "LGA_NAME19": "Launceston (C)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 1413.6306
+  },
+  {
+    "LGA_CODE19": "64210",
+    "LGA_NAME19": "Meander Valley (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 3330.8145
+  },
+  {
+    "LGA_CODE19": "64610",
+    "LGA_NAME19": "Northern Midlands (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 5135.2503
+  },
+  {
+    "LGA_CODE19": "64810",
+    "LGA_NAME19": "Sorell (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 583.7776
+  },
+  {
+    "LGA_CODE19": "65010",
+    "LGA_NAME19": "Southern Midlands (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 2615.4934
+  },
+  {
+    "LGA_CODE19": "65210",
+    "LGA_NAME19": "Tasman (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 660.3947
+  },
+  {
+    "LGA_CODE19": "65410",
+    "LGA_NAME19": "Waratah/Wynyard (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 3535.9075
+  },
+  {
+    "LGA_CODE19": "65610",
+    "LGA_NAME19": "West Coast (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 9583.5388
+  },
+  {
+    "LGA_CODE19": "65810",
+    "LGA_NAME19": "West Tamar (M)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 691.147
+  },
+  {
+    "LGA_CODE19": "69499",
+    "LGA_NAME19": "No usual address (Tas.)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "69799",
+    "LGA_NAME19": "Migratory - Offshore - Shipping (Tas.)",
+    "STE_CODE16": "6",
+    "STE_NAME16": "Tasmania",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "70200",
+    "LGA_NAME19": "Alice Springs (T)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 327.7133
+  },
+  {
+    "LGA_CODE19": "70420",
+    "LGA_NAME19": "Barkly (R)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 322713.2188
+  },
+  {
+    "LGA_CODE19": "70540",
+    "LGA_NAME19": "Belyuen (S)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 41.4054
+  },
+  {
+    "LGA_CODE19": "70620",
+    "LGA_NAME19": "Central Desert (R)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 281312.0262
+  },
+  {
+    "LGA_CODE19": "70700",
+    "LGA_NAME19": "Coomalie (S)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 2056.0547
+  },
+  {
+    "LGA_CODE19": "71000",
+    "LGA_NAME19": "Darwin (C)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 111.318
+  },
+  {
+    "LGA_CODE19": "71300",
+    "LGA_NAME19": "East Arnhem (R)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 33309.9334
+  },
+  {
+    "LGA_CODE19": "72200",
+    "LGA_NAME19": "Katherine (T)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 7416.6444
+  },
+  {
+    "LGA_CODE19": "72300",
+    "LGA_NAME19": "Litchfield (M)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 2903.1459
+  },
+  {
+    "LGA_CODE19": "72330",
+    "LGA_NAME19": "MacDonnell (R)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 268329.3474
+  },
+  {
+    "LGA_CODE19": "72800",
+    "LGA_NAME19": "Palmerston (C)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 52.6559
+  },
+  {
+    "LGA_CODE19": "73600",
+    "LGA_NAME19": "Roper Gulf (R)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 185210.2475
+  },
+  {
+    "LGA_CODE19": "74050",
+    "LGA_NAME19": "Tiwi Islands (R)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 7483.1661
+  },
+  {
+    "LGA_CODE19": "74550",
+    "LGA_NAME19": "Victoria Daly (R)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 153287.0839
+  },
+  {
+    "LGA_CODE19": "74560",
+    "LGA_NAME19": "Wagait (S)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 5.6378
+  },
+  {
+    "LGA_CODE19": "74660",
+    "LGA_NAME19": "West Arnhem (R)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 49675.0343
+  },
+  {
+    "LGA_CODE19": "74680",
+    "LGA_NAME19": "West Daly (R)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 14069.6979
+  },
+  {
+    "LGA_CODE19": "79399",
+    "LGA_NAME19": "Unincorporated NT",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 19789.9972
+  },
+  {
+    "LGA_CODE19": "79499",
+    "LGA_NAME19": "No usual address (NT)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "79799",
+    "LGA_NAME19": "Migratory - Offshore - Shipping (NT)",
+    "STE_CODE16": "7",
+    "STE_NAME16": "Northern Territory",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "89399",
+    "LGA_NAME19": "Unincorporated ACT",
+    "STE_CODE16": "8",
+    "STE_NAME16": "Australian Capital Territory",
+    "AREASQKM19": 2358.172
+  },
+  {
+    "LGA_CODE19": "89499",
+    "LGA_NAME19": "No usual address (ACT)",
+    "STE_CODE16": "8",
+    "STE_NAME16": "Australian Capital Territory",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "89799",
+    "LGA_NAME19": "Migratory - Offshore - Shipping (ACT)",
+    "STE_CODE16": "8",
+    "STE_NAME16": "Australian Capital Territory",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "99399",
+    "LGA_NAME19": "Unincorp. Other Territories",
+    "STE_CODE16": "9",
+    "STE_NAME16": "Other Territories",
+    "AREASQKM19": 256.3162
+  },
+  {
+    "LGA_CODE19": "99499",
+    "LGA_NAME19": "No usual address (OT)",
+    "STE_CODE16": "9",
+    "STE_NAME16": "Other Territories",
+    "AREASQKM19": 0.0
+  },
+  {
+    "LGA_CODE19": "99799",
+    "LGA_NAME19": "Migratory - Offshore - Shipping (OT)",
+    "STE_CODE16": "9",
+    "STE_NAME16": "Other Territories",
+    "AREASQKM19": 0.0
+  }
+]
