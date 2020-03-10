@@ -1,0 +1,2252 @@
+[
+  {
+    "SED_CODE19": "10001",
+    "SED_NAME19": "Albury",
+    "AREASQKM19": 19487.8332
+  },
+  {
+    "SED_CODE19": "10002",
+    "SED_NAME19": "Auburn",
+    "AREASQKM19": 38.881
+  },
+  {
+    "SED_CODE19": "10003",
+    "SED_NAME19": "Ballina",
+    "AREASQKM19": 1048.6389
+  },
+  {
+    "SED_CODE19": "10004",
+    "SED_NAME19": "Balmain",
+    "AREASQKM19": 13.16
+  },
+  {
+    "SED_CODE19": "10005",
+    "SED_NAME19": "Bankstown",
+    "AREASQKM19": 27.3251
+  },
+  {
+    "SED_CODE19": "10006",
+    "SED_NAME19": "Barwon",
+    "AREASQKM19": 355116.039
+  },
+  {
+    "SED_CODE19": "10007",
+    "SED_NAME19": "Bathurst",
+    "AREASQKM19": 15512.7886
+  },
+  {
+    "SED_CODE19": "10008",
+    "SED_NAME19": "Baulkham Hills",
+    "AREASQKM19": 41.754
+  },
+  {
+    "SED_CODE19": "10009",
+    "SED_NAME19": "Bega",
+    "AREASQKM19": 9614.2214
+  },
+  {
+    "SED_CODE19": "10010",
+    "SED_NAME19": "Blacktown",
+    "AREASQKM19": 34.4746
+  },
+  {
+    "SED_CODE19": "10011",
+    "SED_NAME19": "Blue Mountains",
+    "AREASQKM19": 984.2531
+  },
+  {
+    "SED_CODE19": "10012",
+    "SED_NAME19": "Cabramatta",
+    "AREASQKM19": 25.6886
+  },
+  {
+    "SED_CODE19": "10013",
+    "SED_NAME19": "Camden",
+    "AREASQKM19": 324.1806
+  },
+  {
+    "SED_CODE19": "10014",
+    "SED_NAME19": "Campbelltown",
+    "AREASQKM19": 254.013
+  },
+  {
+    "SED_CODE19": "10015",
+    "SED_NAME19": "Canterbury",
+    "AREASQKM19": 20.8537
+  },
+  {
+    "SED_CODE19": "10016",
+    "SED_NAME19": "Castle Hill",
+    "AREASQKM19": 96.9062
+  },
+  {
+    "SED_CODE19": "10017",
+    "SED_NAME19": "Cessnock",
+    "AREASQKM19": 3623.9595
+  },
+  {
+    "SED_CODE19": "10018",
+    "SED_NAME19": "Charlestown",
+    "AREASQKM19": 56.3787
+  },
+  {
+    "SED_CODE19": "10019",
+    "SED_NAME19": "Clarence",
+    "AREASQKM19": 13516.6974
+  },
+  {
+    "SED_CODE19": "10020",
+    "SED_NAME19": "Coffs Harbour",
+    "AREASQKM19": 1152.8329
+  },
+  {
+    "SED_CODE19": "10021",
+    "SED_NAME19": "Coogee",
+    "AREASQKM19": 12.7077
+  },
+  {
+    "SED_CODE19": "10022",
+    "SED_NAME19": "Cootamundra",
+    "AREASQKM19": 34037.3597
+  },
+  {
+    "SED_CODE19": "10023",
+    "SED_NAME19": "Cronulla",
+    "AREASQKM19": 43.0566
+  },
+  {
+    "SED_CODE19": "10024",
+    "SED_NAME19": "Davidson",
+    "AREASQKM19": 79.9194
+  },
+  {
+    "SED_CODE19": "10025",
+    "SED_NAME19": "Drummoyne",
+    "AREASQKM19": 18.4338
+  },
+  {
+    "SED_CODE19": "10026",
+    "SED_NAME19": "Dubbo",
+    "AREASQKM19": 18769.8067
+  },
+  {
+    "SED_CODE19": "10027",
+    "SED_NAME19": "East Hills",
+    "AREASQKM19": 38.785
+  },
+  {
+    "SED_CODE19": "10028",
+    "SED_NAME19": "Epping",
+    "AREASQKM19": 31.4586
+  },
+  {
+    "SED_CODE19": "10029",
+    "SED_NAME19": "Fairfield",
+    "AREASQKM19": 26.4268
+  },
+  {
+    "SED_CODE19": "10030",
+    "SED_NAME19": "Gosford",
+    "AREASQKM19": 800.2876
+  },
+  {
+    "SED_CODE19": "10031",
+    "SED_NAME19": "Goulburn",
+    "AREASQKM19": 19407.5951
+  },
+  {
+    "SED_CODE19": "10032",
+    "SED_NAME19": "Granville",
+    "AREASQKM19": 22.642
+  },
+  {
+    "SED_CODE19": "10033",
+    "SED_NAME19": "Hawkesbury",
+    "AREASQKM19": 2951.6895
+  },
+  {
+    "SED_CODE19": "10034",
+    "SED_NAME19": "Heathcote",
+    "AREASQKM19": 359.5177
+  },
+  {
+    "SED_CODE19": "10035",
+    "SED_NAME19": "Heffron",
+    "AREASQKM19": 33.4851
+  },
+  {
+    "SED_CODE19": "10036",
+    "SED_NAME19": "Holsworthy",
+    "AREASQKM19": 129.8925
+  },
+  {
+    "SED_CODE19": "10037",
+    "SED_NAME19": "Hornsby",
+    "AREASQKM19": 357.7052
+  },
+  {
+    "SED_CODE19": "10038",
+    "SED_NAME19": "Keira",
+    "AREASQKM19": 62.9657
+  },
+  {
+    "SED_CODE19": "10039",
+    "SED_NAME19": "Kiama",
+    "AREASQKM19": 1302.6002
+  },
+  {
+    "SED_CODE19": "10040",
+    "SED_NAME19": "Kogarah",
+    "AREASQKM19": 17.7181
+  },
+  {
+    "SED_CODE19": "10041",
+    "SED_NAME19": "Ku-ring-gai",
+    "AREASQKM19": 52.3634
+  },
+  {
+    "SED_CODE19": "10042",
+    "SED_NAME19": "Lake Macquarie",
+    "AREASQKM19": 493.6098
+  },
+  {
+    "SED_CODE19": "10043",
+    "SED_NAME19": "Lakemba",
+    "AREASQKM19": 23.5142
+  },
+  {
+    "SED_CODE19": "10044",
+    "SED_NAME19": "Lane Cove",
+    "AREASQKM19": 30.6751
+  },
+  {
+    "SED_CODE19": "10045",
+    "SED_NAME19": "Lismore",
+    "AREASQKM19": 12972.2849
+  },
+  {
+    "SED_CODE19": "10046",
+    "SED_NAME19": "Liverpool",
+    "AREASQKM19": 28.8106
+  },
+  {
+    "SED_CODE19": "10047",
+    "SED_NAME19": "Londonderry",
+    "AREASQKM19": 183.4197
+  },
+  {
+    "SED_CODE19": "10048",
+    "SED_NAME19": "Macquarie Fields",
+    "AREASQKM19": 89.6583
+  },
+  {
+    "SED_CODE19": "10049",
+    "SED_NAME19": "Maitland",
+    "AREASQKM19": 388.5305
+  },
+  {
+    "SED_CODE19": "10050",
+    "SED_NAME19": "Manly",
+    "AREASQKM19": 24.7936
+  },
+  {
+    "SED_CODE19": "10051",
+    "SED_NAME19": "Maroubra",
+    "AREASQKM19": 32.9889
+  },
+  {
+    "SED_CODE19": "10052",
+    "SED_NAME19": "Miranda",
+    "AREASQKM19": 30.7935
+  },
+  {
+    "SED_CODE19": "10053",
+    "SED_NAME19": "Monaro",
+    "AREASQKM19": 20033.4836
+  },
+  {
+    "SED_CODE19": "10054",
+    "SED_NAME19": "Mount Druitt",
+    "AREASQKM19": 36.6374
+  },
+  {
+    "SED_CODE19": "10055",
+    "SED_NAME19": "Mulgoa",
+    "AREASQKM19": 273.1127
+  },
+  {
+    "SED_CODE19": "10056",
+    "SED_NAME19": "Murray",
+    "AREASQKM19": 107704.73
+  },
+  {
+    "SED_CODE19": "10057",
+    "SED_NAME19": "Myall Lakes",
+    "AREASQKM19": 4931.3609
+  },
+  {
+    "SED_CODE19": "10058",
+    "SED_NAME19": "Newcastle",
+    "AREASQKM19": 94.6485
+  },
+  {
+    "SED_CODE19": "10059",
+    "SED_NAME19": "Newtown",
+    "AREASQKM19": 10.247
+  },
+  {
+    "SED_CODE19": "10060",
+    "SED_NAME19": "North Shore",
+    "AREASQKM19": 15.6636
+  },
+  {
+    "SED_CODE19": "10061",
+    "SED_NAME19": "Northern Tablelands",
+    "AREASQKM19": 52779.4935
+  },
+  {
+    "SED_CODE19": "10062",
+    "SED_NAME19": "Oatley",
+    "AREASQKM19": 24.11
+  },
+  {
+    "SED_CODE19": "10063",
+    "SED_NAME19": "Orange",
+    "AREASQKM19": 16963.1441
+  },
+  {
+    "SED_CODE19": "10064",
+    "SED_NAME19": "Oxley",
+    "AREASQKM19": 9734.5532
+  },
+  {
+    "SED_CODE19": "10065",
+    "SED_NAME19": "Parramatta",
+    "AREASQKM19": 36.0996
+  },
+  {
+    "SED_CODE19": "10066",
+    "SED_NAME19": "Penrith",
+    "AREASQKM19": 76.0441
+  },
+  {
+    "SED_CODE19": "10067",
+    "SED_NAME19": "Pittwater",
+    "AREASQKM19": 151.7301
+  },
+  {
+    "SED_CODE19": "10068",
+    "SED_NAME19": "Port Macquarie",
+    "AREASQKM19": 1453.8935
+  },
+  {
+    "SED_CODE19": "10069",
+    "SED_NAME19": "Port Stephens",
+    "AREASQKM19": 1071.9768
+  },
+  {
+    "SED_CODE19": "10070",
+    "SED_NAME19": "Prospect",
+    "AREASQKM19": 71.7465
+  },
+  {
+    "SED_CODE19": "10071",
+    "SED_NAME19": "Riverstone",
+    "AREASQKM19": 74.6089
+  },
+  {
+    "SED_CODE19": "10072",
+    "SED_NAME19": "Rockdale",
+    "AREASQKM19": 21.1994
+  },
+  {
+    "SED_CODE19": "10073",
+    "SED_NAME19": "Ryde",
+    "AREASQKM19": 28.5572
+  },
+  {
+    "SED_CODE19": "10074",
+    "SED_NAME19": "Seven Hills",
+    "AREASQKM19": 31.6745
+  },
+  {
+    "SED_CODE19": "10075",
+    "SED_NAME19": "Shellharbour",
+    "AREASQKM19": 133.9306
+  },
+  {
+    "SED_CODE19": "10076",
+    "SED_NAME19": "South Coast",
+    "AREASQKM19": 3680.1802
+  },
+  {
+    "SED_CODE19": "10077",
+    "SED_NAME19": "Strathfield",
+    "AREASQKM19": 22.4762
+  },
+  {
+    "SED_CODE19": "10078",
+    "SED_NAME19": "Summer Hill",
+    "AREASQKM19": 15.7495
+  },
+  {
+    "SED_CODE19": "10079",
+    "SED_NAME19": "Swansea",
+    "AREASQKM19": 139.5043
+  },
+  {
+    "SED_CODE19": "10080",
+    "SED_NAME19": "Sydney",
+    "AREASQKM19": 10.3269
+  },
+  {
+    "SED_CODE19": "10081",
+    "SED_NAME19": "Tamworth",
+    "AREASQKM19": 21628.5327
+  },
+  {
+    "SED_CODE19": "10082",
+    "SED_NAME19": "Terrigal",
+    "AREASQKM19": 114.9576
+  },
+  {
+    "SED_CODE19": "10083",
+    "SED_NAME19": "The Entrance",
+    "AREASQKM19": 103.282
+  },
+  {
+    "SED_CODE19": "10084",
+    "SED_NAME19": "Tweed",
+    "AREASQKM19": 512.4044
+  },
+  {
+    "SED_CODE19": "10085",
+    "SED_NAME19": "Upper Hunter",
+    "AREASQKM19": 27207.344
+  },
+  {
+    "SED_CODE19": "10086",
+    "SED_NAME19": "Vaucluse",
+    "AREASQKM19": 15.5666
+  },
+  {
+    "SED_CODE19": "10087",
+    "SED_NAME19": "Wagga Wagga",
+    "AREASQKM19": 12419.4054
+  },
+  {
+    "SED_CODE19": "10088",
+    "SED_NAME19": "Wakehurst",
+    "AREASQKM19": 37.5474
+  },
+  {
+    "SED_CODE19": "10089",
+    "SED_NAME19": "Wallsend",
+    "AREASQKM19": 120.9647
+  },
+  {
+    "SED_CODE19": "10090",
+    "SED_NAME19": "Willoughby",
+    "AREASQKM19": 21.8795
+  },
+  {
+    "SED_CODE19": "10091",
+    "SED_NAME19": "Wollondilly",
+    "AREASQKM19": 4492.2902
+  },
+  {
+    "SED_CODE19": "10092",
+    "SED_NAME19": "Wollongong",
+    "AREASQKM19": 79.2869
+  },
+  {
+    "SED_CODE19": "10093",
+    "SED_NAME19": "Wyong",
+    "AREASQKM19": 590.0631
+  },
+  {
+    "SED_CODE19": "19494",
+    "SED_NAME19": "No usual address (NSW)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "19797",
+    "SED_NAME19": "Migratory - Offshore - Shipping (NSW)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "20106",
+    "SED_NAME19": "Albert Park (Southern Metropolitan)",
+    "AREASQKM19": 21.4206
+  },
+  {
+    "SED_CODE19": "20207",
+    "SED_NAME19": "Altona (Western Metropolitan)",
+    "AREASQKM19": 70.5523
+  },
+  {
+    "SED_CODE19": "20302",
+    "SED_NAME19": "Bass (Eastern Victoria)",
+    "AREASQKM19": 1389.1581
+  },
+  {
+    "SED_CODE19": "20401",
+    "SED_NAME19": "Bayswater (Eastern Metropolitan)",
+    "AREASQKM19": 39.9799
+  },
+  {
+    "SED_CODE19": "20508",
+    "SED_NAME19": "Bellarine (Western Victoria)",
+    "AREASQKM19": 377.4782
+  },
+  {
+    "SED_CODE19": "20604",
+    "SED_NAME19": "Benambra (Northern Victoria)",
+    "AREASQKM19": 9850.1191
+  },
+  {
+    "SED_CODE19": "20704",
+    "SED_NAME19": "Bendigo East (Northern Victoria)",
+    "AREASQKM19": 2843.1414
+  },
+  {
+    "SED_CODE19": "20804",
+    "SED_NAME19": "Bendigo West (Northern Victoria)",
+    "AREASQKM19": 1612.2443
+  },
+  {
+    "SED_CODE19": "20906",
+    "SED_NAME19": "Bentleigh (Southern Metropolitan)",
+    "AREASQKM19": 21.3806
+  },
+  {
+    "SED_CODE19": "21001",
+    "SED_NAME19": "Box Hill (Eastern Metropolitan)",
+    "AREASQKM19": 25.217
+  },
+  {
+    "SED_CODE19": "21106",
+    "SED_NAME19": "Brighton (Southern Metropolitan)",
+    "AREASQKM19": 19.0277
+  },
+  {
+    "SED_CODE19": "21203",
+    "SED_NAME19": "Broadmeadows (Northern Metropolitan)",
+    "AREASQKM19": 49.7055
+  },
+  {
+    "SED_CODE19": "21303",
+    "SED_NAME19": "Brunswick (Northern Metropolitan)",
+    "AREASQKM19": 16.0461
+  },
+  {
+    "SED_CODE19": "21401",
+    "SED_NAME19": "Bulleen (Eastern Metropolitan)",
+    "AREASQKM19": 36.1331
+  },
+  {
+    "SED_CODE19": "21503",
+    "SED_NAME19": "Bundoora (Northern Metropolitan)",
+    "AREASQKM19": 30.7092
+  },
+  {
+    "SED_CODE19": "21608",
+    "SED_NAME19": "Buninyong (Western Victoria)",
+    "AREASQKM19": 3383.5175
+  },
+  {
+    "SED_CODE19": "21706",
+    "SED_NAME19": "Burwood (Southern Metropolitan)",
+    "AREASQKM19": 24.657
+  },
+  {
+    "SED_CODE19": "21805",
+    "SED_NAME19": "Carrum (South-Eastern Metropolitan)",
+    "AREASQKM19": 88.5549
+  },
+  {
+    "SED_CODE19": "21906",
+    "SED_NAME19": "Caulfield (Southern Metropolitan)",
+    "AREASQKM19": 16.7696
+  },
+  {
+    "SED_CODE19": "22005",
+    "SED_NAME19": "Clarinda (South-Eastern Metropolitan)",
+    "AREASQKM19": 42.9286
+  },
+  {
+    "SED_CODE19": "22105",
+    "SED_NAME19": "Cranbourne (South-Eastern Metropolitan)",
+    "AREASQKM19": 77.7529
+  },
+  {
+    "SED_CODE19": "22201",
+    "SED_NAME19": "Croydon (Eastern Metropolitan)",
+    "AREASQKM19": 32.7031
+  },
+  {
+    "SED_CODE19": "22305",
+    "SED_NAME19": "Dandenong (South-Eastern Metropolitan)",
+    "AREASQKM19": 57.6962
+  },
+  {
+    "SED_CODE19": "22404",
+    "SED_NAME19": "Eildon (Northern Victoria)",
+    "AREASQKM19": 10087.8464
+  },
+  {
+    "SED_CODE19": "22501",
+    "SED_NAME19": "Eltham (Eastern Metropolitan)",
+    "AREASQKM19": 50.6394
+  },
+  {
+    "SED_CODE19": "22607",
+    "SED_NAME19": "Essendon (Western Metropolitan)",
+    "AREASQKM19": 22.5663
+  },
+  {
+    "SED_CODE19": "22704",
+    "SED_NAME19": "Euroa (Northern Victoria)",
+    "AREASQKM19": 11677.7503
+  },
+  {
+    "SED_CODE19": "22802",
+    "SED_NAME19": "Evelyn (Eastern Victoria)",
+    "AREASQKM19": 249.9623
+  },
+  {
+    "SED_CODE19": "22901",
+    "SED_NAME19": "Ferntree Gully (Eastern Metropolitan)",
+    "AREASQKM19": 34.3888
+  },
+  {
+    "SED_CODE19": "23007",
+    "SED_NAME19": "Footscray (Western Metropolitan)",
+    "AREASQKM19": 39.6929
+  },
+  {
+    "SED_CODE19": "23101",
+    "SED_NAME19": "Forest Hill (Eastern Metropolitan)",
+    "AREASQKM19": 25.3631
+  },
+  {
+    "SED_CODE19": "23205",
+    "SED_NAME19": "Frankston (South-Eastern Metropolitan)",
+    "AREASQKM19": 39.9733
+  },
+  {
+    "SED_CODE19": "23308",
+    "SED_NAME19": "Geelong (Western Victoria)",
+    "AREASQKM19": 39.2547
+  },
+  {
+    "SED_CODE19": "23402",
+    "SED_NAME19": "Gembrook (Eastern Victoria)",
+    "AREASQKM19": 482.0455
+  },
+  {
+    "SED_CODE19": "23502",
+    "SED_NAME19": "Gippsland East (Eastern Victoria)",
+    "AREASQKM19": 27442.3768
+  },
+  {
+    "SED_CODE19": "23602",
+    "SED_NAME19": "Gippsland South (Eastern Victoria)",
+    "AREASQKM19": 7424.6458
+  },
+  {
+    "SED_CODE19": "23702",
+    "SED_NAME19": "Hastings (Eastern Victoria)",
+    "AREASQKM19": 463.6042
+  },
+  {
+    "SED_CODE19": "23806",
+    "SED_NAME19": "Hawthorn (Southern Metropolitan)",
+    "AREASQKM19": 19.0516
+  },
+  {
+    "SED_CODE19": "23901",
+    "SED_NAME19": "Ivanhoe (Eastern Metropolitan)",
+    "AREASQKM19": 31.8844
+  },
+  {
+    "SED_CODE19": "24006",
+    "SED_NAME19": "Kew (Southern Metropolitan)",
+    "AREASQKM19": 27.6171
+  },
+  {
+    "SED_CODE19": "24105",
+    "SED_NAME19": "Keysborough (South-Eastern Metropolitan)",
+    "AREASQKM19": 47.4773
+  },
+  {
+    "SED_CODE19": "24207",
+    "SED_NAME19": "Kororoit (Western Metropolitan)",
+    "AREASQKM19": 195.9323
+  },
+  {
+    "SED_CODE19": "24308",
+    "SED_NAME19": "Lara (Western Victoria)",
+    "AREASQKM19": 694.1254
+  },
+  {
+    "SED_CODE19": "24408",
+    "SED_NAME19": "Lowan (Western Victoria)",
+    "AREASQKM19": 38239.1947
+  },
+  {
+    "SED_CODE19": "24504",
+    "SED_NAME19": "Macedon (Northern Victoria)",
+    "AREASQKM19": 3189.8976
+  },
+  {
+    "SED_CODE19": "24606",
+    "SED_NAME19": "Malvern (Southern Metropolitan)",
+    "AREASQKM19": 19.2195
+  },
+  {
+    "SED_CODE19": "24703",
+    "SED_NAME19": "Melbourne (Northern Metropolitan)",
+    "AREASQKM19": 27.8708
+  },
+  {
+    "SED_CODE19": "24808",
+    "SED_NAME19": "Melton (Western Victoria)",
+    "AREASQKM19": 231.3848
+  },
+  {
+    "SED_CODE19": "24904",
+    "SED_NAME19": "Mildura (Northern Victoria)",
+    "AREASQKM19": 35657.2762
+  },
+  {
+    "SED_CODE19": "25003",
+    "SED_NAME19": "Mill Park (Northern Metropolitan)",
+    "AREASQKM19": 44.1228
+  },
+  {
+    "SED_CODE19": "25102",
+    "SED_NAME19": "Monbulk (Eastern Victoria)",
+    "AREASQKM19": 253.6522
+  },
+  {
+    "SED_CODE19": "25205",
+    "SED_NAME19": "Mordialloc (South-Eastern Metropolitan)",
+    "AREASQKM19": 37.4037
+  },
+  {
+    "SED_CODE19": "25302",
+    "SED_NAME19": "Mornington (Eastern Victoria)",
+    "AREASQKM19": 155.7986
+  },
+  {
+    "SED_CODE19": "25402",
+    "SED_NAME19": "Morwell (Eastern Victoria)",
+    "AREASQKM19": 1584.5236
+  },
+  {
+    "SED_CODE19": "25501",
+    "SED_NAME19": "Mount Waverley (Eastern Metropolitan)",
+    "AREASQKM19": 25.6957
+  },
+  {
+    "SED_CODE19": "25605",
+    "SED_NAME19": "Mulgrave (South-Eastern Metropolitan)",
+    "AREASQKM19": 30.8609
+  },
+  {
+    "SED_CODE19": "25704",
+    "SED_NAME19": "Murray Plains (Northern Victoria)",
+    "AREASQKM19": 11787.6763
+  },
+  {
+    "SED_CODE19": "25802",
+    "SED_NAME19": "Narracan (Eastern Victoria)",
+    "AREASQKM19": 4440.562
+  },
+  {
+    "SED_CODE19": "25905",
+    "SED_NAME19": "Narre Warren North (South-Eastern Metropolitan)",
+    "AREASQKM19": 53.0184
+  },
+  {
+    "SED_CODE19": "26005",
+    "SED_NAME19": "Narre Warren South (South-Eastern Metropolitan)",
+    "AREASQKM19": 41.2214
+  },
+  {
+    "SED_CODE19": "26102",
+    "SED_NAME19": "Nepean (Eastern Victoria)",
+    "AREASQKM19": 435.353
+  },
+  {
+    "SED_CODE19": "26207",
+    "SED_NAME19": "Niddrie (Western Metropolitan)",
+    "AREASQKM19": 34.5973
+  },
+  {
+    "SED_CODE19": "26303",
+    "SED_NAME19": "Northcote (Northern Metropolitan)",
+    "AREASQKM19": 20.0969
+  },
+  {
+    "SED_CODE19": "26406",
+    "SED_NAME19": "Oakleigh (Southern Metropolitan)",
+    "AREASQKM19": 26.8402
+  },
+  {
+    "SED_CODE19": "26504",
+    "SED_NAME19": "Ovens Valley (Northern Victoria)",
+    "AREASQKM19": 9856.5269
+  },
+  {
+    "SED_CODE19": "26603",
+    "SED_NAME19": "Pascoe Vale (Northern Metropolitan)",
+    "AREASQKM19": 26.7549
+  },
+  {
+    "SED_CODE19": "26708",
+    "SED_NAME19": "Polwarth (Western Victoria)",
+    "AREASQKM19": 12428.0622
+  },
+  {
+    "SED_CODE19": "26806",
+    "SED_NAME19": "Prahran (Southern Metropolitan)",
+    "AREASQKM19": 11.8622
+  },
+  {
+    "SED_CODE19": "26903",
+    "SED_NAME19": "Preston (Northern Metropolitan)",
+    "AREASQKM19": 25.6534
+  },
+  {
+    "SED_CODE19": "27003",
+    "SED_NAME19": "Richmond (Northern Metropolitan)",
+    "AREASQKM19": 14.0793
+  },
+  {
+    "SED_CODE19": "27101",
+    "SED_NAME19": "Ringwood (Eastern Metropolitan)",
+    "AREASQKM19": 28.5942
+  },
+  {
+    "SED_CODE19": "27208",
+    "SED_NAME19": "Ripon (Western Victoria)",
+    "AREASQKM19": 17080.6539
+  },
+  {
+    "SED_CODE19": "27305",
+    "SED_NAME19": "Rowville (South-Eastern Metropolitan)",
+    "AREASQKM19": 60.1809
+  },
+  {
+    "SED_CODE19": "27406",
+    "SED_NAME19": "Sandringham (Southern Metropolitan)",
+    "AREASQKM19": 24.2249
+  },
+  {
+    "SED_CODE19": "27504",
+    "SED_NAME19": "Shepparton (Northern Victoria)",
+    "AREASQKM19": 3220.9215
+  },
+  {
+    "SED_CODE19": "27608",
+    "SED_NAME19": "South Barwon (Western Victoria)",
+    "AREASQKM19": 603.7694
+  },
+  {
+    "SED_CODE19": "27708",
+    "SED_NAME19": "South-West Coast (Western Victoria)",
+    "AREASQKM19": 6501.3269
+  },
+  {
+    "SED_CODE19": "27807",
+    "SED_NAME19": "St Albans (Western Metropolitan)",
+    "AREASQKM19": 34.9923
+  },
+  {
+    "SED_CODE19": "27907",
+    "SED_NAME19": "Sunbury (Western Metropolitan)",
+    "AREASQKM19": 340.1636
+  },
+  {
+    "SED_CODE19": "28007",
+    "SED_NAME19": "Sydenham (Western Metropolitan)",
+    "AREASQKM19": 69.3154
+  },
+  {
+    "SED_CODE19": "28107",
+    "SED_NAME19": "Tarneit (Western Metropolitan)",
+    "AREASQKM19": 124.0836
+  },
+  {
+    "SED_CODE19": "28203",
+    "SED_NAME19": "Thomastown (Northern Metropolitan)",
+    "AREASQKM19": 102.5838
+  },
+  {
+    "SED_CODE19": "28301",
+    "SED_NAME19": "Warrandyte (Eastern Metropolitan)",
+    "AREASQKM19": 89.7932
+  },
+  {
+    "SED_CODE19": "28408",
+    "SED_NAME19": "Wendouree (Western Victoria)",
+    "AREASQKM19": 85.1624
+  },
+  {
+    "SED_CODE19": "28507",
+    "SED_NAME19": "Werribee (Western Metropolitan)",
+    "AREASQKM19": 379.328
+  },
+  {
+    "SED_CODE19": "28607",
+    "SED_NAME19": "Williamstown (Western Metropolitan)",
+    "AREASQKM19": 39.6715
+  },
+  {
+    "SED_CODE19": "28704",
+    "SED_NAME19": "Yan Yean (Northern Victoria)",
+    "AREASQKM19": 609.8986
+  },
+  {
+    "SED_CODE19": "28803",
+    "SED_NAME19": "Yuroke (Northern Metropolitan)",
+    "AREASQKM19": 178.67
+  },
+  {
+    "SED_CODE19": "29494",
+    "SED_NAME19": "No usual address (Vic.)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "29797",
+    "SED_NAME19": "Migratory - Offshore - Shipping (Vic.)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "30001",
+    "SED_NAME19": "Algester",
+    "AREASQKM19": 66.8124
+  },
+  {
+    "SED_CODE19": "30002",
+    "SED_NAME19": "Aspley",
+    "AREASQKM19": 35.5236
+  },
+  {
+    "SED_CODE19": "30003",
+    "SED_NAME19": "Bancroft",
+    "AREASQKM19": 74.5655
+  },
+  {
+    "SED_CODE19": "30004",
+    "SED_NAME19": "Barron River",
+    "AREASQKM19": 787.201
+  },
+  {
+    "SED_CODE19": "30005",
+    "SED_NAME19": "Bonney",
+    "AREASQKM19": 29.1391
+  },
+  {
+    "SED_CODE19": "30006",
+    "SED_NAME19": "Broadwater",
+    "AREASQKM19": 133.8849
+  },
+  {
+    "SED_CODE19": "30007",
+    "SED_NAME19": "Buderim",
+    "AREASQKM19": 67.0131
+  },
+  {
+    "SED_CODE19": "30008",
+    "SED_NAME19": "Bulimba",
+    "AREASQKM19": 28.938
+  },
+  {
+    "SED_CODE19": "30009",
+    "SED_NAME19": "Bundaberg",
+    "AREASQKM19": 105.9664
+  },
+  {
+    "SED_CODE19": "30010",
+    "SED_NAME19": "Bundamba",
+    "AREASQKM19": 80.1376
+  },
+  {
+    "SED_CODE19": "30011",
+    "SED_NAME19": "Burdekin",
+    "AREASQKM19": 76274.6844
+  },
+  {
+    "SED_CODE19": "30012",
+    "SED_NAME19": "Burleigh",
+    "AREASQKM19": 31.7127
+  },
+  {
+    "SED_CODE19": "30013",
+    "SED_NAME19": "Burnett",
+    "AREASQKM19": 7452.8472
+  },
+  {
+    "SED_CODE19": "30014",
+    "SED_NAME19": "Cairns",
+    "AREASQKM19": 59.9303
+  },
+  {
+    "SED_CODE19": "30015",
+    "SED_NAME19": "Callide",
+    "AREASQKM19": 74005.3206
+  },
+  {
+    "SED_CODE19": "30016",
+    "SED_NAME19": "Caloundra",
+    "AREASQKM19": 189.8693
+  },
+  {
+    "SED_CODE19": "30017",
+    "SED_NAME19": "Capalaba",
+    "AREASQKM19": 45.1906
+  },
+  {
+    "SED_CODE19": "30018",
+    "SED_NAME19": "Chatsworth",
+    "AREASQKM19": 57.8126
+  },
+  {
+    "SED_CODE19": "30019",
+    "SED_NAME19": "Clayfield",
+    "AREASQKM19": 70.9411
+  },
+  {
+    "SED_CODE19": "30020",
+    "SED_NAME19": "Condamine",
+    "AREASQKM19": 6601.9608
+  },
+  {
+    "SED_CODE19": "30021",
+    "SED_NAME19": "Cook",
+    "AREASQKM19": 182690.804
+  },
+  {
+    "SED_CODE19": "30022",
+    "SED_NAME19": "Coomera",
+    "AREASQKM19": 343.2158
+  },
+  {
+    "SED_CODE19": "30023",
+    "SED_NAME19": "Cooper",
+    "AREASQKM19": 62.7297
+  },
+  {
+    "SED_CODE19": "30024",
+    "SED_NAME19": "Currumbin",
+    "AREASQKM19": 135.7044
+  },
+  {
+    "SED_CODE19": "30025",
+    "SED_NAME19": "Everton",
+    "AREASQKM19": 47.0021
+  },
+  {
+    "SED_CODE19": "30026",
+    "SED_NAME19": "Ferny Grove",
+    "AREASQKM19": 50.2128
+  },
+  {
+    "SED_CODE19": "30027",
+    "SED_NAME19": "Gaven",
+    "AREASQKM19": 77.4379
+  },
+  {
+    "SED_CODE19": "30028",
+    "SED_NAME19": "Gladstone",
+    "AREASQKM19": 2799.9552
+  },
+  {
+    "SED_CODE19": "30029",
+    "SED_NAME19": "Glass House",
+    "AREASQKM19": 1769.3202
+  },
+  {
+    "SED_CODE19": "30030",
+    "SED_NAME19": "Greenslopes",
+    "AREASQKM19": 18.205
+  },
+  {
+    "SED_CODE19": "30031",
+    "SED_NAME19": "Gregory",
+    "AREASQKM19": 455997.3047
+  },
+  {
+    "SED_CODE19": "30032",
+    "SED_NAME19": "Gympie",
+    "AREASQKM19": 4625.8959
+  },
+  {
+    "SED_CODE19": "30033",
+    "SED_NAME19": "Hervey Bay",
+    "AREASQKM19": 1754.2692
+  },
+  {
+    "SED_CODE19": "30034",
+    "SED_NAME19": "Hill",
+    "AREASQKM19": 16778.3332
+  },
+  {
+    "SED_CODE19": "30035",
+    "SED_NAME19": "Hinchinbrook",
+    "AREASQKM19": 6480.7717
+  },
+  {
+    "SED_CODE19": "30036",
+    "SED_NAME19": "Inala",
+    "AREASQKM19": 52.345
+  },
+  {
+    "SED_CODE19": "30037",
+    "SED_NAME19": "Ipswich",
+    "AREASQKM19": 160.7774
+  },
+  {
+    "SED_CODE19": "30038",
+    "SED_NAME19": "Ipswich West",
+    "AREASQKM19": 406.5807
+  },
+  {
+    "SED_CODE19": "30039",
+    "SED_NAME19": "Jordan",
+    "AREASQKM19": 314.1815
+  },
+  {
+    "SED_CODE19": "30040",
+    "SED_NAME19": "Kawana",
+    "AREASQKM19": 84.048
+  },
+  {
+    "SED_CODE19": "30041",
+    "SED_NAME19": "Keppel",
+    "AREASQKM19": 5142.1273
+  },
+  {
+    "SED_CODE19": "30042",
+    "SED_NAME19": "Kurwongbah",
+    "AREASQKM19": 137.3697
+  },
+  {
+    "SED_CODE19": "30043",
+    "SED_NAME19": "Lockyer",
+    "AREASQKM19": 2509.9324
+  },
+  {
+    "SED_CODE19": "30044",
+    "SED_NAME19": "Logan",
+    "AREASQKM19": 354.746
+  },
+  {
+    "SED_CODE19": "30045",
+    "SED_NAME19": "Lytton",
+    "AREASQKM19": 65.4406
+  },
+  {
+    "SED_CODE19": "30046",
+    "SED_NAME19": "Macalister",
+    "AREASQKM19": 89.9699
+  },
+  {
+    "SED_CODE19": "30047",
+    "SED_NAME19": "Mackay",
+    "AREASQKM19": 70.9721
+  },
+  {
+    "SED_CODE19": "30048",
+    "SED_NAME19": "Maiwar",
+    "AREASQKM19": 39.2991
+  },
+  {
+    "SED_CODE19": "30049",
+    "SED_NAME19": "Mansfield",
+    "AREASQKM19": 68.9004
+  },
+  {
+    "SED_CODE19": "30050",
+    "SED_NAME19": "Maroochydore",
+    "AREASQKM19": 37.5501
+  },
+  {
+    "SED_CODE19": "30051",
+    "SED_NAME19": "Maryborough",
+    "AREASQKM19": 4739.5508
+  },
+  {
+    "SED_CODE19": "30052",
+    "SED_NAME19": "McConnel",
+    "AREASQKM19": 12.961
+  },
+  {
+    "SED_CODE19": "30053",
+    "SED_NAME19": "Mermaid Beach",
+    "AREASQKM19": 22.1632
+  },
+  {
+    "SED_CODE19": "30054",
+    "SED_NAME19": "Miller",
+    "AREASQKM19": 27.0274
+  },
+  {
+    "SED_CODE19": "30055",
+    "SED_NAME19": "Mirani",
+    "AREASQKM19": 29054.4021
+  },
+  {
+    "SED_CODE19": "30056",
+    "SED_NAME19": "Moggill",
+    "AREASQKM19": 306.0345
+  },
+  {
+    "SED_CODE19": "30057",
+    "SED_NAME19": "Morayfield",
+    "AREASQKM19": 68.1371
+  },
+  {
+    "SED_CODE19": "30058",
+    "SED_NAME19": "Mount Ommaney",
+    "AREASQKM19": 31.0547
+  },
+  {
+    "SED_CODE19": "30059",
+    "SED_NAME19": "Mudgeeraba",
+    "AREASQKM19": 397.7598
+  },
+  {
+    "SED_CODE19": "30060",
+    "SED_NAME19": "Mulgrave",
+    "AREASQKM19": 683.2658
+  },
+  {
+    "SED_CODE19": "30061",
+    "SED_NAME19": "Mundingburra",
+    "AREASQKM19": 110.8051
+  },
+  {
+    "SED_CODE19": "30062",
+    "SED_NAME19": "Murrumba",
+    "AREASQKM19": 62.5153
+  },
+  {
+    "SED_CODE19": "30063",
+    "SED_NAME19": "Nanango",
+    "AREASQKM19": 18088.7733
+  },
+  {
+    "SED_CODE19": "30064",
+    "SED_NAME19": "Nicklin",
+    "AREASQKM19": 708.8418
+  },
+  {
+    "SED_CODE19": "30065",
+    "SED_NAME19": "Ninderry",
+    "AREASQKM19": 310.4728
+  },
+  {
+    "SED_CODE19": "30066",
+    "SED_NAME19": "Noosa",
+    "AREASQKM19": 729.3205
+  },
+  {
+    "SED_CODE19": "30067",
+    "SED_NAME19": "Nudgee",
+    "AREASQKM19": 41.8051
+  },
+  {
+    "SED_CODE19": "30068",
+    "SED_NAME19": "Oodgeroo",
+    "AREASQKM19": 310.7676
+  },
+  {
+    "SED_CODE19": "30069",
+    "SED_NAME19": "Pine Rivers",
+    "AREASQKM19": 525.3215
+  },
+  {
+    "SED_CODE19": "30070",
+    "SED_NAME19": "Pumicestone",
+    "AREASQKM19": 317.269
+  },
+  {
+    "SED_CODE19": "30071",
+    "SED_NAME19": "Redcliffe",
+    "AREASQKM19": 201.9078
+  },
+  {
+    "SED_CODE19": "30072",
+    "SED_NAME19": "Redlands",
+    "AREASQKM19": 119.0663
+  },
+  {
+    "SED_CODE19": "30073",
+    "SED_NAME19": "Rockhampton",
+    "AREASQKM19": 148.5615
+  },
+  {
+    "SED_CODE19": "30074",
+    "SED_NAME19": "Sandgate",
+    "AREASQKM19": 34.9948
+  },
+  {
+    "SED_CODE19": "30075",
+    "SED_NAME19": "Scenic Rim",
+    "AREASQKM19": 4753.5745
+  },
+  {
+    "SED_CODE19": "30076",
+    "SED_NAME19": "South Brisbane",
+    "AREASQKM19": 12.5076
+  },
+  {
+    "SED_CODE19": "30077",
+    "SED_NAME19": "Southern Downs",
+    "AREASQKM19": 30032.9402
+  },
+  {
+    "SED_CODE19": "30078",
+    "SED_NAME19": "Southport",
+    "AREASQKM19": 32.7421
+  },
+  {
+    "SED_CODE19": "30079",
+    "SED_NAME19": "Springwood",
+    "AREASQKM19": 98.3093
+  },
+  {
+    "SED_CODE19": "30080",
+    "SED_NAME19": "Stafford",
+    "AREASQKM19": 21.3215
+  },
+  {
+    "SED_CODE19": "30081",
+    "SED_NAME19": "Stretton",
+    "AREASQKM19": 40.9354
+  },
+  {
+    "SED_CODE19": "30082",
+    "SED_NAME19": "Surfers Paradise",
+    "AREASQKM19": 24.765
+  },
+  {
+    "SED_CODE19": "30083",
+    "SED_NAME19": "Theodore",
+    "AREASQKM19": 105.1782
+  },
+  {
+    "SED_CODE19": "30084",
+    "SED_NAME19": "Thuringowa",
+    "AREASQKM19": 234.6051
+  },
+  {
+    "SED_CODE19": "30085",
+    "SED_NAME19": "Toohey",
+    "AREASQKM19": 35.3308
+  },
+  {
+    "SED_CODE19": "30086",
+    "SED_NAME19": "Toowoomba North",
+    "AREASQKM19": 106.3737
+  },
+  {
+    "SED_CODE19": "30087",
+    "SED_NAME19": "Toowoomba South",
+    "AREASQKM19": 45.9196
+  },
+  {
+    "SED_CODE19": "30088",
+    "SED_NAME19": "Townsville",
+    "AREASQKM19": 253.1993
+  },
+  {
+    "SED_CODE19": "30089",
+    "SED_NAME19": "Traeger",
+    "AREASQKM19": 444161.5381
+  },
+  {
+    "SED_CODE19": "30090",
+    "SED_NAME19": "Warrego",
+    "AREASQKM19": 338829.4859
+  },
+  {
+    "SED_CODE19": "30091",
+    "SED_NAME19": "Waterford",
+    "AREASQKM19": 55.7746
+  },
+  {
+    "SED_CODE19": "30092",
+    "SED_NAME19": "Whitsunday",
+    "AREASQKM19": 4870.8722
+  },
+  {
+    "SED_CODE19": "30093",
+    "SED_NAME19": "Woodridge",
+    "AREASQKM19": 39.0782
+  },
+  {
+    "SED_CODE19": "39494",
+    "SED_NAME19": "No usual address (Qld)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "39797",
+    "SED_NAME19": "Migratory - Offshore - Shipping (Qld)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "40001",
+    "SED_NAME19": "Adelaide",
+    "AREASQKM19": 22.8188
+  },
+  {
+    "SED_CODE19": "40002",
+    "SED_NAME19": "Badcoe",
+    "AREASQKM19": 14.1739
+  },
+  {
+    "SED_CODE19": "40003",
+    "SED_NAME19": "Black",
+    "AREASQKM19": 33.5442
+  },
+  {
+    "SED_CODE19": "40004",
+    "SED_NAME19": "Bragg",
+    "AREASQKM19": 44.8804
+  },
+  {
+    "SED_CODE19": "40005",
+    "SED_NAME19": "Chaffey",
+    "AREASQKM19": 12306.3355
+  },
+  {
+    "SED_CODE19": "40006",
+    "SED_NAME19": "Cheltenham",
+    "AREASQKM19": 17.4953
+  },
+  {
+    "SED_CODE19": "40007",
+    "SED_NAME19": "Colton",
+    "AREASQKM19": 25.5572
+  },
+  {
+    "SED_CODE19": "40008",
+    "SED_NAME19": "Croydon",
+    "AREASQKM19": 18.7547
+  },
+  {
+    "SED_CODE19": "40009",
+    "SED_NAME19": "Davenport",
+    "AREASQKM19": 57.4608
+  },
+  {
+    "SED_CODE19": "40010",
+    "SED_NAME19": "Dunstan",
+    "AREASQKM19": 15.1743
+  },
+  {
+    "SED_CODE19": "40011",
+    "SED_NAME19": "Elder",
+    "AREASQKM19": 18.2896
+  },
+  {
+    "SED_CODE19": "40012",
+    "SED_NAME19": "Elizabeth",
+    "AREASQKM19": 29.1981
+  },
+  {
+    "SED_CODE19": "40013",
+    "SED_NAME19": "Enfield",
+    "AREASQKM19": 16.5693
+  },
+  {
+    "SED_CODE19": "40014",
+    "SED_NAME19": "Finniss",
+    "AREASQKM19": 1044.7137
+  },
+  {
+    "SED_CODE19": "40015",
+    "SED_NAME19": "Flinders",
+    "AREASQKM19": 54619.5544
+  },
+  {
+    "SED_CODE19": "40016",
+    "SED_NAME19": "Florey",
+    "AREASQKM19": 20.1358
+  },
+  {
+    "SED_CODE19": "40017",
+    "SED_NAME19": "Frome",
+    "AREASQKM19": 5864.9625
+  },
+  {
+    "SED_CODE19": "40018",
+    "SED_NAME19": "Gibson",
+    "AREASQKM19": 14.9481
+  },
+  {
+    "SED_CODE19": "40019",
+    "SED_NAME19": "Giles",
+    "AREASQKM19": 503514.0782
+  },
+  {
+    "SED_CODE19": "40020",
+    "SED_NAME19": "Hammond",
+    "AREASQKM19": 18725.0691
+  },
+  {
+    "SED_CODE19": "40021",
+    "SED_NAME19": "Hartley",
+    "AREASQKM19": 15.6495
+  },
+  {
+    "SED_CODE19": "40022",
+    "SED_NAME19": "Heysen",
+    "AREASQKM19": 1086.2315
+  },
+  {
+    "SED_CODE19": "40023",
+    "SED_NAME19": "Hurtle Vale",
+    "AREASQKM19": 20.3287
+  },
+  {
+    "SED_CODE19": "40024",
+    "SED_NAME19": "Kaurna",
+    "AREASQKM19": 38.1335
+  },
+  {
+    "SED_CODE19": "40025",
+    "SED_NAME19": "Kavel",
+    "AREASQKM19": 356.1622
+  },
+  {
+    "SED_CODE19": "40026",
+    "SED_NAME19": "King",
+    "AREASQKM19": 137.828
+  },
+  {
+    "SED_CODE19": "40027",
+    "SED_NAME19": "Lee",
+    "AREASQKM19": 18.4296
+  },
+  {
+    "SED_CODE19": "40028",
+    "SED_NAME19": "Light",
+    "AREASQKM19": 65.9362
+  },
+  {
+    "SED_CODE19": "40029",
+    "SED_NAME19": "Mackillop",
+    "AREASQKM19": 24922.9423
+  },
+  {
+    "SED_CODE19": "40030",
+    "SED_NAME19": "Mawson",
+    "AREASQKM19": 5357.7872
+  },
+  {
+    "SED_CODE19": "40031",
+    "SED_NAME19": "Morialta",
+    "AREASQKM19": 333.1382
+  },
+  {
+    "SED_CODE19": "40032",
+    "SED_NAME19": "Morphett",
+    "AREASQKM19": 13.9395
+  },
+  {
+    "SED_CODE19": "40033",
+    "SED_NAME19": "Mount Gambier",
+    "AREASQKM19": 1884.4088
+  },
+  {
+    "SED_CODE19": "40034",
+    "SED_NAME19": "Narungga",
+    "AREASQKM19": 10797.5848
+  },
+  {
+    "SED_CODE19": "40035",
+    "SED_NAME19": "Newland",
+    "AREASQKM19": 264.1187
+  },
+  {
+    "SED_CODE19": "40036",
+    "SED_NAME19": "Playford",
+    "AREASQKM19": 27.5965
+  },
+  {
+    "SED_CODE19": "40037",
+    "SED_NAME19": "Port Adelaide",
+    "AREASQKM19": 102.7041
+  },
+  {
+    "SED_CODE19": "40038",
+    "SED_NAME19": "Ramsay",
+    "AREASQKM19": 19.0423
+  },
+  {
+    "SED_CODE19": "40039",
+    "SED_NAME19": "Reynell",
+    "AREASQKM19": 32.5452
+  },
+  {
+    "SED_CODE19": "40040",
+    "SED_NAME19": "Schubert",
+    "AREASQKM19": 2372.321
+  },
+  {
+    "SED_CODE19": "40041",
+    "SED_NAME19": "Stuart (SA)",
+    "AREASQKM19": 339586.4225
+  },
+  {
+    "SED_CODE19": "40042",
+    "SED_NAME19": "Taylor",
+    "AREASQKM19": 252.4635
+  },
+  {
+    "SED_CODE19": "40043",
+    "SED_NAME19": "Torrens",
+    "AREASQKM19": 16.9916
+  },
+  {
+    "SED_CODE19": "40044",
+    "SED_NAME19": "Unley",
+    "AREASQKM19": 14.025
+  },
+  {
+    "SED_CODE19": "40045",
+    "SED_NAME19": "Waite",
+    "AREASQKM19": 75.2624
+  },
+  {
+    "SED_CODE19": "40046",
+    "SED_NAME19": "West Torrens",
+    "AREASQKM19": 18.2269
+  },
+  {
+    "SED_CODE19": "40047",
+    "SED_NAME19": "Wright",
+    "AREASQKM19": 20.9744
+  },
+  {
+    "SED_CODE19": "49494",
+    "SED_NAME19": "No usual address (SA)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "49797",
+    "SED_NAME19": "Migratory - Offshore - Shipping (SA)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "50106",
+    "SED_NAME19": "Albany (South West)",
+    "AREASQKM19": 12440.364
+  },
+  {
+    "SED_CODE19": "50202",
+    "SED_NAME19": "Armadale (East Metropolitan)",
+    "AREASQKM19": 47.0184
+  },
+  {
+    "SED_CODE19": "50304",
+    "SED_NAME19": "Balcatta (North Metropolitan)",
+    "AREASQKM19": 20.4885
+  },
+  {
+    "SED_CODE19": "50405",
+    "SED_NAME19": "Baldivis (South Metropolitan)",
+    "AREASQKM19": 81.2528
+  },
+  {
+    "SED_CODE19": "50502",
+    "SED_NAME19": "Bassendean (East Metropolitan)",
+    "AREASQKM19": 22.9026
+  },
+  {
+    "SED_CODE19": "50605",
+    "SED_NAME19": "Bateman (South Metropolitan)",
+    "AREASQKM19": 18.4159
+  },
+  {
+    "SED_CODE19": "50702",
+    "SED_NAME19": "Belmont (East Metropolitan)",
+    "AREASQKM19": 55.6599
+  },
+  {
+    "SED_CODE19": "50805",
+    "SED_NAME19": "Bicton (South Metropolitan)",
+    "AREASQKM19": 16.2993
+  },
+  {
+    "SED_CODE19": "50906",
+    "SED_NAME19": "Bunbury (South West)",
+    "AREASQKM19": 81.7871
+  },
+  {
+    "SED_CODE19": "51004",
+    "SED_NAME19": "Burns Beach (North Metropolitan)",
+    "AREASQKM19": 46.2221
+  },
+  {
+    "SED_CODE19": "51104",
+    "SED_NAME19": "Butler (North Metropolitan)",
+    "AREASQKM19": 124.2294
+  },
+  {
+    "SED_CODE19": "51205",
+    "SED_NAME19": "Cannington (South Metropolitan)",
+    "AREASQKM19": 36.435
+  },
+  {
+    "SED_CODE19": "51304",
+    "SED_NAME19": "Carine (North Metropolitan)",
+    "AREASQKM19": 22.502
+  },
+  {
+    "SED_CODE19": "51401",
+    "SED_NAME19": "Central Wheatbelt (Agricultural)",
+    "AREASQKM19": 101150.8419
+  },
+  {
+    "SED_CODE19": "51504",
+    "SED_NAME19": "Churchlands (North Metropolitan)",
+    "AREASQKM19": 25.0555
+  },
+  {
+    "SED_CODE19": "51605",
+    "SED_NAME19": "Cockburn (South Metropolitan)",
+    "AREASQKM19": 41.3272
+  },
+  {
+    "SED_CODE19": "51706",
+    "SED_NAME19": "Collie-Preston (South West)",
+    "AREASQKM19": 4374.2122
+  },
+  {
+    "SED_CODE19": "51804",
+    "SED_NAME19": "Cottesloe (North Metropolitan)",
+    "AREASQKM19": 30.342
+  },
+  {
+    "SED_CODE19": "51902",
+    "SED_NAME19": "Darling Range (East Metropolitan)",
+    "AREASQKM19": 1973.167
+  },
+  {
+    "SED_CODE19": "52006",
+    "SED_NAME19": "Dawesville (South West)",
+    "AREASQKM19": 128.8772
+  },
+  {
+    "SED_CODE19": "52102",
+    "SED_NAME19": "Forrestfield (East Metropolitan)",
+    "AREASQKM19": 60.4957
+  },
+  {
+    "SED_CODE19": "52205",
+    "SED_NAME19": "Fremantle (South Metropolitan)",
+    "AREASQKM19": 45.3805
+  },
+  {
+    "SED_CODE19": "52301",
+    "SED_NAME19": "Geraldton (Agricultural)",
+    "AREASQKM19": 1811.8903
+  },
+  {
+    "SED_CODE19": "52404",
+    "SED_NAME19": "Girrawheen (North Metropolitan)",
+    "AREASQKM19": 21.6839
+  },
+  {
+    "SED_CODE19": "52504",
+    "SED_NAME19": "Hillarys (North Metropolitan)",
+    "AREASQKM19": 23.887
+  },
+  {
+    "SED_CODE19": "52605",
+    "SED_NAME19": "Jandakot (South Metropolitan)",
+    "AREASQKM19": 94.1667
+  },
+  {
+    "SED_CODE19": "52704",
+    "SED_NAME19": "Joondalup (North Metropolitan)",
+    "AREASQKM19": 31.6545
+  },
+  {
+    "SED_CODE19": "52802",
+    "SED_NAME19": "Kalamunda (East Metropolitan)",
+    "AREASQKM19": 226.5172
+  },
+  {
+    "SED_CODE19": "52903",
+    "SED_NAME19": "Kalgoorlie (Mining and Pastoral)",
+    "AREASQKM19": 386195.1026
+  },
+  {
+    "SED_CODE19": "53003",
+    "SED_NAME19": "Kimberley (Mining and Pastoral)",
+    "AREASQKM19": 419259.7904
+  },
+  {
+    "SED_CODE19": "53104",
+    "SED_NAME19": "Kingsley (North Metropolitan)",
+    "AREASQKM19": 23.2207
+  },
+  {
+    "SED_CODE19": "53205",
+    "SED_NAME19": "Kwinana (South Metropolitan)",
+    "AREASQKM19": 140.4768
+  },
+  {
+    "SED_CODE19": "53306",
+    "SED_NAME19": "Mandurah (South West)",
+    "AREASQKM19": 67.8546
+  },
+  {
+    "SED_CODE19": "53402",
+    "SED_NAME19": "Maylands (East Metropolitan)",
+    "AREASQKM19": 21.0735
+  },
+  {
+    "SED_CODE19": "53502",
+    "SED_NAME19": "Midland (East Metropolitan)",
+    "AREASQKM19": 89.1794
+  },
+  {
+    "SED_CODE19": "53602",
+    "SED_NAME19": "Mirrabooka (East Metropolitan)",
+    "AREASQKM19": 21.8959
+  },
+  {
+    "SED_CODE19": "53701",
+    "SED_NAME19": "Moore (Agricultural)",
+    "AREASQKM19": 76825.6951
+  },
+  {
+    "SED_CODE19": "53802",
+    "SED_NAME19": "Morley (East Metropolitan)",
+    "AREASQKM19": 18.13
+  },
+  {
+    "SED_CODE19": "53902",
+    "SED_NAME19": "Mount Lawley (East Metropolitan)",
+    "AREASQKM19": 17.9025
+  },
+  {
+    "SED_CODE19": "54006",
+    "SED_NAME19": "Murray-Wellington (South West)",
+    "AREASQKM19": 4231.4459
+  },
+  {
+    "SED_CODE19": "54104",
+    "SED_NAME19": "Nedlands (North Metropolitan)",
+    "AREASQKM19": 22.1453
+  },
+  {
+    "SED_CODE19": "54203",
+    "SED_NAME19": "North West Central (Mining and Pastoral)",
+    "AREASQKM19": 978736.1315
+  },
+  {
+    "SED_CODE19": "54304",
+    "SED_NAME19": "Perth (North Metropolitan)",
+    "AREASQKM19": 21.6782
+  },
+  {
+    "SED_CODE19": "54403",
+    "SED_NAME19": "Pilbara (Mining and Pastoral)",
+    "AREASQKM19": 405962.837
+  },
+  {
+    "SED_CODE19": "54505",
+    "SED_NAME19": "Riverton (South Metropolitan)",
+    "AREASQKM19": 18.9209
+  },
+  {
+    "SED_CODE19": "54605",
+    "SED_NAME19": "Rockingham (South Metropolitan)",
+    "AREASQKM19": 49.0986
+  },
+  {
+    "SED_CODE19": "54701",
+    "SED_NAME19": "Roe (Agricultural)",
+    "AREASQKM19": 104837.6615
+  },
+  {
+    "SED_CODE19": "54804",
+    "SED_NAME19": "Scarborough (North Metropolitan)",
+    "AREASQKM19": 20.304
+  },
+  {
+    "SED_CODE19": "54905",
+    "SED_NAME19": "South Perth (South Metropolitan)",
+    "AREASQKM19": 20.307
+  },
+  {
+    "SED_CODE19": "55005",
+    "SED_NAME19": "Southern River (South Metropolitan)",
+    "AREASQKM19": 34.9144
+  },
+  {
+    "SED_CODE19": "55102",
+    "SED_NAME19": "Swan Hills (East Metropolitan)",
+    "AREASQKM19": 1010.4514
+  },
+  {
+    "SED_CODE19": "55202",
+    "SED_NAME19": "Thornlie (East Metropolitan)",
+    "AREASQKM19": 27.552
+  },
+  {
+    "SED_CODE19": "55306",
+    "SED_NAME19": "Vasse (South West)",
+    "AREASQKM19": 2749.3433
+  },
+  {
+    "SED_CODE19": "55405",
+    "SED_NAME19": "Victoria Park (South Metropolitan)",
+    "AREASQKM19": 21.9171
+  },
+  {
+    "SED_CODE19": "55504",
+    "SED_NAME19": "Wanneroo (North Metropolitan)",
+    "AREASQKM19": 420.7043
+  },
+  {
+    "SED_CODE19": "55605",
+    "SED_NAME19": "Warnbro (South Metropolitan)",
+    "AREASQKM19": 78.8907
+  },
+  {
+    "SED_CODE19": "55706",
+    "SED_NAME19": "Warren-Blackwood (South West)",
+    "AREASQKM19": 22409.0454
+  },
+  {
+    "SED_CODE19": "55802",
+    "SED_NAME19": "West Swan (East Metropolitan)",
+    "AREASQKM19": 206.0805
+  },
+  {
+    "SED_CODE19": "55905",
+    "SED_NAME19": "Willagee (South Metropolitan)",
+    "AREASQKM19": 33.4126
+  },
+  {
+    "SED_CODE19": "59494",
+    "SED_NAME19": "No usual address (WA)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "59797",
+    "SED_NAME19": "Migratory - Offshore - Shipping (WA)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "60105",
+    "SED_NAME19": "Bass (Launceston)",
+    "AREASQKM19": 23.326
+  },
+  {
+    "SED_CODE19": "60106",
+    "SED_NAME19": "Bass (McIntyre)",
+    "AREASQKM19": 5202.3382
+  },
+  {
+    "SED_CODE19": "60113",
+    "SED_NAME19": "Bass (Rosevears)",
+    "AREASQKM19": 704.549
+  },
+  {
+    "SED_CODE19": "60115",
+    "SED_NAME19": "Bass (Windermere)",
+    "AREASQKM19": 2140.3534
+  },
+  {
+    "SED_CODE19": "60207",
+    "SED_NAME19": "Braddon (Mersey)",
+    "AREASQKM19": 696.1017
+  },
+  {
+    "SED_CODE19": "60208",
+    "SED_NAME19": "Braddon (Montgomery)",
+    "AREASQKM19": 1537.132
+  },
+  {
+    "SED_CODE19": "60209",
+    "SED_NAME19": "Braddon (Murchison)",
+    "AREASQKM19": 19135.4182
+  },
+  {
+    "SED_CODE19": "60301",
+    "SED_NAME19": "Clark (Derwent)",
+    "AREASQKM19": 23.752
+  },
+  {
+    "SED_CODE19": "60302",
+    "SED_NAME19": "Clark (Elwick)",
+    "AREASQKM19": 149.8125
+  },
+  {
+    "SED_CODE19": "60303",
+    "SED_NAME19": "Clark (Hobart)",
+    "AREASQKM19": 46.8098
+  },
+  {
+    "SED_CODE19": "60310",
+    "SED_NAME19": "Clark (Nelson)",
+    "AREASQKM19": 74.9934
+  },
+  {
+    "SED_CODE19": "60404",
+    "SED_NAME19": "Franklin (Huon)",
+    "AREASQKM19": 2353.7028
+  },
+  {
+    "SED_CODE19": "60410",
+    "SED_NAME19": "Franklin (Nelson)",
+    "AREASQKM19": 15.4392
+  },
+  {
+    "SED_CODE19": "60411",
+    "SED_NAME19": "Franklin (Pembroke)",
+    "AREASQKM19": 31.4305
+  },
+  {
+    "SED_CODE19": "60414",
+    "SED_NAME19": "Franklin (Rumney)",
+    "AREASQKM19": 240.9173
+  },
+  {
+    "SED_CODE19": "60501",
+    "SED_NAME19": "Lyons (Derwent)",
+    "AREASQKM19": 15976.7287
+  },
+  {
+    "SED_CODE19": "60505",
+    "SED_NAME19": "Lyons (Launceston)",
+    "AREASQKM19": 121.472
+  },
+  {
+    "SED_CODE19": "60506",
+    "SED_NAME19": "Lyons (McIntyre)",
+    "AREASQKM19": 9834.5899
+  },
+  {
+    "SED_CODE19": "60508",
+    "SED_NAME19": "Lyons (Montgomery)",
+    "AREASQKM19": 1045.3741
+  },
+  {
+    "SED_CODE19": "60512",
+    "SED_NAME19": "Lyons (Prosser)",
+    "AREASQKM19": 8504.4332
+  },
+  {
+    "SED_CODE19": "60514",
+    "SED_NAME19": "Lyons (Rumney)",
+    "AREASQKM19": 159.1868
+  },
+  {
+    "SED_CODE19": "69494",
+    "SED_NAME19": "No usual address (Tas.)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "69797",
+    "SED_NAME19": "Migratory - Offshore - Shipping (Tas.)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "70001",
+    "SED_NAME19": "Arafura",
+    "AREASQKM19": 56855.9933
+  },
+  {
+    "SED_CODE19": "70002",
+    "SED_NAME19": "Araluen",
+    "AREASQKM19": 7.4189
+  },
+  {
+    "SED_CODE19": "70003",
+    "SED_NAME19": "Arnhem",
+    "AREASQKM19": 139241.2577
+  },
+  {
+    "SED_CODE19": "70004",
+    "SED_NAME19": "Barkly",
+    "AREASQKM19": 377834.6824
+  },
+  {
+    "SED_CODE19": "70005",
+    "SED_NAME19": "Blain",
+    "AREASQKM19": 4.3699
+  },
+  {
+    "SED_CODE19": "70006",
+    "SED_NAME19": "Braitling",
+    "AREASQKM19": 10.182
+  },
+  {
+    "SED_CODE19": "70007",
+    "SED_NAME19": "Brennan",
+    "AREASQKM19": 4.899
+  },
+  {
+    "SED_CODE19": "70008",
+    "SED_NAME19": "Casuarina",
+    "AREASQKM19": 11.9182
+  },
+  {
+    "SED_CODE19": "70009",
+    "SED_NAME19": "Daly",
+    "AREASQKM19": 87940.3612
+  },
+  {
+    "SED_CODE19": "70010",
+    "SED_NAME19": "Drysdale",
+    "AREASQKM19": 5.1199
+  },
+  {
+    "SED_CODE19": "70011",
+    "SED_NAME19": "Fannie Bay",
+    "AREASQKM19": 11.3411
+  },
+  {
+    "SED_CODE19": "70012",
+    "SED_NAME19": "Fong Lim",
+    "AREASQKM19": 31.1073
+  },
+  {
+    "SED_CODE19": "70013",
+    "SED_NAME19": "Goyder",
+    "AREASQKM19": 10281.9576
+  },
+  {
+    "SED_CODE19": "70014",
+    "SED_NAME19": "Gwoja",
+    "AREASQKM19": 444413.4953
+  },
+  {
+    "SED_CODE19": "70015",
+    "SED_NAME19": "Johnston",
+    "AREASQKM19": 4.7836
+  },
+  {
+    "SED_CODE19": "70016",
+    "SED_NAME19": "Karama",
+    "AREASQKM19": 8.2574
+  },
+  {
+    "SED_CODE19": "70017",
+    "SED_NAME19": "Katherine",
+    "AREASQKM19": 7310.6646
+  },
+  {
+    "SED_CODE19": "70018",
+    "SED_NAME19": "Mulka",
+    "AREASQKM19": 24644.2687
+  },
+  {
+    "SED_CODE19": "70019",
+    "SED_NAME19": "Namatjira",
+    "AREASQKM19": 197936.9614
+  },
+  {
+    "SED_CODE19": "70020",
+    "SED_NAME19": "Nelson",
+    "AREASQKM19": 1409.7155
+  },
+  {
+    "SED_CODE19": "70021",
+    "SED_NAME19": "Nightcliff",
+    "AREASQKM19": 4.2925
+  },
+  {
+    "SED_CODE19": "70022",
+    "SED_NAME19": "Port Darwin",
+    "AREASQKM19": 5.1186
+  },
+  {
+    "SED_CODE19": "70023",
+    "SED_NAME19": "Sanderson",
+    "AREASQKM19": 20.3152
+  },
+  {
+    "SED_CODE19": "70024",
+    "SED_NAME19": "Spillett",
+    "AREASQKM19": 66.8384
+  },
+  {
+    "SED_CODE19": "70025",
+    "SED_NAME19": "Wanguri",
+    "AREASQKM19": 29.0084
+  },
+  {
+    "SED_CODE19": "79494",
+    "SED_NAME19": "No usual address (NT)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "79797",
+    "SED_NAME19": "Migratory - Offshore - Shipping (NT)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "80001",
+    "SED_NAME19": "Brindabella",
+    "AREASQKM19": 1607.6526
+  },
+  {
+    "SED_CODE19": "80002",
+    "SED_NAME19": "Ginninderra",
+    "AREASQKM19": 103.6732
+  },
+  {
+    "SED_CODE19": "80003",
+    "SED_NAME19": "Kurrajong",
+    "AREASQKM19": 290.2734
+  },
+  {
+    "SED_CODE19": "80004",
+    "SED_NAME19": "Murrumbidgee",
+    "AREASQKM19": 256.2428
+  },
+  {
+    "SED_CODE19": "80005",
+    "SED_NAME19": "Yerrabi",
+    "AREASQKM19": 100.33
+  },
+  {
+    "SED_CODE19": "89494",
+    "SED_NAME19": "No usual address (ACT)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "89797",
+    "SED_NAME19": "Migratory - Offshore - Shipping (ACT)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "99191",
+    "SED_NAME19": "Unclassified (OT)",
+    "AREASQKM19": 256.3162
+  },
+  {
+    "SED_CODE19": "99494",
+    "SED_NAME19": "No usual address (OT)",
+    "AREASQKM19": 0.0
+  },
+  {
+    "SED_CODE19": "99797",
+    "SED_NAME19": "Migratory - Offshore - Shipping (OT)",
+    "AREASQKM19": 0.0
+  }
+]

@@ -253,7 +253,7 @@ angular.module('ausEnvApp')
         return (service.regionType&&service.regionType.globalLabel) || 'National';
       }
 
-      return service.selectedRegion.feature.properties[service.regionType.labelField];
+      return service.selectedRegion.feature[service.regionType.labelField];
     };
 
     service.initialisePolygons = function(newOption) {
@@ -274,9 +274,9 @@ angular.module('ausEnvApp')
           return;
         }
 
-        service.availableFeatures = data.features.map(function(f){
+        service.availableFeatures = data.map(function(f){
           return {
-            name:f.properties[newOption.labelField],
+            name:f[newOption.labelField],
             feature:f
           };
         });

@@ -75,12 +75,27 @@
   {
     "name":"Federal Electorates",
     "description":"TODO",
-    "source":"elb_converted",
-    "sourceWMS":"COM20111216_ELB_region_WA_NSW_ACT",
+    "source":"COM_ELB_region",
+    "sourceWMSX":"COM20111216_ELB_region_WA_NSW_ACT",
     "globalLabel":"All Federal Electorates",
-    "labelField":"ELECT_DIV",
-    "summaryName":"aec_bnd_2016",
+    "labelField":"Elect_div",
+    "summaryNameX":"aec_bnd_2016",
     "keyField":"ID"
+  },
+  {
+    "name":"State and Territory Electorates",
+    "description":"TODO",
+    "Zsource":"COM_ELB_region",
+    "ZsourceWMS":"COM20111216_ELB_region_WA_NSW_ACT",
+    "ZglobalLabel":"All Federal Electorates",
+    "ZlabelField":"ELECT_DIV",
+    "ZsummaryName":"aec_bnd_2016",
+    "ZkeyField":"ID",
+    "source":"SED_2019_AUST",
+    "globalLabel":"All State and Territory Electorates",
+    "labelField":"SED_NAME19",
+    "keyField":"SED_CODE19"
   }
+
 
 ]

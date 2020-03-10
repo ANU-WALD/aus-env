@@ -203,7 +203,7 @@ angular.module('ausEnvApp')
       var url =base + '?show-controls=0';
       url += '&sel-cov='+($scope.selection.regionType.summaryName || $scope.selection.regionType.source);
       url += '&sel-year='+$scope.selection.year;
-      url += '&sel-loc='+$scope.selection.selectedRegion.feature.properties[$scope.selection.regionType.keyField];
+      url += '&sel-loc='+$scope.selection.selectedRegion.feature[$scope.selection.regionType.keyField];
       return url;
     };
   });
