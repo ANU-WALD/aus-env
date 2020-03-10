@@ -22,7 +22,7 @@ angular.module('ausEnvApp')
           return details.themeColours.darkGreen;
         }
         return details.themeColours.lightGreen;
-      })
+      });
     };
 
     $scope.adjustColours = function(){

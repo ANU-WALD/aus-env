@@ -214,7 +214,7 @@ angular.module('ausEnvApp')
 
     });
 
-    $scope.polygonFillColour = function(feature,idx) {
+    $scope.polygonFillColour = function(feature,i) {
       if(!$scope.polygonMapping || (selection.mapMode===$scope.mapmodes.grid)) {
         return null;
       }
@@ -224,7 +224,7 @@ angular.module('ausEnvApp')
       //   return null;
       // }
 
-      var vals = $scope.polygonMapping.values['PlaceIndex'+idx];
+      var vals = $scope.polygonMapping.values['PlaceIndex'+i];
       if(!vals) {
         return null;
       }
@@ -463,7 +463,7 @@ angular.module('ausEnvApp')
       layer.jsonData().then(function(features){
         var vectorZooms = [1,2,3,4,5,6,7,8,9,10];
 
-        var layers = $scope.vectorFillStyles(layer,features)
+        var layers = $scope.vectorFillStyles(layer,features);
         layers.push({
           id: "region_outline",
           type: "line",
@@ -539,7 +539,6 @@ angular.module('ausEnvApp')
           $scope.vectorTileData.on(
             'click',
             function (info) {
-              console.log(info);
               var f = info && info.features && info.features[layer.source];
               f = f && f[0];
 
@@ -743,7 +742,7 @@ angular.module('ausEnvApp')
         u = BASE_URL + '/wms/' + u;
       }
       if(!u.endsWith('?')){
-        u += '?'
+        u += '?';
       }
       return u;
     };
