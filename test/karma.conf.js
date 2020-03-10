@@ -32,8 +32,6 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
       'bower_components/ng-static-data/dist/ng-static-data.js',
-      'bower_components/Chart.js/Chart.js',
-      'bower_components/angular-chart.js/dist/angular-chart.js',
       'bower_components/dap-query-js/dist/dap-query.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-ui-select/dist/select.js',
@@ -51,6 +49,7 @@ module.exports = function(config) {
 
     // list of files / patterns to exclude
     exclude: [
+      'app/scripts/mapbox_google_overlay.js'
     ],
 
     // web server port
