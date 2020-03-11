@@ -73,7 +73,7 @@
         "title": "Hot days",
         "summary": "OzWALD.Tmax.HotDays",
         "palette": "anu_wald_gisheat_inv.v2",
-        "units": "&deg;C",
+        "units": "number of days",
         "disablePie": true,
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.HotDays.nc",
