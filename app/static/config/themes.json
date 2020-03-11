@@ -787,22 +787,22 @@
       {
         "title": "Fuel moisture content",
         "metadataKey":"Fuel Moisture Content",
-        "summary": "OzWALD.FMC.AnnualMeans",
+        "summary": "OzWALD.FMC.AnnualMinima",
         "palette": "anu_fmc_rdylbu_9",
         "units": "%",
         "default": true,
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.FMC.AnnualMeans.nc",
-          "variable": "AnnualMeans",
+          "url": "ub8/au/OzWALD/annual/OzWALD.FMC.AnnualMinima.nc",
+          "variable": "AnnualMinima",
           "time": "{{year}}-12-31",
           "colorscalerange": "0,150",
           "palette": "anu_fmc_rdylbu_9"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.FMC.ChangesAnnualMeans.nc",
-          "variable": "ChangesAnnualMeans",
+          "url": "ub8/au/OzWALD/annual/OzWALD.FMC.ChangesAnnualMinima.nc",
+          "variable": "ChangesAnnualMinima",
           "time": "{{year}}-12-31",
-          "colorscalerange": "-100,100",
+          "colorscalerange": "-50,50",
           "palette": "anu_wald_gistemp_inv"
         },
         "timeseries": {
