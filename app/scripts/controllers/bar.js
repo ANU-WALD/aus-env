@@ -86,7 +86,7 @@ angular.module('ausEnvApp')
         var target = $element[0];
         target = $('.bar-chart',target)[0];
 
-        var range = details.dataRange($scope.barData,5,0,$scope.bar.units==='%'?100.0:undefined);
+        var range = details.dataRange($scope.barData,$scope.bar.units);
         details.populateLabels($scope.bar,metadata);
 
         $timeout(function(){

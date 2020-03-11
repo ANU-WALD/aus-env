@@ -305,7 +305,11 @@ angular.module('ausEnvApp')
       return undefined;
     };
 
-    service.dataRange = function(values,buffer,min,max){
+    service.dataRange = function(values,units){
+      var min = units==='&deg;C'?undefined:0.0;
+      var max = units==='%'?100:undefined;
+      var buffer = 5;
+
       var actualVals = values.filter(function(v){
         return !isNaN(v);
       });
