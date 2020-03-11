@@ -58,6 +58,8 @@ angular.module('ausEnvApp')
         var range = details.axisRange(series,$scope.line.units);
 
         var _ = window._;
+        details.populateLabels($scope.line,metadata,altUnits);
+
         $scope.line.download = downloads.downloadableTable(_.zip(labels.map(function(d){return d.toLocaleDateString('en-GB');}),series),['Date','Value']);
         $scope.line.download_fn = downloads.makeDownloadFilename($scope.locationLabel(),$scope.line.title,selection.year);
         var target = $element[0];
@@ -65,7 +67,7 @@ angular.module('ausEnvApp')
 
         $timeout(function(){
           $(target).one('plotly_afterplot', function(){
-            details.populateLabels($scope.line,metadata);
+            details.populateLabels($scope.line,metadata,altUnits);
             $scope.line.loading=false;
           });
           Plotly.newPlot( target, [{

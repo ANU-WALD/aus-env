@@ -91,6 +91,7 @@ angular.module('ausEnvApp')
 
         $timeout(function(){
           $(target).one('plotly_afterplot', function(){
+            details.populateLabels($scope.bar,metadata);
             $scope.bar.loading=false;
           });
           Plotly.newPlot( target, [{

@@ -270,10 +270,10 @@ angular.module('ausEnvApp')
       }
     };
 
-    service.populateLabels = function(chart,data){
+    service.populateLabels = function(chart,data,altUnits){
         chart.title = data.Title;
         chart.description = data.Description;
-        chart.units = service.unitsText(data.Units);
+        chart.units = service.unitsText(altUnits||data.Units);
         chart.originalUnits = data.Units;
         /*
         if(chart === $scope.bar) {
