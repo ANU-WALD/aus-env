@@ -87,10 +87,10 @@ angular.module('ausEnvApp')
         target = $('.bar-chart',target)[0];
 
         var range = details.dataRange($scope.barData,5,0,$scope.bar.units==='%'?100.0:undefined);
+        details.populateLabels($scope.bar,metadata);
 
         $timeout(function(){
           $(target).one('plotly_afterplot', function(){
-            details.populateLabels($scope.bar,metadata);
             $scope.bar.loading=false;
           });
           Plotly.newPlot( target, [{
