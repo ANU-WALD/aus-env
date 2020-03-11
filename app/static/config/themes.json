@@ -1043,7 +1043,7 @@
           "abovemaxcolor":"extend"
         },
         "timeseries": {
-          "url": "ub8/au/OzWALD/8day/PV/OzWALD.WCF.{{year}}.nc",
+          "url": "ub8/au/OzWALD/8day/WCF/OzWALD.WCF.{{year}}.nc",
           "variable": "WCF",
           "units": "umol m^-2s^-1 "
         },
