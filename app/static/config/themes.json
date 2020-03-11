@@ -814,6 +814,35 @@
         }
       },
       {
+        "title": "Burn extent",
+        "metadataKey":"Burn extent",
+        "summary": "OzWALD.MODIS_burn_annual_burn_date",
+        "palette": "anu_fmc_rdylbu_9",
+        "units": "%",
+        "default": true,
+        "normal": {
+          "url": "ub8/au/OzWALD/annual/OzWALD.MODIS_burn_annual_burn_date.nc",
+          "variable": "burn_date",
+          "time": "{{year}}-12-31",
+          "colorscalerange": "0,150",
+          "palette": "anu_fmc_rdylbu_9"
+        },
+        "delta": {
+          "url": "ub8/au/OzWALD/annual/OzWALD.FMC.ChangesAnnualMinima.nc",
+          "variable": "ChangesAnnualMinima",
+          "time": "{{year}}-12-31",
+          "colorscalerange": "-50,50",
+          "palette": "anu_wald_gistemp_inv"
+        },
+        "timeseries": {
+          "url": "ub8/au/OzWALD/8day/FMC/OzWALD.MODIS_burn_annual_burn_date.{{year}}.nc",
+          "variable": "burn_date"
+        },
+        "regionTimeSeries": {
+          "fn": "OzWALD.MODIS_burn_annual_burn_date"
+        }
+      },
+      {
         "title": "Fire carbon emission",
         "summary": "GFASv12.BurntCarbon.AnnualSums",
         "missingYears": [
