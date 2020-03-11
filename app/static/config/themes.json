@@ -211,7 +211,6 @@
         "title": "Burned area",
         "metadataKey": "Burned area",
         "summary": "OzWALD.MODIS_burn_annual.burn_date",
-        "palette": "anu_fmc_rdylbu_9",
         "units": "day of year",
         "default": true,
         "normal": {
@@ -219,8 +218,14 @@
           "variable": "burn_date",
           "time": "{{year}}-12-31",
           "colorscalerange": "0.5,1",
-          "palette": "anu_wald_single_landcover",
-          "abovemaxcolor":"extend"
+          "palette": {
+            "grid": "anu_wald_single_landcover",
+            "region": {
+              "normal": "anu_wald_gisheat_inv.v2",
+              "delta": "anu_wald_gistemp_inv"
+            }
+          },
+            "abovemaxcolor":"extend"
         },
         "delta": {
           "url": "ub8/au/OzWALD/annual/OzWALD.FMC.ChangesAnnualMinima.nc",
@@ -229,12 +234,9 @@
           "colorscalerange": "-50,50",
           "palette": "anu_wald_gistemp_inv"
         },
-        "timeseries": {
-          "url": "ub8/au/OzWALD/8day/FMC/OzWALD.MODIS_burn_annual_burn_date.{{year}}.nc",
-          "variable": "burn_date"
-        },
-        "regionTimeSeries": {
-          "fn": "OzWALD.MODIS_burn_annual_burn_date"
+        "legend": {
+          "grid": "patchOnly",
+          "region": null
         }
       },
       {
