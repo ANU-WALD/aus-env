@@ -35,6 +35,7 @@
        ga('create', 'UA-75854914-1');
        ga('send', 'pageview');
     </script>
+    <script src="scripts/mapbox_google_overlay.js"></script>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -60,15 +61,6 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script>
-          const module = {};
-        </script>
-        <script src="bower_components/Mapbox-vector-tiles-basic-js-renderer/dist/mapbox-gl.js"></script>
-        <script>
-          const mapboxgl = module.exports;
-          // mapboxgl.workerCount=0;
-        </script>
-        <script src="scripts/mapbox_google_overlay.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/map.js"></script>

@@ -404,7 +404,8 @@ module.exports = function (grunt) {
             '*.html',
             'images/{,*/}*.{webp}',
             'static/**/*.*',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
+            'scripts/mapbox_google_overlay.js'
           ]
         }, {
           expand: true,
