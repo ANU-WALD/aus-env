@@ -2,7 +2,7 @@
   {
     "id": "weather",
     "name": "Weather",
-    "icon": "temperature.png",
+    "icon": "Weather.png",
     "layers": [
       {
         "default": false,
@@ -205,7 +205,7 @@
   {
     "id": "bushfire",
     "name": "Bushfire",
-    "icon": "fire.png",
+    "icon": "Fire.png",
     "layers": [
       {
         "title": "Burned area",
@@ -360,7 +360,7 @@
   {
     "id": "wa",
     "name": "Water Availability",
-    "icon": "water.png",
+    "icon": "Water.png",
     "layers": [
       {
         "default": false,
@@ -428,7 +428,7 @@
   {
     "id": "soils",
     "name": "Soils",
-    "icon": "wetlands.png",
+    "icon": "Soils.png",
     "layers": [
       {
         "title": "Soil moisture",
@@ -497,8 +497,8 @@
   {
     "id": "lh",
     "default": true,
-    "name": "Land cover",
-    "icon": "landscape.png",
+    "name": "Vegetation",
+    "icon": "Vegetation.png",
     "layers": [
       {
         "default": false,
@@ -601,7 +601,7 @@
     "id": "lcc",
     "name": "People",
     "longName": "People",
-    "icon": "landuse.png",
+    "icon": "People.png",
     "layers": [
       {
         "title": "Woody Cover Fraction - Temporary",
@@ -1147,7 +1147,7 @@
     "id": "ecs",
     "default": true,
     "name": "Summary Indicators",
-    "icon": "ecs.png",
+    "icon": "Summary_Indicators.png",
     "layers": [
     ]
   }
