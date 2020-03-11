@@ -112,10 +112,6 @@ angular.module('ausEnvApp')
               t:10
             },
             xaxis:{
-              tickmode:'array',
-              tickvals:$scope.barLabels,
-              ticktext:$scope.barLabels,
-              tickangle:-60,
               tickfont:{
                 size:11
               }
