@@ -29,7 +29,7 @@
           "palette": "anu_wald_gistemp_inv"
         },
         "timeseries": {
-          "url": "ub8/au/OzWALD/daily/OzWALD.daily.Pg.{{year}}.nc",
+          "url": "ub8/au/OzWALD/daily/meteo/Pg/OzWALD.daily.Pg.{{year}}.nc",
           "variable": "Pg"
         },
         "regionTimeSeries": {
