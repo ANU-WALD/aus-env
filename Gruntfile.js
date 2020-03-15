@@ -61,7 +61,9 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= yeoman.app %>/{,**/}*.html',
-          '<%= yeoman.app %>/static/{,**/}*',
+          '<%= yeoman.app %>/static/{,**/}*.json',
+          '<%= yeoman.app %>/static/{,**/}*.csv',
+          '<%= yeoman.app %>/static/{,**/}*.pal',
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
@@ -79,7 +81,23 @@ module.exports = function (grunt) {
       proxies: [
         {
           context: '/aucsv',
-          host: 'wenfo.org'
+          host: 'wenfo.org',
+          port: 80,
+          xforward: true,
+          hostRewrite: 'wenfo.org',
+          headers: {
+            'host': 'wenfo.org'
+          }
+        },
+        {
+          context: '/vector-tiles',
+          host: 'wenfo.org',
+          port: 80,
+          xforward: true,
+          hostRewrite: 'wenfo.org',
+          headers: {
+            'host': 'wenfo.org'
+          }
         }
       ],
       livereload: {
