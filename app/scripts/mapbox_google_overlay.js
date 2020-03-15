@@ -19,7 +19,7 @@ mapboxgl=function(t){var e={};function n(r){if(e[r])return e[r].exports;var i=e[
 'use strict';
 
 /* global google document */
-var Evented = mapboxgl.Evented;
+const Evented = mapboxgl.Evented;
 
 var TILE_SIZE = 256;
 
@@ -27,12 +27,7 @@ var TILE_SIZE = 256;
 
 function MapboxGoogleOverlay(options) {
   this.mapboxRenderer = new mapboxgl.BasicRenderer(options);
-  var _self = this;
-  this.styleLoadedPromise = new Promise(function(res){
-    return _self.mapboxRenderer.on('data', function(data){
-      return (data.dataType === "style") && res();
-    });
-  });
+  this.styleLoadedPromise = new Promise(res => this.mapboxRenderer.on('data', data => (data.dataType === "style") && res()));
   this.tileSize = new google.maps.Size(TILE_SIZE, TILE_SIZE);
   this.minZoom = options.minZoom || 10;
   this.maxZoom = options.maxZoom || 21;
@@ -64,7 +59,7 @@ function MapboxGoogleOverlay(options) {
 var MAX_TILE_POOL_SIZE = 30;
 
 MapboxGoogleOverlay.prototype._createTile = function(){
-  var canv = document.createElement('canvas');
+  let canv = document.createElement('canvas');
   canv.width = TILE_SIZE;
   canv.height = TILE_SIZE;
   canv.style.imageRendering = 'pixelated';
@@ -74,8 +69,8 @@ MapboxGoogleOverlay.prototype._createTile = function(){
 
 MapboxGoogleOverlay.prototype.queryRenderedFeatures = function(opts){
   // opts = {lat, lng, zoom}
-  var availableZooms = this.availableZooms[opts.source];
-  var zoom = [availableZooms[0]];
+  let availableZooms = this.availableZooms[opts.source];
+  let zoom = [availableZooms[0]];
   if(availableZooms.indexOf(opts.zoom)>=0){
     zoom = [opts.zoom];
   } else if(opts.zoom>availableZooms[availableZooms.length-1]){
@@ -98,14 +93,14 @@ MapboxGoogleOverlay.prototype.setMouseOptions = function(opts){
 
 
 MapboxGoogleOverlay.prototype._getTilesSpec = function(coord, zoom, source){
-  var availableZooms = this.availableZooms[source];
-  var maxZoom = availableZooms[availableZooms.length-1];
-  var minZoom = availableZooms[0];
+  let availableZooms = this.availableZooms[source];
+  let maxZoom = availableZooms[availableZooms.length-1];
+  let minZoom = availableZooms[0];
 
   if(availableZooms.indexOf(zoom)>=0){
     // 3x3 grid of source tiles, where the region of interest is that corresponding to the central source tile
-    var ret = [];
-    for(var x=-1;x<=1;x++) for(var y=-1; y<=1; y++){
+    let ret = [];
+    for(let x=-1;x<=1;x++) for(let y=-1; y<=1; y++){
       ret.push({
         source: source,
         z: zoom, // [zoom],
@@ -121,15 +116,15 @@ MapboxGoogleOverlay.prototype._getTilesSpec = function(coord, zoom, source){
   } else if (zoom > maxZoom){
     // this may be either a single source tile, if we are interested in an interior region,
     // or as much as 4 source tiles, if we have to get the corner of the tile.
-    var shift = (zoom-maxZoom);
-    var mask = (1<<shift)-1;
-    var size = TILE_SIZE * (1 << shift);
-    var ret = [];
-    for(var x=-1;x<=1;x++) for(var y=-1;y<=1;y++){
-      if( (x===-1 && (coord.x & mask)!==0)    ||
-          (x===+1 && (coord.x & mask)!==mask) ||
-          (y===-1 && (coord.y & mask)!==0)    ||
-          (y===+1 && (coord.y & mask)!==mask)  ) {
+    let shift = (zoom-maxZoom);
+    let mask = (1<<shift)-1;
+    let size = TILE_SIZE * (1 << shift);
+    let ret = [];
+    for(let x=-1;x<=1;x++) for(let y=-1;y<=1;y++){
+      if( (x==-1 && (coord.x & mask)!==0)    ||
+          (x==+1 && (coord.x & mask)!==mask) ||
+          (y==-1 && (coord.y & mask)!==0)    ||
+          (y==+1 && (coord.y & mask)!==mask)  ) {
         continue;
       }
       ret.push({
@@ -145,11 +140,11 @@ MapboxGoogleOverlay.prototype._getTilesSpec = function(coord, zoom, source){
     return ret;
   } else {
     // grid of (nParts+2)x(nPartsx2) source tiles, where the region of interest is that corresponding to the central nParts x nParts tiles
-    var shift = (minZoom-zoom);
-    var nParts = (1<<shift);
-    var ret = [];
-    var size = TILE_SIZE / (1 << shift);
-    for(var xx=-1; xx<=nParts; xx++) for(var yy=-1; yy<=nParts; yy++){
+    let shift = (minZoom-zoom);
+    let nParts = (1<<shift);
+    let ret = [];
+    let size = TILE_SIZE / (1 << shift);
+    for(let xx=-1; xx<=nParts; xx++) for(let yy=-1; yy<=nParts; yy++){
       ret.push({
         source: source,
         z: minZoom, // [minZoom],
@@ -169,25 +164,24 @@ MapboxGoogleOverlay.prototype._renderTile = function(el){
   !this._renderInfo.startTime && (this._renderInfo.startTime = Date.now());
   this._renderInfo.tilesPending++;
 
-  var state = this._visibleTiles.get(el);
+  let state = this._visibleTiles.get(el);
   this.mapboxRenderer.filterForZoom(state.zoom);
 
-  var _self = this;
-  var tilesSpec = this.mapboxRenderer
+  let tilesSpec = this.mapboxRenderer
     .getVisibleSources(state.zoom)
-    .reduce(function(a,s){ return a.concat(_self._getTilesSpec(state.coord, state.zoom, s)); }, []);
+    .reduce((a,s) => a.concat(this._getTilesSpec(state.coord, state.zoom, s)), []);
   state.ctx.globalCompositeOperation = 'copy';
   state.renderRef = this.mapboxRenderer.renderTiles(
     state.ctx,
     {srcLeft: 0, srcTop: 0, width: TILE_SIZE, height: TILE_SIZE, destLeft: 0, destTop: 0},
     tilesSpec,
-    function(err) {
-      _self._renderInfo.errors += err && err !== "canceled" ? 1 : 0;
-      _self._renderInfo.tilesPending--;
-      _self.evented.fire('finishedRender', this._renderInfo);
-      if(_self._renderInfo.tilesPending === 0){
-        _self._renderInfo.errors = 0;
-        _self._renderInfo.startTime = null;
+    (err) => {
+      this._renderInfo.errors += err && err !== "canceled" ? 1 : 0;
+      this._renderInfo.tilesPending--;
+      this.evented.fire('finishedRender', this._renderInfo);
+      if(this._renderInfo.tilesPending === 0){
+        this._renderInfo.errors = 0;
+        this._renderInfo.startTime = null;
       }
     }
   );
@@ -197,7 +191,7 @@ MapboxGoogleOverlay.prototype.getTile = function(coord, zoom) {
   if(zoom < this.minZoom || zoom > this.maxZoom){
     return this._dummyTile; // for some reason the zoom limits are ignored so we have to do this
   }
-  var canv = this._unusedTilesPool.pop() || this._createTile();
+  let canv = this._unusedTilesPool.pop() || this._createTile();
   canv.width = TILE_SIZE; // clear the canvas
 
   this._visibleTiles.set(canv, {
@@ -212,10 +206,9 @@ MapboxGoogleOverlay.prototype.getTile = function(coord, zoom) {
 };
 
 MapboxGoogleOverlay.prototype.reRenderAll = function(){
-  var _self = this;
-  this._visibleTiles.forEach(function(state,el) {
-    _self.mapboxRenderer.releaseRender(state.renderRef);
-    _self._renderTile(el);
+  this._visibleTiles.forEach((state,el) => {
+    this.mapboxRenderer.releaseRender(state.renderRef);
+    this._renderTile(el);
   });
 };
 
@@ -223,44 +216,28 @@ MapboxGoogleOverlay.prototype.reRenderAll = function(){
   and like those methods, they can either be executed immediately or,
   by default, they will return a function which can be used to trigger
   execution at a later point. This enables debouncing of changes. */
-MapboxGoogleOverlay.prototype.setPaintProperty = function(layer, prop, val, exec) {
-  if(exec===undefined){
-    exec=true;
-  }
-  var result = this.mapboxRenderer.setPaintProperty(layer, prop, val, exec);
-  var _self = this;
-  return exec ? result.then(function(isLatest){ return isLatest && _self.reRenderAll();})
-              : function(){ return result().then(function(isLatest){ return isLatest && _self.reRenderAll();});};
+MapboxGoogleOverlay.prototype.setPaintProperty = function(layer, prop, val, exec=true) {
+  let result = this.mapboxRenderer.setPaintProperty(layer, prop, val, exec);
+  return exec ? result.then(isLatest => isLatest && this.reRenderAll())
+              : () => result().then(isLatest => isLatest && this.reRenderAll());
 };
 
-MapboxGoogleOverlay.prototype.setFilter = function(layer, filter, exec) {
-  if(exec===undefined){
-    exec=true;
-  }
-  var result = this.mapboxRenderer.setFilter(layer, filter, exec);
-  var _self = this;
-  return exec ? result.then(function(isLatest){ return isLatest && _self.reRenderAll();})
-              : function(){ return result().then(function(isLatest){return isLatest && _self.reRenderAll();});};
+MapboxGoogleOverlay.prototype.setFilter = function(layer, filter, exec=true) {
+  let result = this.mapboxRenderer.setFilter(layer, filter, exec);
+  return exec ? result.then(isLatest => isLatest && this.reRenderAll())
+              : () => result().then(isLatest => isLatest && this.reRenderAll());
 };
 
-MapboxGoogleOverlay.prototype.setLayers = function(visibleLayers, exec) {
-  if(exec===undefined){
-    exec=true;
-  }
-  var result = this.mapboxRenderer.setLayers(visibleLayers, exec);
-  var _self = this;
-  return exec ? result.then(function(isLatest){ return isLatest && _self.reRenderAll();})
-              : function(){ return result().then(function(isLatest){return isLatest && _self.reRenderAll();});};
+MapboxGoogleOverlay.prototype.setLayers = function(visibleLayers, exec=true) {
+  let result = this.mapboxRenderer.setLayers(visibleLayers, exec);
+  return exec ? result.then(isLatest => isLatest && this.reRenderAll())
+              : () => result().then(isLatest => isLatest && this.reRenderAll());
 };
 
-MapboxGoogleOverlay.prototype.setLayerVisibility = function(layer, isVisible, exec) {
-  if(exec===undefined){
-    exec=true;
-  }
-  var result = this.mapboxRenderer.setLayerVisibility(layer, isVisible, exec);
-  var _self = this;
-  return exec ? result.then(function(isLatest){ return isLatest && _self.reRenderAll();})
-              : function() { return result().then(function(isLatest){ return isLatest && _self.reRenderAll();});};
+MapboxGoogleOverlay.prototype.setLayerVisibility = function(layer, isVisible, exec=true) {
+  let result = this.mapboxRenderer.setLayerVisibility(layer, isVisible, exec);
+  return exec ? result.then(isLatest => isLatest && this.reRenderAll())
+              : () => result().then(isLatest => isLatest && this.reRenderAll());
 };
 
 // ==================
@@ -287,31 +264,34 @@ MapboxGoogleOverlay.prototype.releaseTile = function(el){
 
 MapboxGoogleOverlay.prototype._mouseEvent = function(kind, mouseEvent){
   if(!this._thawed._map){
+    console.log('no map');
     return;
   }
 
-  var overFeature = false;
+  let overFeature = false;
 
   if(this._thawed.mouseBehaviour === "none"){
     return; // don't even try controlling the cursor
   } else if(this._thawed.mouseBehaviour === "everywhere"){
-    this.evented.fire(kind, {mouseEvent:mouseEvent, features: {}, source: null});
+    this.evented.fire(kind, {mouseEvent, features: {}, source: null});
     overFeature = true;
   } else {
+    if(kind==='click'){
+      console.log(kind);
+    }
 
-    var _self = this;
-    (kind === 'click' ? this._thawed.clickSources : this._thawed.mousemoveSources).forEach(function(source) {
-      var features = _self.queryRenderedFeatures({
+    (kind === 'click' ? this._thawed.clickSources : this._thawed.mousemoveSources).forEach(source => {
+      let features = this.queryRenderedFeatures({
         lat: mouseEvent.latLng.lat(),
         lng: mouseEvent.latLng.lng(),
-        zoom: _self._thawed._map.getZoom(),
-        source: source
+        zoom: this._thawed._map.getZoom(),
+        source
       });
       if(Object.keys(features).length) {
         // this.evented.fire(kind, {source, features, mouseEvent});
         overFeature = true;
       }
-      _self.evented.fire(kind, {source:source, features:features, mouseEvent:mouseEvent});
+      this.evented.fire(kind, {source, features, mouseEvent});
     });
   }
 
@@ -333,7 +313,7 @@ MapboxGoogleOverlay.prototype.addToMap = function(map){
 
 MapboxGoogleOverlay.prototype.removeFromMap = function(map){
   console.assert(map && map === this._thawed._map);
-  // var idx = map.overlayMapTypes.indexOf(this);
+  // let idx = map.overlayMapTypes.indexOf(this);
   // if(idx !== -1){
     // map.overlayMapTypes.removeAt(idx);
     this._thawed._mousemove.remove();
