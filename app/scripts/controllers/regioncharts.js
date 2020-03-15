@@ -100,7 +100,7 @@ angular.module('ausEnvApp')
       if(selection.regionType){
         if(selection.selectedRegion) {
           var keyField = selection.regionType.keyField;
-          result.id = selection.selectedRegion.feature[keyField];
+          result.id = selection.selectedRegion.feature.properties[keyField];
           if(result.id) {
             result.label = selection.selectedRegion.name;
           } else {
