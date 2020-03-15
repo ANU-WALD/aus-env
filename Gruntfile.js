@@ -422,8 +422,7 @@ module.exports = function (grunt) {
             '*.html',
             'images/{,*/}*.{webp}',
             'static/**/*.*',
-            'styles/fonts/{,*/}*.*',
-            'scripts/mapbox_google_overlay.js'
+            'styles/fonts/{,*/}*.*'
           ]
         }, {
           expand: true,
