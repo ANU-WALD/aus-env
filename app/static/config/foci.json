@@ -10,9 +10,9 @@
     "name":"Statistical Region (ABS)",
     "description":"Statistical Areas Level 3 (SA3s) provide a standardised regional breakup of Australia",
     "source":"SA3_2016_AUST",
-    "summaryName":"SA3_2011_AUST",
+    "summaryName":"sa3_2016_AUST",
     "labelField":"SA3_NAME16",
-    "keyField":"SA3_CODE16"
+    "keyField":"FID"
   },
   {
     "name":"BoM river regions",
@@ -34,7 +34,8 @@
     "source":"NRM_Regions_2017",
     "sourceWMSX":"NRMR_2011_AUST",
     "labelField":"NRM_REGION",
-    "keyField":"NRM_ID"
+    "keyField":"FID",
+    "keyFieldX":"NRM_ID"
   },
   {
     "name":"National Parks",
@@ -51,7 +52,8 @@
     "description":"TODO",
     "source":"LGA_2019_AUST",
     "labelField":"LGA_NAME19",
-    "keyField":"LGA_CODE19"
+    "keyFieldX":"LGA_CODE19",
+    "keyField":"FID"
   },
   {
     "name":"Ramsar Wetlands",
