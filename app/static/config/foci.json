@@ -32,7 +32,7 @@
     "name":"NRM Regions",
     "description":"TODO",
     "source":"NRM_Regions_2017",
-    "sourceWMS":"NRMR_2011_AUST",
+    "sourceWMSX":"NRMR_2011_AUST",
     "labelField":"NRM_REGION",
     "keyField":"NRM_ID"
   },
@@ -75,12 +75,23 @@
   {
     "name":"Federal Electorates",
     "description":"TODO",
-    "source":"elb_converted",
-    "sourceWMS":"COM20111216_ELB_region_WA_NSW_ACT",
+    "source":"COM_ELB_region",
+    "sourceWMSX":"COM20111216_ELB_region_WA_NSW_ACT",
     "globalLabel":"All Federal Electorates",
-    "labelField":"ELECT_DIV",
-    "summaryName":"aec_bnd_2016",
-    "keyField":"ID"
+    "labelField":"Elect_div",
+    "summaryName":"COM_ELB_region",
+    "keyField":"FID"
+  },
+  {
+    "name":"State and Territory Electorates",
+    "description":"TODO",
+    "source":"SED_2019_AUST",
+    "sourceWMSX":"COM20111216_ELB_region_WA_NSW_ACT",
+    "globalLabel":"All Federal Electorates",
+    "labelField":"SED_NAME19",
+    "summaryName":"SED_2019_AUST",
+    "keyField":"FID"
   }
+
 
 ]
