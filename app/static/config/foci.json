@@ -12,7 +12,7 @@
     "source":"SA3_2016_AUST",
     "summaryName":"sa3_2016_AUST",
     "labelField":"SA3_NAME16",
-    "keyField":"FID"
+    "keyField":"SA3_CODE16"
   },
   {
     "name":"BoM river regions",
@@ -34,8 +34,8 @@
     "source":"NRM_Regions_2017",
     "sourceWMSX":"NRMR_2011_AUST",
     "labelField":"NRM_REGION",
-    "keyField":"FID",
-    "keyFieldX":"NRM_ID"
+    "keyFieldX":"FID",
+    "keyField":"NRM_ID"
   },
   {
     "name":"National Parks",
@@ -52,8 +52,8 @@
     "description":"TODO",
     "source":"LGA_2019_AUST",
     "labelField":"LGA_NAME19",
-    "keyFieldX":"LGA_CODE19",
-    "keyField":"FID"
+    "keyField":"LGA_CODE19",
+    "keyFieldX":"FID"
   },
   {
     "name":"Ramsar Wetlands",
@@ -92,7 +92,7 @@
     "globalLabel":"All Federal Electorates",
     "labelField":"SED_NAME19",
     "summaryName":"SED_2019_AUST",
-    "keyField":"FID"
+    "keyField":"SED_CODE19"
   }
 
 
