@@ -10,7 +10,7 @@
     "name":"Statistical Region (ABS)",
     "description":"Statistical Areas Level 3 (SA3s) provide a standardised regional breakup of Australia",
     "source":"SA3_2016_AUST",
-    "summaryName":"sa3_2016_AUST",
+    "summaryName":"SA3_2016_AUST",
     "labelField":"SA3_NAME16",
     "keyField":"SA3_CODE16"
   },
