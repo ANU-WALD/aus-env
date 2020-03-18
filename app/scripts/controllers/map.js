@@ -212,7 +212,7 @@ angular.module('ausEnvApp')
         return null;
       }
       var key = feature.getProperty($scope.selection.regionType.keyField);
-      if(!key) {
+      if((key===null)||(key===undefined)||(key==='')) {
         return null;
       }
 
