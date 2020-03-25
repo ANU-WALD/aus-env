@@ -13,6 +13,7 @@ angular.module('ausEnvApp')
 
     var ANNUAL_TIME_SERIES=environment.STATIC_CSV_SOURCE;
     var PIE_CHART_DATA=environment.STATIC_CSV_SOURCE;
+    var TEMPERATURE_UNITS=['&deg;C','oC'];
     service.dap = $window.dap;
     service.MAX_CACHE_LENGTH=20;
     service.cache = [];
@@ -306,7 +307,7 @@ angular.module('ausEnvApp')
     };
 
     service.dataRange = function(values,units){
-      var min = units==='&deg;C'?undefined:0.0;
+      var min = (TEMPERATURE_UNITS.indexOf(units)>=0)?undefined:0.0;
       var max = units==='%'?100:undefined;
       var buffer = 5;
 
