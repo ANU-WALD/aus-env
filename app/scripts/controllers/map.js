@@ -275,11 +275,11 @@ angular.module('ausEnvApp')
 
     $scope.geoJsonStyling = function(feature) {
       var style = {
-        strokeWeight:0,
-        strokeOpacity:0,
+        strokeWeight:$scope.showGeoJSONOutlines?1:0,
+        strokeOpacity:$scope.showGeoJSONOutlines?1:0,
         fillColor:$scope.polygonFillColour(feature) || 'unfilled',
         fillOpacity:$scope.mapOpacity(),
-        color:'#000',
+        strokeColor:'#777',
         cursor: $scope.cursorToUse()
       };
 
@@ -289,6 +289,7 @@ angular.module('ausEnvApp')
       } else {
         style.strokeWeight = 1;
         style.strokeOpacity = 1;
+        style.strokeColor='#000';
       }
 
       if($scope.highlightPolygon(feature)){
@@ -425,7 +426,7 @@ angular.module('ausEnvApp')
       return;
     }
 
-    var wmsLayer = (newVal.sourceWMS||newVal.source);
+    var wmsLayer = newVal.sourceWMS;
     if(wmsLayer&&spatialFoci.show(newVal)){
       // Show as image
       $scope.layers.overlays.selectionLayer = {
@@ -451,6 +452,7 @@ angular.module('ausEnvApp')
       delete $scope.layers.overlays.selectionHiddenLayer;
       return;
     }
+    $scope.showGeoJSONOutlines = !(newVal.sourceWMS);
     newVal.jsonData().then(function(resp){
       $scope.geojson = resp;
 

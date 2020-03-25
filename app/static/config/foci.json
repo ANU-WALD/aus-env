@@ -3,6 +3,7 @@
     "name":"States and Territories",
     "description":"TODO",
     "source":"states4326",
+    "sourceWMS":"states4326",
     "labelField":"STATE_NAME",
     "keyField":"STATE_CODE"
   },
@@ -18,6 +19,7 @@
     "name":"BoM river regions",
     "description":"TODO",
     "source":"HR_Regions_river_region",
+    "sourceWMS":"HR_Regions_river_region",
     "labelField":"RivRegName",
     "keyField":"OBJECTID"
   },
@@ -25,6 +27,7 @@
     "name":"Bioregions (IBRA)",
     "description":"TODO",
     "source":"ibra7_regions",
+    "sourceWMS":"ibra7_regions",
     "labelField":"REG_NAME_7",
     "keyField":"REC_ID"
   },
@@ -32,7 +35,6 @@
     "name":"NRM Regions",
     "description":"TODO",
     "source":"NRM_Regions_2017",
-    "sourceWMSX":"NRMR_2011_AUST",
     "labelField":"NRM_REGION",
     "keyFieldX":"FID",
     "keyField":"NRM_ID"
@@ -41,8 +43,8 @@
     "name":"National Parks",
     "description":"TODO",
     "source":"NP_GT_5K",
-    "globalLabel":"All National Parks",
     "sourceWMS":"NP_GT_5K",
+    "globalLabel":"All National Parks",
     "labelField":"NAME",
     "keyField":"wenfo_ID",
     "summaryName":"NP_GT_5K"
@@ -59,6 +61,7 @@
     "name":"Ramsar Wetlands",
     "description":"TODO",
     "source":"ramsar2015",
+    "sourceWMS":"ramsar2015",
     "globalLabel":"All Ramsar Wetlands",
     "labelField":"WETLAND_NA",
     "summary":"wetlands",
@@ -78,7 +81,6 @@
     "name":"Federal Electorates",
     "description":"TODO",
     "source":"COM_ELB_region",
-    "sourceWMSX":"COM20111216_ELB_region_WA_NSW_ACT",
     "globalLabel":"All Federal Electorates",
     "labelField":"Elect_div",
     "summaryName":"COM_ELB_region",
@@ -88,12 +90,10 @@
     "name":"State and Territory Electorates",
     "description":"TODO",
     "source":"SED_2019_AUST",
-    "sourceWMSX":"COM20111216_ELB_region_WA_NSW_ACT",
     "globalLabel":"All Federal Electorates",
     "labelField":"SED_NAME19",
     "summaryName":"SED_2019_AUST",
     "keyField":"SED_CODE19"
   }
-
 
 ]
