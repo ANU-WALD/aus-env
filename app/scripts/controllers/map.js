@@ -113,6 +113,10 @@ angular.module('ausEnvApp')
     };
 
     $scope.createImageMapFromWMS = function(layerKey){
+      if(!$scope.layers.overlays[layerKey]){
+        return null;
+      }
+
       return googleMapsWMS.buildImageMap(
         function(){return $scope.theMap;},
         function(zoom){return $scope.layerUrlForZoom($scope.layers.overlays[layerKey],zoom);},

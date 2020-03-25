@@ -57,7 +57,7 @@
     </ui-gmap-map-control>
 
     <ui-gmap-map-type options="gridData" show="map.showGrid" refresh="map.refreshGrid"></ui-gmap-map-type>
-    <ui-gmap-map-type options="regionImageData" show="map.showRegions" refresh="map.refreshRegions"></ui-gmap-map-type>
+    <ui-gmap-map-type ng-if="regionImageData" options="regionImageData" show="map.showRegions" refresh="map.refreshRegions"></ui-gmap-map-type>
   </ui-gmap-google-map>
 
   <div class="no-data-message" ng-show="noDataMessage">
