@@ -22,7 +22,7 @@ angular.module('ausEnvApp')
           return details.themeColours.darkGreen;
         }
         return details.themeColours.lightGreen;
-      })
+      });
     };
 
     $scope.adjustColours = function(){
@@ -86,8 +86,8 @@ angular.module('ausEnvApp')
         var target = $element[0];
         target = $('.bar-chart',target)[0];
 
-        var range = details.dataRange($scope.barData,$scope.bar.units);
         details.populateLabels($scope.bar,metadata);
+        var range = details.dataRange($scope.barData,$scope.bar.units);
 
         $timeout(function(){
           $(target).one('plotly_afterplot', function(){
