@@ -199,11 +199,11 @@ angular.module('ausEnvApp')
         return null;
       }
       // var base = '/viz/#/ausenv_region';
-      var base = 'https://www.flowmatters.com.au/viz/#/ausenv_region';
-      var url =base + '?show-controls=0';
-      url += '&sel-cov='+($scope.selection.regionType.summaryName || $scope.selection.regionType.source);
-      url += '&sel-year='+$scope.selection.year;
-      url += '&sel-loc='+$scope.selection.selectedRegion.feature.properties[$scope.selection.regionType.keyField];
+      var base = 'http://wenfo.org/aer_pdf';
+      var url =base +
+        '/' + ($scope.selection.regionType.summaryName || $scope.selection.regionType.source) +
+        '/' + $scope.selection.selectedRegion.feature.properties[$scope.selection.regionType.labelField] +
+        '.pdf';
       return url;
     };
   });
