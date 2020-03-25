@@ -447,7 +447,10 @@ angular.module('ausEnvApp')
           tiled:true
         }
       };
+    } else {
+      delete $scope.layers.overlays.selectionLayer;
     }
+
     if(!newVal.jsonData){
       delete $scope.layers.overlays.selectionHiddenLayer;
       return;
