@@ -40,7 +40,7 @@
   {
     "name":"National Parks",
     "description":"TODO",
-    "source":"NatParks",
+    "source":"NP_GT_5K",
     "globalLabel":"All National Parks",
     "sourceWMS":"NP_GT_5K",
     "labelField":"NAME",
