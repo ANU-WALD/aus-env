@@ -238,30 +238,6 @@
         }
       },
       {
-        "default": true,
-        "title": "Fire intensity",
-        "metadataKey": "Fire frequency",
-        "description": "Annual maximum fire intensity derived from satellite observations by Geoscience Australia's Sentinel Hotspots system",
-        "units": "&deg;C",
-        "summary": "Sentinel.Nhotspots.AnnualSums",
-        "missingYears": [
-          2000,
-          2001
-        ],
-        "disablePolygons": false,
-        "url": "ub8/au/fire/Sentinel.MaxTemp.AnnualMaxima.nc",
-        "variable": "MaxTemp",
-        "_FillValue": -1,
-        "time": "{{year}}-12-31",
-        "colorscalerange": "50,200",
-        "palette": "anu_wald_gisheat_inv.v2",
-        "timeseries": {
-          "url": "ub8/au/fire/Sentinel.MaxTemp.{{year}}.nc",
-          "variable": "MaxTemp",
-          "_FillValue": -1
-        }
-      },
-      {
         "default": false,
         "title": "Fire occurrence",
         "metadataKey": "Fire frequency",
