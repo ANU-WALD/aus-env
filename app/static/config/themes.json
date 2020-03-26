@@ -477,7 +477,7 @@
       {
         "default": false,
         "title": "Tree Cover",
-        "metadataKey": "Persistent cover",
+        "metadataKey": "Tree cover",
         "summary": "OzWALD.WCF.Annual",
         "palette": "anu_wald_darkgreen",
         "units": "%",

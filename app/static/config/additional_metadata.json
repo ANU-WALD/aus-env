@@ -22,7 +22,7 @@
   {
     "name": "Tree cover",
     "Description": "Determined as the percent area classified as forest mapped from Landsat satellite imagery following the National Carbon Accounting System (NCAS) classification. Extended for recent years using a machine learning algorithm by ANU Water and Landscape Dynamics.",
-    "Data creator": "Department of the Environment and Energy, Australian National University",
+    "Data creator": "ANU",
     "Data license": "Creative Commons by Attribution (CC BY 3.0 AU, https://creativecommons.org/licenses/by/3.0/au/deed.en).",
     "Reference": "1) Furby, S., 2002. Land cover change: specification for remote sensing analysis. National Carbon Accounting System, Technical Report no. 9, Australian Greenhouse Office, Canberra (http://pandora.nla.gov.au/pan/102841/20090717-1556/www.climatechange.gov.au/ncas/reports/pubs/tr09final.pdf), 2) ANU machine learning algorithm not yet documented.",
     "Resolution": "annual, 1/4000\u00b0 (~25 m) binary classification and percent tree cover at 0.0025\u00b0 (~250m)",
