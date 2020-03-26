@@ -26,7 +26,7 @@ angular.module('ausEnvApp')
     service.year = service.bounds.year.max;
     service.theme = null;
     service.themeObject = null;
-    service.mapMode = mapmodes.grid;
+    service.mapMode = mapmodes.region;
 //    service.highlight = {
 //      region: true,
 //      point: false
@@ -100,7 +100,7 @@ angular.module('ausEnvApp')
     };
 
     deferredSetter(service,'regionType',spatialFoci.regionTypes(),function(regions){
-      service.regionType = regions[0];
+      service.regionType = regions[6]; // Local government areas
       service.initialisePolygons(regions[0]);
     });
 
