@@ -1,5 +1,15 @@
 [
   {
+    "name":"Environmental Condition Score",
+    "Description": "TEMP",
+    "Data creator": "TEMP",
+    "Data license": "TEMP",
+    "Reference": "TEMP",
+    "Resolution": "TEMP",
+    "Annual data": "TEMP",
+    "Other data forms": "TEMP"
+  },
+  {
     "name": "Burned area",
     "Description": "TEMP",
     "Data creator": "TEMP",

@@ -1108,6 +1108,7 @@
         "units": "index",
         "default": true,
         "disablePie":true,
+        "disablePoint":true,
         "annualSummary": "ECS.{{regionType}}.TimeSeries.csv",
         "normal": {
           "disableGrid":true,
@@ -1118,7 +1119,7 @@
             "grid": "anu_wald_single_landcover",
             "region": {
               "normal": "anu_wald_gisheat",
-              "delta": "anu_wald_gistemp_inv.v2"
+              "delta": "anu_wald_gistemp_inv"
             }
           },
           "abovemaxcolor":"extend"
@@ -1126,7 +1127,7 @@
         "delta": {
           "disableGrid":true,
           "colorscalerange": "-10,10",
-          "palette":"anu_wald_gistemp_inv.v2"
+          "palette":"anu_wald_gistemp_inv"
         },
         "legend": {
           "grid": "patchOnly",
