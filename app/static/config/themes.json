@@ -222,17 +222,15 @@
             "grid": "anu_wald_single_landcover",
             "region": {
               "normal": "anu_wald_gisheat_inv.v2",
-              "delta": "anu_wald_gistemp_inv"
+              "delta": "anu_wald_gistemp"
             }
           },
-            "abovemaxcolor":"extend"
+          "abovemaxcolor":"extend"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.FMC.ChangesAnnualMinima.nc",
-          "variable": "ChangesAnnualMinima",
-          "time": "{{year}}-12-31",
+          "disableGrid":true,
           "colorscalerange": "-50,50",
-          "palette": "anu_wald_gistemp_inv"
+          "palette":"anu_wald_gistemp"
         },
         "legend": {
           "grid": "patchOnly",
