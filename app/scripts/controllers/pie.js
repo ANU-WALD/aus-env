@@ -39,11 +39,6 @@ angular.module('ausEnvApp')
       $scope.getPieData().then(function(data){
         var _ = window._;
 
-        if(!$scope.selection.graphVisible.pie){
-          $scope.clearChart();
-          return;
-        }
-
         var series = data[0];
         var labels = data[1];
         var colours = data[2];
