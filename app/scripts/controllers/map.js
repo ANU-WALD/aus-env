@@ -518,7 +518,11 @@ angular.module('ausEnvApp')
       $scope.noDataMessage = null;
     }
 
-    if(selection.mapMode!==mapmodes.grid) {
+    var dataModeConfig = layer[selection.dataModeConfig()];
+    var gridMode = selection.mapMode===mapmodes.grid;
+    var disabledGrid = dataModeConfig&&dataModeConfig.disableGrid;
+
+    if(disabledGrid||!gridMode) {
       if($scope.layers.overlays.aWMS) {
         delete $scope.layers.overlays.aWMS;
       }
@@ -532,7 +536,7 @@ angular.module('ausEnvApp')
     }
 
     var prefix = '';
-    if(layer[selection.dataModeConfig()]) {
+    if(dataModeConfig) {
       if(selection.dataMode===datamodes.delta) {
         prefix = 'Change in ';
       } else if(selection.dataMode===datamodes.rank){
@@ -592,6 +596,9 @@ angular.module('ausEnvApp')
     }
     $scope.layers.overlays.aWMS.layerParams.showOnSelector = false;
     colourschemes.coloursFor(selection.selectedLayer).then(function(colours){
+      if(!$scope.layers.overlays.aWMS){
+        return;
+      }
       $scope.layers.overlays.aWMS.doRefresh = true;
       $scope.layers.overlays.aWMS.layerParams.numcolorbands = colours.length;
     });
