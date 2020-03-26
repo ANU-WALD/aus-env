@@ -309,20 +309,30 @@ angular.module('ausEnvApp')
     service.dataRange = function(values,units){
       var min = (TEMPERATURE_UNITS.indexOf(units)>=0)?undefined:0.0;
       var max = units==='%'?100:undefined;
-      var buffer = 5;
+      var bufferVal;
 
       var actualVals = values.filter(function(v){
         return !isNaN(v);
       });
-      var maximum = Math.max.apply(null, actualVals) + buffer;
-      var minimum = Math.min.apply(null, actualVals) - buffer;
+      var maximum = Math.max.apply(null, actualVals);// + buffer;
+      var minimum = Math.min.apply(null, actualVals);// - buffer;
 
+      bufferVal = 0.05 * Math.abs(minimum);
       if(min!==undefined){
-        minimum = Math.max(min,minimum);
+        minimum = ((minimum-bufferVal)>=min)?
+          (minimum-bufferVal):
+          Math.min(min,minimum);
+      } else {
+        minimum = minimum - bufferVal;
       }
 
+      bufferVal = 0.05 * Math.abs(maximum);
       if(max!==undefined){
-        maximum = Math.min(max,maximum);
+        maximum = ((maximum+bufferVal)<=max)?
+          (maximum+bufferVal):
+          Math.max(max,maximum);
+      } else {
+        maximum = maximum + bufferVal;
       }
 
       return [minimum,maximum];
