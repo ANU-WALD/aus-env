@@ -212,7 +212,7 @@
         "metadataKey": "Burned area",
         "summary": "OzWALD.MODIS_burn_annual.burn_date",
         "units": "day of year",
-        "default": true,
+        "default": false,
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.MODIS_burn_annual.burn_date.nc",
           "variable": "burn_date",
@@ -275,7 +275,7 @@
         "summary": "OzWALD.FMC.AnnualMinima",
         "palette": "anu_fmc_rdylbu_9",
         "units": "%",
-        "default": true,
+        "default": false,
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.FMC.AnnualMinima.nc",
           "variable": "AnnualMinima",
@@ -366,7 +366,7 @@
         }
       },
       {
-        "default": true,
+        "default": false,
         "title": "Inundation",
         "metadataKey": "Water extent",
         "units": "%",
@@ -410,7 +410,7 @@
         "summary": "OzWALD.Ssoil.AnnualMeans",
         "palette": "anu_wald_blues09",
         "units": "mm",
-        "default": true,
+        "default": false,
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Ssoil.AnnualMeans.nc",
           "variable": "AnnualMeans",
@@ -434,7 +434,7 @@
         }
       },
       {
-        "default": true,
+        "default": false,
         "title": "Exposed soil",
         "units": "%",
         "summary": "OzWALD.BS.AnnualMeans",
@@ -470,7 +470,7 @@
   },
   {
     "id": "lh",
-    "default": true,
+    "default": false,
     "name": "Vegetation",
     "icon": "Vegetation.png",
     "layers": [
@@ -541,7 +541,7 @@
         }
       },
       {
-        "default": true,
+        "default": false,
         "title": "Vegetation growth",
         "summary": "OzWALD.GPP.AnnualSums",
         "palette": "anu_wald_darkgreen",
@@ -1101,6 +1101,38 @@
     "name": "Summary Indicators",
     "icon": "Summary_Indicators.png",
     "layers": [
+      {
+        "title": "Environmental Condition Score",
+        "metadataKey": "Environmental Condition Score",
+        "summary": "ECS",
+        "units": "index",
+        "default": true,
+        "disablePie":true,
+        "annualSummary": "ECS.{{regionType}}.TimeSeries.csv",
+        "normal": {
+          "disableGrid":true,
+          "variable": "X",
+          "time": "{{year}}-12-31",
+          "colorscalerange": "0,10",
+          "palette": {
+            "grid": "anu_wald_single_landcover",
+            "region": {
+              "normal": "anu_wald_gisheat",
+              "delta": "anu_wald_gistemp_inv.v2"
+            }
+          },
+          "abovemaxcolor":"extend"
+        },
+        "delta": {
+          "disableGrid":true,
+          "colorscalerange": "-10,10",
+          "palette":"anu_wald_gistemp_inv.v2"
+        },
+        "legend": {
+          "grid": "patchOnly",
+          "region": null
+        }
+      }
     ]
   }
 ]
