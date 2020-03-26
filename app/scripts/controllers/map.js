@@ -320,9 +320,13 @@ angular.module('ausEnvApp')
 
     $scope.fetchPolygonData = function() {
       var result = $q.defer();
-      $q.all([details.getPolygonFillData(),colourschemes.coloursFor(selection.selectedLayer)]).then(function(data){
-        result.resolve(data);
-      });
+      if(selection.selectedLayer){
+        $q.all([details.getPolygonFillData(),colourschemes.coloursFor(selection.selectedLayer)]).then(function(data){
+          result.resolve(data);
+        });
+      } else {
+        result.reject(null);
+      }
 
       return result.promise;
     };
@@ -366,6 +370,8 @@ angular.module('ausEnvApp')
           }
 
           doUpdateStyles();
+        },function(err){
+          // IGNORE
         });
       }
 
