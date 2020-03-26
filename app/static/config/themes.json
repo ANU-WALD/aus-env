@@ -578,28 +578,6 @@
     "icon": "People.png",
     "layers": [
       {
-        "title": "Woody Cover Fraction - Temporary",
-        "metadataKey": "WCF",
-        "description": "Woody Cover Fraction - Temporary",
-        "units": "%",
-        "zooms": {
-          "9": {
-            "url": "https://dea-wms-dot-wald-1526877012527.appspot.com/wms"
-          }
-        },
-        "url": "https://dea-wms-dot-wald-1526877012527.appspot.com/wms",
-        "variable": "wcf",
-        "time": "{{year}}-01-01T00:00:00.0Z",
-        "colorscalerangeX": "0,100",
-        "styles": "",
-        "noDefaultParameters": true,
-        "summary": "",
-        "disablePolygons": true,
-        "legend": "landUseCodes",
-        "disablePoint": true,
-        "disableAnnual": true
-      },
-      {
         "title": "All land use classes",
         "metadataKey": "Land use",
         "description": "Broad land use category, derived from the Catchment Land Use Mapping program",
