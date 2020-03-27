@@ -2,7 +2,7 @@
   {
     "name":"Environmental Condition Score",
     "Description": "TEMP",
-    "Data creator": "TEMP",
+    "Data creator": "ANU",
     "Data license": "TEMP",
     "Reference": "TEMP",
     "Resolution": "TEMP",
@@ -12,7 +12,7 @@
   {
     "name": "Burned area",
     "Description": "TEMP",
-    "Data creator": "TEMP",
+    "Data creator": "NASA",
     "Data license": "TEMP",
     "Reference": "TEMP",
     "Resolution": "TEMP",
@@ -22,7 +22,7 @@
   {
     "name": "Fuel Moisture Content",
     "Description": "TEMP",
-    "Data creator": "TEMP",
+    "Data creator": "ANU",
     "Data license": "TEMP",
     "Reference": "TEMP",
     "Resolution": "TEMP",
