@@ -324,7 +324,8 @@ angular.module('ausEnvApp')
     service.mapModesAvailable = function() {
       return service.selectedLayer &&
              (service.selectedLayer.summary||service.selectedLayer.annualSummary) &&
-             !service.selectedLayer.disablePolygons;
+             !service.selectedLayer.disablePolygons &&
+             !service.selectedLayer.disableGrid;
     };
 
     service.dataModeConfig = function(){

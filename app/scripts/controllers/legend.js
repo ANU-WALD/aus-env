@@ -132,8 +132,14 @@ angular.module('ausEnvApp')
           $scope.colourScheme = $scope.balanceColourScheme($scope.colourScheme);
         });
       } else {
+        var modeBefore = selection.dataModeConfig();
         colourschemes.coloursFor(selection.selectedLayer).then(function(data){
-          if(selection.dataModeConfig()==='rank'){
+          var modeNow = selection.dataModeConfig();
+          if(modeNow!==modeBefore){
+            return;
+          }
+
+          if(modeNow==='rank'){
             $scope.makeRankColourScheme(data);
           } else {
             $scope.makeRegularColourScheme(data);

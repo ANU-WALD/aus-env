@@ -317,8 +317,14 @@ angular.module('ausEnvApp')
     $scope.fetchPolygonData = function() {
       var result = $q.defer();
       if(selection.selectedLayer){
+        var modeBefore = selection.dataModeConfig();
         $q.all([details.getPolygonFillData(),colourschemes.coloursFor(selection.selectedLayer)]).then(function(data){
-          result.resolve(data);
+          var modeNow = selection.dataModeConfig();
+          if(modeNow!==modeBefore){
+            result.reject(null);
+          } else {
+            result.resolve(data);
+          }
         });
       } else {
         result.reject(null);
@@ -327,8 +333,18 @@ angular.module('ausEnvApp')
       return result.promise;
     };
 
+    $scope.resolveIncompatibleCombinations = function(){
+      if(selection.dataMode===datamodes.rank){
+        if(selection.selectedLayer&&selection.selectedLayer.disableRank){
+          selection.dataMode=datamodes.actual;
+        }
+      }
+    };
+
     var styleApplicationsPending=0;
     $scope.updateStyling = function(){
+      $scope.resolveIncompatibleCombinations();
+
       var doUpdateStyles = function(){
         if(!styleApplicationsPending){
           styleApplicationsPending++;
@@ -509,7 +525,9 @@ angular.module('ausEnvApp')
     $scope.map.refreshGrid++;
     $scope.map.refreshRegions = !$scope.map.refreshRegions;
     if(!$scope.selection.mapModesAvailable()) {
-      if(selection.mapMode!==mapmodes.grid){
+      if(selection.selectedLayer.disableGrid&&(selection.mapMode!==mapmodes.region)){
+        selection.mapMode = mapmodes.region;
+      } else if(!selection.selectedLayer.disableGrid&&selection.mapMode!==mapmodes.grid){
         selection.mapMode = mapmodes.grid;
         $scope.map.refreshGrid++;
       }
@@ -623,9 +641,10 @@ angular.module('ausEnvApp')
   });
 
   $scope.$watch('selection.dataMode',function(){
-    if((selection.mapMode===mapmodes.grid)&&
-       (selection.dataMode===datamodes.rank)){
-      selection.mapMode=mapmodes.region;
+    if(selection.dataMode===datamodes.rank){
+      if(selection.mapMode===mapmodes.grid){
+        selection.mapMode=mapmodes.region;
+      }
     }
   });
 
