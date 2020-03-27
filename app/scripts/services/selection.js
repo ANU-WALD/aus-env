@@ -100,8 +100,9 @@ angular.module('ausEnvApp')
     };
 
     deferredSetter(service,'regionType',spatialFoci.regionTypes(),function(regions){
-      service.regionType = regions[6]; // Local government areas
-      service.initialisePolygons(regions[0]);
+      var initialPolygons = regions[6]; // Local government areas
+      service.regionType = initialPolygons;
+      service.initialisePolygons(initialPolygons);
     });
 
     service.moveYear = function(dir){
