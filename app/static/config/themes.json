@@ -1120,7 +1120,7 @@
           "palette": {
             "grid": "anu_wald_single_landcover",
             "region": {
-              "normal": "anu_wald_gistemp_inv",
+              "normal": "rdbu_7",
               "delta": "anu_wald_gistemp_inv"
             }
           },
