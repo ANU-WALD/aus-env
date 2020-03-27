@@ -1109,6 +1109,8 @@
         "default": true,
         "disablePie":true,
         "disablePoint":true,
+        "disableRank":true,
+        "disableGrid":true,
         "annualSummary": "ECS.{{regionType}}.TimeSeries.csv",
         "normal": {
           "disableGrid":true,
@@ -1118,7 +1120,7 @@
           "palette": {
             "grid": "anu_wald_single_landcover",
             "region": {
-              "normal": "anu_wald_gisheat",
+              "normal": "anu_wald_gistemp_inv",
               "delta": "anu_wald_gistemp_inv"
             }
           },
