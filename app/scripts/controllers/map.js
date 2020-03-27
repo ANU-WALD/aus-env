@@ -49,9 +49,9 @@ angular.module('ausEnvApp')
     var mapReady = $q.defer();
     $scope.mapReady = mapReady.promise;
     $scope.map = {
-      showGrid:true,
-      showRegions:true,
-      refreshGrid:false,
+      showGrid:false,
+      showRegionsWMS:false,
+      refreshGrid:1,
       refreshRegions:false,
       markerCount:0,
       marker:null,
@@ -113,10 +113,6 @@ angular.module('ausEnvApp')
     };
 
     $scope.createImageMapFromWMS = function(layerKey){
-      if(!$scope.layers.overlays[layerKey]){
-        return null;
-      }
-
       return googleMapsWMS.buildImageMap(
         function(){return $scope.theMap;},
         function(zoom){return $scope.layerUrlForZoom($scope.layers.overlays[layerKey],zoom);},
@@ -439,6 +435,7 @@ angular.module('ausEnvApp')
     var wmsLayer = newVal.sourceWMS;
     if(wmsLayer&&spatialFoci.show(newVal)){
       // Show as image
+      $scope.map.showRegionsWMS = true;
       $scope.layers.overlays.selectionLayer = {
         name: newVal.name,
         url:selection.WMS_SERVER+'/wald/wms?',
@@ -459,6 +456,7 @@ angular.module('ausEnvApp')
       };
     } else {
       delete $scope.layers.overlays.selectionLayer;
+      $scope.map.showRegionsWMS = false;
     }
 
     if(!newVal.jsonData){
@@ -508,15 +506,14 @@ angular.module('ausEnvApp')
       return;
     }
 
-    $scope.map.refreshGrid = !$scope.map.refreshGrid;
+    $scope.map.refreshGrid++;
     $scope.map.refreshRegions = !$scope.map.refreshRegions;
     if(!$scope.selection.mapModesAvailable()) {
       if(selection.mapMode!==mapmodes.grid){
         selection.mapMode = mapmodes.grid;
-        $scope.map.refreshGrid = !$scope.map.refreshGrid;
+        $scope.map.refreshGrid++;
       }
     }
-
 
     if(layer.missingYears && (layer.missingYears.indexOf(selection.year)>=0)){
       $scope.noDataMessage = (layer.source||layer.title) + ' not available for ' + selection.year;
@@ -538,7 +535,7 @@ angular.module('ausEnvApp')
 
     if(!$scope.map.showGrid){
       $scope.map.showGrid = true;
-      $scope.map.refreshGrid = !$scope.map.refreshGrid;
+      $scope.map.refreshGrid++;
     }
 
     var prefix = '';
@@ -639,7 +636,7 @@ angular.module('ausEnvApp')
 
     if(selection.mapMode === mapmodes.grid){
       $scope.gridData.opacity=$scope.mapOpacity();
-      $scope.map.refreshGrid = !$scope.map.refreshGrid;
+      $scope.map.refreshGrid++;
       $scope.map.refreshRegions = !$scope.map.refreshRegions;
     } else {
       $scope.updateStyling();
