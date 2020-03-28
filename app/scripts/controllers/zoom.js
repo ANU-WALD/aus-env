@@ -194,8 +194,6 @@ angular.module('ausEnvApp')
       $scope.dataURISupported = supported;
     });
 
-<<<<<<< HEAD
-=======
     $scope.reportURL = function(){
       if(!$scope.selection.selectedRegion){
         return null;
@@ -208,5 +206,4 @@ angular.module('ausEnvApp')
         '.pdf';
       return url;
     };
->>>>>>> master
   });
