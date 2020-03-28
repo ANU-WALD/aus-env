@@ -49,9 +49,9 @@ angular.module('ausEnvApp')
     var mapReady = $q.defer();
     $scope.mapReady = mapReady.promise;
     $scope.map = {
-      showGrid:true,
-      showRegions:true,
-      refreshGrid:false,
+      showGrid:false,
+      showRegionsWMS:false,
+      refreshGrid:1,
       refreshRegions:false,
       markerCount:0,
       marker:null,
@@ -212,7 +212,7 @@ angular.module('ausEnvApp')
         return null;
       }
       var key = feature.getProperty($scope.selection.regionType.keyField);
-      if(!key) {
+      if((key===null)||(key===undefined)||(key==='')) {
         return null;
       }
 
@@ -275,11 +275,11 @@ angular.module('ausEnvApp')
 
     $scope.geoJsonStyling = function(feature) {
       var style = {
-        strokeWeight:0,
-        strokeOpacity:0,
+        strokeWeight:$scope.showGeoJSONOutlines?1:0,
+        strokeOpacity:$scope.showGeoJSONOutlines?1:0,
         fillColor:$scope.polygonFillColour(feature) || 'unfilled',
         fillOpacity:$scope.mapOpacity(),
-        color:'#000',
+        strokeColor:'#777',
         cursor: $scope.cursorToUse()
       };
 
@@ -289,6 +289,7 @@ angular.module('ausEnvApp')
       } else {
         style.strokeWeight = 1;
         style.strokeOpacity = 1;
+        style.strokeColor='#000';
       }
 
       if($scope.highlightPolygon(feature)){
@@ -315,15 +316,35 @@ angular.module('ausEnvApp')
 
     $scope.fetchPolygonData = function() {
       var result = $q.defer();
-      $q.all([details.getPolygonFillData(),colourschemes.coloursFor(selection.selectedLayer)]).then(function(data){
-        result.resolve(data);
-      });
+      if(selection.selectedLayer){
+        var modeBefore = selection.dataModeConfig();
+        $q.all([details.getPolygonFillData(),colourschemes.coloursFor(selection.selectedLayer)]).then(function(data){
+          var modeNow = selection.dataModeConfig();
+          if(modeNow!==modeBefore){
+            result.reject(null);
+          } else {
+            result.resolve(data);
+          }
+        });
+      } else {
+        result.reject(null);
+      }
 
       return result.promise;
     };
 
+    $scope.resolveIncompatibleCombinations = function(){
+      if(selection.dataMode===datamodes.rank){
+        if(selection.selectedLayer&&selection.selectedLayer.disableRank){
+          selection.dataMode=datamodes.actual;
+        }
+      }
+    };
+
     var styleApplicationsPending=0;
     $scope.updateStyling = function(){
+      $scope.resolveIncompatibleCombinations();
+
       var doUpdateStyles = function(){
         if(!styleApplicationsPending){
           styleApplicationsPending++;
@@ -361,6 +382,8 @@ angular.module('ausEnvApp')
           }
 
           doUpdateStyles();
+        },function(err){
+          // IGNORE
         });
       }
 
@@ -425,9 +448,10 @@ angular.module('ausEnvApp')
       return;
     }
 
-    var wmsLayer = (newVal.sourceWMS||newVal.source);
+    var wmsLayer = newVal.sourceWMS;
     if(wmsLayer&&spatialFoci.show(newVal)){
       // Show as image
+      $scope.map.showRegionsWMS = true;
       $scope.layers.overlays.selectionLayer = {
         name: newVal.name,
         url:selection.WMS_SERVER+'/wald/wms?',
@@ -446,11 +470,16 @@ angular.module('ausEnvApp')
           tiled:true
         }
       };
+    } else {
+      delete $scope.layers.overlays.selectionLayer;
+      $scope.map.showRegionsWMS = false;
     }
+
     if(!newVal.jsonData){
       delete $scope.layers.overlays.selectionHiddenLayer;
       return;
     }
+    $scope.showGeoJSONOutlines = !(newVal.sourceWMS);
     newVal.jsonData().then(function(resp){
       $scope.geojson = resp;
 
@@ -493,15 +522,16 @@ angular.module('ausEnvApp')
       return;
     }
 
-    $scope.map.refreshGrid = !$scope.map.refreshGrid;
+    $scope.map.refreshGrid++;
     $scope.map.refreshRegions = !$scope.map.refreshRegions;
     if(!$scope.selection.mapModesAvailable()) {
-      if(selection.mapMode!==mapmodes.grid){
+      if(selection.selectedLayer.disableGrid&&(selection.mapMode!==mapmodes.region)){
+        selection.mapMode = mapmodes.region;
+      } else if(!selection.selectedLayer.disableGrid&&selection.mapMode!==mapmodes.grid){
         selection.mapMode = mapmodes.grid;
-        $scope.map.refreshGrid = !$scope.map.refreshGrid;
+        $scope.map.refreshGrid++;
       }
     }
-
 
     if(layer.missingYears && (layer.missingYears.indexOf(selection.year)>=0)){
       $scope.noDataMessage = (layer.source||layer.title) + ' not available for ' + selection.year;
@@ -509,7 +539,11 @@ angular.module('ausEnvApp')
       $scope.noDataMessage = null;
     }
 
-    if(selection.mapMode!==mapmodes.grid) {
+    var dataModeConfig = layer[selection.dataModeConfig()];
+    var gridMode = selection.mapMode===mapmodes.grid;
+    var disabledGrid = dataModeConfig&&dataModeConfig.disableGrid;
+
+    if(disabledGrid||!gridMode) {
       if($scope.layers.overlays.aWMS) {
         delete $scope.layers.overlays.aWMS;
       }
@@ -519,11 +553,11 @@ angular.module('ausEnvApp')
 
     if(!$scope.map.showGrid){
       $scope.map.showGrid = true;
-      $scope.map.refreshGrid = !$scope.map.refreshGrid;
+      $scope.map.refreshGrid++;
     }
 
     var prefix = '';
-    if(layer[selection.dataModeConfig()]) {
+    if(dataModeConfig) {
       if(selection.dataMode===datamodes.delta) {
         prefix = 'Change in ';
       } else if(selection.dataMode===datamodes.rank){
@@ -583,6 +617,9 @@ angular.module('ausEnvApp')
     }
     $scope.layers.overlays.aWMS.layerParams.showOnSelector = false;
     colourschemes.coloursFor(selection.selectedLayer).then(function(colours){
+      if(!$scope.layers.overlays.aWMS){
+        return;
+      }
       $scope.layers.overlays.aWMS.doRefresh = true;
       $scope.layers.overlays.aWMS.layerParams.numcolorbands = colours.length;
     });
@@ -604,9 +641,10 @@ angular.module('ausEnvApp')
   });
 
   $scope.$watch('selection.dataMode',function(){
-    if((selection.mapMode===mapmodes.grid)&&
-       (selection.dataMode===datamodes.rank)){
-      selection.mapMode=mapmodes.region;
+    if(selection.dataMode===datamodes.rank){
+      if(selection.mapMode===mapmodes.grid){
+        selection.mapMode=mapmodes.region;
+      }
     }
   });
 
@@ -617,7 +655,7 @@ angular.module('ausEnvApp')
 
     if(selection.mapMode === mapmodes.grid){
       $scope.gridData.opacity=$scope.mapOpacity();
-      $scope.map.refreshGrid = !$scope.map.refreshGrid;
+      $scope.map.refreshGrid++;
       $scope.map.refreshRegions = !$scope.map.refreshRegions;
     } else {
       $scope.updateStyling();

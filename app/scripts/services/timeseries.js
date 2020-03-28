@@ -11,7 +11,7 @@ angular.module('ausEnvApp')
   .service('timeseries', function ($window,$q,$http,$interpolate,details/*,selection*/) {
     var service = this;
     var dap = $window.dap;
-    var BASE_URL='http://dapds00.nci.org.au/thredds/dodsC/';
+    var BASE_URL='https://proxies.hydrograph.io/nci-cors/thredds/dodsC/';
 
     service.cache = {
       das:{},
@@ -100,6 +100,17 @@ angular.module('ausEnvApp')
               if(layer._FillValue){
                 _fills={};
                 _fills[layer.variable]=layer._FillValue;
+              } else if (ddx&&ddx.variables){
+                _fills = {};
+                Object.keys(ddx.variables).forEach(function(v){
+                  var fv = +ddx.variables[v]._FillValue;
+                  if((fv<0)&&(ddx.variables[v].dType||'').startsWith('UInt')){
+                    var width = +ddx.variables[v].dType.slice(4);
+                    var max = Math.pow(2,width);
+                    fv = max + fv;
+                  }
+                  _fills[v] = fv;
+                });
               }
               var data = dap.simplify(dap.parseData(resp.data,ddx,_fills));
               result.resolve(data);

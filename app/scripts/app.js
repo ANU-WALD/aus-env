@@ -76,7 +76,6 @@ angular
     'ui.bootstrap',
     'ngTouch',
     'ng-static-data',
-    'chart.js',
     'ui.select',
     'uiGmapgoogle-maps'
   ])

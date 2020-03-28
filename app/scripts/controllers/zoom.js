@@ -194,4 +194,19 @@ angular.module('ausEnvApp')
       $scope.dataURISupported = supported;
     });
 
+<<<<<<< HEAD
+=======
+    $scope.reportURL = function(){
+      if(!$scope.selection.selectedRegion){
+        return null;
+      }
+      // var base = '/viz/#/ausenv_region';
+      var base = 'http://wenfo.org/aer_pdf';
+      var url =base +
+        '/' + ($scope.selection.regionType.summaryName || $scope.selection.regionType.source) +
+        '/' + $scope.selection.selectedRegion.feature.properties[$scope.selection.regionType.labelField] +
+        '.pdf';
+      return url;
+    };
+>>>>>>> master
   });

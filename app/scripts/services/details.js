@@ -13,6 +13,7 @@ angular.module('ausEnvApp')
 
     var ANNUAL_TIME_SERIES=environment.STATIC_CSV_SOURCE;
     var PIE_CHART_DATA=environment.STATIC_CSV_SOURCE;
+    var TEMPERATURE_UNITS=['&deg;C','oC'];
     service.dap = $window.dap;
     service.MAX_CACHE_LENGTH=20;
     service.cache = [];
@@ -270,10 +271,10 @@ angular.module('ausEnvApp')
       }
     };
 
-    service.populateLabels = function(chart,data){
+    service.populateLabels = function(chart,data,altUnits){
         chart.title = data.Title;
         chart.description = data.Description;
-        chart.units = service.unitsText(data.Units);
+        chart.units = service.unitsText(altUnits||data.Units);
         chart.originalUnits = data.Units;
         /*
         if(chart === $scope.bar) {
@@ -289,4 +290,51 @@ angular.module('ausEnvApp')
         return label.label + ':' + service.formatValue(label.value) + ' ' + service.tooltipSafeUnits(chart);
       };
     };
+
+    service.axisRange = function(values,units){
+      if(units!=='%'){
+        return undefined;
+      }
+      var actualVals = values.filter(function(v){
+        return !isNaN(v);
+      });
+      var max = Math.max.apply(null, actualVals);
+      var min = Math.min.apply(null, actualVals);
+      if(max>99){
+        return [Math.min(95,20*Math.floor(min/20.0)),100];
+      }
+      return undefined;
+    };
+
+    service.dataRange = function(values,units){
+      var min = (TEMPERATURE_UNITS.indexOf(units)>=0)?undefined:0.0;
+      var max = units==='%'?100:undefined;
+      var bufferVal;
+
+      var actualVals = values.filter(function(v){
+        return !isNaN(v);
+      });
+      var maximum = Math.max.apply(null, actualVals);// + buffer;
+      var minimum = Math.min.apply(null, actualVals);// - buffer;
+
+      bufferVal = 0.05 * Math.abs(minimum);
+      if(min!==undefined){
+        minimum = ((minimum-bufferVal)>=min)?
+          (minimum-bufferVal):
+          Math.min(min,minimum);
+      } else {
+        minimum = minimum - bufferVal;
+      }
+
+      bufferVal = 0.05 * Math.abs(maximum);
+      if(max!==undefined){
+        maximum = ((maximum+bufferVal)<=max)?
+          (maximum+bufferVal):
+          Math.max(max,maximum);
+      } else {
+        maximum = maximum + bufferVal;
+      }
+
+      return [minimum,maximum];
+    }
   });
