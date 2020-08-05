@@ -11,7 +11,7 @@ angular.module('ausEnvApp')
   .service('environment', function () {
     var service = this;
 
-    service.STATIC_CSV_SOURCE='/aucsv/accounts2/';
+    service.STATIC_CSV_SOURCE='/aucsv/accounts_June/';
     service.REGION_AREAS='/aucsv/region_areas/';
     service.LANDCOVER_CODES='static/config/DLCD_codes.csv';
     service.LANDUSE_CODES='static/config/landuse_codes.csv';
