@@ -9,19 +9,31 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#/">
-        <img class="visible-lg main-logo navbar-icon pull-left" src="images/2x_anu_logo_small.png">
-        <img class="hidden-lg main-logo navbar-icon pull-left" src="images/2x_anu_logo_only.png">
+        <a class="navbar-brand" href="http://wald.anu.edu.au" target="_blank">
+          <img class="visible-lg main-logo navbar-icon pull-left" src="images/2x_anu_logo_small.png">
+          <img class="hidden-lg main-logo navbar-icon pull-left" src="images/2x_anu_logo_only.png">
+        </a>
 
-        <span>&nbspAustralia's Environment Explorer
+        <a class="navbar-brand" href="#/">
+          <span>&nbspAustralia's Environment Explorer
         </a>
         <div class="pull-right years-nav" ng-include="'views/responsive/year_separate.html'"></div>
 
       </div>
+
+      <div class = "navbar-header navbar-right">
+        <a class="navbar-brand" href="https://tern.org.au" target="_blank">
+          <img class="visible-lg main-logo navbar-icon pull-left" src="images/TERN_logo.png">
+          <img class="hidden-lg main-logo navbar-icon pull-left" src="images/TERN_logo.png">
+
+        </a>
+      </div>
+
       <div ng-if="!embedded" id="navbar" class="navbar-collapse collapse" ng-class="{'in':!selection.navbarCollapsed}">
           <div ng-include="'views/navbar/themes.html'" ng-controller="ThemeswitcherCtrl"></div>
 
       </div>
+
     </div>
   </nav>
 
