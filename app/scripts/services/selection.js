@@ -10,20 +10,18 @@
  * Responsible for managing selection choices and the map.
  */
 angular.module('ausEnvApp')
-  .service('selection', function ($q,uiGmapGoogleMapApi,uiGmapIsReady,mapmodes,datamodes,imagemodes,configuration,spatialFoci) {
+  .service('selection', function ($q,uiGmapGoogleMapApi,uiGmapIsReady,mapmodes,
+    datamodes,imagemodes,configuration,spatialFoci,environment) {
     var service = this;
     service.mapmodes = mapmodes;
-    var MAX_ZOOM_LOCATE = 13;
-    service.bounds = {
-      year:{
-        min:2000,
-        max:2020
-      }
-      // +++TODO Limit pan and zoom
-    };
+    Object.keys(environment.INTERPOLATION).forEach(function(k){
+      service[k] = environment.INTERPOLATION[k];
+    });
 
-    service.availableYears = window._.range(service.bounds.year.min,service.bounds.year.max+1);
-    service.year = service.bounds.year.max;
+    var MAX_ZOOM_LOCATE = 13;
+
+    service.availableYears = window._.range(environment.bounds.year.min,environment.bounds.year.max+1);
+    service.year = environment.bounds.year.max;
     service.theme = null;
     service.themeObject = null;
     service.mapMode = mapmodes.region;
@@ -113,14 +111,14 @@ angular.module('ausEnvApp')
     service.setYear = function(yr){
       service.year = +yr;
       if(isNaN(service.year)){
-        service.year=service.bounds.year.max;
+        service.year=environment.bounds.year.max;
       }
       service.checkYear();
     };
 
     service.checkYear = function(){
-      service.year = Math.max(service.bounds.year.min,service.year);
-      service.year = Math.min(service.bounds.year.max,service.year);
+      service.year = Math.max(environment.bounds.year.min,service.year);
+      service.year = Math.min(environment.bounds.year.max,service.year);
     };
 
     service.selectThemeByName = function(themeName){

@@ -8,22 +8,22 @@
         "default": false,
         "title": "Precipitation",
         "metadataKey": "Rainfall",
-        "summary": "OzWALD.annual.Pg.AnnualSums.EndingJune",
+        "summary": "OzWALD.annual.Pg.AnnualSums{{timeWindow}}",
         "palette": "anu_wald_blues09",
         "units": "mm",
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.annual.Pg.AnnualSums{{timeWindow}}.nc",
           "variable": "AnnualSums",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "logscale": true,
           "colorscalerange": "100,4600",
           "belowmincolor": "extend",
           "palette": "anu_wald_blues09"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.annual.Pg.ChangesAnnualSums.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.annual.Pg.ChangesAnnualSums{{timeWindow}}.nc",
           "variable": "ChangesAnnualSums",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-2200,2200",
           "belowmincolor": "extend",
           "palette": "anu_wald_gistemp_inv"
@@ -39,23 +39,23 @@
       {
         "default": false,
         "title": "Maximum temperature",
-        "summary": "OzWALD.Tmax.AnnualMaxima.EndingJune",
+        "summary": "OzWALD.Tmax.AnnualMaxima{{timeWindow}}",
         "palette": "nrm_temperature_reverse",
         "units": "&deg;C",
         "disablePie": true,
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.AnnualMaxima.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.AnnualMaxima{{timeWindow}}.nc",
           "variable": "AnnualMaxima",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "logscale": false,
           "colorscalerange": "20,50",
           "belowmincolor": "extend",
           "palette": "nrm_temperature_reverse"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.ChangesAnnualMaxima.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.ChangesAnnualMaxima{{timeWindow}}.nc",
           "variable": "ChangesAnnualMaxima",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-20,20",
           "belowmincolor": "extend",
           "palette": "anu_wald_gistemp"
@@ -71,23 +71,23 @@
       {
         "default": false,
         "title": "Hot days",
-        "summary": "OzWALD.Tmax.HotDays.EndingJune",
+        "summary": "OzWALD.Tmax.HotDays{{timeWindow}}",
         "palette": "anu_wald_gisheat_inv.v2",
         "units": "number of days",
         "disablePie": true,
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.HotDays.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.HotDays{{timeWindow}}.nc",
           "variable": "HotDays",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "logscale": false,
           "colorscalerange": "1,100",
           "belowmincolor": "transparent",
           "palette": "anu_wald_gisheat_inv.v2"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.ChangesHotDays.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.ChangesHotDays{{timeWindow}}.nc",
           "variable": "ChangesHotDays",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-20,20",
           "belowmincolor": "extend",
           "palette": "anu_wald_gistemp"
@@ -107,23 +107,23 @@
       {
         "default": false,
         "title": "Minimum temperature",
-        "summary": "OzWALD.Tmin.AnnualMinima.EndingJune",
+        "summary": "OzWALD.Tmin.AnnualMinima{{timeWindow}}",
         "palette": "nrm_temperature_reverse",
         "units": "&deg;C",
         "disablePie": true,
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.AnnualMinima.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.AnnualMinima{{timeWindow}}.nc",
           "variable": "AnnualMinima",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "logscale": false,
           "colorscalerange": "-10,25",
           "belowmincolor": "extend",
           "palette": "nrm_temperature_reverse"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.ChangesAnnualMinima.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.ChangesAnnualMinima{{timeWindow}}.nc",
           "variable": "ChangesAnnualMinima",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-10,10",
           "belowmincolor": "extend",
           "palette": "anu_wald_gistemp"
@@ -139,22 +139,22 @@
       {
         "default": false,
         "title": "Frost days",
-        "summary": "OzWALD.Tmin.FrostDays.EndingJune",
+        "summary": "OzWALD.Tmin.FrostDays{{timeWindow}}",
         "palette": "anu_wald_blues09",
         "units": "number of days",
         "disablePie": true,
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.FrostDays.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.FrostDays{{timeWindow}}.nc",
           "variable": "FrostDays",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "logscale": false,
           "colorscalerange": "1,100",
           "palette": "anu_wald_blues09"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.ChangesFrostDays.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.ChangesFrostDays{{timeWindow}}.nc",
           "variable": "ChangesFrostDays",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-20,20",
           "belowmincolor": "extend",
           "palette": "anu_wald_gistemp_inv"
@@ -174,21 +174,21 @@
       {
         "default": false,
         "title": "Snow cover",
-        "summary": "OzWALD.SN.AnnualMeans.EndingJune",
+        "summary": "OzWALD.SN.AnnualMeans{{timeWindow}}",
         "palette": "anu_wald_blues09",
         "units": "",
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.SN.AnnualMeans.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.SN.AnnualMeans{{timeWindow}}.nc",
           "variable": "AnnualMeans",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "logscale": false,
           "colorscalerange": "1,50",
           "palette": "anu_wald_blues09"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.SN.ChangesAnnualMeans.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.SN.ChangesAnnualMeans{{timeWindow}}.nc",
           "variable": "ChangesAnnualMeans",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-10,10",
           "palette": "anu_wald_gistemp_inv"
         },
@@ -210,13 +210,13 @@
       {
         "title": "Burned area",
         "metadataKey": "Burned area",
-        "summary": "OzWALD.MODIS_burn_annual.burn_date.EndingJune",
+        "summary": "OzWALD.MODIS_burn_annual.burn_date{{timeWindow}}",
         "units": "day of year",
         "default": false,
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.MODIS_burn_annual.burn_date.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.MODIS_burn_annual.burn_date{{timeWindow}}.nc",
           "variable": "burn_date",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "0.5,1",
           "palette": {
             "grid": "anu_wald_single_landcover",
@@ -242,15 +242,15 @@
         "title": "Fire occurrence",
         "metadataKey": "Fire frequency",
         "units": "",
-        "summary": "Sentinel.Nhotspots.AnnualSums.EndingJune",
+        "summary": "Sentinel.Nhotspots.AnnualSums{{timeWindow}}",
         "missingYears": [
           2000,
           2001
         ],
-        "url": "ub8/au/fire/Sentinel.Nhotspots.AnnualSums.EndingJune.nc",
+        "url": "ub8/au/fire/Sentinel.Nhotspots.AnnualSums{{timeWindow}}.nc",
         "variable": "Nhotspots",
         "_FillValue": -1,
-        "time": "{{year}}-06-30",
+        "time": "{{year}}-{{refDate}}",
         "logscale": false,
         "colorscalerange": "0.002,100",
         "palette": {
@@ -272,21 +272,21 @@
       {
         "title": "Fuel moisture content",
         "metadataKey": "Fuel Moisture Content",
-        "summary": "OzWALD.FMC.AnnualMinima.EndingJune",
+        "summary": "OzWALD.FMC.AnnualMinima{{timeWindow}}",
         "palette": "anu_fmc_rdylbu_9",
         "units": "%",
         "default": false,
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.FMC.AnnualMinima.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.FMC.AnnualMinima{{timeWindow}}.nc",
           "variable": "AnnualMinima",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "0,150",
           "palette": "anu_fmc_rdylbu_9"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.FMC.ChangesAnnualMinima.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.FMC.ChangesAnnualMinima{{timeWindow}}.nc",
           "variable": "ChangesAnnualMinima",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-50,50",
           "palette": "anu_wald_gistemp_inv"
         },
@@ -300,7 +300,7 @@
       },
       {
         "title": "Fire carbon emission",
-        "summary": "GFASv12.BurntCarbon.AnnualSums.EndingJune",
+        "summary": "GFASv12.BurntCarbon.AnnualSums{{timeWindow}}",
         "missingYears": [
           2000,
           2001
@@ -308,16 +308,16 @@
         "palette": "anu_wald_gisheat_inv.v2",
         "units": "gC/m^2",
         "normal": {
-          "url": "ub8/au/FireEmissions/GFASv12.BurntCarbon.AnnualSums.EndingJune.nc",
+          "url": "ub8/au/FireEmissions/GFASv12.BurntCarbon.AnnualSums{{timeWindow}}.nc",
           "variable": "AnnualSums",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "0,1500",
           "palette": "anu_wald_gisheat_inv.v2"
         },
         "delta": {
-          "url": "ub8/au/FireEmissions/GFASv12.BurntCarbon.ChangeAnnualSums.EndingJune.nc",
+          "url": "ub8/au/FireEmissions/GFASv12.BurntCarbon.ChangeAnnualSums{{timeWindow}}.nc",
           "variable": "ChangeAnnualSums",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-1650,1650",
           "palette": "anu_wald_gistemp"
         },
@@ -340,19 +340,19 @@
         "default": false,
         "title": "Runoff",
         "units": "mm",
-        "summary": "OzWALD.Qtot.AnnualSums.EndingJune",
+        "summary": "OzWALD.Qtot.AnnualSums{{timeWindow}}",
         "palette": "anu_wald_darkblues",
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.Qtot.AnnualSums.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Qtot.AnnualSums{{timeWindow}}.nc",
           "variable": "AnnualSums",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "0,1800",
           "palette": "anu_wald_darkblues"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.Qtot.ChangesAnnualSums.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Qtot.ChangesAnnualSums{{timeWindow}}.nc",
           "variable": "ChangesAnnualSums",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-2200,2200",
           "belowmincolor": "extend",
           "palette": "anu_wald_gistemp_inv"
@@ -370,20 +370,20 @@
         "title": "Inundation",
         "metadataKey": "Water extent",
         "units": "%",
-        "summary": "OzWALD.OW.AnnualMaxima.EndingJune",
+        "summary": "OzWALD.OW.AnnualMaxima{{timeWindow}}",
         "palette": "anu_wald_bluescale20",
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.OW.AnnualMaxima.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.OW.AnnualMaxima{{timeWindow}}.nc",
           "variable": "AnnualMaxima",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "0.001,100",
           "palette": "anu_wald_bluescale20",
           "belowmincolor": "transparent"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.OW.ChangesAnnualMaxima.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.OW.ChangesAnnualMaxima{{timeWindow}}.nc",
           "variable": "ChangesAnnualMaxima",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-100,100",
           "palette": "anu_wald_gistemp_inv",
           "abovemaxcolor": "transparent"
@@ -407,21 +407,21 @@
       {
         "title": "Soil moisture",
         "metadataKey": "Soil water availability",
-        "summary": "OzWALD.Ssoil.AnnualMeans.EndingJune",
+        "summary": "OzWALD.Ssoil.AnnualMeans{{timeWindow}}",
         "palette": "anu_wald_blues09",
         "units": "mm",
         "default": false,
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.Ssoil.AnnualMeans.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Ssoil.AnnualMeans{{timeWindow}}.nc",
           "variable": "AnnualMeans",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "0,1800",
           "palette": "anu_wald_blues09"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.Ssoil.ChangesAnnualMeans.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.Ssoil.ChangesAnnualMeans{{timeWindow}}.nc",
           "variable": "ChangesAnnualMeans",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-550,550",
           "palette": "anu_wald_gistemp_inv"
         },
@@ -437,21 +437,21 @@
         "default": false,
         "title": "Exposed soil",
         "units": "%",
-        "summary": "OzWALD.BS.AnnualMeans.EndingJune",
+        "summary": "OzWALD.BS.AnnualMeans{{timeWindow}}",
         "palette": "anu_wald_gisheat_inv.v2",
         "abovemaxcolor": "transparent",
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.BS.AnnualMeans.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.BS.AnnualMeans{{timeWindow}}.nc",
           "variable": "AnnualMeans",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "0,100",
           "belowmincolor": "extend",
           "palette": "anu_wald_gisheat_inv.v2"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.BS.ChangesAnnualMeans.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.BS.ChangesAnnualMeans{{timeWindow}}.nc",
           "variable": "ChangesAnnualMeans",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-100,100",
           "palette": "anu_wald_gistemp",
           "transparent": true
@@ -478,22 +478,22 @@
         "default": false,
         "title": "Tree Cover",
         "metadataKey": "Tree cover",
-        "summary": "OzWALD.WCF.Annual.EndingJune",
+        "summary": "OzWALD.WCF.Annual{{timeWindow}}",
         "palette": "anu_wald_darkgreen",
         "units": "%",
         "summaryUnits": "km^2",
         "summaryScale": 0.01,
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.WCF.Annual.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.WCF.Annual{{timeWindow}}.nc",
           "variable": "WCF",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "0,100",
           "palette": "anu_wald_darkgreen"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.WCF.ChangesAnnual.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.WCF.ChangesAnnual{{timeWindow}}.nc",
           "variable": "WCF_change",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-50.0,50.0",
           "palette": "anu_wald_gistemp_inv",
           "belowmincolor": "extend",
@@ -513,20 +513,20 @@
         "default": false,
         "title": "Vegetation leaf area",
         "metadataKey": "Leaf area index",
-        "summary": "OzWALD.LAI.AnnualMeans.EndingJune",
+        "summary": "OzWALD.LAI.AnnualMeans{{timeWindow}}",
         "palette": "anu_wald_darkgreen",
         "units": "m^2/m^2",
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.LAI.AnnualMeans.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.LAI.AnnualMeans{{timeWindow}}.nc",
           "variable": "AnnualMeans",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "0,9",
           "palette": "anu_wald_darkgreen"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.LAI.ChangesAnnualMeans.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.LAI.ChangesAnnualMeans{{timeWindow}}.nc",
           "variable": "ChangesAnnualMeans",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-4,4",
           "palette": "anu_wald_gistemp_inv",
           "belowmincolor": "extend",
@@ -543,20 +543,20 @@
       {
         "default": false,
         "title": "Vegetation growth",
-        "summary": "OzWALD.GPP.AnnualSums.EndingJune",
+        "summary": "OzWALD.GPP.AnnualSums{{timeWindow}}",
         "palette": "anu_wald_darkgreen",
         "units": "gC/m^2",
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.GPP.AnnualSums.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.GPP.AnnualSums{{timeWindow}}.nc",
           "variable": "AnnualSums",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "0,4000",
           "palette": "anu_wald_darkgreen"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.GPP.ChangesAnnualSums.EndingJune.nc",
+          "url": "ub8/au/OzWALD/annual/OzWALD.GPP.ChangesAnnualSums{{timeWindow}}.nc",
           "variable": "ChangesAnnualSums",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-2200,2200",
           "palette": "anu_wald_gistemp_inv"
         },
@@ -584,14 +584,14 @@
         "units": "classification",
         "zooms": {
           "9": {
-            "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc"
+            "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc"
           }
         },
-        "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_250m.EndingJune.nc",
+        "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_250m{{timeWindow}}.nc",
         "variable": "LandUse",
         "colorscalerange": "1,20",
         "abovemaxcolor": "transparent",
-        "summary": ".EndingJune",
+        "summary": "{{timeWindow}}",
         "disablePolygons": true,
         "palette": "anu_wald_landuse",
         "legend": "landUseCodes",
@@ -604,7 +604,7 @@
         "menuOnly": true,
         "description": "Broad land use category, derived from the Catchment Land Use Mapping program",
         "units": "classification",
-        "summary": ".EndingJune",
+        "summary": "{{timeWindow}}",
         "palette": {
           "grid": "anu_wald_single_landcover",
           "region": {
@@ -625,12 +625,12 @@
             "title": "Natural environments",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "0.5,1.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_NaturalEnvironment_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_NaturalEnvironment_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "NaturalEnvironment",
             "summaryColumn": "0001",
@@ -645,7 +645,7 @@
         "menuOnly": true,
         "description": "Broad land use category, derived from the Catchment Land Use Mapping program",
         "units": "classification",
-        "summary": ".EndingJune",
+        "summary": "{{timeWindow}}",
         "palette": {
           "grid": "anu_wald_single_landcover",
           "region": {
@@ -666,12 +666,12 @@
             "title": "Production native forests",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "1.5,2.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_ProductionForestry_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_ProductionForestry_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "ProductionForestry",
             "summaryColumn": "0002",
@@ -682,12 +682,12 @@
             "title": "Plantation forestry",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "2.5,3.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_PlantationForestry_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_PlantationForestry_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "PlantationForestry",
             "summaryColumn": "0003",
@@ -702,7 +702,7 @@
         "menuOnly": true,
         "description": "Broad land use category, derived from the Catchment Land Use Mapping program",
         "units": "classification",
-        "summary": ".EndingJune",
+        "summary": "{{timeWindow}}",
         "palette": {
           "grid": "anu_wald_single_landcover",
           "region": {
@@ -723,12 +723,12 @@
             "title": "Grazing on native pasture",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "3.5,4.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_GrazingNativePasture_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_GrazingNativePasture_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "GrazingNativePasture",
             "summaryColumn": "0004",
@@ -739,12 +739,12 @@
             "title": "Grazing on modified pasture",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "4.5,5.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_GrazingModifiedPasture_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_GrazingModifiedPasture_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "GrazingModifiedPasture",
             "summaryColumn": "0005",
@@ -759,7 +759,7 @@
         "menuOnly": true,
         "description": "Broad land use category, derived from the Catchment Land Use Mapping program",
         "units": "classification",
-        "summary": ".EndingJune",
+        "summary": "{{timeWindow}}",
         "palette": {
           "grid": "anu_wald_single_landcover",
           "region": {
@@ -780,12 +780,12 @@
             "title": "Dryland cropping",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "5.5,6.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Cropping_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Cropping_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "Cropping",
             "summaryColumn": "0006",
@@ -796,12 +796,12 @@
             "title": "Dryland horticulture",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "6.5,7.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Horticulture_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Horticulture_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "Horticulture",
             "summaryColumn": "0007",
@@ -812,12 +812,12 @@
             "title": "Land in transition",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "7.5,8.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_InTransition_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_InTransition_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "InTransition",
             "summaryColumn": "0008",
@@ -832,7 +832,7 @@
         "menuOnly": true,
         "description": "Broad land use category, derived from the Catchment Land Use Mapping program",
         "units": "classification",
-        "summary": ".EndingJune",
+        "summary": "{{timeWindow}}",
         "palette": {
           "grid": "anu_wald_single_landcover",
           "region": {
@@ -853,12 +853,12 @@
             "title": "Irrigated Pasture",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "8.5,9.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_IrrigatedPasture_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_IrrigatedPasture_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "IrrigatedPasture",
             "summaryColumn": "0009",
@@ -869,12 +869,12 @@
             "title": "Irrigated cropping",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "9.5,10.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_IrrigatedCropping_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_IrrigatedCropping_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "IrrigatedCropping",
             "summaryColumn": "0010",
@@ -885,12 +885,12 @@
             "title": "Irrigated horticulture",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "10.5,11.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_IrrigatedHorticulture_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_IrrigatedHorticulture_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "IrrigatedHorticulture",
             "summaryColumn": "0011",
@@ -905,7 +905,7 @@
         "menuOnly": true,
         "description": "Broad land use category, derived from the Catchment Land Use Mapping program",
         "units": "classification",
-        "summary": ".EndingJune",
+        "summary": "{{timeWindow}}",
         "palette": {
           "grid": "anu_wald_single_landcover",
           "region": {
@@ -926,12 +926,12 @@
             "title": "Intensive horticulture",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "11.5,12.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_IntensiveHorticulture_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_IntensiveHorticulture_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "IntensiveHorticulture",
             "summaryColumn": "0012",
@@ -942,12 +942,12 @@
             "title": "Intensive animal husbandry",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "12.5,13.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_IntensiveAnimal_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_IntensiveAnimal_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "IntensiveAnimal",
             "summaryColumn": "0013",
@@ -958,12 +958,12 @@
             "title": "Industrial",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "13.5,14.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Industrial_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Industrial_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "Industrial",
             "summaryColumn": "0014",
@@ -974,12 +974,12 @@
             "title": "Residential",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "14.5,15.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Residential_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Residential_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "Residential",
             "summaryColumn": "0015",
@@ -990,12 +990,12 @@
             "title": "Infrastructure",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "15.5,16.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Infrastructure_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Infrastructure_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "Infrastructure",
             "summaryColumn": "0016",
@@ -1006,12 +1006,12 @@
             "title": "Transport and communication",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "16.5,17.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Transport_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Transport_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "Transport",
             "summaryColumn": "0017",
@@ -1022,12 +1022,12 @@
             "title": "Mining",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "17.5,18.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Mining_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_Mining_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "Mining",
             "summaryColumn": "0018",
@@ -1042,7 +1042,7 @@
         "menuOnly": true,
         "description": "Broad land use category, derived from the Catchment Land Use Mapping program",
         "units": "classification",
-        "summary": ".EndingJune",
+        "summary": "{{timeWindow}}",
         "palette": {
           "grid": "anu_wald_single_landcover",
           "region": {
@@ -1063,12 +1063,12 @@
             "title": "Natural water and wetlands",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "18.5,19.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_NaturalWater_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_NaturalWater_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "NaturalWater",
             "summaryColumn": "0019",
@@ -1079,12 +1079,12 @@
             "title": "Artificial water bodies",
             "zooms": {
               "9": {
-                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m.EndingJune.nc",
+                "url": "ub8/au/LandUse/clum_1218/clum_1218_reclass_50m{{timeWindow}}.nc",
                 "colorscalerange": "19.5,20.5",
                 "layers": "LandUse"
               }
             },
-            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_ArtificialWater_500m.EndingJune.nc",
+            "url": "ub8/au/LandUse/clum_1218/ClassFraction/clum_1218_ArtificialWater_500m{{timeWindow}}.nc",
             "colorscalerange": "0,100",
             "variable": "ArtificialWater",
             "summaryColumn": "0020",
@@ -1104,7 +1104,7 @@
       {
         "title": "Environmental Condition Score",
         "metadataKey": "Environmental Condition Score",
-        "summary": "ECS.EndingJune",
+        "summary": "ECS{{timeWindow}}",
         "units": "index",
         "default": true,
         "disablePie":true,
@@ -1115,7 +1115,7 @@
         "normal": {
           "disableGrid":true,
           "variable": "X",
-          "time": "{{year}}-06-30",
+          "time": "{{year}}-{{refDate}}",
           "colorscalerange": "0,10",
           "palette": {
             "grid": "anu_wald_single_landcover",
