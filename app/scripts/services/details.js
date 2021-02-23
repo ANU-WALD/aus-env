@@ -63,6 +63,7 @@ angular.module('ausEnvApp')
         summaryName = source[key] || source.summary;
       }
       summaryName = summaryName || selection.selectedLayer[key] || selection.selectedLayer.summary;
+      summaryName = $interpolate(summaryName)(selection);
       return summaryName;
     };
 
