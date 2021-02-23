@@ -63,7 +63,9 @@ angular.module('ausEnvApp')
         summaryName = source[key] || source.summary;
       }
       summaryName = summaryName || selection.selectedLayer[key] || selection.selectedLayer.summary;
+      summaryName = summaryName.replace('{{regionType}}','[[regionType]]'); // Awful hack
       summaryName = $interpolate(summaryName)(selection);
+      summaryName = summaryName.replace('[[regionType]]','{{regionType}}'); // Awful hack pt 2
       return summaryName;
     };
 
