@@ -238,38 +238,6 @@
         }
       },
       {
-        "default": false,
-        "title": "Fire occurrence",
-        "metadataKey": "Fire frequency",
-        "units": "",
-        "summary": "Sentinel.Nhotspots.AnnualSums{{timeWindow}}",
-        "missingYears": [
-          2000,
-          2001
-        ],
-        "url": "ub8/au/fire/Sentinel.Nhotspots.AnnualSums{{timeWindow}}.nc",
-        "variable": "Nhotspots",
-        "_FillValue": -1,
-        "time": "{{year}}-{{refDate}}",
-        "logscale": false,
-        "colorscalerange": "0.002,100",
-        "palette": {
-          "grid": "anu_wald_gisheat_inv.v2",
-          "region": {
-            "normal": "anu_wald_gisheat_inv.v2",
-            "delta": "anu_wald_gistemp"
-          }
-        },
-        "timeseries": {
-          "url": "ub8/au/fire/Sentinel.Nhotspots.{{year}}.nc",
-          "variable": "Nhotspots",
-          "_FillValue": -1
-        },
-        "regionTimeSeries": {
-          "fn": "Sentinel.Nhotspots"
-        }
-      },
-      {
         "title": "Fuel moisture content",
         "metadataKey": "Fuel Moisture Content",
         "summary": "OzWALD.FMC.AnnualMinima{{timeWindow}}",
