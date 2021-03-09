@@ -75,6 +75,7 @@ angular.module('ausEnvApp')
       $scope.getBarData().then(function(data){
         var barData = data[0];
         var metadata = data[1];
+        var units = data[2];
 
         // $scope.ensureGoodScale(barData,metadata.Units);
 
@@ -86,12 +87,12 @@ angular.module('ausEnvApp')
         var target = $element[0];
         target = $('.bar-chart',target)[0];
 
-        details.populateLabels($scope.bar,metadata);
+        details.populateLabels($scope.bar,metadata,units);
         var range = details.dataRange($scope.barData,$scope.bar.units);
 
         $timeout(function(){
           $(target).one('plotly_afterplot', function(){
-            details.populateLabels($scope.bar,metadata);
+            details.populateLabels($scope.bar,metadata,units);
             $scope.bar.loading=false;
           });
           Plotly.newPlot( target, [{

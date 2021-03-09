@@ -147,7 +147,8 @@ angular.module('ausEnvApp')
             label:col
           };
         });
-        result.resolve([data,csvData]);
+        var units = (selection.selectedLayer&&selection.selectedLayer.units);
+        result.resolve([data,csvData,units]);
       },function(){
         $scope.chartView('bar',false,NO_TIMESERIES);
         result.reject();
@@ -214,7 +215,7 @@ angular.module('ausEnvApp')
           var data = resp[0];
           var metadata = resp[1];
           $scope.chartView('timeseries',true);
-          result.resolve([data[layer.variable],data.time,metadata]);
+          result.resolve([data[layer.variable],data.time,metadata,layer.units]);
         },function(){
           $scope.chartView('timeseries',false,NO_TIMESERIES);
           result.reject();

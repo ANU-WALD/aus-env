@@ -168,7 +168,7 @@
         "regionTimeSeries": {
           "title": "Minimum temperature",
           "units": "&deg;C",
-          "fn": "OzWALD.Tmax"
+          "fn": "OzWALD.Tmin"
         }
       },
       {
