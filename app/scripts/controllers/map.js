@@ -374,12 +374,12 @@ angular.module('ausEnvApp')
             $scope.polygonMapping.values = colourschemes.annualDelta($scope.polygonMapping.values);
           }
 
-          if(selection.dataModeConfig()==='rank'){
-            $scope.polygonMapping.dataRange = [0,10];
-          } else {
-            var columnName = selection.selectedLayer.summaryColumn || $scope.selection.year;
-            $scope.polygonMapping.dataRange = colourschemes.dataRange($scope.polygonMapping.values,columnName,deltaMode);
-          }
+          $scope.polygonMapping.dataRange = colourschemes.dataRange(
+            selection.dataModeConfig(),
+            $scope.polygonMapping.values.Units,
+            $scope.polygonMapping.values,
+            selection.selectedLayer.summaryColumn || $scope.selection.year,
+            deltaMode);
 
           doUpdateStyles();
         },function(err){

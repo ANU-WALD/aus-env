@@ -72,7 +72,15 @@ angular.module('ausEnvApp')
       return result;
     };
 
-    service.dataRange = function(vals,columnName,forceDelta) {
+    service.dataRange = function(dataMode,units,vals,columnName,forceDelta) {
+      if(dataMode==='rank'){
+        return [0,10];
+      }
+
+      if(units.match(/composite score/)) {
+        return [0,10];
+      }
+
       var colIdx = Math.max(vals.columnNames.indexOf(''+columnName),
                             vals.columnNames.indexOf(+columnName));
       var polygonValues = Object.keys(vals)

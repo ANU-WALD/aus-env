@@ -59,12 +59,13 @@ angular.module('ausEnvApp')
             data = colourschemes.annualDelta(data);
           }
 
-          if(selection.dataModeConfig()==='rank'){
-            $scope.polygonDataRange = [0,10];
-          } else {
-            var columnName = selection.selectedLayer.summaryColumn || $scope.selection.year;
-            $scope.polygonDataRange = colourschemes.dataRange(data,columnName,deltaMode);
-          }
+          $scope.polygonDataRange = colourschemes.dataRange(
+            selection.dataModeConfig(),
+            units,
+            data,
+            selection.selectedLayer.summaryColumn || $scope.selection.year,
+            deltaMode);
+
 
           result.resolve(true);
         });

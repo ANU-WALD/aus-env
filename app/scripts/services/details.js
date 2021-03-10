@@ -14,9 +14,12 @@ angular.module('ausEnvApp')
     var ANNUAL_TIME_SERIES=environment.STATIC_CSV_SOURCE;
     var PIE_CHART_DATA=environment.STATIC_CSV_SOURCE;
     var TEMPERATURE_UNITS=['&deg;C','oC'];
+    var FIXED_RANGES = {
+      'day of year':[0,366],
+      'composite score':[0,10]
+    };
     var MAX_FOR_UNITS = {
       '%':100,
-      'day of year':366
     };
 
     service.dap = $window.dap;
@@ -315,8 +318,8 @@ angular.module('ausEnvApp')
     };
 
     service.dataRange = function(values,units){
-      if(units==='day of year') {
-        return [0,366];
+      if(FIXED_RANGES[units]){
+        return FIXED_RANGES[units];
       }
 
       var min = (TEMPERATURE_UNITS.indexOf(units)>=0)?undefined:0.0;
