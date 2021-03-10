@@ -46,7 +46,8 @@ angular.module('ausEnvApp')
           $scope.mapDescription = $scope.mapDescription || data.Description;
 
           if(!$scope.mapUnits||($scope.selection.mapMode===mapmodes.region)){
-            $scope.mapUnits = details.unitsText(data.Units);
+            var units = selection.selectedLayer.regionAnnualUnits||selection.selectedLayer.units||data.Units;
+            $scope.mapUnits = details.unitsText(units);
           }
 
           if($scope.selection.dataModeConfig()==='rank'){

@@ -42,6 +42,7 @@
         "summary": "OzWALD.Tmax.AnnualMaxima{{timeWindow}}",
         "palette": "nrm_temperature_reverse",
         "units": "&deg;C",
+        "regionAnnualUnits": "&deg;C",
         "disablePie": true,
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmax.AnnualMaxima{{timeWindow}}.nc",
@@ -65,6 +66,7 @@
           "variable": "Tmax"
         },
         "regionTimeSeries": {
+          "units": "&deg;C",
           "fn": "OzWALD.Tmax"
         }
       },
@@ -110,6 +112,7 @@
         "summary": "OzWALD.Tmin.AnnualMinima{{timeWindow}}",
         "palette": "nrm_temperature_reverse",
         "units": "&deg;C",
+        "regionAnnualUnits": "&deg;C",
         "disablePie": true,
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.Tmin.AnnualMinima{{timeWindow}}.nc",
@@ -133,6 +136,7 @@
           "variable": "Tmin"
         },
         "regionTimeSeries": {
+          "units": "&deg;C",
           "fn": "OzWALD.Tmin"
         }
       },
@@ -212,12 +216,14 @@
         "metadataKey": "Burned area",
         "summary": "OzWALD.MODIS_burn_annual.burn_date{{timeWindow}}",
         "units": "day of year",
+        "regionAnnualUnits": "%",
         "default": false,
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.MODIS_burn_annual.burn_date{{timeWindow}}.nc",
           "variable": "burn_date",
           "time": "{{year}}-{{refDate}}",
           "colorscalerange": "0.5,1",
+          "units": "day of year",
           "palette": {
             "grid": "anu_wald_single_landcover",
             "region": {
@@ -1073,7 +1079,7 @@
         "title": "Environmental Condition Score",
         "metadataKey": "Environmental Condition Score",
         "summary": "ECS{{timeWindow}}",
-        "units": "index",
+        "units": "composite score",
         "default": true,
         "disablePie":true,
         "disablePoint":true,

@@ -147,7 +147,7 @@ angular.module('ausEnvApp')
             label:col
           };
         });
-        var units = (selection.selectedLayer&&selection.selectedLayer.units);
+        var units = selection.selectedLayer&&(selection.selectedLayer.regionAnnualUnits||selection.selectedLayer.units);
         result.resolve([data,csvData,units]);
       },function(){
         $scope.chartView('bar',false,NO_TIMESERIES);
