@@ -312,7 +312,7 @@ angular.module('ausEnvApp')
       var max = Math.max.apply(null, actualVals);
       var min = Math.min.apply(null, actualVals);
       if(max>99){
-        return [Math.min(95,20*Math.floor(min/20.0)),100];
+        return [Math.min(95,20*Math.floor(min/20.0)),Math.max(100,max)];
       }
       return undefined;
     };
