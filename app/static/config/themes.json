@@ -477,12 +477,12 @@
           "belowmincolor": "extend",
           "abovemaxcolor": "extend"
         },
-        "timeseries": {
+        "timeseriesX": {
           "url": "ub8/au/OzWALD/8day/WCF/OzWALD.WCF.{{year}}.nc",
           "variable": "WCF",
           "units": "umol m^-2s^-1 "
         },
-        "regionTimeSeries": {
+        "regionTimeSeriesX": {
           "fn": "OzWALD.WCF",
           "scale": 100
         }
