@@ -1,7 +1,23 @@
 <ul ng-repeat="theme in themes" class="themes-nav nav navbar-nav">
   <li class="dropdown theme-item"
       ng-class="{'active':(selection.themeObject===theme)}">
-    <a uib-tooltip="{{theme.name}}"
+    <a ng-if="theme.layers.length==1"
+       uib-tooltip="{{theme.layers[0].title}}"
+       tooltip-append-to-body="true"
+       tooltip-placement="right"
+       class="navbar-theme dropdown-toggle fix-ie-navbar"
+       data-toggle="dropdown"
+       role="button"
+       aria-haspopup="true"
+       aria-expanded="true"
+       ng-click="selectThemeAndLayer(theme,theme.layers[0])">
+      <img class="navbar-icon" ng-if="theme.icon" ng-src="static/icons/{{theme.icon}}" alt="{{theme.layers[0].title}}">
+      <span class="visible-xs-inline visible-sm-inline">&nbsp{{theme.layers[0].title}}&nbsp</span>
+      <span class="caret"></span>
+    </a>
+
+    <a ng-if="theme.layers.length>1"
+       uib-tooltip="{{theme.name}}"
        tooltip-append-to-body="true"
        tooltip-placement="right"
        class="navbar-theme dropdown-toggle fix-ie-navbar"
@@ -23,5 +39,6 @@
         </ul>
       </li>
     </ul>
+
   </li>
 </ul>
