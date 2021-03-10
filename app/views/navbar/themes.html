@@ -1,8 +1,9 @@
 <ul ng-repeat="theme in themes" class="themes-nav nav navbar-nav">
-  <li class="dropdown theme-item"
+  <li ng-if="theme.layers.length==1"
+      class="dropdown theme-item"
       ng-class="{'active':(selection.themeObject===theme)}">
-    <a ng-if="theme.layers.length==1"
-       uib-tooltip="{{theme.layers[0].title}}"
+
+    <a uib-tooltip="{{theme.layers[0].title}}"
        tooltip-append-to-body="true"
        tooltip-placement="right"
        class="navbar-theme dropdown-toggle fix-ie-navbar"
@@ -16,8 +17,13 @@
       <span class="caret"></span>
     </a>
 
-    <a ng-if="theme.layers.length>1"
-       uib-tooltip="{{theme.name}}"
+  </li>
+
+  <li ng-if="theme.layers.length>1"
+      class="dropdown theme-item"
+      ng-class="{'active':(selection.themeObject===theme)}">
+
+    <a uib-tooltip="{{theme.name}}"
        tooltip-append-to-body="true"
        tooltip-placement="right"
        class="navbar-theme dropdown-toggle fix-ie-navbar"
@@ -29,6 +35,7 @@
       <span class="visible-xs-inline visible-sm-inline">&nbsp{{theme.name}}&nbsp</span>
       <span class="caret"></span>
     </a>
+
     <ul class="dropdown-menu layer-menu">
       <li class="layer-item" ng-repeat="layer in theme.layers" ng-class="{'dropdown-submenu':layer.sublayers}">
         <a ng-click="selectThemeAndLayer(theme,layer)">{{layer.title}}</a>
