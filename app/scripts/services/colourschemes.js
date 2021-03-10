@@ -77,7 +77,7 @@ angular.module('ausEnvApp')
         return [0,10];
       }
 
-      if(units.match(/composite score/)) {
+      if(units&&units.match(/composite score/)) {
         return [0,10];
       }
 
