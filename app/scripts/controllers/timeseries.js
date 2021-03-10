@@ -48,6 +48,8 @@ angular.module('ausEnvApp')
 
         var metadata = data[2];
         var altUnits = data[3];
+        var marker = data[4];
+
         $scope.lineData = [];
         $scope.lineData.push(series);
         $scope.lineSeries = ['TS'];
@@ -65,6 +67,22 @@ angular.module('ausEnvApp')
         var target = $element[0];
         target = $('.timeseries-chart',target)[0];
 
+        var shapes = [];
+        if(marker!==undefined){
+          shapes.push({
+              type: 'line',
+              xref: 'paper',
+              x0: 0,
+              y0: marker, // use absolute value or variable here
+              x1: 1,
+              y1: marker,
+              line: {
+                  color: 'rgb(50, 171, 96)',
+                  width: 1
+              }
+            });
+        }
+
         $timeout(function(){
           $(target).one('plotly_afterplot', function(){
             details.populateLabels($scope.line,metadata,altUnits);
@@ -78,6 +96,7 @@ angular.module('ausEnvApp')
             },
             mode:'lines'+((series.length<365)?'+markers':'')
            }], {
+            shapes:shapes,
             margin: {
               l:40,
               r:10,

@@ -98,12 +98,14 @@
           "title": "Maximum temperature",
           "url": "ub8/au/OzWALD/daily/meteo/Tmax/OzWALD.Tmax.{{year}}.nc",
           "variable": "Tmax",
-          "units": "&deg;C"
+          "units": "&deg;C",
+          "marker": 35
         },
         "regionTimeSeries": {
           "title": "Maximum temperature",
           "units": "&deg;C",
-          "fn": "OzWALD.Tmax"
+          "fn": "OzWALD.Tmax",
+          "marker": 35
         }
       },
       {
@@ -167,12 +169,14 @@
           "title": "Minimum temperature",
           "url": "ub8/au/OzWALD/daily/meteo/Tmin/OzWALD.Tmin.{{year}}.nc",
           "variable": "Tmin",
-          "units": "&deg;C"
+          "units": "&deg;C",
+          "marker": 0
         },
         "regionTimeSeries": {
           "title": "Minimum temperature",
           "units": "&deg;C",
-          "fn": "OzWALD.Tmin"
+          "fn": "OzWALD.Tmin",
+          "marker": 0
         }
       },
       {

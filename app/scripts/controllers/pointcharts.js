@@ -142,7 +142,7 @@ angular.module('ausEnvApp')
       spatialFoci.regionTypes().then(function(rt){
         timeseries.retrieveTimeSeriesForPoint(pt,layer,selection.year).then(function(resp){
           var data = resp;
-          result.resolve([data[layer.variable],data.time,metadata,layer.units]);
+          result.resolve([data[layer.variable],data.time,metadata,layer.units,layer.marker]);
         },function(){
           result.reject();
         });

@@ -215,7 +215,7 @@ angular.module('ausEnvApp')
           var data = resp[0];
           var metadata = resp[1];
           $scope.chartView('timeseries',true);
-          result.resolve([data[layer.variable],data.time,metadata,layer.units]);
+          result.resolve([data[layer.variable],data.time,metadata,layer.units,layer.marker]);
         },function(){
           $scope.chartView('timeseries',false,NO_TIMESERIES);
           result.reject();
