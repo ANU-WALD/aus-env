@@ -9,7 +9,7 @@
     "angular-resource": "~1.5.1",
     "angular-route": "~1.5.1",
     "angular-touch": "~1.5.1",
-    "bootstrap-sass-official": "^3.2.0",
+    "bootstrap-sass-official": "3.4.1",
     "font-awesome": "~4.5.0",
     "ng-static-data": "flowmatters/ng-static-data",
     "dap-query-js": "flowmatters/dap-query-js",
