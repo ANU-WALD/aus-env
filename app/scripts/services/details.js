@@ -27,8 +27,8 @@ angular.module('ausEnvApp')
     service.cache = [];
 
     service.themeColours = {
-      lightGreen:'#66987F',
-      darkGreen:'#2B5F45'
+      light:'#6EB3A6',
+      dark:'#00565D'
     };
 
     service.retrieveCSV = function(url){

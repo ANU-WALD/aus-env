@@ -92,7 +92,7 @@ angular.module('ausEnvApp')
             x: labels,
             y: series,
             line:{
-              color:details.themeColours.darkGreen
+              color:details.themeColours.dark
             },
             mode:'lines'+((series.length<365)?'+markers':'')
            }], {

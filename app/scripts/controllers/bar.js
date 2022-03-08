@@ -19,9 +19,9 @@ angular.module('ausEnvApp')
 
       return barLabels.map(function(lbl){
         if(parseInt(lbl)===selection.year){
-          return details.themeColours.darkGreen;
+          return details.themeColours.dark;
         }
-        return details.themeColours.lightGreen;
+        return details.themeColours.light;
       });
     };
 
