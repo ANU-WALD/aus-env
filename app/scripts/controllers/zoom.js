@@ -199,7 +199,7 @@ angular.module('ausEnvApp')
         return null;
       }
       // var base = '/viz/#/ausenv_region';
-      var base = 'http://wenfo.org/aer_pdf';
+      var base = 'http://wenfo.org/aer_pdf_2021';
       var url =base +
         '/' + $scope.selection.regionType.source +
         '/' + $scope.selection.selectedRegion.feature.properties[$scope.selection.regionType.labelField] +
