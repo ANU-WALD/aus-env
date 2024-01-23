@@ -148,6 +148,9 @@ angular.module('ausEnvApp')
           };
         });
         var units = selection.selectedLayer&&(selection.selectedLayer.regionAnnualUnits||selection.selectedLayer.units);
+        if(selection.dataMode==='Rank'){
+          units = 'Rank';
+        }
         result.resolve([data,csvData,units]);
       },function(){
         $scope.chartView('bar',false,NO_TIMESERIES);
