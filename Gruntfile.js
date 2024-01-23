@@ -16,7 +16,9 @@ module.exports = function (grunt) {
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn'
+    cdnify: 'grunt-google-cdn2',
+    // chokidar: 'grunt-chokidar',
+    // serveStatic: 'serve-static'
   });
 
   // Configurable paths for the application
@@ -76,7 +78,7 @@ module.exports = function (grunt) {
         port: 7133,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: '0.0.0.0',
-        livereload: 57133
+        livereload: 57134
       },
       proxies: [
         {
