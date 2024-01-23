@@ -78,7 +78,7 @@ angular.module('ausEnvApp')
       }
 
       if(units&&units.match(/composite score/)) {
-        return [0,10];
+        return dataMode==='delta'?[-5,5]:[0,10];
       }
 
       var colIdx = Math.max(vals.columnNames.indexOf(''+columnName),
