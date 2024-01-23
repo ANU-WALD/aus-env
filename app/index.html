@@ -5,6 +5,17 @@
     <title>Australia's Environment Explorer</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B3J5ZRXS48"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-B3J5ZRXS48');
+    </script>
+
     <link rel="icon" href="favicon.ico?v=2" type="image/x-icon" />
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -24,17 +35,6 @@
     <div class="container-fluid">
       <div ng-view=""></div>
     </div>
-
-    <!-- Google Analytics -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-75854914-1');
-       ga('send', 'pageview');
-    </script>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
