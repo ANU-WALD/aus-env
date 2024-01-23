@@ -10,7 +10,7 @@
 angular.module('ausEnvApp')
   .controller('ZoomCtrl', function ($scope,$uibModal,$timeout,$interpolate,$q,
                                     selection,timeseries,configuration,
-                                    downloads) {
+                                    downloads,environment) {
     var _ = window._;
     $scope.showPopovers={
       search:false
@@ -200,6 +200,7 @@ angular.module('ausEnvApp')
       }
       // var base = '/viz/#/ausenv_region';
       var base = 'http://wenfo.org/aer_pdf_2021';
+      var base = '/aer_pdf/'+environment.bounds.year.max;
       var url =base +
         '/' + $scope.selection.regionType.source +
         '/' + $scope.selection.selectedRegion.feature.properties[$scope.selection.regionType.labelField] +
