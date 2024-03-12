@@ -115,7 +115,7 @@ angular.module('ausEnvApp')
         $interpolate('?service=WCS&version=1.0.0&request=GetCoverage&coverage={{variable}}&format=GeoTIFF_Float&time={{time}}T00:00:00Z')($scope.mapSettings());
 
       url = $interpolate(url)(selection);
-      return 'http://dapds00.nci.org.au/thredds/wcs/'+url;
+      return environment.THREDDS+'/wcs/'+url;
     };
 
     $scope.gridDownloadFilename = function(){

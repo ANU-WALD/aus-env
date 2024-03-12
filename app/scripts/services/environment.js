@@ -12,6 +12,7 @@ angular.module('ausEnvApp')
     var service = this;
 
 //    service.STATIC_CSV_SOURCE='/aucsv/accounts_June/';
+    service.THREDDS='https://dapds00.nci.org.au/thredds'
     service.STATIC_CSV_SOURCE='/aucsv/accounts2/';
     service.REGION_AREAS='/aucsv/region_areas/';
     service.LANDCOVER_CODES='static/config/DLCD_codes.csv';

@@ -10,13 +10,12 @@
 
 angular.module('ausEnvApp')
   .controller('MapCtrl', function ($scope,$route,$interpolate,$compile,$q,$window,
-                                   $document,
+                                   $document,environment,
                                    uiGmapGoogleMapApi,uiGmapIsReady,
                                    selection,configuration,mapmodes,details,colourschemes,
                                    timeseries,spatialFoci,datamodes,imagemodes,googleMapsWMS) {
 
     var TRANSPARENT_OPACITY=0.6;
-    var BASE_URL='http://dapds00.nci.org.au/thredds';
 
     /**
      * @constructor
@@ -571,7 +570,7 @@ angular.module('ausEnvApp')
     var fn = $interpolate(settings.url)(selection);
 
     var makeWMSUrl = function(u){
-      return BASE_URL + '/wms/' + u +'?';
+      return environment.THREDDS + '/wms/' + u +'?';
     };
 
     $scope.layers.overlays.aWMS.name = prefix + layer.title;
