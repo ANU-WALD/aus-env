@@ -38,6 +38,7 @@
   },
   "scripts": {
     "bower": "bower",
+    "start": "grunt serve",
     "test": "grunt test"
   },
   "dependencies": {
