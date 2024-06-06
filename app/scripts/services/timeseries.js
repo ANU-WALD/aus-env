@@ -11,7 +11,8 @@ angular.module('ausEnvApp')
   .service('timeseries', function ($window,$q,$http,$interpolate,details/*,selection*/) {
     var service = this;
     var dap = $window.dap;
-    var BASE_URL='https://proxies.hydrograph.io/nci-cors/thredds/dodsC/';
+    // var BASE_URL='https://proxies.hydrograph.io/nci-cors/thredds/dodsC/';
+    var BASE_URL='https://thredds.nci.org.au/thredds/dodsC/';
 
     service.cache = {
       das:{},

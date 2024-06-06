@@ -210,9 +210,9 @@ angular.module('ausEnvApp')
       return $q.resolve([
         {
           Class_Name:'',
-          Red:156,
-          Green:25,
-          Blue:31
+          Red:103,
+          Green:0,
+          Blue:13
         }
       ]);
     };

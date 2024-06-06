@@ -229,7 +229,7 @@
           "colorscalerange": "0.5,1",
           "units": "day of year",
           "palette": {
-            "grid": "anu_wald_single_landcover",
+            "grid": "seq-Reds",
             "region": {
               "normal": "anu_wald_gisheat_inv.v2",
               "delta": "anu_wald_gistemp"
@@ -584,7 +584,7 @@
         "units": "classification",
         "summary": "{{timeWindow}}",
         "palette": {
-          "grid": "anu_wald_single_landcover",
+          "grid": "seq-Reds",
           "region": {
             "normal": "anu_wald_gisheat_inv.v2",
             "delta": "anu_wald_gistemp_inv"
@@ -625,7 +625,7 @@
         "units": "classification",
         "summary": "{{timeWindow}}",
         "palette": {
-          "grid": "anu_wald_single_landcover",
+          "grid": "seq-Reds",
           "region": {
             "normal": "anu_wald_gisheat_inv.v2",
             "delta": "anu_wald_gistemp_inv"
@@ -682,7 +682,7 @@
         "units": "classification",
         "summary": "{{timeWindow}}",
         "palette": {
-          "grid": "anu_wald_single_landcover",
+          "grid": "seq-Reds",
           "region": {
             "normal": "anu_wald_gisheat_inv.v2",
             "delta": "anu_wald_gistemp_inv"
@@ -739,7 +739,7 @@
         "units": "classification",
         "summary": "{{timeWindow}}",
         "palette": {
-          "grid": "anu_wald_single_landcover",
+          "grid": "seq-Reds",
           "region": {
             "normal": "anu_wald_gisheat_inv.v2",
             "delta": "anu_wald_gistemp_inv"
@@ -812,7 +812,7 @@
         "units": "classification",
         "summary": "{{timeWindow}}",
         "palette": {
-          "grid": "anu_wald_single_landcover",
+          "grid": "seq-Reds",
           "region": {
             "normal": "anu_wald_gisheat_inv.v2",
             "delta": "anu_wald_gistemp_inv"
@@ -885,7 +885,7 @@
         "units": "classification",
         "summary": "{{timeWindow}}",
         "palette": {
-          "grid": "anu_wald_single_landcover",
+          "grid": "seq-Reds",
           "region": {
             "normal": "anu_wald_gisheat_inv.v2",
             "delta": "anu_wald_gistemp_inv"
@@ -1022,7 +1022,7 @@
         "units": "classification",
         "summary": "{{timeWindow}}",
         "palette": {
-          "grid": "anu_wald_single_landcover",
+          "grid": "seq-Reds",
           "region": {
             "normal": "anu_wald_gisheat_inv.v2",
             "delta": "anu_wald_gistemp_inv"
@@ -1096,7 +1096,7 @@
           "time": "{{year}}-{{refDate}}",
           "colorscalerange": "0,10",
           "palette": {
-            "grid": "anu_wald_single_landcover",
+            "grid": "seq-Reds",
             "region": {
               "normal": "rdbu_7",
               "delta": "anu_wald_gistemp_inv"

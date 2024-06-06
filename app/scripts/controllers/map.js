@@ -612,7 +612,7 @@ angular.module('ausEnvApp')
     if(settings.palette) {
       var palette = settings.palette.grid||settings.palette;
       palette = palette[selection.dataModeConfig()]||palette;
-      $scope.layers.overlays.aWMS.layerParams.styles = 'boxfill/'+palette;
+      $scope.layers.overlays.aWMS.layerParams.styles = 'raster/'+palette;
     }
     $scope.layers.overlays.aWMS.layerParams.showOnSelector = false;
     colourschemes.coloursFor(selection.selectedLayer).then(function(colours){
