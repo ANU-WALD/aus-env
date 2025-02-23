@@ -539,9 +539,38 @@
           "palette": "anu_wald_gistemp_inv"
         },
         "timeseries": {
-          "url": "ub8/au/OzWALD/8day/GPP/OzWALD.GPP.{{year}}.nc",
-          "variable": "GPP",
-          "units": "umol m^-2s^-1 "
+          "url": "ub8/au/AusEFlux/v2/monthly/GPP/AusEFlux_GPP_500m_quantiles_{{year}}_v2.0.nc",
+          "variable": "GPP_median",
+          "units": "gC/m²/month"
+        },
+        "regionTimeSeries": {
+          "fn": "OzWALD.GPP"
+        }
+      },
+      {
+        "default": false,
+        "title": "Net carbon exchange",
+        "summary": "OzWALD.NEE.AnnualSums{{timeWindow}}",
+        "palette": "anu_wald_darkgreen",
+        "units": "gC/m^2",
+        "normal": {
+          "url": "ub8/au/OzWALD/annual/OzWALD.GPP.AnnualSums{{timeWindow}}.nc",
+          "variable": "AnnualSums",
+          "time": "{{year}}-{{refDate}}",
+          "colorscalerange": "0,4000",
+          "palette": "anu_wald_darkgreen"
+        },
+        "delta": {
+          "url": "ub8/au/OzWALD/annual/OzWALD.GPP.ChangesAnnualSums{{timeWindow}}.nc",
+          "variable": "ChangesAnnualSums",
+          "time": "{{year}}-{{refDate}}",
+          "colorscalerange": "-2200,2200",
+          "palette": "anu_wald_gistemp_inv"
+        },
+        "timeseries": {
+          "url": "ub8/au/AusEFlux/v2/monthly/NEE/AusEFlux_NEE_500m_quantiles_{{year}}_v2.0.nc",
+          "variable": "NEE_median",
+          "units": "gC/m²"
         },
         "regionTimeSeries": {
           "fn": "OzWALD.GPP"
