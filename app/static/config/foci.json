@@ -34,7 +34,7 @@
   {
     "name":"NRM Regions",
     "description":"TODO",
-    "source":"NRM_Regions_2017",
+    "source":"NRM_Regions_2023",
     "labelField":"NRM_REGION",
     "keyFieldX":"FID",
     "keyField":"NRM_ID"
