@@ -257,7 +257,8 @@ angular.module('ausEnvApp')
     $scope.colourScaleLinear = function(val){
       var range = $scope.polygonMapping.dataRange;
       var point = (val-range[0])/(range[1]-range[0]);
-      var pos = Math.round(point*($scope.polygonMapping.colours.length-1));
+      var pos = Math.floor(point*($scope.polygonMapping.colours.length-1));
+      pos = Math.max(0,Math.min(pos,$scope.polygonMapping.colours.length-1));
       var selectedColour = $scope.polygonMapping.colours[pos];
       return selectedColour;
     };

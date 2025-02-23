@@ -210,7 +210,10 @@ angular.module('ausEnvApp')
           text: label
         }];
       });
-      $scope.colourScheme[data.length-1][0].text = '&ge;'+valToText(range[1]-binSize);
+      $scope.colourScheme[data.length-1][0].text = '&ge; '+valToText(range[1]-binSize);
+      if(range[0]){
+        $scope.colourScheme[0][0].text = '&lt; '+valToText(range[0]+binSize);
+      }
       $scope.colourScheme.reverse();
       $scope.colourScheme = $scope.balanceColourScheme($scope.colourScheme);
     };
