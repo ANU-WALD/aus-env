@@ -521,19 +521,20 @@
       {
         "default": false,
         "title": "Vegetation growth",
+        "metadataKey": "Vegetation carbon uptake",
         "summary": "OzWALD.GPP.AnnualSums{{timeWindow}}",
         "palette": "anu_wald_darkgreen",
         "units": "gC/m^2",
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.GPP.AnnualSums{{timeWindow}}.nc",
+          "url": "ub8/au/AusEFlux/v2/annual/AnnualSum/GPP/AusEFlux_GPP_500m_AnnualSums_AllYears_v2.0.nc",
           "variable": "AnnualSums",
           "time": "{{year}}-{{refDate}}",
           "colorscalerange": "0,4000",
           "palette": "anu_wald_darkgreen"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.GPP.ChangesAnnualSums{{timeWindow}}.nc",
-          "variable": "ChangesAnnualSums",
+          "url": "ub8/au/AusEFlux/v2/annual/AnnualSum/GPP/AusEFlux_GPP_500m_ChangeAnnualSums_AllYears_v2.0.nc",
+          "variable": "ChangeAnnualSums",
           "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-2200,2200",
           "palette": "anu_wald_gistemp_inv"
@@ -550,22 +551,22 @@
       {
         "default": false,
         "title": "Net carbon exchange",
-        "summary": "OzWALD.NEE.AnnualSums{{timeWindow}}",
+        "summary": "OzWALD.NEE.AnnualSum{{timeWindow}}",
         "palette": "anu_wald_darkgreen",
         "units": "gC/m^2",
         "normal": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.GPP.AnnualSums{{timeWindow}}.nc",
+          "url": "ub8/au/AusEFlux/v2/annual/AnnualSum/NEE/AusEFlux_NEE_500m_AnnualSums_AllYears_v2.0.nc",
           "variable": "AnnualSums",
           "time": "{{year}}-{{refDate}}",
-          "colorscalerange": "0,4000",
-          "palette": "anu_wald_darkgreen"
+          "colorscalerange": "-300,300",
+          "palette": "anu_wald_gistemp"
         },
         "delta": {
-          "url": "ub8/au/OzWALD/annual/OzWALD.GPP.ChangesAnnualSums{{timeWindow}}.nc",
-          "variable": "ChangesAnnualSums",
+          "url": "ub8/au/AusEFlux/v2/annual/AnnualSum/NEE/AusEFlux_NEE_500m_ChangeAnnualSums_AllYears_v2.0.nc",
+          "variable": "ChangeAnnualSums",
           "time": "{{year}}-{{refDate}}",
-          "colorscalerange": "-2200,2200",
-          "palette": "anu_wald_gistemp_inv"
+          "colorscalerange": "-600,600",
+          "palette": "anu_wald_gistemp"
         },
         "timeseries": {
           "url": "ub8/au/AusEFlux/v2/monthly/NEE/AusEFlux_NEE_500m_quantiles_{{year}}_v2.0.nc",

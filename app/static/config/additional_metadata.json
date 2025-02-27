@@ -291,7 +291,17 @@
   },
   {
     "name": "Vegetation carbon uptake",
-    "Description": "Gross primary production, the amount of carbon taken up by the vegetation through photosynthesis, as estimated by the OzWALD model-data fusion system",
+    "Description": "Gross primary production, the amount of carbon taken up by the vegetation through photosynthesis, as estimated by the AusEFlux system",
+    "Data creator": "ANU",
+    "Data license": "Creative Commons by Attribution (CC BY 3.0 AU \u2013 <a href=\"https://creativecommons.org/licenses/by/3.0/au/deed.en\" rel=\"noopener\" target=\"_blank\">link</a>).",
+    "Reference": "Van Dijk, Albert. I.J.M., Summers, David (2016) Australia\u2019s Environment Explorer, The Australian National University (http://www.ausenv.online) DOI: 10.4225/41/5934faf27397b",
+    "Resolution": "1/200th degree (~500 m)",
+    "Annual data": "Direct download (<a href=\"http://dapds00.nci.org.au/thredds/fileServer/ub8/au/OzWALD/annual/OzWALD.GPP.AnnualSums.nc\" rel=\"noopener\" target=\"_blank\">start</a>) or via THREDDS (<a href=\"http://dap.nci.org.au/thredds/remoteCatalogService'command=subset&amp;catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/annual//catalog.xml&amp;dataset=ub8-au/OzWALD/annual/OzWALD.GPP.AnnualSums.nc\" rel=\"noopener\" target=\"_blank\">link</a>). File contains all years in the record.",
+    "Other data forms": "Annual summary metrics (minimum, maximum, mean and sum) and time series for individual years via THREDDS (<a href=\"http://dap.nci.org.au/thredds/remoteCatalogService'catalog=http://dapds00.nci.org.au/thredds/catalog/ub8/au/OzWALD/catalog.xml\" rel=\"noopener\" target=\"_blank\">link</a>), look for GPP in filename)"
+  },
+  {
+    "name": "Net carbon exchange",
+    "Description": "Net ecosystem exchange, as estimated by the AusEFlux system",
     "Data creator": "ANU",
     "Data license": "Creative Commons by Attribution (CC BY 3.0 AU \u2013 <a href=\"https://creativecommons.org/licenses/by/3.0/au/deed.en\" rel=\"noopener\" target=\"_blank\">link</a>).",
     "Reference": "Van Dijk, Albert. I.J.M., Summers, David (2016) Australia\u2019s Environment Explorer, The Australian National University (http://www.ausenv.online) DOI: 10.4225/41/5934faf27397b",
