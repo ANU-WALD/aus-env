@@ -522,7 +522,7 @@
         "default": false,
         "title": "Vegetation growth",
         "metadataKey": "Vegetation carbon uptake",
-        "summary": "OzWALD.GPP.AnnualSums{{timeWindow}}",
+        "summary": "AusEFlux_GPP_500m_AnnualSums_AllYears_v2.0{{timeWindow}}",
         "palette": "anu_wald_darkgreen",
         "units": "gC/m^2",
         "normal": {
@@ -551,7 +551,7 @@
       {
         "default": false,
         "title": "Net carbon exchange",
-        "summary": "OzWALD.NEE.AnnualSum{{timeWindow}}",
+        "summary": "AusEFlux_NEE_500m_AnnualSums_AllYears_v2.0{{timeWindow}}",
         "palette": "anu_wald_darkgreen",
         "units": "gC/m^2",
         "normal": {
@@ -559,7 +559,7 @@
           "variable": "AnnualSums",
           "time": "{{year}}-{{refDate}}",
           "colorscalerange": "-300,300",
-          "palette": "anu_wald_gistemp",
+          "palette": "div-BrBG",
           "belowmincolor": "extend",
           "abovemaxcolor": "extend"
         },
