@@ -114,6 +114,9 @@ angular.module('ausEnvApp')
                 });
               }
               var data = dap.simplify(dap.parseData(resp.data,ddx,_fills));
+              if(layer.scale){
+                data[layer.variable] = data[layer.variable].map(function(v){return v * layer.scale;});
+              }
               result.resolve(data);
             },function(){
               result.reject();

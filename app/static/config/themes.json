@@ -575,7 +575,8 @@
         "timeseries": {
           "url": "ub8/au/AusEFlux/v2/monthly/NEE/AusEFlux_NEE_500m_quantiles_{{year}}_v2.0.nc",
           "variable": "NEE_median",
-          "units": "gC/m²"
+          "units": "gC/m²",
+          "scale": -1
         },
         "regionTimeSeries": {
           "fn": "OzWALD.GPP"
