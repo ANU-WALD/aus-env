@@ -570,7 +570,7 @@
           "colorscalerange": "-600,600",
           "belowmincolor": "extend",
           "abovemaxcolor": "extend",
-          "palette": "anu_wald_gistemp"
+          "palette": "anu_wald_gistemp_inv"
         },
         "timeseries": {
           "url": "ub8/au/AusEFlux/v2/monthly/NEE/AusEFlux_NEE_500m_quantiles_{{year}}_v2.0.nc",
