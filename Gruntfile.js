@@ -83,22 +83,24 @@ module.exports = function (grunt) {
       proxies: [
         {
           context: '/aucsv',
-          host: 'wenfo.org',
-          port: 80,
+          host: 'ausenv.tern.org.au',
+          port: 443,
+          protocol: 'https:',
           xforward: true,
-          hostRewrite: 'wenfo.org',
+          hostRewrite: 'ausenv.tern.org.au',
           headers: {
-            'host': 'wenfo.org'
+            'host': 'ausenv.tern.org.au'
           }
         },
         {
           context: '/vector-tiles',
-          host: 'wenfo.org',
-          port: 80,
+          host: 'ausenv.tern.org.au',
+          port: 443,
+          protocol: 'https:',
           xforward: true,
-          hostRewrite: 'wenfo.org',
+          hostRewrite: 'ausenv.tern.org.au',
           headers: {
-            'host': 'wenfo.org'
+            'host': 'ausenv.tern.org.au'
           }
         }
       ],
