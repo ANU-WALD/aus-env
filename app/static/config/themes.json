@@ -579,7 +579,8 @@
           "scale": -1
         },
         "regionTimeSeries": {
-          "fn": "AusEFlux_NEE_500m_quantiles"
+          "fn": "AusEFlux_NEE_500m_quantiles",
+          "scale": -1
         }
       }
     ]
