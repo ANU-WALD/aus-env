@@ -284,7 +284,7 @@
           2001
         ],
         "palette": "anu_wald_gisheat_inv.v2",
-        "units": "gC/m^2",
+        "units": "gC/m²",
         "normal": {
           "url": "ub8/au/FireEmissions/GFASv12.BurntCarbon.AnnualSums{{timeWindow}}.nc",
           "variable": "AnnualSums",
@@ -459,7 +459,7 @@
         "summary": "OzWALD.WCF.Annual{{timeWindow}}",
         "palette": "anu_wald_darkgreen",
         "units": "%",
-        "summaryUnits": "km^2",
+        "summaryUnits": "km²",
         "summaryScale": 0.01,
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.WCF.Annual{{timeWindow}}.nc",
@@ -493,7 +493,7 @@
         "metadataKey": "Leaf area index",
         "summary": "OzWALD.LAI.AnnualMeans{{timeWindow}}",
         "palette": "anu_wald_darkgreen",
-        "units": "m^2/m^2",
+        "units": "m²/m²",
         "normal": {
           "url": "ub8/au/OzWALD/annual/OzWALD.LAI.AnnualMeans{{timeWindow}}.nc",
           "variable": "AnnualMeans",
@@ -524,7 +524,7 @@
         "metadataKey": "Vegetation carbon uptake",
         "summary": "AusEFlux_GPP_500m_AnnualSums_AllYears_v2.0{{timeWindow}}",
         "palette": "anu_wald_darkgreen",
-        "units": "gC/m^2",
+        "units": "gC/m²",
         "normal": {
           "url": "ub8/au/AusEFlux/v2/annual/AnnualSum/GPP/AusEFlux_GPP_500m_AnnualSums_AllYears_v2.0.nc",
           "variable": "AnnualSums",
@@ -553,7 +553,7 @@
         "title": "Net carbon exchange",
         "summary": "AusEFlux_NEE_500m_AnnualSums_AllYears_v2.0{{timeWindow}}",
         "palette": "anu_wald_darkgreen",
-        "units": "gC/m^2",
+        "units": "gC/m²",
         "normal": {
           "url": "ub8/au/AusEFlux/v2/annual/AnnualSum/NEE/AusEFlux_NEE_500m_AnnualSums_AllYears_v2.0.nc",
           "variable": "AnnualSums",
