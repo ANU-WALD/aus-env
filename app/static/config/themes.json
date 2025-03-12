@@ -545,7 +545,7 @@
           "units": "gC/m²/month"
         },
         "regionTimeSeries": {
-          "fn": "OzWALD.GPP"
+          "fn": "AusEFlux_GPP_500m_quantiles"
         }
       },
       {
@@ -579,7 +579,7 @@
           "scale": -1
         },
         "regionTimeSeries": {
-          "fn": "OzWALD.GPP"
+          "fn": "AusEFlux_NEE_500m_quantiles"
         }
       }
     ]
